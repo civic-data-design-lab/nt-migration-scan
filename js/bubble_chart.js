@@ -1,4 +1,4 @@
-const countryText = {
+const countryText_bubble = {
     "GTM": "Guatemala",
     "HND": "Honduras",
     "SLV": "El Salvador"
@@ -53,47 +53,47 @@ function bubbleChart() {
     return -Math.pow(d.radius, 1) * forceStrength;
   }
   
-  var posScale = d3.scaleLinear().domain([20,22000]);
+  var posScale = d3v4.scaleLinear().domain([20,22000]);
     posScale.range([0, height]);
     
-  var posScaleMonths = d3.scaleLinear().domain([20,22000]);
+  var posScaleMonths = d3v4.scaleLinear().domain([20,22000]);
     posScale.range([0, height]);
  
-var posScaleRev = d3.scaleLinear().domain([22000,0]); 
+var posScaleRev = d3v4.scaleLinear().domain([22000,0]); 
     posScaleRev.range([0, height]); 
     
-  var simulation = d3.forceSimulation()
+  var simulation = d3v4.forceSimulation()
     .velocityDecay(0.17)
-    .force('collide', d3.forceCollide().radius(function(d) {
+    .force('collide', d3v4.forceCollide().radius(function(d) {
 		return d.radius + padding;
 		}).strength(.65))
-    .force('x', d3.forceX().strength(forceStrength).x(center.x))
-    .force('y', d3.forceY().strength(forceStrength).y(center.y))
-//     .force('charge', d3.forceManyBody().strength(charge))
+    .force('x', d3v4.forceX().strength(forceStrength).x(center.x))
+    .force('y', d3v4.forceY().strength(forceStrength).y(center.y))
+//     .force('charge', d3v4.forceManyBody().strength(charge))
     .on('tick', ticked);
   simulation.stop();
   
-//     var simulationB = d3.forceSimulation()
+//     var simulationB = d3v4.forceSimulation()
 // //     .velocityDecay(0.21)
-//     .force('collide', d3.forceCollide().radius(function(d) {
+//     .force('collide', d3v4.forceCollide().radius(function(d) {
 // 		return d.radius + padding;
 // 		}))
-//     .force('x', d3.forceX().strength(.2).x(center.x))
-// //     .force('y', d3.forceY().strength(2).y(center.y))
+//     .force('x', d3v4.forceX().strength(.2).x(center.x))
+// //     .force('y', d3v4.forceY().strength(2).y(center.y))
 //     .alphaDecay(0.3)
-// //     .force('charge', d3.forceManyBody().strength(charge))
+// //     .force('charge', d3v4.forceManyBody().strength(charge))
 //     .on('tick', ticked);
 //   simulationB.stop();
 
-//   var fillColor = d3.scaleOrdinal()
+//   var fillColor = d3v4.scaleOrdinal()
 //     .domain(['low', 'medium', 'high'])
 //     .range(['#3ba7c9', '#1540c4', '#e23cad']);
 
   function createNodes(rawData) {
 
-    var maxAmount = d3.max(rawData, function (d) { return +d.mig_ext_cost_total; });
+    var maxAmount = d3v4.max(rawData, function (d) { return +d.mig_ext_cost_total; });
 
-    var radiusScale = d3.scalePow()
+    var radiusScale = d3v4.scalePow()
       .exponent(0.9)
       .range([2, 85])
       .domain([0, maxAmount]);
@@ -123,12 +123,12 @@ var posScaleRev = d3.scaleLinear().domain([22000,0]);
     
 
 // 
-// const svg = d3.select("#frame-motivations")
+// const svg = d3v4.select("#frame-motivations")
 //     .append("svg")
 //         .attr("id", "viz-motivations")
 //         .attr("viewBox", [-(sideWidth), 0, width + (sideWidth), height]);
         
-    svg = d3.select("#frame-cost")
+    var svg = d3v4.select("#frame-cost")
       .append('svg')
       .attr('id', 'cost-svg')
       .attr("viewBox", [-(sideWidth + sqLen), 0, width + (sideWidth + sqLen), height + 20]);
@@ -136,7 +136,7 @@ var posScaleRev = d3.scaleLinear().domain([22000,0]);
     //   .classed("svg-container", true) 
     //   .attr("preserveAspectRatio", "xMidYMid meet");
 
-//   svg = d3.select(selector)
+//   svg = d3v4.select(selector)
 //       .append('svg')
 //       .attr('width', width)
 //       .attr('height', height);
@@ -151,7 +151,7 @@ var posScaleRev = d3.scaleLinear().domain([22000,0]);
       .style('fill', function (d) { if (d.value <= 1) return "#fff";})
       .style('stroke', function (d) { if (d.value <= 1) return fillColor(d.name);})
       .style('stroke-width', function (d) { if (d.value <= 1) return .9;})
-      // .attr('stroke', function (d) { return d3.rgb(fillColor(d.name)).darker(); })
+      // .attr('stroke', function (d) { return d3v4.rgb(fillColor(d.name)).darker(); })
       .attr('stroke-width', .0)
       .on('mouseover', showDetail)
       .on('mouseout', hideDetail);
@@ -160,7 +160,7 @@ var posScaleRev = d3.scaleLinear().domain([22000,0]);
     bubbles = bubbles.merge(bubblesE);
 
     bubbles.transition()
-    .ease(d3.easeBounce)
+    .ease(d3v4.easeBounce)
       .duration(.5)
       .attr('r', function (d) { return d.radius; });
       
@@ -171,25 +171,25 @@ var posScaleRev = d3.scaleLinear().domain([22000,0]);
   }
   
   function axis() {
-    d3.select("svg").append("svg").attr("class","axis")
-        .call(d3.axisRight(posScaleRev).ticks(5).tickFormat((d, i) => ['50', '40', '25', '15', '0'][i]).tickSize(0))
+    d3v4.select("svg").append("svg").attr("class","axis")
+        .call(d3v4.axisRight(posScaleRev).ticks(5).tickFormat((d, i) => ['50', '40', '25', '15', '0'][i]).tickSize(0))
         .call(g => g.selectAll(".tick text").attr("class","axis")
             .attr("x", 4)
             .attr("dy", -5));
-    d3.select("svg").append("svg")
-        .call(d3.axisRight(posScaleRev).ticks(5).tickFormat((d, i) => ['Months', 'Months', 'Months', 'Months', 'Months'][i]).tickSize(0))
+    d3v4.select("svg").append("svg")
+        .call(d3v4.axisRight(posScaleRev).ticks(5).tickFormat((d, i) => ['Months', 'Months', 'Months', 'Months', 'Months'][i]).tickSize(0))
         .call(g => g.selectAll(".tick text").attr("class","axis2")
             .attr("x", 4)
             .attr("dy", 8));    
   }
 
   function removeaxis(){
-    d3.selectAll(".axis,.axis2")
+    d3v4.selectAll(".axis,.axis2")
       .style("opacity",0);
   }
     
   function updateaxis(){
-    d3.selectAll(".axis,.axis2")
+    d3v4.selectAll(".axis,.axis2")
       .style("opacity",1);
   }
 	
@@ -233,8 +233,8 @@ var posScaleRev = d3.scaleLinear().domain([22000,0]);
     remAvRegAnn();
     remFinanceLabel();
         
-    simulation.force('x', d3.forceX().strength(forceStrength).x(center.x));
-    simulation.force('y', d3.forceY().strength(forceStrength).y(center.y));
+    simulation.force('x', d3v4.forceX().strength(forceStrength).x(center.x));
+    simulation.force('y', d3v4.forceY().strength(forceStrength).y(center.y));
     simulation.alpha(1).restart();
 
   }
@@ -266,7 +266,7 @@ var posScaleRev = d3.scaleLinear().domain([22000,0]);
   
   function showDetail(d) {
     // change outline to indicate hover state.
-    d3.select(this).attr('stroke', 'black').style('stroke-width','2');
+    d3v4.select(this).attr('stroke', 'black').style('stroke-width','2');
 
     $("#gates_tooltip").empty();
     const tooltipTemplate = $(".tooltip.template");
@@ -277,7 +277,7 @@ var posScaleRev = d3.scaleLinear().domain([22000,0]);
     tooltipContent.find(".text-color").css("color", pathwayColor);
     tooltipContent.find(".label-cost").html("$" + addCommas(d.value));
     tooltipContent.find('.label-cost').filter(function () { if (d.value <= 1) return this;}).html("N.A.");
-    tooltipContent.find(".label-country").html(countryText[d.year]);
+    tooltipContent.find(".label-country").html(countryText_bubble[d.year]);
     tooltipContent.find(".label-pathway").html(pathwayAttr[d.name].label);
 
     tooltipContent.children().appendTo("#gates_tooltip");
@@ -292,7 +292,7 @@ var posScaleRev = d3.scaleLinear().domain([22000,0]);
   }
 
   function hideDetail(d) {
-    d3.select(this)
+    d3v4.select(this)
      .style('stroke', function (d) { if (d.value <= 1) return fillColor(d.name);})
       .style('stroke-width', function (d) { if (d.value <= 1) return .9;});
 //       .style('stroke-width',function (d) { if (d.value > 1) return 0;});
@@ -329,19 +329,19 @@ function display(error, data) {
 
 
 
-var fillColor = d3.scaleOrdinal()
+var fillColor = d3v4.scaleOrdinal()
     .domain(['irrregular coyote', 'irregular on own, with caravan', 'regular'])
     .range(['#662d91', '#faa41a', '#e23cad']);   
     
-var highlightirrcoy = d3.scaleOrdinal()
+var highlightirrcoy = d3v4.scaleOrdinal()
     .domain(['irrregular coyote', 'irregular on own, with caravan', 'regular'])
     .range(['#662d91', '#f9e4c5', '#ffdbf5']);    
     
-var highlightirrown = d3.scaleOrdinal()
+var highlightirrown = d3v4.scaleOrdinal()
     .domain(['irrregular coyote', 'irregular on own, with caravan', 'regular'])
     .range(['#e9d7f7', '#faa41a', '#ffdbf5']); 
     
-var highlightregular = d3.scaleOrdinal()
+var highlightregular = d3v4.scaleOrdinal()
     .domain(['irrregular coyote', 'irregular on own, with caravan', 'regular'])
     .range(['#e9d7f7', '#f9e4c5', '#e23cad']);   
     
@@ -349,7 +349,7 @@ var highlightregular = d3.scaleOrdinal()
 
 function fillColorN() {
 
-  d3.selectAll("circle")
+  d3v4.selectAll("circle")
       .transition()
       .duration(2000)
 
@@ -357,13 +357,13 @@ function fillColorN() {
         .style('fill', function (d) { if (d.value <= 1) return "#fff";})
         .style('stroke', function (d) { if (d.value <= 1) return fillColor(d.name);})
         .style('stroke-width', function (d) { if (d.value <= 1) return .9;});
-  //       .attr('stroke', function (d) { return d3.rgb(highlightirrcoy(d.name)).darker(); })
+  //       .attr('stroke', function (d) { return d3v4.rgb(highlightirrcoy(d.name)).darker(); })
         // .style('stroke-width', .1);
 }
     
     
 function highlightRegular() {
-  d3.selectAll("circle")
+  d3v4.selectAll("circle")
       .transition()
       .duration(2000)
 
@@ -371,24 +371,24 @@ function highlightRegular() {
         .style('fill', function (d) { if (d.value <= 1) return "#fff";})
         .style('stroke', function (d) { if (d.value <= 1) return highlightregular(d.name);})
         .style('stroke-width', function (d) { if (d.value <= 1) return .9;});
-  //       .attr('stroke', function (d) { return d3.rgb(highlightirrcoy(d.name)).darker(); })
+  //       .attr('stroke', function (d) { return d3v4.rgb(highlightirrcoy(d.name)).darker(); })
         // .style('stroke-width', .1);
 }
 
 function highlightIrreCoy() {
-  d3.selectAll("circle")
+  d3v4.selectAll("circle")
       .transition()
       .duration(2000)
         .attr('fill', function (d) { if (d.value > 1) return highlightirrcoy(d.name);})
         .style('fill', function (d) { if (d.value <= 1) return "#fff";})
         .style('stroke', function (d) { if (d.value <= 1) return highlightirrcoy(d.name);})
         .style('stroke-width', function (d) { if (d.value <= 1) return .9;});
-  //       .attr('stroke', function (d) { return d3.rgb(highlightirrcoy(d.name)).darker(); })
+  //       .attr('stroke', function (d) { return d3v4.rgb(highlightirrcoy(d.name)).darker(); })
         // .style('stroke-width', .1);
 }
 
 function highlightIrreOwn() {
-  d3.selectAll("circle")
+  d3v4.selectAll("circle")
       .transition()
       .duration(2000)
 
@@ -396,7 +396,7 @@ function highlightIrreOwn() {
         .style('fill', function (d) { if (d.value <= 1) return "#fff";})
         .style('stroke', function (d) { if (d.value <= 1) return highlightirrown(d.name);})
         .style('stroke-width', function (d) { if (d.value <= 1) return .9;});
-  //       .attr('stroke', function (d) { return d3.rgb(highlightirrcoy(d.name)).darker(); })
+  //       .attr('stroke', function (d) { return d3v4.rgb(highlightirrcoy(d.name)).darker(); })
       // .style('stroke-width', .1);
 }
 
@@ -422,21 +422,21 @@ const type = d3.annotationCustomType(d3.annotationCalloutCircle, {
 });
 
 function addGuatAnn(){ 
-		d3.select("svg")
+		d3v4.select("svg")
 		.append("ellipse")
 		  .attr('class', "subject guat")
 			   .attr("cx", 260)
 			   .attr("cy", 500)
 			   .attr("rx", 255)
 			   .attr("ry", 255);
-	d3.select("svg")
+	d3v4.select("svg")
 		.append('text')
 		  .attr('x', 170)
 		  .attr('y', 800)
 			.attr('class', "annotation-note  guat")	
 		  .text("Government Spent")
 		  .style("fill","#6c757d");
-		d3.select("svg")
+		d3v4.select("svg")
 		.append('text')
 		  .attr('x', 170)
 		  .attr('y', 837)
@@ -444,14 +444,14 @@ function addGuatAnn(){
 			.style("fill","#6c757d")
 			
 		  .text("$1.3 Billion");
-		  d3.select("svg").append("line")          
+		  d3v4.select("svg").append("line")          
     .style("stroke", "black")  
         .attr('class', "guat")
     .attr("x1", 165)
     .attr("y1", 750)   
     .attr("x2", 165)  
     .attr("y2", 870);
-		d3.select("svg")
+		d3v4.select("svg")
 		.append('text')
 		  .attr('x', 170)
 		  .attr('y', 863)
@@ -462,44 +462,44 @@ function addGuatAnn(){
 		  }
   
   function remGuatAnn(){
-d3.selectAll(".guat").remove();
+d3v4.selectAll(".guat").remove();
   }
   
 function upGuatAnn(){
-d3.selectAll(".guat").style("opacity",1);
+d3v4.selectAll(".guat").style("opacity",1);
   }
 
 
 function addHonAnn() { 
-		d3.select("svg")
+		d3v4.select("svg")
 		.append("ellipse")
 		  .attr('class', "subject hond")
 			   .attr("cx", 730)
 			   .attr("cy", 500)
 			   .attr("rx", 200)
 			   .attr("ry", 200);
-	d3.select("svg")
+	d3v4.select("svg")
 		.append('text')
 		  .attr('x', 630)
 		  .attr('y', 800)
 			.attr('class', "annotation-note  hond")	
 		  .text("Government Spent")
 		  .style("fill","#6c757d");	   
-		d3.select("svg")
+		d3v4.select("svg")
 		.append('text')
 		  .attr('x', 630)
 		  .attr('y', 837)
 			.attr('class', "annotation-note-title  hond")
 			.style("fill","#6c757d")
 		  .text("$700 Million");
-d3.select("svg").append("line")          
+d3v4.select("svg").append("line")          
     .style("stroke", "black")  
     .attr('class', "hond")
     .attr("x1", 625)
     .attr("y1", 683)   
     .attr("x2", 625)  
     .attr("y2", 870);
-		d3.select("svg")
+		d3v4.select("svg")
 		.append('text')
 		  .attr('x', 630)
 		  .attr('y', 863)
@@ -512,44 +512,44 @@ d3.select("svg").append("line")
 		  
 		  
   function remHonAnn(){
-d3.selectAll(".hond").remove();
+d3v4.selectAll(".hond").remove();
   }
   
 function upHonAnn(){
-d3.selectAll(".hond").style("opacity",1);
+d3v4.selectAll(".hond").style("opacity",1);
   }
 
 
 function addSlvAnn(){ 
-		d3.select("svg")
+		d3v4.select("svg")
 		.append("ellipse")
 		  .attr('class', "subject salv")
 			   .attr("cx", 1170)
 			   .attr("cy", 500)
 			   .attr("rx", 170)
 			   .attr("ry", 170);
-		d3.select("svg")
+		d3v4.select("svg")
 		.append('text')
 		  .attr('x', 1090)
 		  .attr('y', 800)
 			.attr('class', "annotation-note  salv")	
 		  .text("Government Spent")
 		  .style("fill","#6c757d");	 	   
-		d3.select("svg")
+		d3v4.select("svg")
 		.append('text')
 		  .attr('x', 1090)
 		  .attr('y', 837)
 			.attr('class', "annotation-note-title  salv")
 			.style("fill","#6c757d")
 		  .text("$400 Million");
-	d3.select("svg").append("line")          
+	d3v4.select("svg").append("line")          
     .style("stroke", "black")  
         .attr('class', "salv")
             .attr("x1", 1085)
     .attr("y1", 660)   
     .attr("x2", 1085)  
     .attr("y2", 870);
-		d3.select("svg")
+		d3v4.select("svg")
 		.append('text')
 		  .attr('x', 1090)
 		  .attr('y', 863)
@@ -560,35 +560,35 @@ function addSlvAnn(){
 		  }
   
 function remSlvAnn(){
-d3.selectAll(".salv").remove();
+d3v4.selectAll(".salv").remove();
   }
   
 function upSlvAnn(){
-d3.selectAll(".salv").style("opacity",1);
+d3v4.selectAll(".salv").style("opacity",1);
   }
   
 function addAllAnn(){
-d3.select("svg")
+d3v4.select("svg")
 .append("ellipse")
   .attr('class', "subject allcirc")    
        .attr("cx", 700)
        .attr("cy", 500)
        .attr("rx", 390)
        .attr("ry", 390);
-d3.select("svg")
+d3v4.select("svg")
 .append('text')
   .attr('x', 1070)
   .attr('y', 830)
 	.attr('class', "annotation-note-title  allcirc")
   .text("$2.9 Billion");
-  d3.select("svg").append("line")          
+  d3v4.select("svg").append("line")          
     .style("stroke", "black")  
         .attr('class', "allcirc")
             .attr("x1", 1065)
     .attr("y1", 660)   
     .attr("x2", 1065)  
     .attr("y2", 944);
-d3.select("svg")
+d3v4.select("svg")
 .append('text')
   .attr('x', 1070)
   .attr('y', 860)
@@ -598,12 +598,12 @@ d3.select("svg")
   }
   
 function remAllAnn(){
-d3.selectAll(".allcirc").remove();
+d3v4.selectAll(".allcirc").remove();
 
 }
 
 function upAllAnn(){
-d3.selectAll(".allcirc").remove();
+d3v4.selectAll(".allcirc").remove();
 
 }
   
@@ -633,22 +633,22 @@ const makeAnnotations5 = d3.annotation()
   .annotations(annotations5)
 
 function addAvICAnn(){
-d3.select("svg")
+d3v4.select("svg")
   .append("g")
   .attr('fill', "#662d91")
   .attr("class", "annotation-groupe")
   .attr("font-size", "1em")
   .style("opacity",1)
   .call(makeAnnotations5);
-  d3.selectAll(".annotation text").attr("transform", "translate(800,-123)");
+  d3v4.selectAll(".annotation text").attr("transform", "translate(800,-123)");
   }
   
 function remAvICAnn(){
-d3.selectAll(".annotation-groupe").style("opacity",0);
+d3v4.selectAll(".annotation-groupe").style("opacity",0);
   }
   
 function upAvICAnn(){
-d3.selectAll(".annotation-groupe").style("opacity",1);
+d3v4.selectAll(".annotation-groupe").style("opacity",1);
   }
   
   
@@ -671,22 +671,22 @@ const makeAnnotations7 = d3.annotation()
   .annotations(annotations6)
 
 function addAvIOAnn(){
-d3.select("svg")
+d3v4.select("svg")
   .append("g")
   .attr('fill', "#faa41a")
   .attr("class", "annotation-groupf")
   .attr("font-size", "1em")
   .style("opacity",1)
   .call(makeAnnotations7);
-  d3.selectAll(".annotation text").attr("transform", "translate(800,-123)");
+  d3v4.selectAll(".annotation text").attr("transform", "translate(800,-123)");
   }
   
 function remAvIOAnn(){
-d3.selectAll(".annotation-groupf").style("opacity",0);
+d3v4.selectAll(".annotation-groupf").style("opacity",0);
   }
   
 function upAvIOAnn(){
-d3.selectAll(".annotation-groupf").style("opacity",1);
+d3v4.selectAll(".annotation-groupf").style("opacity",1);
   }
   
   
@@ -709,33 +709,33 @@ const makeAnnotations8 = d3.annotation()
   .annotations(annotations8)
 
 function addAvRegAnn(){
-d3.select("svg")
+d3v4.select("svg")
   .append("g")
   .attr('fill', "#e23cad")
   .attr("class", "annotation-groupg")
   .attr("font-size", "1em")
   .style("opacity",1)
   .call(makeAnnotations8);
-  d3.selectAll(".annotation text").attr("transform", "translate(800,-82)");
+  d3v4.selectAll(".annotation text").attr("transform", "translate(800,-82)");
   }
   
 function remAvRegAnn(){
-d3.selectAll(".annotation-groupg").style("opacity",0);
+d3v4.selectAll(".annotation-groupg").style("opacity",0);
   }
   
 function upAvRegAnn(){
-d3.selectAll(".annotation-groupg").style("opacity",1);
+d3v4.selectAll(".annotation-groupg").style("opacity",1);
   }
   
 function addIrrSmugg(){
-d3.select("svg")
+d3v4.select("svg")
 .append('text')
   .attr('x', 650)
   .attr('y', 830)
 	.attr('class', "annotation-note-title  irrsmuggler")
 	.style('fill','#662d91')
   .text("$1.7 Billion");
-d3.select("svg")
+d3v4.select("svg")
 .append('text')
   .attr('x', 650)
   .attr('y', 860)
@@ -746,19 +746,19 @@ d3.select("svg")
   }
   
 function remIrrSmugg(){
-d3.selectAll(".irrsmuggler").remove();
+d3v4.selectAll(".irrsmuggler").remove();
 
 }
 
 function upIrrSmugg(){
-d3.select("svg")
+d3v4.select("svg")
 .append('text')
   .attr('x', 650)
   .attr('y', 830)
 	.attr('class', "annotation-note-title  irrsmuggler")
 	.style('fill','#662d91')
   .text("$1.7 Billion");
-d3.select("svg")
+d3v4.select("svg")
 .append('text')
   .attr('x', 650)
   .attr('y', 860)
@@ -769,14 +769,14 @@ d3.select("svg")
   }
   
 function addIrrOwnCar(){
-d3.select("svg")
+d3v4.select("svg")
 .append('text')
   .attr('x', 650)
   .attr('y', 830)
 	.attr('class', "annotation-note-title  irrown")
 	.style('fill','#faa41a')
   .text("$230 Million");
-d3.select("svg")
+d3v4.select("svg")
 .append('text')
   .attr('x', 650)
   .attr('y', 860)
@@ -787,19 +787,19 @@ d3.select("svg")
   }
   
 function remIrrOwnCar(){
-d3.selectAll(".irrown").remove();
+d3v4.selectAll(".irrown").remove();
 
 }
 
 function upIrrOwnCar(){
-d3.select("svg")
+d3v4.select("svg")
 .append('text')
   .attr('x', 650)
   .attr('y', 830)
 	.attr('class', "annotation-note-title  irrown")
 	.style('fill','#faa41a')
   .text("$230 Million");
-d3.select("svg")
+d3v4.select("svg")
 .append('text')
   .attr('x', 650)
   .attr('y', 860)
@@ -810,13 +810,13 @@ d3.select("svg")
   }
   
 function addReg(){  
- d3.select(".means2").style("fill","#e23cad");}
+ d3v4.select(".means2").style("fill","#e23cad");}
  
  function remReg(){  
- d3.select(".means2").style("fill","black");}
+ d3v4.select(".means2").style("fill","black");}
  
  function addTotalLabelCost(){
-d3.select("svg")
+d3v4.select("svg")
 .append('text')
   .attr('x', 5)
   .attr('y', 25)
@@ -825,10 +825,10 @@ d3.select("svg")
   }
   
 function remTotalLabelCost(){
-d3.selectAll(".totlabcost").remove();}
+d3v4.selectAll(".totlabcost").remove();}
 
 function upTotalLabelCost(){
-d3.select("svg")
+d3v4.select("svg")
 .append('text')
   .attr('x', 5)
   .attr('y', 25)
@@ -838,7 +838,7 @@ d3.select("svg")
   }
 
  function addFinanceLabel(){
-d3.select("svg")
+d3v4.select("svg")
 .append('text')
   .attr('x', 5)
   .attr('y', 25)
@@ -847,10 +847,10 @@ d3.select("svg")
   }
   
 function remFinanceLabel(){
-d3.selectAll(".finlabcost").remove();}
+d3v4.selectAll(".finlabcost").remove();}
 
 function upFinanceLabelt(){
-d3.select("svg")
+d3v4.select("svg")
 .append('text')
   .attr('x', 5)
   .attr('y', 25)
@@ -861,7 +861,7 @@ d3.select("svg")
  
 
 // Load the data.
-d3.csv('data/dots_data2.csv', display);
+d3v4.csv('data/dots_data2.csv', display);
 
 
 
@@ -869,7 +869,7 @@ d3.csv('data/dots_data2.csv', display);
 
  function wrap(text, width) {
     text.each(function() {
-        var text = d3.select(this),
+        var text = d3v4.select(this),
         words = text.text().split(/\s+/).reverse(),
         word,
         line = [],

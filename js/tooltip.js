@@ -10,7 +10,7 @@ function floatingTooltip(divId) {
 
     const divIdSelector = "#" + divId;
     if (divId == "chartsank") {
-        var tt = d3.select(divIdSelector)
+        var tt = d3v4.select(divIdSelector)
             .append('div')
             .attr('class', 'tooltip')
             .attr('id', "gates_tooltip")
@@ -18,7 +18,7 @@ function floatingTooltip(divId) {
             .html("<div class='side-color' style='background: linear-gradient(rgb(242, 140, 119), rgb(235, 73, 39));'></div><div class='row'><div class='col'><p>Occupation Before Migration</p><span class='label-before text-color-before text-label' style='color: rgb(242, 140, 119);'>Agriculture</span></div><div class='col'><p>Origin Country</p><span class='label-origin text-label'>Honduras</span></div></div><div class='line-divide mt-2 mb-2'></div><div class='row'><div class='col'><p>Occupation After Migration</p><span class='label-after text-color-after text-label' style='color: rgb(235, 73, 39);'>Agriculture</span></div><div class='col'><p>Destination Country</p><span class='label-dest text-label'>United States</span></div></div></div>");
     }
     else if (divId == "viz-col") {
-        var tt = d3.select(divIdSelector)
+        var tt = d3v4.select(divIdSelector)
             .append('div')
             .attr('class', 'tooltip')
             .attr('id', "gates_tooltip")
@@ -26,7 +26,7 @@ function floatingTooltip(divId) {
             .html("<div class='side-color' style='background: rgb(102, 45, 145);'></div><div class='row mb-1'><div class='col-7'><p class='text-label-onemigrant'>ONE MIGRANT</p><p>From <span class='label-country text-label'>El Salvador</span> Spent</p></div><div class='col-5'><h3 class='label-cost text-color' style='color: rgb(102, 45, 145);'>$9,000</h3></div></div><h3 class='label-pathway text-color' style='color: rgb(102, 45, 145);'>Using a Smuggler to Migrate</h3>");
     }
     else {
-        var tt = d3.select('body')
+        var tt = d3v4.select('body')
             .append('div')
             .attr('class', 'tooltip')
             .attr('id', "gates_tooltip")
@@ -47,7 +47,7 @@ function floatingTooltip(divId) {
    *
    * content is expected to be HTML string.
    *
-   * event is d3.event for positioning.
+   * event is d3v4.event for positioning.
    */
 //   function showTooltip(content, event) {
   function showTooltip(event) {
@@ -66,7 +66,7 @@ function floatingTooltip(divId) {
 
   /*
    * Figure out where to place the tooltip
-   * based on d3 mouse event.
+   * based on d3v4 mouse event.
    */
   function updatePosition(event) {
     var xOffset = 20;

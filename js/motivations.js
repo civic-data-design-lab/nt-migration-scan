@@ -37,7 +37,7 @@ const motivDetailOrder = {
 const motivsIndex = {};
 
 // look up attributes
-const countryText = {
+const countryText_motivations = {
     "GT": "Guatemala",
     "HND": "Honduras",
     "SLV": "El Salvador"
@@ -521,7 +521,7 @@ function tooltipHtml(d, shape) {
 
     const motivColor = motivAttr[motivCat].color;
     const motivLabel = motivAttr[motivCat].label;
-    const countryLabel = countryText[d.country];
+    const countryLabel = countryText_motivations[d.country];
 
     tooltip.find(".side-color").css("background", motivColor);
     tooltip.find(".text-color").css("color", motivColor);

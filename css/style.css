@@ -29,6 +29,11 @@
 
 /*GENERAL HTML */
 
+/* TOGGLING */
+.inactive {
+    display: none;
+}
+
 
 /* SCROLLBAR */
 ::-webkit-scrollbar {

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="MIT Civic Data Design Lab: Ashley Louie & Niko McGlashan">
-    <title>Motivations</title>
+    <title>Migration Scan</title>
 
     <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.typekit.net/eqc7jzl.css">
@@ -124,7 +124,7 @@
 
                     <!-- COST VIZ: -->
                     <!-- frame for d3 visualization -->
-                    <div id="cost-container" class="">
+                    <div id="cost-container" style="display: none;">
                         <div id="frame-cost" class="frame-cost"></div>
                         <!-- div for buttons -->
                         <div id="toolbar" class="row position-relative mt-3 mt-md-5 mt-md-3 mt-lg-5 mb-md-5 mb-lg-0 px-2">
@@ -170,12 +170,12 @@
 
                     <div id="toggle-buttons-cost" class="row mb-3 me-0">
                         <div class="col px-0">
-                            <a id=""
-                                class="btn-sm text-uppercase text-blue" href="/motivations.html" onclick="route()">Motivation to Migrate</a>
+                            <button id="" class="btn btn-sm text-uppercase text-blue"
+                                onclick="document.getElementById('cost-container').style.display = 'none'; document.getElementById('motivations-container').style.display = 'block';">Motivation to Migrate</button>
                         </div>
                         <div class="col px-0">
-                            <a id="" class="dynamic-link btn btn-sm text-uppercase text-blue"
-                                href="" onclick="route()">Cost to Migrate</a>
+                            <button id="" class="btn btn-sm text-uppercase text-blue"
+                                onclick="document.getElementById('motivations-container').style.display = 'none'; document.getElementById('cost-container').style.display = 'block';">Cost to Migrate</button>
                         </div>
                     </div>
 

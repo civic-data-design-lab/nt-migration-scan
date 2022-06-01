@@ -14,12 +14,13 @@ const financeText = {
 };
 
 function bubbleChart() {
-//   var width = 1500;
-//   var height = 700;
-const width = 1400;
-const height = 1000;
-const sqLen = 1;
-const sideWidth = 0;
+
+  //   var width = 1500;
+  //   var height = 700;
+  const width = 1400;
+  const height = 1000;
+  const sqLen = 1;
+  const sideWidth = 0;
   var padding = 2;
   var tooltip = floatingTooltip('viz-col');
   var center = { x: width / 2, y: height / 2 };
@@ -30,74 +31,18 @@ const sideWidth = 0;
     "SLV": { x: 2.5 * (1 * width / 3), y: height / 2 }
   };
   
-    var beeCenters = {
+  var beeCenters = {
     "all loans": { x: width / 5, y: 0 },
     "some loans": { x: width / 1.9, y:0 },
     "no loans": { x: 2.5 * (1 * width / 3), y:0 }
   };
   
-var meansCenters = {
+  var meansCenters = {
     "regular": { x: width / 7, y: height / 2 },
     "irregular on own, with caravan": { x: 2.9 * (1 * width / 5), y: height / 2 },
     "irrregular coyote": { x: 3.5 * (1 * width / 5), y: height / 2 }
   };
-  
-  var yearsTitleX = {
-    "Migrants Spent": 180,  //  $1.2 Billion Migrants Spend to Migrate
-    "Migrants Spent ": width / 2.2,  // $450 Million Billion Migrants Spend to Migrate
-    "Migrants Spent  ": width - 310   // {$520 Million Migrants Spend to Migrate}
-  };
-  
-var yearsTitleX2 = {
-    "$1.2 Billion": 180,  //  $1.2 Billion Migrants Spend to Migrate
-    "$520 Million": width / 2.2,  // $450 Million Billion Migrants Spend to Migrate
-    "$450 Million": width - 310   // {$520 Million Migrants Spend to Migrate}
-  };
-  
-var yearsTitleX3 = {
-    "Guatemala": 180,  //  $1.2 Billion Migrants Spend to Migrate
-    "Honduras": width / 2.1,  // $450 Million Billion Migrants Spend to Migrate
-    "El Salvador": width - 310   // {$520 Million Migrants Spend to Migrate}
-  };
-  
-var meansTitleX = {
-    "Regular Pathway": 120,
-    "Irregular Pathway": width - 490
-   //  "Irregular Pathway": width - 250
-  };
-  
-var meansTitleX2 = {
-    "$240 Million": 120,
-    "$2.0 Billion": width - 490
-   //  "Irregular Pathway": width - 250
-  };
-  
-var meansTitleX3 = {
-    "Migrants Spent to Migrate": 120,
-    "Migrants Spent to Migrate  ": width - 490
-   //  "Irregular Pathway": width - 250
-  };
-  
- var financeTitleX = {
-    "56%": 330,
-    "8%": width - 720,
-    "36%": width - 320
-  };
-  
-   var financeTitleX2 = {
-    "Financed Migration ": 330,
-    "Financed Migration": width - 720,
-    "Financed Migration  ": width - 320
-  };
-  
-     var financeTitleX3 = {
-    "Entirely with Loans": 330,
-    "with Some Loans": width - 720,
-    "without Loans": width - 320
-  };
-  
-
-        
+     
         
   var forceStrength = 0.023;
 //   var svg = null;
@@ -146,7 +91,7 @@ var posScaleRev = d3.scaleLinear().domain([22000,0]);
 
   function createNodes(rawData) {
 
-var maxAmount = d3.max(rawData, function (d) { return +d.mig_ext_cost_total; });
+    var maxAmount = d3.max(rawData, function (d) { return +d.mig_ext_cost_total; });
 
     var radiusScale = d3.scalePow()
       .exponent(0.9)
@@ -222,37 +167,34 @@ var maxAmount = d3.max(rawData, function (d) { return +d.mig_ext_cost_total; });
     simulation.nodes(nodes);
 
     groupBubbles();
+
   }
   
-function axis() {
-d3.select("svg").append("svg").attr("class","axis")
-    .call(d3.axisRight(posScaleRev).ticks(5).tickFormat((d, i) => ['50', '40', '25', '15', '0'][i]).tickSize(0))
-    .call(g => g.selectAll(".tick text").attr("class","axis")
-        .attr("x", 4)
-        .attr("dy", -5));
-d3.select("svg").append("svg")
-    .call(d3.axisRight(posScaleRev).ticks(5).tickFormat((d, i) => ['Months', 'Months', 'Months', 'Months', 'Months'][i]).tickSize(0))
-    .call(g => g.selectAll(".tick text").attr("class","axis2")
-        .attr("x", 4)
-        .attr("dy", 8));
-        
-        
-        
-    }
+  function axis() {
+    d3.select("svg").append("svg").attr("class","axis")
+        .call(d3.axisRight(posScaleRev).ticks(5).tickFormat((d, i) => ['50', '40', '25', '15', '0'][i]).tickSize(0))
+        .call(g => g.selectAll(".tick text").attr("class","axis")
+            .attr("x", 4)
+            .attr("dy", -5));
+    d3.select("svg").append("svg")
+        .call(d3.axisRight(posScaleRev).ticks(5).tickFormat((d, i) => ['Months', 'Months', 'Months', 'Months', 'Months'][i]).tickSize(0))
+        .call(g => g.selectAll(".tick text").attr("class","axis2")
+            .attr("x", 4)
+            .attr("dy", 8));    
+  }
 
-function removeaxis(){
-d3.selectAll(".axis,.axis2")
-	.style("opacity",0);
-	}
+  function removeaxis(){
+    d3.selectAll(".axis,.axis2")
+      .style("opacity",0);
+  }
+    
+  function updateaxis(){
+    d3.selectAll(".axis,.axis2")
+      .style("opacity",1);
+  }
 	
-function updateaxis(){
-d3.selectAll(".axis,.axis2")
-	.style("opacity",1);
-	}
 	
-	
-
-function ticked() {
+  function ticked() {
     bubbles
       .attr('cx', function (d) { return d.x; })
       .attr('cy', function (d) { return d.y; });
@@ -268,435 +210,34 @@ function ticked() {
     return meansCenters[d.name].x;
   }
   
-    function nodeCountryPos(d) {
+  function nodeCountryPos(d) {
     return yearCenters[d.year].x;
   }
   
-        function nodeBeePosb(d) {
+  function nodeBeePosb(d) {
      return beeCenters[d.group].x;
   }
   
-          function nodeBeePosc(d) {
-     return   posScale(d.value).y;
+  function nodeBeePosc(d) {
+     return posScale(d.value).y;
   }
   
-
 
   function groupBubbles() {
-     hideYearTitles();
-      hideMeansTitles();
-      hideFinanceTitles();
-      showNullValues();
-      removeaxis();
-       removeaxis();
-    remAvRegAnn();
-    remFinanceLabel();
-      
-
-
-    simulation.force('x', d3.forceX().strength(forceStrength).x(center.x));
-	simulation.force('y', d3.forceY().strength(forceStrength).y(center.y));
-    simulation.alpha(1).restart();
-  }
-
-  function splitBubbles() {
     hideYearTitles();
-    hideFinanceTitles();
-   showMeansTitles();
-   removeaxis();
-    removeaxis();
-    remAvRegAnn();
-   remFinanceLabel();
-
-    simulation.force('x', d3.forceX().strength(forceStrength).x(nodeMeansPos));
-	simulation.force('y', d3.forceY().strength(forceStrength).y(center.y));
-    simulation.alpha(1).restart();
-  }
-  
-function splitBubblesCountry() {
     hideMeansTitles();
     hideFinanceTitles();
-    showYearTitles();
+    showNullValues();
+    removeaxis();
     removeaxis();
     remAvRegAnn();
     remFinanceLabel();
-    
-  
-
-    simulation.force('x', d3.forceX().strength(forceStrength).x(nodeCountryPos));
+        
+    simulation.force('x', d3.forceX().strength(forceStrength).x(center.x));
     simulation.force('y', d3.forceY().strength(forceStrength).y(center.y));
-
     simulation.alpha(1).restart();
+
   }
-
-const controller = new ScrollMagic.Controller();
-
-const scrollLabel = new ScrollMagic.Scene({
-                                    triggerElement:".forceLink0",
-                                    triggerHook:'onLeave', 
-                                    duration: "500%",       
-                                  })
-                                  .on("enter",(e)=>{
-                                  addTotalLabelCost();
-//                                   upAllAnn();
-                                 
-                                	})
-
-                                //   .addIndicators({name:"forceLink"})
-                                  .addTo(controller);
-                                  
-const scrollUndoLabel = new ScrollMagic.Scene({
-                                    triggerElement:".forceLink00",
-                                   
-                                  })
-                                  .on("leave",(e)=>{
-                                  groupBubbles(),
-                                  remAllAnn(),
-                                fillColorN(),
-                                  remSlvAnn(),
-                                  remGuatAnn(),
-                                  remHonAnn(),
-                                  remIrrSmugg(),
-                                  remIrrOwnCar(),
-                                   remTotalLabelCost();
-                                    
-                                	})
-                                  .addTo(controller);
-
-
-
-const scrollAppearUSDepartment = new ScrollMagic.Scene({
-                                    triggerElement:".forceLink1",
-                                    triggerHook:'onLeave', 
-                                    duration: "500%",       
-                                  })
-                                  .on("enter",(e)=>{
-                               
-                                  addAllAnn();
-//                                   upAllAnn();
-                                 
-                                	})
-                                //   .addIndicators({name:"forceLink"})
-                                  .addTo(controller);
-
-const scrollUndoUSDepartment = new ScrollMagic.Scene({
-                                    triggerElement:".forceLinka",
-                                   
-                                  })
-                                  .on("leave",(e)=>{
-                                  groupBubbles(),
-                                  addTotalLabelCost(),
-                                  remAllAnn();
-                                	})
-                                  .addTo(controller);
-                                  
-const scrollFromUSToGuatem = new ScrollMagic.Scene({
-                                    triggerElement:".forceLink2",
-        							triggerHook:'onLeave',
-                                  })
-                                  .on("enter",(e)=>{
-                                  splitBubblesCountry(),
-                                   remAllAnn(),
-                                  addGuatAnn(),
-                                  upGuatAnn();
-                      
-                                  
-                                	})
-                                  .addTo(controller);
-
-const scrollUndoFromUSToGuatem = new ScrollMagic.Scene({
-                                    triggerElement:".forceLinkb"
-        
-                                  })
-                                  .on("leave",(e)=>{
-                                  groupBubbles(),
-                                  remAllAnn(),
-                                   remGuatAnn();
-                                  
-                                	})
-                                  .addTo(controller);
-                                  
-const scrollFromGuatToHon = new ScrollMagic.Scene({
-                                    triggerElement:".forceLink3",
-        							triggerHook:'onLeave',
-                                  })
-                                  .on("enter",(e)=>{
-                    
-                                  addHonAnn(),
-                                  remAllAnn(),
-                                  upHonAnn();                    
-                                	})
-                                  .addTo(controller);
-
-const scrollUndoFromGuatToHon = new ScrollMagic.Scene({
-                                    triggerElement:".forceLinkc"
-        
-                                  })
-                                  .on("leave",(e)=>{
-                                  remAllAnn(),
-                                   remHonAnn();
-                                  
-                                	})
-                                  .addTo(controller);
-                                  
-const scrollFromHonToSlv = new ScrollMagic.Scene({
-                                    triggerElement:".forceLink4",
-        							triggerHook:'onLeave',
-                                  })
-                                  .on("enter",(e)=>{
-                              remAllAnn(),
-                                  addSlvAnn(),
-                                  upSlvAnn();
-                                  
-                                  
-                                	})
-                                  .addTo(controller);
-
-const scrollUndoFromHonToSlv = new ScrollMagic.Scene({
-                                    triggerElement:".forceLinkd"
-        
-                                  })
-                                  .on("leave",(e)=>{
-                                  remAllAnn(),
-                                   remSlvAnn();
-                                  
-                                	})
-                                  .addTo(controller);
-                                  
-                                  
-const scrollSplitMeans = new ScrollMagic.Scene({
-                                    triggerElement:".forceLink5",
-        							triggerHook:'onLeave',
-                                  })
-                                  .on("enter",(e)=>{
-                                   splitBubbles(),
-                                   remHonAnn(),
-                                   remGuatAnn(),
-                                   remAllAnn(),
-                                   remSlvAnn();
-                                	})
-              //                     .addIndicators({name:"forceLink5"})
-                                  .addTo(controller);
-
-const scrollUndoSplitMeans = new ScrollMagic.Scene({
-                                    triggerElement:".forceLinke",
-                                    triggerHook:'onEnter',
-        
-                                  })
-                                  .on("leave",(e)=>{
-                                  splitBubblesCountry(),
-                                  addGuatAnn(),
-                                  addSlvAnn(),
-                                  remAllAnn(),
-                                  addHonAnn(),
-                                  fillColorN();
-                                  
-                                	})
-//                                   .addIndicators({name:"forceLinke"})
-                                  .addTo(controller);  
-                                  
-const scrollHighlightIrrCoy = new ScrollMagic.Scene({
-                                    triggerElement:".forceLink6",
-       								 triggerHook:'onLeave',
-                                  })
-                                  .on("enter",(e)=>{
-                             //      remAllAnn(),
-                            	 addIrrSmugg(),
-                             	  highlightIrreCoy();
-                                	})
-//                                   .addIndicators({name:"forceLinke"})
-                                  .addTo(controller);
-
-const scrollUndoHighlightIrrCoy = new ScrollMagic.Scene({
-                                    triggerElement:".forceLinkf"
-        
-                                  })
-                                  .on("leave",(e)=>{
-                  //                 remAllAnn(),
-                                  remIrrSmugg(),
-                                    fillColorN();
-                                	})
-                               //    .addIndicators({name:"forceLink"})
-                                  .addTo(controller); 
-                                  
-const scrollHighlightIrrOwn = new ScrollMagic.Scene({
-                                    triggerElement:".forceLink7",
-       								 triggerHook:'onLeave',
-                                  })
-                                  .on("enter",(e)=>{
-                                  remAllAnn(),
-                                  remIrrSmugg(),
-                                  addIrrOwnCar(),
-                             	  highlightIrreOwn();
-                                	})
-//                                   .addIndicators({name:"forceLinke"})
-                                  .addTo(controller);
-
-const scrollUndoHighlightIrrOwn = new ScrollMagic.Scene({
-                                    triggerElement:".forceLinkg"
-        
-                                  })
-                                  .on("leave",(e)=>{
-                                  remAllAnn(),
-                                  upIrrSmugg(),
-                                  remIrrOwnCar(),
-                                  
-                                   highlightIrreCoy();
-                                	})
-                               //    .addIndicators({name:"forceLink"})
-                                  .addTo(controller); 
-                                  
-const scrollHighlightReg = new ScrollMagic.Scene({
-                                    triggerElement:".forceLink8",
-       								 triggerHook:'onLeave',
-                                  })
-                                  .on("enter",(e)=>{
-                                  
-                                  remAllAnn(),
-                                  remIrrOwnCar(),
-                             	  highlightRegular();
-                             	  addReg();
-                                	})
-//                                   .addIndicators({name:"forceLinke"})
-                                  .addTo(controller);
-
-const scrollUndoHighlighReg = new ScrollMagic.Scene({
-                                    triggerElement:".forceLinkh"
-        
-                                  })
-                                  .on("leave",(e)=>{
-                                  // remAllAnn(),
-                                  remReg(),
-                                  upIrrOwnCar();
-                                  
-                                 
-                                	})
-                               //    .addIndicators({name:"forceLink"})
-                                  .addTo(controller); 
-                                  
-const scrollBeeswarm = new ScrollMagic.Scene({
-                                    triggerElement:".forceLink9",
-       								 triggerHook:'onLeave',
-                                  })
-                                  .on("enter",(e)=>{
-                                  remAllAnn(),
-                                  fillColorN(),
-                                  axis(),
-                                  remTotalLabelCost(),
-                                  
-                                  updateaxis(),
-                             	 splitBubblesBee(),
-                             	 addFinanceLabel(),
-                             	 addAvICAnn(),
-                             	 upAvICAnn();
-                                	})
-//                                   .addIndicators({name:"forceLinke"})
-                                  .addTo(controller);
-
-const scrollUndoBeeswarm = new ScrollMagic.Scene({
-                                    triggerElement:".forceLinki"
-        
-                                  })
-                                  .on("leave",(e)=>{
-                                  splitBubbles(),
-                                  
-                                  addTotalLabelCost(),
-                                  remFinanceLabel(),
-                                  remAllAnn(),
-                                 removeaxis(),
-                                 addReg(),
-                                   highlightRegular(),
-                                   remAvICAnn();
-                                	})
-                               //    .addIndicators({name:"forceLink"})
-                                  .addTo(controller); 
-
-
-                                  
-const scrollLabelIrrOwn = new ScrollMagic.Scene({
-                                    triggerElement:".forceLink10",
-       								 triggerHook:'onLeave',
-                                  })
-                                  .on("enter",(e)=>{
-                                  addAvIOAnn(),
-                                  remAllAnn(),
-                                   remAvICAnn(),
-                                	upAvIOAnn();
-                                	})
-//                                   .addIndicators({name:"forceLinke"})
-                                  .addTo(controller);
-
-const scrollUndoLabelIrrOwn = new ScrollMagic.Scene({
-                                    triggerElement:".forceLinkj"
-        
-                                  })
-                                  .on("leave",(e)=>{
-                                  remAllAnn(),
-                                   remAvIOAnn();
-                                	})
-                               //    .addIndicators({name:"forceLink"})
-                                  .addTo(controller); 
-
-const scrollLabelReg = new ScrollMagic.Scene({
-                                    triggerElement:".forceLink11",
-       								 triggerHook:'onLeave',
-                                  })
-                                  .on("enter",(e)=>{
-                                 addAvRegAnn(),
-                                 remAllAnn(),
-					 remFinanceLabel(),
-                                	upAvRegAnn(),
-                                	remAvIOAnn();
-                                	})
-//                                   .addIndicators({name:"forceLinke"})
-                                  .addTo(controller);
-
-const scrollUndoLabelReg = new ScrollMagic.Scene({
-                                    triggerElement:".forceLinkk"
-        
-                                  })
-                                  .on("leave",(e)=>{
-                                  remAllAnn(),
-                                  splitBubblesBee(),
-                                  addFinanceLabel(),
-                                  remAvRegAnn();
-                                	})
-                               //    .addIndicators({name:"forceLink"})
-                                  .addTo(controller); 
-
-
-    
-  function splitBubblesBee() {
-  	hideFinanceTitles();
-      hideYearTitles();
-      hideMeansTitles();
-      showFinanceTitles();
-    hideNullValues();
- //    remAvRegAnn();
- 	fillColorN();
-    updateaxis();
-
-   
-        
-
-	simulation.force('x', d3.forceX().strength(forceStrength).x(nodeBeePosb));
-    simulation.force('y', d3.forceY().strength(.06).y(function(d){return height - posScale(d.valuenull);}));
-// 	simulation.filter(function(d){ return d.value <= 1; }).force('y', d3.forceY().strength(.06).y(5000));
-	
-    simulation.alpha(1).restart();
-  }
-  
-//  function splitBubblesBeeNull() { 
-//    d3.selectAll('circle').select(function(d){ if (d.value <= 1) return this;}).
-//     simulation.force('y', d3.forceY().strength(.06).y(-1000));
-//   
-//   
-// //   attr("transform", "translate(770,0)"
-// //   function (d) { if (d.value <= 1) return -770;
-// 
-// //   simulation.force('y', d3.forceY().strength(.06).y(function (d) { if (d.value <= 1) return -770;}));
-// //   simulation.alpha(1).restart();
-// }
 
   function hideYearTitles() {
     svg.selectAll('.year,.year2,.year3').remove();
@@ -710,202 +251,17 @@ const scrollUndoLabelReg = new ScrollMagic.Scene({
     svg.selectAll('.finance,.finance2,.finance3').remove();
   }
   
-function hideNullValues() {
-    svg.selectAll('circle').filter(function(d){ return d.value <= 1; }).transition().attr('y', 50000);
-    // .style('stroke', "#fff" );
+  function hideNullValues() {
+      svg.selectAll('circle').filter(function(d){ return d.value <= 1; }).transition().attr('y', 50000);
+      // .style('stroke', "#fff" );
   }
 
-function showNullValues() {
-     svg.selectAll('circle').filter(function(d){ return d.value <= 1; });
-//     .style('fill', function (d) { if (d.value <= 1) return "#fff";})
-//       .style('stroke', function (d) { if (d.value <= 1) return fillColor(d.name);})
-//       .style('stroke-width', function (d) { if (d.value <= 1) return .9;});
-
+  function showNullValues() {
+      svg.selectAll('circle').filter(function(d){ return d.value <= 1; });
+  //     .style('fill', function (d) { if (d.value <= 1) return "#fff";})
+  //       .style('stroke', function (d) { if (d.value <= 1) return fillColor(d.name);})
+  //       .style('stroke-width', function (d) { if (d.value <= 1) return .9;});
    }
-
-  function showYearTitles() {
-
-    var yearsData = d3.keys(yearsTitleX);
-    var years = svg.selectAll('.name')
-      .data(yearsData);
-
-    years.enter().append('text')
-      .attr('class', 'year')
-//       .transition()
-//       .duration(500)
-//       .style('opacity','0')
-//       .transition()
-// //       .ease(d3.easeLinear)
-//     .duration(500)
-    .style('opacity','1')
-//     .delay(function(d, i) {
-//     return i * 75;
-//   })
-      .attr('x', function (d) { return yearsTitleX[d]; })
-//       .attr('y', function (d) { if (yearsTitleX[d] === "Guatemala") {return 160}; })
-      .attr('y', 105)
-      .attr('text-anchor', 'start')
-      .text(function (d) { return d; });
-      
-  var yearsData2 = d3.keys(yearsTitleX2);
-    var years2 = svg.selectAll('.name')
-      .data(yearsData2);
-
-    years2.enter().append('text')
-//      .transition()
-//       .ease(d3.easeLinear)
-//     .duration(1000)
-//     .delay(function(d, i) {
-//     return i * 75;
-//   })
-      .attr('class', 'year2')
-      .attr('x', function (d) { return yearsTitleX2[d]; })
-      .attr('y', 140)
-      .attr('text-anchor', 'start')
-      .text(function (d) { return d; });
-      
-      
-var yearsData3 = d3.keys(yearsTitleX3);
-    var years3 = svg.selectAll('.name')
-      .data(yearsData3);
-
-years3.enter().append('rect')
-.attr('class', 'year3')
-  .attr('x', 178)
-  .attr('y', 478)
-  .attr('width', 172)
-  .attr('height', 32)
-  .attr('fill', '#fff');
-  
-
-years3.enter().append('rect')
-.attr('class', 'year3')
-  .attr('x', 665)
-  .attr('y', 478)
-  .attr('width', 154)
-  .attr('height', 32)
-  .attr('fill', '#fff');
-  
-years3.enter().append('rect')
-	.attr('class', 'year3')
-  .attr('x', 1087)
-  .attr('y', 478)
-  .attr('width', 181)
-  .attr('height', 32)
-  .attr('fill', '#fff');
-
-years3.enter().append('text')
-      .attr('class', 'year3')
-      .attr('x', function (d) { return yearsTitleX3[d]; })
-      .attr('y', 506)
-      .attr('text-anchor', 'start')
-      .text(function (d) { return d; });      
-  }
-  
-    function showMeansTitles() {
-
-    var nameData = d3.keys(meansTitleX);
-    var nameMeans = svg.selectAll('.name')
-      .data(nameData);
-
-    nameMeans.enter().append('text')
-//      .transition()
-//     .duration(1000)
-//     .delay(function(d, i) {
-//     return i * 75;
-//   })
-      .attr('class', 'means')
-      .attr('x', function (d) { return meansTitleX[d]; })
-      .attr('y', 110)
-      .attr('text-anchor', 'start')
-      .text(function (d) { return d; });
-      
-var nameData2 = d3.keys(meansTitleX2);
-    var nameMeans2 = svg.selectAll('.name')
-      .data(nameData2);
-
-    nameMeans2.enter().append('text')
-//      .transition()
-//     .duration(1000)
-//     .delay(function(d, i) {
-//     return i * 75;
-//   })
-      .attr('class', 'means2')
-      .attr('x', function (d) { return meansTitleX2[d]; })
-      .attr('y', 140)
-      .attr('text-anchor', 'start')
-      .text(function (d) { return d; });   
-      
-var nameData3 = d3.keys(meansTitleX3);
-    var nameMeans3 = svg.selectAll('.name')
-      .data(nameData3);
-
-    nameMeans3.enter().append('text')
-//      .transition()
-//     .duration(1000)
-//     .delay(function(d, i) {
-//     return i * 75;
-//   })
-      .attr('class', 'means3')
-      .attr('x', function (d) { return meansTitleX3[d]; })
-      .attr('y', 160)
-      .attr('text-anchor', 'start')
-      .text(function (d) { return d; });     
-      
-  }
-  
-      function showFinanceTitles() {
-
-    var financeData = d3.keys(financeTitleX);
-    var finance = svg.selectAll('.name')
-      .data(financeData);
-
-    finance.enter().append('text')
-//      .transition()
-//     .duration(1000)
-//     .delay(function(d, i) {
-//     return i * 75;
-//   })
-      .attr('class', 'finance')
-      .attr('x', function (d) { return financeTitleX[d]; })
-      .attr('y', 60)
-      .attr('text-anchor', 'start')
-      .text(function (d) { return d; });
-      
-    var financeData2 = d3.keys(financeTitleX2);
-    var finance2 = svg.selectAll('.name')
-      .data(financeData2);
-
-    finance2.enter().append('text')
-//      .transition()
-//     .duration(1000)
-//     .delay(function(d, i) {
-//     return i * 75;
-//   })
-      .attr('class', 'finance2')
-      .attr('x', function (d) { return financeTitleX2[d]; })
-      .attr('y', 80)
-      .attr('text-anchor', 'start')
-      .text(function (d) { return d; });
-      
-var financeData3 = d3.keys(financeTitleX3);
-    var finance3 = svg.selectAll('.name')
-      .data(financeData3);
-
-    finance3.enter().append('text')
-//        .transition()
-//     .duration(1000)
-//     .delay(function(d, i) {
-//     return i * 75;
-//   })
-      .attr('class', 'finance3')
-      .attr('x', function (d) { return financeTitleX3[d]; })
-      .attr('y', 100)
-      .attr('text-anchor', 'start')
-      .text(function (d) { return d; });
-  }
-  
-  
 
   
   function showDetail(d) {
@@ -935,7 +291,7 @@ var financeData3 = d3.keys(financeTitleX3);
     }
   }
 
-function hideDetail(d) {
+  function hideDetail(d) {
     d3.select(this)
      .style('stroke', function (d) { if (d.value <= 1) return fillColor(d.name);})
       .style('stroke-width', function (d) { if (d.value <= 1) return .9;});
@@ -946,38 +302,20 @@ function hideDetail(d) {
     }
   }
 
-  chart.toggleDisplay = function (displayName) {
-    if (displayName === 'year') {
-      splitBubbles();
-    }   
-   else if (displayName === 'country') 
-      splitBubblesCountry();
-      
-// 	else if (displayName === 'uncolor') 
-//       changeColor();
-      
-//     else if (displayName === 'colorb') 
-//       meansColor();
-      
-     else if (displayName === 'bee') 
-      splitBubblesBee();  
-          
-      else {
-      groupBubbles();
-    }
-  };
-
   return chart;
+
 }
 
 
 
         
-
-
+// Create bubble chart using function from above
 var myBubbleChart = bubbleChart();
 
 
+
+
+// Display bubble chart
 function display(error, data) {
   if (error) {
     console.log(error);
@@ -987,46 +325,15 @@ function display(error, data) {
 }
 
 
-function setupButtons() {
-  d3.select('#toolbar')
-    .selectAll('.button')
-    .on('click', function () {
-      // Remove active class from all buttons
-      d3.selectAll('.button').classed('active', false);
-      // Find the button just clicked
-      var button = d3.select(this);
 
-      // Set it as the active button
-      button.classed('active', true);
 
-      // Get the id of the button
-      var buttonId = button.attr('id');
 
-      // Toggle the bubble chart based on
-      // the currently clicked button.
-      myBubbleChart.toggleDisplay(buttonId);
-    });
-}
 
-// function changeColor(){
-//   d3.selectAll("circle")
-//     .transition()
-//     .duration(2000)
-//     .style('fill', function (d) { if (d.value <= 1) return "#fff" ;})
-//     .style('stroke', function (d) { if (d.value <= 1) return "#662d91" ;})
-// 	.style('stroke-width', function (d) { if (d.value <= 1) return .9;})
-// 	.attr('fill', function (d) { if (d.value > 1) return "#662d91";});
-	      // .attr('stroke-width', .1)
-// 	.style("fill", function (d) { if (d.value > 1) return "#662d91" ;})
-//     .style("fill", function (d) { if (d.value <= 1) return "#fff" ;});
-//     .style("stroke-width",0);
-// }
-
- var fillColor = d3.scaleOrdinal()
+var fillColor = d3.scaleOrdinal()
     .domain(['irrregular coyote', 'irregular on own, with caravan', 'regular'])
     .range(['#662d91', '#faa41a', '#e23cad']);   
     
- var highlightirrcoy = d3.scaleOrdinal()
+var highlightirrcoy = d3.scaleOrdinal()
     .domain(['irrregular coyote', 'irregular on own, with caravan', 'regular'])
     .range(['#662d91', '#f9e4c5', '#ffdbf5']);    
     
@@ -1038,55 +345,58 @@ var highlightregular = d3.scaleOrdinal()
     .domain(['irrregular coyote', 'irregular on own, with caravan', 'regular'])
     .range(['#e9d7f7', '#f9e4c5', '#e23cad']);   
     
- function fillColorN(){
-d3.selectAll("circle")
-    .transition()
-    .duration(2000)
 
-      .attr('fill', function (d) { if (d.value > 1) return fillColor(d.name);})
-      .style('fill', function (d) { if (d.value <= 1) return "#fff";})
-      .style('stroke', function (d) { if (d.value <= 1) return fillColor(d.name);})
-      .style('stroke-width', function (d) { if (d.value <= 1) return .9;});
-//       .attr('stroke', function (d) { return d3.rgb(highlightirrcoy(d.name)).darker(); })
-      // .style('stroke-width', .1);
+
+function fillColorN() {
+
+  d3.selectAll("circle")
+      .transition()
+      .duration(2000)
+
+        .attr('fill', function (d) { if (d.value > 1) return fillColor(d.name);})
+        .style('fill', function (d) { if (d.value <= 1) return "#fff";})
+        .style('stroke', function (d) { if (d.value <= 1) return fillColor(d.name);})
+        .style('stroke-width', function (d) { if (d.value <= 1) return .9;});
+  //       .attr('stroke', function (d) { return d3.rgb(highlightirrcoy(d.name)).darker(); })
+        // .style('stroke-width', .1);
 }
     
     
-function highlightRegular(){
-d3.selectAll("circle")
-    .transition()
-    .duration(2000)
+function highlightRegular() {
+  d3.selectAll("circle")
+      .transition()
+      .duration(2000)
 
-      .attr('fill', function (d) { if (d.value > 1) return highlightregular(d.name);})
-      .style('fill', function (d) { if (d.value <= 1) return "#fff";})
-      .style('stroke', function (d) { if (d.value <= 1) return highlightregular(d.name);})
-      .style('stroke-width', function (d) { if (d.value <= 1) return .9;});
-//       .attr('stroke', function (d) { return d3.rgb(highlightirrcoy(d.name)).darker(); })
-      // .style('stroke-width', .1);
+        .attr('fill', function (d) { if (d.value > 1) return highlightregular(d.name);})
+        .style('fill', function (d) { if (d.value <= 1) return "#fff";})
+        .style('stroke', function (d) { if (d.value <= 1) return highlightregular(d.name);})
+        .style('stroke-width', function (d) { if (d.value <= 1) return .9;});
+  //       .attr('stroke', function (d) { return d3.rgb(highlightirrcoy(d.name)).darker(); })
+        // .style('stroke-width', .1);
 }
 
-function highlightIrreCoy(){
-d3.selectAll("circle")
-    .transition()
-    .duration(2000)
-      .attr('fill', function (d) { if (d.value > 1) return highlightirrcoy(d.name);})
-      .style('fill', function (d) { if (d.value <= 1) return "#fff";})
-      .style('stroke', function (d) { if (d.value <= 1) return highlightirrcoy(d.name);})
-      .style('stroke-width', function (d) { if (d.value <= 1) return .9;});
-//       .attr('stroke', function (d) { return d3.rgb(highlightirrcoy(d.name)).darker(); })
-      // .style('stroke-width', .1);
+function highlightIrreCoy() {
+  d3.selectAll("circle")
+      .transition()
+      .duration(2000)
+        .attr('fill', function (d) { if (d.value > 1) return highlightirrcoy(d.name);})
+        .style('fill', function (d) { if (d.value <= 1) return "#fff";})
+        .style('stroke', function (d) { if (d.value <= 1) return highlightirrcoy(d.name);})
+        .style('stroke-width', function (d) { if (d.value <= 1) return .9;});
+  //       .attr('stroke', function (d) { return d3.rgb(highlightirrcoy(d.name)).darker(); })
+        // .style('stroke-width', .1);
 }
 
-function highlightIrreOwn(){
-d3.selectAll("circle")
-    .transition()
-    .duration(2000)
+function highlightIrreOwn() {
+  d3.selectAll("circle")
+      .transition()
+      .duration(2000)
 
-      .attr('fill', function (d) { if (d.value > 1) return highlightirrown(d.name);})
-      .style('fill', function (d) { if (d.value <= 1) return "#fff";})
-      .style('stroke', function (d) { if (d.value <= 1) return highlightirrown(d.name);})
-      .style('stroke-width', function (d) { if (d.value <= 1) return .9;});
-//       .attr('stroke', function (d) { return d3.rgb(highlightirrcoy(d.name)).darker(); })
+        .attr('fill', function (d) { if (d.value > 1) return highlightirrown(d.name);})
+        .style('fill', function (d) { if (d.value <= 1) return "#fff";})
+        .style('stroke', function (d) { if (d.value <= 1) return highlightirrown(d.name);})
+        .style('stroke-width', function (d) { if (d.value <= 1) return .9;});
+  //       .attr('stroke', function (d) { return d3.rgb(highlightirrcoy(d.name)).darker(); })
       // .style('stroke-width', .1);
 }
 
@@ -1550,14 +860,10 @@ d3.select("svg")
   }
  
 
-
 // Load the data.
 d3.csv('data/dots_data2.csv', display);
 
 
-
-// setup the buttons.
-setupButtons();
 
 // function (d){ if (d.name === "irrregular coyote") return 0.04; else .023}
 

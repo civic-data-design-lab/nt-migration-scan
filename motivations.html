@@ -55,136 +55,129 @@
                         Motivations to Migrate
                     </div> -->
                     <!-- MOTIVATIONS VIZ: -->
-                    <!-- div for buttons -->
-                    <div id="buttons-motivations" class="row mb-3 me-0">
-                        <div class="col-6 px-0">
-                            <span data-bs-toggle="tooltip" data-bs-placement="top"
-                                title="Households who had members migrate in the last 5 years specified the motivations of those migrants.">
-                                <button type="button" id="btn-motivs"
-                                    class="btn btn-sm text-uppercase text-blue" data-bs-toggle="modal"
-                                    data-bs-target="#modal-motivs">Motivations</button>
-                            </span>
-                        </div>
-                        <div id="btn-center" class="col-3 px-0">
-                            <span data-bs-toggle="tooltip" data-bs-placement="top"
-                                title="Motivations for migration split up by the monthly income per capita levels of households with a migrant in the last 5 years.">
-                                <button type="button" id="btn-income"
-                                    class="btn btn-sm text-uppercase text-blue" data-bs-toggle="modal"
-                                    data-bs-target="#modal-income">Income Level</button>
-                            </span>
-                        </div>
-                        <div class="col-3 px-0">
-                            <span data-bs-toggle="tooltip" data-bs-placement="top"
-                                title="Food Security is measured by the Consolidated Approach to Reporting Indicators of Food Security (CARI) score. Used to classify households into four groups by their food security status, this index is based on indicators that measure different dimensions of food security: the current status of food consumption score and/or food energy shortfall and the capacity of livelihood coping strategies and food expenditure share or poverty status.">
-                                <button type="button" id="btn-cari" class="btn btn-sm text-uppercase text-blue"
-                                    data-bs-toggle="modal" data-bs-target="#modal-cari">Food Security</button>
-                            </span>
-                        </div>
-                    </div>
-                    <!-- frame for d3 visualization -->
-                    <div id="frame-motivations" class="position-relative"></div>
-                    <!-- motivs tooltip template -->
-                    <div class="tooltip template">
-                        <div class="side-color"></div>
-                        <p>Motivation for Migrating</p>
-                        <h3 class="text-color">
-                            <span class="label-motiv-pct">90</span>%
-                            <span class="label-motiv text-uppercase">Economic</span>
-                        </h3>
-                        <span class="text-hh text-color">of
-                            <span class="label-hh">surveyed</span> households
-                        </span>
-                        <div class="row mt-1">
-                            <div class="col-left">
-                                <p>Reason for Migrating</p>
-                                <span class="label-motiv-detail text-label">Search for a better job, salary or working conditions, lack of money to buy food, lack of money to cover basic needs</span>
+                     <div id="motivations-container" class="">
+                        <!-- div for buttons -->
+                        <div id="buttons-motivations" class="row mb-3 me-0">
+                            <div class="col-6 px-0">
+                                <span data-bs-toggle="tooltip" data-bs-placement="top"
+                                    title="Households who had members migrate in the last 5 years specified the motivations of those migrants.">
+                                    <button type="button" id="btn-motivs"
+                                        class="btn btn-sm text-uppercase text-blue" data-bs-toggle="modal"
+                                        data-bs-target="#modal-motivs">Motivations</button>
+                                </span>
                             </div>
-                            <div class="col-right">
-                                <p>Origin Country</p>
-                                <span class="label-country text-label">El Salvador</span>
+                            <div id="btn-center" class="col-3 px-0">
+                                <span data-bs-toggle="tooltip" data-bs-placement="top"
+                                    title="Motivations for migration split up by the monthly income per capita levels of households with a migrant in the last 5 years.">
+                                    <button type="button" id="btn-income"
+                                        class="btn btn-sm text-uppercase text-blue" data-bs-toggle="modal"
+                                        data-bs-target="#modal-income">Income Level</button>
+                                </span>
+                            </div>
+                            <div class="col-3 px-0">
+                                <span data-bs-toggle="tooltip" data-bs-placement="top"
+                                    title="Food Security is measured by the Consolidated Approach to Reporting Indicators of Food Security (CARI) score. Used to classify households into four groups by their food security status, this index is based on indicators that measure different dimensions of food security: the current status of food consumption score and/or food energy shortfall and the capacity of livelihood coping strategies and food expenditure share or poverty status.">
+                                    <button type="button" id="btn-cari" class="btn btn-sm text-uppercase text-blue"
+                                        data-bs-toggle="modal" data-bs-target="#modal-cari">Food Security</button>
+                                </span>
                             </div>
                         </div>
-                    </div>
-                    <!-- side tooltip template -->
-                    <div class="tooltip-side p-2 template">
-                        <p class="text-uppercase mb-1">
-                            <span class="label-group px-1 text-white">Low Income</span>&ensp;<b class="text-blue"><span class="label-group-pct">42</span>%</b>
-                        </p>
-                        <p>
-                            of Surveyed Households with a Migrant<br>in the Last 5 Years
-                        </p>
-                        <p class="label-descr mb-0">Monthly Household Income per Capita:</p>
-                        <!-- <p class="text-range mb-0">
-                            <span class="label-range">$128.70&ndash;436.50</span>
-                        </p> -->
-                    </div>
-
-                    <!-- <div id="toggle-buttons-motivations" class="row mb-3 me-0">
-                        <div class="col px-0">
-                            <a id=""
-                                class="dynamic-link btn btn-sm text-uppercase text-blue" href="" onclick="route()">Motivation to Migrate</a>
+                        <!-- frame for d3 visualization -->
+                        <div id="frame-motivations" class="position-relative"></div>
+                        <!-- motivs tooltip template -->
+                        <div class="tooltip template">
+                            <div class="side-color"></div>
+                            <p>Motivation for Migrating</p>
+                            <h3 class="text-color">
+                                <span class="label-motiv-pct">90</span>%
+                                <span class="label-motiv text-uppercase">Economic</span>
+                            </h3>
+                            <span class="text-hh text-color">of
+                                <span class="label-hh">surveyed</span> households
+                            </span>
+                            <div class="row mt-1">
+                                <div class="col-left">
+                                    <p>Reason for Migrating</p>
+                                    <span class="label-motiv-detail text-label">Search for a better job, salary or working conditions, lack of money to buy food, lack of money to cover basic needs</span>
+                                </div>
+                                <div class="col-right">
+                                    <p>Origin Country</p>
+                                    <span class="label-country text-label">El Salvador</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col px-0">
-                            <a id="" class="dynamic-link btn btn-sm text-uppercase text-blue"
-                                href="/cost.html" onclick="route()">Cost to Migrate</a>
+                        <!-- side tooltip template -->
+                        <div class="tooltip-side p-2 template">
+                            <p class="text-uppercase mb-1">
+                                <span class="label-group px-1 text-white">Low Income</span>&ensp;<b class="text-blue"><span class="label-group-pct">42</span>%</b>
+                            </p>
+                            <p>
+                                of Surveyed Households with a Migrant<br>in the Last 5 Years
+                            </p>
+                            <p class="label-descr mb-0">Monthly Household Income per Capita:</p>
+                            <!-- <p class="text-range mb-0">
+                                <span class="label-range">$128.70&ndash;436.50</span>
+                            </p> -->
                         </div>
-                    </div> -->
+                    </div>
 
 
                     <!-- COST VIZ: -->
                     <!-- frame for d3 visualization -->
-                    <div id="frame-cost" class="frame-cost"></div>
-                    <!-- div for buttons -->
-                    <div id="toolbar" class="row position-relative mt-3 mt-md-5 mt-md-3 mt-lg-5 mb-md-5 mb-lg-0 px-2">
-                        <div class="col-3 px-0">
-                            <button type="button" id="all" class="button btn btn-sm text-uppercase text-blue"
-                                data-bs-toggle="modal" data-bs-target="#modal-motivs">Group Items</button>
-                            </span>
-                        </div>
-                        <div class="col-3 px-0">
-                            <button type="button" id="year" class="button btn btn-sm text-uppercase text-blue">Split
-                                by Migration Pathways</button>
-                            </span>
-                        </div>
-                        <div class="col-3 px-0">
-                            <button type="button" id="country" class="button btn btn-sm text-uppercase text-blue">Split
-                                by Country of
-                                Origin</button>
-                            </span>
-                        </div>
-                        <div class="col-3 px-0">
-                            <button type="bee" id="bee" class="button active btn btn-sm text-uppercase text-blue">Estimated
-                                Time to pay Debt</button>
-                            </span>
-                        </div>
-                    </div>
-    
-                    <!-- tooltip template -->
-                    <div class="tooltip mb-5 mb-md-0 template">
-                        <div class="side-color"></div>
-                        <div class="row mb-1">
-                            <div class="col-7">
-                                <p class="text-label-onemigrant">ONE MIGRANT</p>
-                            <p>From <span class="label-country text-label">El Salvador</span> Spent</p> 
+                    <div id="cost-container" class="">
+                        <div id="frame-cost" class="frame-cost"></div>
+                        <!-- div for buttons -->
+                        <div id="toolbar" class="row position-relative mt-3 mt-md-5 mt-md-3 mt-lg-5 mb-md-5 mb-lg-0 px-2">
+                            <div class="col-3 px-0">
+                                <button type="button" id="all" class="button btn btn-sm text-uppercase text-blue"
+                                    data-bs-toggle="modal" data-bs-target="#modal-motivs">Group Items</button>
+                                </span>
                             </div>
-                            <div class="col-5">                  
-                                <h3 class="label-cost text-color">$8,500</h3>
+                            <div class="col-3 px-0">
+                                <button type="button" id="year" class="button btn btn-sm text-uppercase text-blue">Split
+                                    by Migration Pathways</button>
+                                </span>
+                            </div>
+                            <div class="col-3 px-0">
+                                <button type="button" id="country" class="button btn btn-sm text-uppercase text-blue">Split
+                                    by Country of
+                                    Origin</button>
+                                </span>
+                            </div>
+                            <div class="col-3 px-0">
+                                <button type="bee" id="bee" class="button active btn btn-sm text-uppercase text-blue">Estimated
+                                    Time to pay Debt</button>
+                                </span>
                             </div>
                         </div>
-                        <h3 class="label-pathway text-color">Irregular Pathway on One's Own or with a Caravan</h3>
+        
+                        <!-- tooltip template -->
+                        <div class="tooltip mb-5 mb-md-0 template">
+                            <div class="side-color"></div>
+                            <div class="row mb-1">
+                                <div class="col-7">
+                                    <p class="text-label-onemigrant">ONE MIGRANT</p>
+                                <p>From <span class="label-country text-label">El Salvador</span> Spent</p> 
+                                </div>
+                                <div class="col-5">                  
+                                    <h3 class="label-cost text-color">$8,500</h3>
+                                </div>
+                            </div>
+                            <h3 class="label-pathway text-color">Irregular Pathway on One's Own or with a Caravan</h3>
+                        </div>
                     </div>
 
 
-                    <!-- <div id="toggle-buttons-cost" class="row mb-3 me-0">
+                    <div id="toggle-buttons-cost" class="row mb-3 me-0">
                         <div class="col px-0">
                             <a id=""
-                                class="dynamic-link btn btn-sm text-uppercase text-blue" href="/motivations.html" onclick="route()">Motivation to Migrate</a>
+                                class="btn-sm text-uppercase text-blue" href="/motivations.html" onclick="route()">Motivation to Migrate</a>
                         </div>
                         <div class="col px-0">
                             <a id="" class="dynamic-link btn btn-sm text-uppercase text-blue"
                                 href="" onclick="route()">Cost to Migrate</a>
                         </div>
-                    </div> -->
+                    </div>
 
                 </div><!-- close col -->
             </div><!-- close row -->

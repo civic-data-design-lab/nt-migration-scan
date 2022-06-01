@@ -10,8 +10,18 @@
     display: none;
 }
 
+/* TITLE */
+#title-text {
+    padding-left: calc(15.5% + 2px);
+    padding-right: 2px;
+}
+
 /* BUTTON */
 #buttons-motivations {
+    padding-left: calc(15.5% + 2px);
+    padding-right: 2px;
+}
+#toggle-buttons-motivations {
     padding-left: calc(15.5% + 2px);
     padding-right: 2px;
 }

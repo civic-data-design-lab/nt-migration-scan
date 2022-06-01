@@ -31,17 +31,13 @@
         integrity="sha512-iBAeBWWWFb8HqSBcrqcz98iIpuVH1la39dEYHtyQ/pGpeCQTQVvLJOWAuhv2Q7JSHp9k7hWA7sGxU3hHJe+tFg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-
-
-
-
 </head>
 
 <body>
 
     <div class="content-block">
         <div class="container-lg position-sticky">
-            <div class="row vh-100 px-lg-5 align-items-center">
+            <div class=" vh-100 px-lg-5 align-items-center">
                 <div id="viz-col" class="col mb-5">
                     <!-- frame for d3 visualization -->
                     <div id="frame-cost" class="frame-cost"></div>
@@ -84,11 +80,23 @@
                         </div>
                         <h3 class="label-pathway text-color">Irregular Pathway on One's Own or with a Caravan</h3>
                     </div>
+
+
+                    <div id="toggle-buttons-cost" class="row mb-3 me-0">
+                        <div class="col px-0">
+                            <a id=""
+                                class="dynamic-link btn btn-sm text-uppercase text-blue" href="/motivations.html" onclick="route()">Motivation to Migrate</a>
+                        </div>
+                        <div class="col px-0">
+                            <a id="" class="dynamic-link btn btn-sm text-uppercase text-blue"
+                                href="" onclick="route()">Cost to Migrate</a>
+                        </div>
+                    </div>
+
                 </div><!-- close col -->
             </div><!-- close row -->
         </div><!-- close container -->
     </div>
-
 
     <!--     <script src = './js/scroller.js'></script> -->
     <script type="text/javascript" src="./js/chapterClick.js"></script>
@@ -96,15 +104,6 @@
     <script type="text/javascript" src="./js/bootstrap.min.js"></script>
     <script type="text/javascript" src="./js/script.js"></script>
     <script type="text/javascript" src="./js/cost.js"></script>
-    <script>
-
-// d3.xml("circular.svg").mimeType("image/svg+xml").get(function(error, xml) {
-//   if (error) throw error;
-//   document.body.appendChild(xml.documentElement);
-// });
-
-</script>
-
 
 </body>
 

@@ -1595,3 +1595,17 @@ $(window).resize(function() {
         divMotivs.style("display", "block");
     }
 })
+
+
+
+// var l = document.getElementsByClassName("dynamic-link").length;
+
+// for (var i=0; l > 0; l--){
+//     var inner = document.getElementsByClassName("dynamic-link")[i].innerHTML,
+//         x = document.getElementsByClassName("dynamic-link")[i].getAttribute('href'),
+//         y = x.replace('id','http://'+inner);
+        
+//     document.getElementsByClassName("dynamic-link")[i].setAttribute('href',y);
+    
+//     i++
+// }

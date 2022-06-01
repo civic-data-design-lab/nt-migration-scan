@@ -1,0 +1,399 @@
+@font-face {
+    font-family: fa;
+    src: url();
+}
+
+@font-face {
+    font-family: '';
+    src: url();
+}
+
+@import url(https://fonts.googleapis.com/css?family=Patrick+Hand+SC);
+
+a, a:visited, a:active {
+  color: #fff;
+}
+ 
+.content-block1 {
+    position: -webkit-sticky;
+    /* for Safari */
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+    width: var(--open);
+    pointer-events: none;
+    top: 0px;
+    height: auto;
+    filter: var(--filters-off);
+    transition: var(--transition-speed);
+    /* border: 3px solid red; */
+}
+
+.content-block1 * {
+    pointer-events: auto;
+}
+
+#frame-cost svg {
+    display: block;
+    margin: auto;
+}
+
+#toolbar {
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s linear;
+}
+#toolbar.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+.button {
+	width: 100%;
+    font-weight: 500;
+   	color: #662d91;
+    background-color: #fff;
+    border: solid 2px #662d91;
+    border-radius: 0px;
+    /* box-shadow: 2px 2px 6px rgb(0 0 0 / 50%); */
+}
+.button.active, .button:hover {
+    color: #fff;
+    background-color: #662d91;
+}
+.btn#year {
+    border-left: none;
+    border-right: none;
+}
+.btn#country {
+    border-right: 0px;
+}
+
+/* 
+#vis {
+  width: 1600px;
+  height: 600px;
+  clear: both;
+  margin-bottom: 10px;
+}
+ */
+
+.year,.finance3,.means {
+  font-family: neue-haas-grotesk-text, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 1.2em;
+    line-height: 1em;
+}
+
+.year2, .means2, .finance {
+  font-family: neue-haas-grotesk-text, sans-serif;
+  
+    font-weight: 1000;
+    font-style: normal;
+    font-size: 2em;
+    line-height: 1em;
+}
+
+.means3, .finance2{
+  font-family: neue-haas-grotesk-text, sans-serif;
+    font-style: normal;
+    font-size: 1em;
+}
+
+.year3 {
+ 	background-color: black !important;
+  	font-family: neue-haas-grotesk-text, sans-serif;
+    font-weight: 700;
+    display: inline;
+    font-size: 2rem;
+    opacity: 1;
+}
+
+
+/* 
+.group {
+ font-family: neue-haas-grotesk-text, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 1.2em;
+    line-height: 1em;
+}
+
+.name {
+font-family: neue-haas-grotesk-text, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 1.2em;
+    line-height: 1em;
+    background: #fff;
+}
+ */
+
+
+
+/* .tooltip {
+	position: absolute;
+	top: 100px;
+	left: 100px;
+  -moz-border-radius:5px;
+	border-radius: 5px;
+  border: 2px solid #000;
+  background: #fff;
+	opacity: .9;
+  color: black;
+	padding: 10px;
+	width: 300px;
+	font-size: 12px;
+	z-index: 10;
+}
+
+.tooltip .title {
+	font-size: 13px;
+}
+
+.tooltip .name {
+  font-weight:bold;
+} */
+.tooltip {
+    position: relative;
+    width: 85%;
+    min-width: 355px;
+    max-width: 460px;
+    top: 1rem;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+    opacity: 1;
+}
+.tooltip .label-country {
+    line-height: 2em;
+}
+.tooltip .label-pathway {
+    font-weight: 600;
+    font-size: 1.5em;
+}
+
+.footer {
+  text-align: center;
+}
+
+.tooltip .text-label-onemigrant {
+    font-weight: 600;
+    font-size: 1.2rem;
+    line-height: 1rem;
+}
+
+
+     .axis, .axis text {
+       fill: var(--line-chart-color);
+     }
+
+     .axis line, path {
+     fill:none;
+      stroke: var(--line-chart-color);
+     }
+
+     path {
+/*      pointer-events: none; */
+/*        fill: none; */
+     }
+
+	.annotations-groupd {
+position:relative;
+z-index:-1000;}
+
+
+
+
+    .annotation path {
+    pointer-events: none;
+      stroke: black;
+      stroke-width: .7px;
+      fill: none;
+    }
+    
+.subject {
+    pointer-events: none;
+      stroke: black;
+      stroke-width: 1px;
+      border:solid;
+      fill: "#6c757d";
+      fill-opacity: .15;
+      mix-blend-mode: lighten;
+    }
+    
+/* 
+    .lined.thick{
+         border:solid 7px #41403E;
+      }
+ */
+    
+/* 
+    .annotation-note-content
+    {
+    width: 10px;}
+ */
+
+    .annotation text {
+    pointer-events: none;
+      fill: var(--annotation-badge-color);
+    }
+
+
+
+    .annotation-note-title, text.title {
+   pointer-events: none;
+      font-weight: bold;
+
+      font-size: 2em;
+      inline-size: 150px;
+
+    }
+    
+    .annotation-note-label{
+   pointer-events: none;
+      font-size: 1rem;
+font-family: neue-haas-grotesk-text, sans-serif;
+    }
+    
+        .annotation-note-medium{
+   pointer-events: none;
+   font-weight: 600;
+      font-size: 1rem;
+font-family: neue-haas-grotesk-text, sans-serif;
+    }
+
+
+.axis {
+	fill: black;
+      font-weight: bold;
+      font-size: 1em;
+    }
+    
+.axis2 {
+      font-size: 1.5em;
+    }
+    
+    
+.step1 {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0.5s;
+    /* width: 100vw; */
+}
+
+
+.ribbon-image img{
+  filter: grayscale(1);
+  mix-blend-mode: overlay;
+
+}
+
+.scrolly-container-cost2{
+    /* overflow: hidden; */
+    background-color: rgb(250, 164, 26,0.6);
+    backdrop-filter: var(--blur-on);
+}
+
+.scrolly-container-cost3{
+    /* overflow: hidden; */
+    background-color: rgb(226, 60, 173,0.5);
+    backdrop-filter: var(--blur-on);
+}
+
+.scenes {
+pointer-events: none;}
+
+.fully {
+pointer-events: none;}
+
+.fully .scrollytelling-text{
+  text-align: center;
+}
+
+/* 
+.frame-cost {
+margin-top:3rem;}
+ */
+ 
+ /* .svg-container {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+    vertical-align: top;
+    overflow: hidden;
+} */
+/* .svg-content {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+} */
+/* RESPONSIVE OVERRIDES */
+.btn-sm {
+    font-size: 0.7rem;
+    height: 60px;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+
+}
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .btn-sm {
+        height: 44px;
+    }
+    .tooltip {
+        position: absolute;
+        max-width: 360px;
+        -webkit-transform: translateX(0);
+        -moz-transform: translateX(0);
+        -ms-transform: translateX(0);
+        -o-transform: translateX(0);
+        transform: translateX(0);
+        opacity: 0;
+    }
+}
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .btn-sm {
+        height: 54px;
+        font-size: 0.875rem;
+    }
+}
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    
+}
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
+    
+}
+/* portrait aspect ratio */
+@media (max-aspect-ratio: 1/1) {
+    #frame-cost svg {
+        max-height: calc(100vh - 300px);
+    }
+}
+/* portrait aspect ratio */
+@media (min-aspect-ratio: 1/1) {
+    #frame-cost svg {
+        max-height: calc(100vh - 100px);
+    }
+    #toolbar {
+        margin-top: 0.5rem!important;
+    }
+}
+/* wide aspect ratio */
+@media (min-aspect-ratio: 16/9) {
+    #frame-cost {
+        margin: auto;
+        max-width: 120vh;
+    }
+}

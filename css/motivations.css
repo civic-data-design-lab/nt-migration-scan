@@ -1,0 +1,210 @@
+/* SVG TRANSITION ANIMATION */
+#transition {
+    background-color: #0070ff;
+    display: none;
+}
+#transition, .cell rect {
+    transition: linear 0.3s all;
+}
+.grid-color {
+    display: none;
+}
+
+/* BUTTON */
+#buttons-motivations {
+    padding-left: calc(15.5% + 2px);
+    padding-right: 2px;
+}
+.btn {
+    width: 100%;
+    font-weight: 500;
+    background-color: #fff;
+    border: solid 2px #1540C4;
+    border-radius: 0px;
+}
+.btn.active, .btn:hover {
+    color: #fff;
+    background-color: #1540C4;
+}
+#btn-income {
+    border-right: none;
+    border-left: none;
+}
+
+/* bootstrap tooltip */
+.tooltip.bs-tooltip-top,
+.tooltip.bs-tooltip-right,
+.tooltip.bs-tooltip-left,
+.tooltip.bs-tooltip-bottom,
+.tooltip.bs-tooltip {
+    margin: 0;
+    padding: 0.4rem 0;
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+.tooltip.bs-tooltip-top.show,
+.tooltip.bs-tooltip-right.show,
+.tooltip.bs-tooltip-left.show,
+.tooltip.bs-tooltip-bottom.show,
+.tooltip.bs-tooltip.show {
+    opacity: 1;
+}
+.tooltip-inner {
+    max-width: none;
+    color: #1540C4 !important;
+    background-color: #fff !important;
+    border: solid 2px #1540C4 !important;
+    border-radius: 0 !important;
+}
+
+/* LABELS */
+.chart-labels {
+    display: none;
+}
+.chart-labels:hover {
+    cursor: default;
+}
+#viz-motivations text {
+    font-size: 1.4rem;
+}
+.chart-text text {
+    fill: #1540C4;
+}
+
+/* TOOLTIP */
+.tooltip {
+    position: relative;
+    width: 85%;
+    top: 1rem;
+    left: 57%;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+.tooltip .side-color {
+    background-color: #1540C4;
+}
+.tooltip .text-hh {
+    font-size: 1rem;
+}
+.tooltip .col-right {
+    width: 115px;
+}
+.tooltip .col-left {
+    width: calc(100% - 115px);
+}
+.tooltip-side {
+    position: absolute;
+    max-width: 325px;
+    color: #1540C4;
+    background-color: #fff;
+    border: solid 2px #1540C4;
+    box-shadow: 2px 2px 6px rgb(0 0 0 / 50%);
+}
+.tooltip-side p {
+    font-size: 0.8rem;
+}
+.tooltip-side .label-group {
+    display: inline-block;
+    background-color: #1540C4;
+}
+
+/* SCROLLYTELLING */
+#map-state-4 {
+    padding-bottom: 0px;
+}
+#scene-0, #scene-1 {
+    padding-top: 0px;
+}
+#narrative-scroll, 
+#narrative-scroll .scenes,
+#narrative-scroll .scenes div {
+    pointer-events: none;
+}
+.scrolly-container-motivations .ribbon-image img {
+    filter: grayscale(1);
+    -webkit-mix-blend-mode: hard-light;
+    -moz-mix-blend-mode: hard-light;
+    -ms-mix-blend-mode: hard-light;
+    -o-mix-blend-mode: hard-light;
+    mix-blend-mode: hard-light;
+}
+
+/* MODALS */
+.modal-narrative {
+    background-color: none;
+}
+.modal-narrative .modal-content {
+    color: #fff;
+    background: none;
+    pointer-events: none;
+}
+.modal-narrative p {
+    margin: 0px;
+}
+.modal-narrative .display-1,
+.modal-narrative .display-3 {
+    font-weight: 700;
+}
+.modal-backdrop {
+    background-color: #1540C4;
+}
+.modal-backdrop.show {
+    opacity: 0.75;
+}
+
+/* RESPONSIVE OVERRIDES */
+.btn-sm {
+    font-size: 0.7rem;
+    height: 44px;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+
+}
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    /* #viz-content {
+        align-items: center;
+    } */
+    .btn-sm {
+        height: auto;
+    }
+    .tooltip {
+        position: absolute;
+        min-width: 310px;
+        max-width: 380px;
+        -webkit-transform: translateX(0);
+        -moz-transform: translateX(0);
+        -ms-transform: translateX(0);
+        -o-transform: translateX(0);
+        transform: translateX(0);
+        display: none;
+    }
+}
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .btn-sm {
+        font-size: 0.875rem;
+    }
+}
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    
+}
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
+    
+}
+
+/* wide aspect ratio */
+@media (min-aspect-ratio: 16/9) {
+    #viz-col {
+        margin: auto;
+        max-width: 150vh;
+    }
+}

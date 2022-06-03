@@ -167,8 +167,11 @@
                         </div>
                     </div>
 
-                    <div class="migrant-content">
+                    <div class="migrant-motivation-content">
                         <span class="migrant-name">Name</span> (<span class="migrant-age">Age</span>) is one of the 44% of migrants who are only marginally food secure.
+                    </div>
+                    <div class="migrant-cost-content" style="display: none">
+                        <span class="migrant-name">Name</span> (<span class="migrant-age">Age</span>) lorem ipsum.
                     </div>
 
                     <div id="toggle-buttons-cost" class="row mb-3 me-0">
@@ -177,11 +180,13 @@
                         </div>
                         <div class="col px-0">
                             <button id="" class="btn btn-sm text-uppercase text-blue"
-                                onclick="document.getElementById('cost-container').style.display = 'none'; document.getElementById('motivations-container').style.display = 'block';">Motivation to Migrate</button>
+                                onclick="toggle_motivation_on()">Motivation to Migrate</button>
+
                         </div>
                         <div class="col px-0">
                             <button id="" class="btn btn-sm text-uppercase text-blue"
-                                onclick="document.getElementById('motivations-container').style.display = 'none'; document.getElementById('cost-container').style.display = 'block';">Cost to Migrate</button>
+                                onclick="toggle_cost_on()">Motivation to Migrate</button>
+
                         </div>
                         <div class="col px-0">
                             <a href="/about"  onclick="route()" class="btn btn-sm" >About</a>
@@ -192,6 +197,10 @@
             </div><!-- close row -->
         </div><!-- close container -->
     </div>
+    <!-- onclick="document.getElementById('cost-container').style.display = 'none'; document.getElementById('motivations-container').style.display = 'block';">Motivation to Migrate</button> -->
+    <!-- onclick="document.getElementById('motivations-container').style.display = 'none'; document.getElementById('cost-container').style.display = 'block';">Cost to Migrate</button> -->
+    <!-- onclick="toggle_motivation_on()">Motivation to Migrate</button> -->
+    <!-- onclick="toggle_cost_on()">Motivation to Migrate</button> -->
 
 
     <script type="text/javascript" src="./js/chapterClick.js"></script>

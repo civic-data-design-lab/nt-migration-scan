@@ -1,4 +1,14 @@
 // VARIABLES
+const id_with_hash = window.location.hash
+if (id_with_hash.length != 0){ 
+    const item_scanned = true
+    const migrant_scanned_id = window.location.hash.slice(1,)
+}
+else {
+    const item_scanned = false
+}
+
+
 // svg animation transition
 let transitionTime = 1000;
 let currentScrollPos = $("#open").scrollTop();
@@ -423,6 +433,35 @@ const dataset = d3.csv("./data/motivations.csv", d3.autoType)
 
         // console.log(keys);
         // console.log(motivationsData);
+
+        // here
+        if (window.location.hash.length != 0){
+
+            // get migrant id
+            const id = window.location.hash.slice(1,)
+            console.log("HASH ID HERE:", id)
+
+            // change opacity of specific rectangle
+            
+            
+        
+            // select motivation paragraph and change text
+            const motivationTextContent = $(".migrant-motivation-content");
+            // textContent.find(".text-color").css("color", motivColor);
+            motivationTextContent.find(".migrant-name").html(id);
+            motivationTextContent.find(".migrant-age").html(id);
+
+             // select motivation paragraph and change text
+             const costTextContent = $(".migrant-cost-content");
+             // textContent.find(".text-color").css("color", motivColor);
+             costTextContent.find(".migrant-name").html(id);
+             costTextContent.find(".migrant-age").html(id);
+
+            // change opacity of all rectangles
+            svg.selectAll("rect")
+            .attr("opacity", 0.5)
+
+        }
     });
 
 // FUNCTIONS
@@ -1599,19 +1638,49 @@ $(window).resize(function() {
 
 window.onload = function() {
     const id_with_hash = window.location.hash
-    const id = id_with_hash.slice(1,)
-    console.log("HASH:", id)
 
-    const textContent = $(".migrant-content");
+    if (id_with_hash.length != 0) {
+        console.log("item has been scanned")
+    }
 
-    // textContent.find(".text-color").css("color", motivColor);
-    textContent.find(".migrant-name").html(id);
-    textContent.find(".migrant-age").html(id);
-
+    else {
+        const motivationTextContent = $(".migrant-motivation-content");
+        motivationTextContent.html("Scan an item to get started")
+        const costTextContent = $(".migrant-cost-content");
+        costTextContent.html("Scan an item to get started")
+    }
 
 }
 
 window.onhashchange = function() { 
     console.log("HASH CHANGED")
     location.reload()  
+}
+
+
+function toggle_motivation_on () {
+    const motivationContainer = $("#motivations-container");
+    motivationContainer.css("display", "block")
+    const motivationText = $(".migrant-motivation-content");
+    motivationText.css("display", "block")
+
+    const costContainer = $("#cost-container");
+    costContainer.css("display", "none")
+    const costText = $(".migrant-cost-content");
+    costText.css("display", "none")
+
+    // document.getElementById('cost-container').style.display = 'none';
+    // document.getElementById('motivations-container').style.display = 'block';
+}
+
+function toggle_cost_on () {
+    const motivationContainer = $("#motivations-container");
+    motivationContainer.css("display", "none")
+    const motivationText = $(".migrant-motivation-content");
+    motivationText.css("display", "none")
+
+    const costContainer = $("#cost-container");
+    costContainer.css("display", "block")
+    const costText = $(".migrant-cost-content");
+    costText.css("display", "block")
 }

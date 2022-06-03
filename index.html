@@ -47,7 +47,7 @@
 
 <body>
     
-    <div class="content-block solid-white">
+    <div id="page-content" class="content-block solid-white">
         <div id="motivations" class="container-lg position-sticky">
             <div id="viz-content" class="mt-5 vh-100 px-xl-5 align-items-center">
                 <div id="viz-col" class="col">
@@ -167,10 +167,13 @@
                         </div>
                     </div>
 
+                    <div class="migrant-content">
+                        <span class="migrant-name">Name</span> (<span class="migrant-age">Age</span>) is one of the 44% of migrants who are only marginally food secure.
+                    </div>
 
                     <div id="toggle-buttons-cost" class="row mb-3 me-0">
                         <div class="col px-0">
-                            <a href="/home.html" class="btn btn-sm">Home</a>
+                            <a href="/home"  onclick="route()" class="btn btn-sm">Home</a>
                         </div>
                         <div class="col px-0">
                             <button id="" class="btn btn-sm text-uppercase text-blue"
@@ -181,7 +184,7 @@
                                 onclick="document.getElementById('motivations-container').style.display = 'none'; document.getElementById('cost-container').style.display = 'block';">Cost to Migrate</button>
                         </div>
                         <div class="col px-0">
-                            <a href="/about.html" class="btn btn-sm" >About</a>
+                            <a href="/about"  onclick="route()" class="btn btn-sm" >About</a>
                         </div>
                     </div>
 
@@ -200,7 +203,8 @@
     <script type="text/javascript" src="./js/bubble_chart.js"></script>
     <script type="text/javascript" src="./js/cost.js"></script>
 
-    <!-- <script type="text/javascript" src="./js/router.js"></script> -->
+    <script type="text/javascript" src="./js/router.js"></script>
+    <script type="text/javascript" src="./js/id-router.js"></script>
 
 </body>
 

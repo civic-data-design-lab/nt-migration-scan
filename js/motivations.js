@@ -1597,15 +1597,21 @@ $(window).resize(function() {
 })
 
 
+window.onload = function() {
+    const id_with_hash = window.location.hash
+    const id = id_with_hash.slice(1,)
+    console.log("HASH:", id)
 
-// var l = document.getElementsByClassName("dynamic-link").length;
+    const textContent = $(".migrant-content");
 
-// for (var i=0; l > 0; l--){
-//     var inner = document.getElementsByClassName("dynamic-link")[i].innerHTML,
-//         x = document.getElementsByClassName("dynamic-link")[i].getAttribute('href'),
-//         y = x.replace('id','http://'+inner);
-        
-//     document.getElementsByClassName("dynamic-link")[i].setAttribute('href',y);
-    
-//     i++
-// }
+    // textContent.find(".text-color").css("color", motivColor);
+    textContent.find(".migrant-name").html(id);
+    textContent.find(".migrant-age").html(id);
+
+
+}
+
+window.onhashchange = function() { 
+    console.log("HASH CHANGED")
+    location.reload()  
+}

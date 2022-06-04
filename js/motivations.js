@@ -437,29 +437,34 @@ const dataset = d3.csv("./data/motivations.csv", d3.autoType)
         // here
         if (window.location.hash.length != 0){
 
+            // change opacity of all rectangles
+            svg.selectAll("rect")
+            .attr("opacity", 0.5)
+
             // get migrant id
-            const id = window.location.hash.slice(1,)
-            console.log("HASH ID HERE:", id)
+            const migrant_id = window.location.hash.slice(1,)
+            console.log("HASH ID HERE:", migrant_id)
+
+            const selected_migrant_array = motivationsData.filter(item => item.rsp_id2 == migrant_id)
+            const selected_migrant = selected_migrant_array[0]
+            console.log("selected_migrant", selected_migrant)
 
             // change opacity of specific rectangle
-            
-            
+            svg.select("#sq-" + migrant_id)
+            .attr("opacity", 1)
         
             // select motivation paragraph and change text
             const motivationTextContent = $(".migrant-motivation-content");
             // textContent.find(".text-color").css("color", motivColor);
-            motivationTextContent.find(".migrant-name").html(id);
-            motivationTextContent.find(".migrant-age").html(id);
+            motivationTextContent.find(".migrant-name").html("Jose");
+            motivationTextContent.find(".migrant-age").html(migrant_id);
+            motivationTextContent.find(".migrant-country").html(countryText_motivations[selected_migrant.country]);
 
              // select motivation paragraph and change text
              const costTextContent = $(".migrant-cost-content");
              // textContent.find(".text-color").css("color", motivColor);
-             costTextContent.find(".migrant-name").html(id);
-             costTextContent.find(".migrant-age").html(id);
-
-            // change opacity of all rectangles
-            svg.selectAll("rect")
-            .attr("opacity", 0.5)
+             costTextContent.find(".migrant-name").html(migrant_id);
+             costTextContent.find(".migrant-age").html(migrant_id);
 
         }
     });

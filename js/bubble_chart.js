@@ -98,8 +98,10 @@ var posScaleRev = d3v4.scaleLinear().domain([22000,0]);
       .range([2, 85])
       .domain([0, maxAmount]);
 
+    // may need to include other data attributes here
     var myNodes = rawData.map(function (d) {
       return {
+        rsp_id: d.rsp_id,
         id: d.id,
         radius: radiusScale(+d.mig_ext_cost_total),
         value: +d.mig_ext_cost_total,
@@ -145,6 +147,7 @@ var posScaleRev = d3v4.scaleLinear().domain([22000,0]);
       .data(nodes, function (d) { return d.id; });
 
     var bubblesE = bubbles.enter().append('circle')
+      .attr("id", d => "cir-" + d.rsp_id)
       .classed('bubble', true)
       .attr('r', 0)
       .attr('fill', function (d) { return fillColor(d.name); })
@@ -321,7 +324,35 @@ function display(error, data) {
     console.log(error);
   }
   
+  // console.log("DOTS DATA:", data)
+
   myBubbleChart('#vis', data);
+
+  if (window.location.hash.length != 0){
+
+    d3v4.selectAll('circle')
+    .attr("opacity", 0.5)
+
+    // get migrant id
+    const migrant_id = window.location.hash.slice(1,)
+    console.log("HASH ID HERE in bubble chart:", migrant_id)
+
+    const selected_migrant_array = data.filter(item => item.rsp_id == migrant_id)
+            const selected_migrant = selected_migrant_array[0]
+            console.log("cost selected_migrant", selected_migrant)
+
+            // change opacity of specific rectangle
+            d3v4.select("#cir-" + migrant_id)
+            .attr("opacity", 1)
+
+    // select motivation paragraph and change text
+    const costTextContent = $(".migrant-cost-content");
+    // textContent.find(".text-color").css("color", motivColor);
+    costTextContent.find(".migrant-name").html(migrant_id);
+    costTextContent.find(".migrant-age").html(migrant_id);
+
+  }
+  
 }
 
 
@@ -864,7 +895,6 @@ d3v4.select("svg")
 d3v4.csv('data/dots_data2.csv', display);
 
 
-
 // function (d){ if (d.name === "irrregular coyote") return 0.04; else .023}
 
  function wrap(text, width) {
@@ -902,3 +932,20 @@ $(window).resize(function() {
         $("#gates_tooltip").css({'opacity': 1.0, 'top': '1rem', 'left': '50%'});
     }
 });
+
+
+// window.onload = function() {
+//   const id_with_hash = window.location.hash
+
+//   if (id_with_hash.length != 0) {
+//       console.log("cost: item has been scanned")
+//   }
+
+//   else {
+//       // const motivationTextContent = $(".migrant-motivation-content");
+//       // motivationTextContent.html("Scan an item to get started")
+//       const costTextContent = $(".migrant-cost-content");
+//       costTextContent.html("Scan an item to get started")
+//   }
+
+// }

@@ -1,13 +1,12 @@
 // VARIABLES
-const id_with_hash = window.location.hash
-if (id_with_hash.length != 0){ 
-    const item_scanned = true
-    const migrant_scanned_id = window.location.hash.slice(1,)
-}
-else {
-    const item_scanned = false
-}
-
+// const id_with_hash = window.location.hash
+// if (id_with_hash.length != 0){ 
+//     const item_scanned = true
+//     const migrant_scanned_id = window.location.hash.slice(1,)
+// }
+// else {
+//     const item_scanned = false
+// }
 
 // svg animation transition
 let transitionTime = 1000;
@@ -445,26 +444,20 @@ const dataset = d3.csv("./data/motivations.csv", d3.autoType)
             const migrant_id = window.location.hash.slice(1,)
             console.log("HASH ID HERE:", migrant_id)
 
-            const selected_migrant_array = motivationsData.filter(item => item.rsp_id2 == migrant_id)
+            const selected_migrant_array = motivationsData.filter(item => item.rsp_id2 == "rsp"+migrant_id)
             const selected_migrant = selected_migrant_array[0]
             console.log("selected_migrant", selected_migrant)
 
             // change opacity of specific rectangle
-            svg.select("#sq-" + migrant_id)
+            svg.select("#sq-" + "rsp"+migrant_id)
             .attr("opacity", 1)
         
             // select motivation paragraph and change text
             const motivationTextContent = $(".migrant-motivation-content");
             // textContent.find(".text-color").css("color", motivColor);
             motivationTextContent.find(".migrant-name").html("Jose");
-            motivationTextContent.find(".migrant-age").html(migrant_id);
+            motivationTextContent.find(".migrant-age").html("rsp"+migrant_id);
             motivationTextContent.find(".migrant-country").html(countryText_motivations[selected_migrant.country]);
-
-             // select motivation paragraph and change text
-             const costTextContent = $(".migrant-cost-content");
-             // textContent.find(".text-color").css("color", motivColor);
-             costTextContent.find(".migrant-name").html(migrant_id);
-             costTextContent.find(".migrant-age").html(migrant_id);
 
         }
     });

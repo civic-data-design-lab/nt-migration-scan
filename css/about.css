@@ -1,0 +1,51 @@
+html > * {
+    background-color: black;
+}
+
+body{
+    background-color: black;
+    min-height:100%;
+}
+
+
+h2{
+    color: white;
+    font-size:300%;
+    padding-top: 5%;
+    padding-left: 5%;
+    padding-bottom: 2%;
+}
+p {
+    color: white;
+    font-size:130%;
+    padding-top: 1%;
+    padding-left: 5%;
+    padding-right:52%;
+}
+
+.btn {
+    background-color: white;
+    position: absolute;
+    color:black;
+    text-align:left;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+
+.px-0 > .btn {
+    box-sizing: content-box;
+    width: 100%;
+    border-color: white;
+}
+
+.btn:hover{
+    background-color: black;
+    color: white;
+    transition: 0.5s;
+}
+
+#toggle-buttons-cost {
+    bottom:0px;
+    width:100%;
+}

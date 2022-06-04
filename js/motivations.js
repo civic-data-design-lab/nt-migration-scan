@@ -436,8 +436,11 @@ const dataset = d3.csv("./data/motivations.csv", d3.autoType)
         // here
         if (window.location.hash.length != 0){
 
-            // change opacity of all rectangles
+            // change opacity of all rectangles and triangles
             svg.selectAll("rect")
+            .attr("opacity", 0.5)
+
+            svg.selectAll("path")
             .attr("opacity", 0.5)
 
             // get migrant id
@@ -448,9 +451,22 @@ const dataset = d3.csv("./data/motivations.csv", d3.autoType)
             const selected_migrant = selected_migrant_array[0]
             console.log("selected_migrant", selected_migrant)
 
-            // change opacity of specific rectangle
-            svg.select("#sq-" + "rsp"+migrant_id)
-            .attr("opacity", 1)
+            // change opacity of specific rectangle or triangles
+            if (svg.select("#sq-" + "rsp"+migrant_id).empty() == false) {
+                svg.select("#sq-" + "rsp"+migrant_id).attr("opacity", 1)
+            }
+            else if (svg.select("#tri-tr-" + "rsp"+migrant_id).empty() == false) {
+                svg.select("#tri-tr-" + "rsp"+migrant_id).attr("opacity", 1)
+                svg.select("#tri-bl-" + "rsp"+migrant_id).attr("opacity", 1)
+            }
+            else if (svg.select("#tri-t-" + "rsp"+migrant_id).empty() == false) {
+                svg.select("#tri-t-" + "rsp"+migrant_id).attr("opacity", 1)
+                svg.select("#tri-r-" + "rsp"+migrant_id).attr("opacity", 1)
+                svg.select("#tri-bl-" + "rsp"+migrant_id).attr("opacity", 1)
+            }
+            else {
+                console.log("error: can't locate d3 item for this migrant")
+            }
         
             // select motivation paragraph and change text
             const motivationTextContent = $(".migrant-motivation-content");

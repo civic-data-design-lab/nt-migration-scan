@@ -191,15 +191,15 @@ font-family: neue-haas-grotesk-text, sans-serif;
        fill: var(--line-chart-color);
      }
 
-     .axis line, path {
+     /* .axis line, path {
      fill:none;
       stroke: var(--line-chart-color);
-     }
+     } */
 
-     path {
+     /* path { */
 /*      pointer-events: none; */
 /*        fill: none; */
-     }
+     /* } */
 
 	.annotations-groupd {
 position:relative;

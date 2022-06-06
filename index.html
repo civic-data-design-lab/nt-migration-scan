@@ -167,12 +167,24 @@
                         </div>
                     </div>
 
-                    <div class="migrant-motivation-content">
+                    <!-- NARRATIVES TEXT AND BUTTONS -->
+                    <button onclick="toggle_narrative_1_to_3()">Back to 3</button>
+                    <div class="narrative-1">
                         <span class="migrant-name">Name</span> (<span class="migrant-age">Age</span>) a migrant from <span class="migrant-country">Country</span>.
                     </div>
-                    <div class="migrant-cost-content" style="display: none">
+                    <button onclick="toggle_narrative_1_to_2()">Forward to 2</button>
+
+                    <button style="display: none" onclick="toggle_narrative_2_to_1()">Back to 1</button>
+                    <div class="narrative-2" style="display: none">
                         <span class="migrant-name">Name</span> (<span class="migrant-age">Age</span>) lorem ipsum.
                     </div>
+                    <button style="display: none" onclick="toggle_narrative_2_to_3()">Forward to 3</button>
+                    
+                    <button style="display: none" onclick="toggle_narrative_3_to_2()">Back to 2</button>
+                    <div class="narrative-3" style="display: none">
+                        <span class="migrant-name">Name</span> (<span class="migrant-age">Age</span>) lorem ipsum.
+                    </div>
+                    <button style="display: none" onclick="toggle_narrative_3_to_1()">Forward to 1</button>
 
                     <div id="toggle-buttons-cost" class="row mb-3 me-0">
                         <div class="col px-0">

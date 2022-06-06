@@ -469,7 +469,7 @@ const dataset = d3.csv("./data/motivations.csv", d3.autoType)
             }
         
             // select motivation paragraph and change text
-            const motivationTextContent = $(".migrant-motivation-content");
+            const motivationTextContent = $(".narrative-1");
             // textContent.find(".text-color").css("color", motivColor);
             motivationTextContent.find(".migrant-name").html("Jose");
             motivationTextContent.find(".migrant-age").html("rsp"+migrant_id);
@@ -1658,9 +1658,9 @@ window.onload = function() {
     }
 
     else {
-        const motivationTextContent = $(".migrant-motivation-content");
+        const motivationTextContent = $(".narrative-1");
         motivationTextContent.html("Scan an item to get started")
-        const costTextContent = $(".migrant-cost-content");
+        const costTextContent = $(".narrative-2");
         costTextContent.html("Scan an item to get started")
     }
 
@@ -1675,12 +1675,12 @@ window.onhashchange = function() {
 function toggle_motivation_on () {
     const motivationContainer = $("#motivations-container");
     motivationContainer.css("display", "block")
-    const motivationText = $(".migrant-motivation-content");
+    const motivationText = $(".narrative-1");
     motivationText.css("display", "block")
 
     const costContainer = $("#cost-container");
     costContainer.css("display", "none")
-    const costText = $(".migrant-cost-content");
+    const costText = $(".narrative-2");
     costText.css("display", "none")
 
     // document.getElementById('cost-container').style.display = 'none';
@@ -1690,11 +1690,16 @@ function toggle_motivation_on () {
 function toggle_cost_on () {
     const motivationContainer = $("#motivations-container");
     motivationContainer.css("display", "none")
-    const motivationText = $(".migrant-motivation-content");
+    const motivationText = $(".narrative-1");
     motivationText.css("display", "none")
 
     const costContainer = $("#cost-container");
     costContainer.css("display", "block")
-    const costText = $(".migrant-cost-content");
+    const costText = $(".narrative-2");
     costText.css("display", "block")
 }
+
+
+// function toggle_narrative_1_to_3 () {
+//     const currentNarrative = $(".narrative-1")
+// }

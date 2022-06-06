@@ -346,7 +346,7 @@ function display(error, data) {
             .attr("opacity", 1)
 
     // select motivation paragraph and change text
-    const costTextContent = $(".migrant-cost-content");
+    const costTextContent = $(".narrative-2");
     // textContent.find(".text-color").css("color", motivColor);
     costTextContent.find(".migrant-name").html(migrant_id);
     costTextContent.find(".migrant-age").html(migrant_id);

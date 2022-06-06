@@ -331,7 +331,7 @@ function display(error, data) {
   if (window.location.hash.length != 0){
 
     d3v4.selectAll('circle')
-    .attr("opacity", 0.5)
+    .attr("opacity", 0.1)
 
     // get migrant id
     const migrant_id = window.location.hash.slice(1,)

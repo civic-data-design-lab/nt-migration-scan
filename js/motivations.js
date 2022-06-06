@@ -64,22 +64,22 @@ const motivAttr = {
         descr: "Responses for climate motivations to migrate included: education, for cultural reasons or customs, for health-related reasons (such as treatments, surgeries, medical consultations, or medicines), for tourism, other reasons not listed, and responses that did not respond or reported not knowing.", yPosSide: 33, xPosLegend: 32}
 };
 const motivDetailAttr = {
-    "1": {label: "search for a better job", category: "econ", color: "#1540c4"},
-    "2": {label: "unemployment", category: "econ", color: "#1540c4"},
-    "3": {label: "deteriorated livelihood due to natural hazards", category: "clim", color: "#00a99d"},
-    "4": {label: "direct impact from a natural hazard", category: "clim", color: "#00a99d"},
-    "5": {label: "loss of land due to land use change", category: "clim", color: "#00a99d"},
-    "6": {label: "lack of money for food", category: "econ", color: "#1540c4"},
-    "7": {label: "lack of money for basic needs", category: "econ", color: "#1540c4"},
+    "1": {label: "to search for a better job", category: "econ", color: "#1540c4"},
+    "2": {label: "due to unemployment", category: "econ", color: "#1540c4"},
+    "3": {label: "because of a deteriorated livelihood due to natural hazards", category: "clim", color: "#00a99d"},
+    "4": {label: "due to direct impact from a natural hazard", category: "clim", color: "#00a99d"},
+    "5": {label: "because of loss of land due to land use change", category: "clim", color: "#00a99d"},
+    "6": {label: "due to lack of money for food", category: "econ", color: "#1540c4"},
+    "7": {label: "due to lack of money for basic needs", category: "econ", color: "#1540c4"},
     "8": {label: "to send remittances", category: "econ", color: "#1540c4"},
-    "9": {label: "education", category: "oth", color: "#f1a650"},
-    "10": {label: "domestic violence", category: "sec", color: "#93278f"},
-    "11": {label: "unsafety", category: "sec", color: "#93278f"},
-    "12": {label: "family reunification", category: "reun", color: "#eb4927"},
-    "13": {label: "cultural reasons", category: "oth", color: "#f1a650"},
-    "14": {label: "health needs", category: "oth", color: "#f1a650"},
-    "15": {label: "adventure or tourism", category: "oth", color: "#f1a650"},
-    "16": {label: "other", category: "oth", color: "#f1a650"},
+    "9": {label: "for education", category: "oth", color: "#f1a650"},
+    "10": {label: "due to domestic violence", category: "sec", color: "#93278f"},
+    "11": {label: "due to unsafety", category: "sec", color: "#93278f"},
+    "12": {label: "for family reunification", category: "reun", color: "#eb4927"},
+    "13": {label: "for cultural reasons", category: "oth", color: "#f1a650"},
+    "14": {label: "due to health needs", category: "oth", color: "#f1a650"},
+    "15": {label: "for adventure or tourism", category: "oth", color: "#f1a650"},
+    "16": {label: "due to other reasons", category: "oth", color: "#f1a650"},
     "99": {label: "no response", category: "oth", color: "#777"}
 };
 const incomeAttr = {
@@ -450,6 +450,8 @@ const dataset = d3.csv("./data/motivations.csv", d3.autoType)
             const selected_migrant_array = motivationsData.filter(item => item.rsp_id2 == "rsp"+migrant_id)
             const selected_migrant = selected_migrant_array[0]
             console.log("selected_migrant", selected_migrant)
+            const selected_migrant_motives = selected_migrant.mig_ext_motivo.split(' ');
+            console.log("motives", selected_migrant_motives)
 
             // change opacity of specific rectangle or triangles
             if (svg.select("#sq-" + "rsp"+migrant_id).empty() == false) {
@@ -469,12 +471,18 @@ const dataset = d3.csv("./data/motivations.csv", d3.autoType)
             }
         
             // select motivation paragraph and change text
-            const motivationTextContent = $(".narrative-1");
+            const narrative1_textContent = $(".narrative-1");
             // textContent.find(".text-color").css("color", motivColor);
-            motivationTextContent.find(".migrant-name").html("Jose");
-            motivationTextContent.find(".migrant-age").html("rsp"+migrant_id);
-            motivationTextContent.find(".migrant-country").html(countryText_motivations[selected_migrant.country]);
-
+            narrative1_textContent.find(".migrant-name").html("Jose");
+            narrative1_textContent.find(".migrant-age").html("rsp"+migrant_id);
+            narrative1_textContent.find(".migrant-country").html(countryText_motivations[selected_migrant.country]);
+            if (selected_migrant_motives.length > 1) {
+                console.log(motivDetailAttr[selected_migrant_motives[0]].label)
+                narrative1_textContent.find(".migrant-motivation").html(motivDetailAttr[selected_migrant_motives[0]].label + " and " + motivDetailAttr[selected_migrant_motives[1]].label); 
+            }
+            else {
+                narrative1_textContent.find(".migrant-motivation").html(motivDetailAttr[selected_migrant_motives[0]].label); 
+            }
         }
     });
 
@@ -1658,8 +1666,8 @@ window.onload = function() {
     }
 
     else {
-        const motivationTextContent = $(".narrative-1");
-        motivationTextContent.html("Scan an item to get started")
+        const narrative1_textContent = $(".narrative-1");
+        narrative1_textContent.html("Scan an item to get started")
         const costTextContent = $(".narrative-2");
         costTextContent.html("Scan an item to get started")
     }

@@ -1683,8 +1683,12 @@ function toggle_motivation_on () {
     const costText = $(".narrative-2");
     costText.css("display", "none")
 
-    // document.getElementById('cost-container').style.display = 'none';
-    // document.getElementById('motivations-container').style.display = 'block';
+    $("#narrative_2to1").css("display", "none")
+    $("#narrative_2to3").css("display", "none")
+    $("#narrative_3to2").css("display", "none")
+    $("#narrative_3to1").css("display", "none")
+    $("#narrative_1to3").css("display", "block")
+    $("#narrative_1to2").css("display", "block")
 }
 
 function toggle_cost_on () {
@@ -1697,9 +1701,84 @@ function toggle_cost_on () {
     costContainer.css("display", "block")
     const costText = $(".narrative-2");
     costText.css("display", "block")
+
+    $("#narrative_1to3").css("display", "none")
+    $("#narrative_1to2").css("display", "none")
+    $("#narrative_3to2").css("display", "none")
+    $("#narrative_3to1").css("display", "none")
+    $("#narrative_2to1").css("display", "block")
+    $("#narrative_2to3").css("display", "block")
 }
 
 
-// function toggle_narrative_1_to_3 () {
-//     const currentNarrative = $(".narrative-1")
-// }
+function toggle_narrative_1_to_3 () {
+    const currentNarrative = $(".narrative-1")
+    currentNarrative.css("display", "none")
+    const nextNarrative = $(".narrative-3")
+    nextNarrative.css("display", "block")
+
+    $("#narrative_1to3").css("display", "none")
+    $("#narrative_1to2").css("display", "none")
+    $("#narrative_3to2").css("display", "block")
+    $("#narrative_3to1").css("display", "block")
+}
+
+function toggle_narrative_3_to_1 () {
+    const currentNarrative = $(".narrative-3")
+    currentNarrative.css("display", "none")
+    const nextNarrative = $(".narrative-1")
+    nextNarrative.css("display", "block")
+
+    $("#narrative_3to2").css("display", "none")
+    $("#narrative_3to1").css("display", "none")
+    $("#narrative_1to3").css("display", "block")
+    $("#narrative_1to2").css("display", "block")
+}
+
+function toggle_narrative_2_to_3 () {
+    const currentNarrative = $(".narrative-2")
+    currentNarrative.css("display", "none")
+    const nextNarrative = $(".narrative-3")
+    nextNarrative.css("display", "block")
+
+    $("#narrative_2to1").css("display", "none")
+    $("#narrative_2to3").css("display", "none")
+    $("#narrative_3to2").css("display", "block")
+    $("#narrative_3to1").css("display", "block")
+}
+
+function toggle_narrative_3_to_2 () {
+    const currentNarrative = $(".narrative-3")
+    currentNarrative.css("display", "none")
+    const nextNarrative = $(".narrative-2")
+    nextNarrative.css("display", "block")
+
+    $("#narrative_3to2").css("display", "none")
+    $("#narrative_3to1").css("display", "none")
+    $("#narrative_2to1").css("display", "block")
+    $("#narrative_2to3").css("display", "block")
+}
+
+function toggle_narrative_1_to_2 () {
+    const currentNarrative = $(".narrative-1")
+    currentNarrative.css("display", "none")
+    const nextNarrative = $(".narrative-2")
+    nextNarrative.css("display", "block")
+
+    $("#narrative_1to3").css("display", "none")
+    $("#narrative_1to2").css("display", "none")
+    $("#narrative_2to1").css("display", "block")
+    $("#narrative_2to3").css("display", "block")
+}
+
+function toggle_narrative_2_to_1 () {
+    const currentNarrative = $(".narrative-2")
+    currentNarrative.css("display", "none")
+    const nextNarrative = $(".narrative-1")
+    nextNarrative.css("display", "block")
+
+    $("#narrative_2to3").css("display", "none")
+    $("#narrative_2to1").css("display", "none")
+    $("#narrative_1to3").css("display", "block")
+    $("#narrative_1to2").css("display", "block")
+}

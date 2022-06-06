@@ -1,4 +1,4 @@
-rsp_id,ID,country,departamento,mig_ext_medio,mig_ext_cost_currency,mig_ext_cost_total,mig_ext_finance,mig_ext_country,mig_ext_llego,mig_ext_return,nul,selected,name,sex,age,narrative3
+rsp_id,ID,country,departamento,mig_ext_medio,mig_ext_cost_currency,mig_ext_cost_total,mig_ext_finance,mig_ext_country,mig_ext_llego,mig_ext_return,nul,selected,name,age,sex,narrative3
 12,1,GTM,San Marcos,irrregular coyote,,1,no loans,United States of America,"Yes, you reside in the destination country",,50000,,,,,
 15,2,HND,Francisco Morazan,"irregular on own, with caravan",1,800,all loans,United States of America,"Yes, but was returned to the country of origin",Due to expulsion from authorities or involuntarily,800,,,,,
 24,3,HND,Yoro,"irregular on own, with caravan",,1,no loans,United States of America,"Yes, but was returned to the country of origin",Due to expulsion from authorities or involuntarily,50000,,,,,

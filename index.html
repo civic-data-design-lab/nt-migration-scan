@@ -168,23 +168,26 @@
                     </div>
 
                     <!-- NARRATIVES TEXT AND BUTTONS -->
-                    <button id="narrative_1to3" onclick="toggle_narrative_1_to_3()">Back to 3</button>
-                    <div class="narrative-1">
-                        <span class="migrant-name">Name</span> (<span class="migrant-age">Age</span>) migrated from <span class="migrant-country">Country</span> <span class="migrant-motivation">due to several reasons</span>.
-                    </div>
-                    <button id="narrative_1to2" onclick="toggle_narrative_1_to_2()">Forward to 2</button>
+                    <div id="carousel-slides">
+                        <button id="narrative_1to3" onclick="toggle_narrative_1_to_3()">Back to 3</button>
+                        <div class="narrative-1">
+                            <span class="migrant-name">Name</span> (<span class="migrant-age">Age</span>) migrated from <span class="migrant-country">Country</span> <span class="migrant-motivation">due to several reasons</span>.
+                        </div>
+                        <button id="narrative_1to2" onclick="toggle_narrative_1_to_2()">Forward to 2</button>
 
-                    <button id="narrative_2to1" style="display: none" onclick="toggle_narrative_2_to_1()">Back to 1</button>
-                    <div class="narrative-2" style="display: none">
-                        <span class="migrant-name">Name</span> spent $<span class="migrant-cost">Cost</span> (USD) to migrate <span class="migrant-channel">through a Channel</span>.
+                        <button id="narrative_2to1" style="display: none" onclick="toggle_narrative_2_to_1()">Back to 1</button>
+                        <div class="narrative-2" style="display: none">
+                            <span class="migrant-name">Name</span> spent $<span class="migrant-cost">Cost</span> (USD) to migrate <span class="migrant-channel">through a Channel</span>.
+                        </div>
+                        <button id="narrative_2to3" style="display: none" onclick="toggle_narrative_2_to_3()">Forward to 3</button>
+                        
+                        <button id="narrative_3to2" style="display: none" onclick="toggle_narrative_3_to_2()">Back to 2</button>
+                        <div class="narrative-3" style="display: none">
+                            <span class="migrant-unique-narrative"></span>
+                        </div>
+                        <button id="narrative_3to1" style="display: none" onclick="toggle_narrative_3_to_1()">Forward to 1</button>
+
                     </div>
-                    <button id="narrative_2to3" style="display: none" onclick="toggle_narrative_2_to_3()">Forward to 3</button>
-                    
-                    <button id="narrative_3to2" style="display: none" onclick="toggle_narrative_3_to_2()">Back to 2</button>
-                    <div class="narrative-3" style="display: none">
-                        <span class="migrant-unique-narrative"></span>
-                    </div>
-                    <button id="narrative_3to1" style="display: none" onclick="toggle_narrative_3_to_1()">Forward to 1</button>
 
                     <!-- TABS -->
                     <div id="toggle-buttons-cost" class="row mb-3 me-0">
@@ -193,12 +196,12 @@
                         </div>
                         <div class="col px-0">
                             <button id="" class="btn btn-sm text-uppercase text-blue"
-                                onclick="toggle_motivation_on()">Motivation to Migrate</button>
+                                onclick="toggle_motivation_on()">Motivations</button>
 
                         </div>
                         <div class="col px-0">
                             <button id="" class="btn btn-sm text-uppercase text-blue"
-                                onclick="toggle_cost_on()">Motivation to Migrate</button>
+                                onclick="toggle_cost_on()">Costs</button>
 
                         </div>
                         <div class="col px-0">

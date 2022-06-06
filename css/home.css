@@ -21,13 +21,13 @@ h1 {
     color: white;
     padding-top: 7.5%;
     padding-left: 7.5%;
-    padding-bottom: 2%;
+    padding-bottom: 1%;
     font-weight: 500;
 }
 
 p {
     color: white;
-    font-size: 100%;
+    font-size: 150%;
     padding-left: 7.5%;
     padding-bottom: 5%;
     width: 75%;
@@ -36,10 +36,10 @@ p {
 
 #scan-image-text {
     color: white;
-    font-size: 100%;
+    font-size: 150%;
     padding-left: 7.5%;
     padding-bottom: 10%;
-    font-weight: bold;
+    font-weight: 500;
     width: 50%;
     clear: right;
     margin-right: 0%;
@@ -48,26 +48,31 @@ p {
 #blue {
     background-color: blue;
     color: white;
+    padding: 0 0.1em;
 }
 
 #orange {
     background-color: orange;
     color: white;
+    padding: 0 0.1em;
 }
 
 #purple {
     background-color: purple;
     color: white;
+    padding: 0 0.1em;
 }
 
 #red {
     background-color: red;
     color: white;
+    padding: 0 0.1em;
 }
 
 #teal {
     background-color: teal;
     color: white;
+    padding: 0 0.1em;
 }
 
 #page-content {
@@ -93,7 +98,7 @@ a.btn.btn-sm {
     color: black;
 }
 
-a:active {
+a:active a:hover >* {
     background-color: black;
     color: white;
 }
@@ -112,16 +117,8 @@ a:active {
     float: left;
 }
 
-#buttons-motivations {
-    padding-left: calc(15.5% + 2px);
-    padding-right: 2px;
-}
-#toggle-buttons-motivations {
-    padding-left: calc(15.5% + 2px);
-    padding-right: 2px;
-}
 
-#toggle-button-cost .px-0 {
+#toggle-button-cost {
     box-sizing: content-box;
     width: 100%;
     border-color: white;

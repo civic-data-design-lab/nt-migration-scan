@@ -25,6 +25,7 @@ body{
 h2{
     color: white;
     font-size:200%;
+    font-weight: 500;
     padding-top: 7.5%;
     padding-left: 7.5%;
     padding-bottom: 2%;
@@ -35,17 +36,18 @@ p {
     color: white;
     font-size: 100%;
     padding-left: 7.5%;
-    padding-bottom: 5%;
-    width: 80%;
+    padding-bottom: 2.5%;
+    width: 75%;
+    font-weight: 500;
 }
 
 #toggle-button-cost{
+    padding-top: 5%;
     width: 100%;
     height: 50%;
     left:0px;
     top:100%;
     bottom:0px;
-    
 }
 
 .btn {
@@ -66,13 +68,13 @@ a.btn.btn-sm {
     color: black;
 }
 
-a:active {
+a:active a:hover > * {
     background-color: black;
     color: white;
 }
 
 
-.solid-white >* {
+.solid-white > * {
     background-color: black;
 }
 

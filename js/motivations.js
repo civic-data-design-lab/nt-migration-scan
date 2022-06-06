@@ -438,10 +438,10 @@ const dataset = d3.csv("./data/motivations.csv", d3.autoType)
 
             // change opacity of all rectangles and triangles
             svg.selectAll("rect")
-            .attr("opacity", 0.5)
+            .attr("opacity", 0.2)
 
             svg.selectAll("path")
-            .attr("opacity", 0.5)
+            .attr("opacity", 0.2)
 
             // get migrant id
             const migrant_id = window.location.hash.slice(1,)
@@ -450,8 +450,8 @@ const dataset = d3.csv("./data/motivations.csv", d3.autoType)
             const selected_migrant_array = motivationsData.filter(item => item.rsp_id2 == "rsp"+migrant_id)
             const selected_migrant = selected_migrant_array[0]
             console.log("selected_migrant", selected_migrant)
-            const selected_migrant_motives = selected_migrant.mig_ext_motivo.split(' ');
-            console.log("motives", selected_migrant_motives)
+            const selected_migrant_motives = selected_migrant.mig_ext_motivo.toString().split(' ');
+            // console.log("motives", selected_migrant_motives)
 
             // change opacity of specific rectangle or triangles
             if (svg.select("#sq-" + "rsp"+migrant_id).empty() == false) {
@@ -472,9 +472,9 @@ const dataset = d3.csv("./data/motivations.csv", d3.autoType)
         
             // select motivation paragraph and change text
             const narrative1_textContent = $(".narrative-1");
-            // textContent.find(".text-color").css("color", motivColor);
-            narrative1_textContent.find(".migrant-name").html("Jose");
-            narrative1_textContent.find(".migrant-age").html("rsp"+migrant_id);
+            // console.log("NAME, AGE", selected_migrant.name, selected_migrant.age)
+            narrative1_textContent.find(".migrant-name").html(selected_migrant.name);
+            narrative1_textContent.find(".migrant-age").html(selected_migrant.age);
             narrative1_textContent.find(".migrant-country").html(countryText_motivations[selected_migrant.country]);
             if (selected_migrant_motives.length > 1) {
                 console.log(motivDetailAttr[selected_migrant_motives[0]].label)
@@ -483,6 +483,10 @@ const dataset = d3.csv("./data/motivations.csv", d3.autoType)
             else {
                 narrative1_textContent.find(".migrant-motivation").html(motivDetailAttr[selected_migrant_motives[0]].label); 
             }
+
+            // change text of narrative 3
+            const narrative3_textContent = $(".narrative-3");
+            narrative3_textContent.find(".migrant-unique-narrative").html(selected_migrant.narrative3)
         }
     });
 
@@ -1668,8 +1672,10 @@ window.onload = function() {
     else {
         const narrative1_textContent = $(".narrative-1");
         narrative1_textContent.html("Scan an item to get started")
-        const costTextContent = $(".narrative-2");
-        costTextContent.html("Scan an item to get started")
+        const narrative2_textContent = $(".narrative-2");
+        narrative2_textContent.html("Scan an item to get started")
+        const narrative3_textContent = $(".narrative-3");
+        narrative3_textContent.html("Scan an item to get started")
     }
 
 }
@@ -1683,13 +1689,16 @@ window.onhashchange = function() {
 function toggle_motivation_on () {
     const motivationContainer = $("#motivations-container");
     motivationContainer.css("display", "block")
-    const motivationText = $(".narrative-1");
-    motivationText.css("display", "block")
+    const narrative1Text = $(".narrative-1");
+    narrative1Text.css("display", "block")
 
     const costContainer = $("#cost-container");
     costContainer.css("display", "none")
-    const costText = $(".narrative-2");
-    costText.css("display", "none")
+    const narrative2Text = $(".narrative-2");
+    narrative2Text.css("display", "none")
+
+    const narrative3Text = $(".narrative-3");
+    narrative3Text.css("display", "none")
 
     $("#narrative_2to1").css("display", "none")
     $("#narrative_2to3").css("display", "none")
@@ -1702,13 +1711,16 @@ function toggle_motivation_on () {
 function toggle_cost_on () {
     const motivationContainer = $("#motivations-container");
     motivationContainer.css("display", "none")
-    const motivationText = $(".narrative-1");
-    motivationText.css("display", "none")
+    const narrative1Text = $(".narrative-1");
+    narrative1Text.css("display", "none")
 
     const costContainer = $("#cost-container");
     costContainer.css("display", "block")
-    const costText = $(".narrative-2");
-    costText.css("display", "block")
+    const narrative2Text = $(".narrative-2");
+    narrative2Text.css("display", "block")
+
+    const narrative3Text = $(".narrative-3");
+    narrative3Text.css("display", "none")
 
     $("#narrative_1to3").css("display", "none")
     $("#narrative_1to2").css("display", "none")

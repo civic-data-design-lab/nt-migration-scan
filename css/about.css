@@ -5,7 +5,7 @@ html > * {
     margin: 0%;
     height:100%;
     width: 56.25%;
-
+    overflow: auto;
 }
 
 /*
@@ -15,28 +15,27 @@ html > * {
 
 body{
     background-color: black;
+    height: 100%;
+    width: 100%;
     min-height: 100%;
+    min-width: 100%;
 }
 
-#page-content {
-    height: 100%;
-    width:100%;
-}
 
 h2{
     color: white;
-    font-size:300%;
-    padding-top: 15%;
-    padding-left: 10%;
-    padding-bottom: 5%;
+    font-size:200%;
+    padding-top: 7.5%;
+    padding-left: 7.5%;
+    padding-bottom: 2%;
 }
 
 p {
     color: white;
-    font-size: 200%;
-    padding-left: 10%;
+    font-size: 100%;
+    padding-left: 7.5%;
     padding-bottom: 5%;
-    width: 75%;
+    width: 80%;
 }
 
 #toggle-button-cost{
@@ -52,12 +51,16 @@ p {
     background-color: white;
     position: absolute;
     color:black;
-    height: 7%;
+    height: 8%;
     width: 25%;
-    font-size: 150%;
+    font-size: 100%;
+    font-weight: 500;
     align-items: center;
-    padding:2.5%;
+    padding-top: 1%;
+    border-radius: 0px;
+    float: left;
 }
+
 
 
 #toggle-button-cost .px-0 {

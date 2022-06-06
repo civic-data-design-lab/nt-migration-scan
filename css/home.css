@@ -1,0 +1,122 @@
+html > * {
+    background-color: black;
+    height: 100%;
+    border: 0%;
+    margin: 0%;
+    height:100%;
+    width: 56.25%;
+    overflow: auto;
+}
+
+body{
+    background-color: black;
+    height: 100%;
+    width: 100%;
+    min-height: 100%;
+    min-width: 100%;
+}
+
+h1 {
+    font-size: 250%;
+    color: white;
+    padding-top: 7.5%;
+    padding-left: 7.5%;
+    padding-bottom: 2%;
+    font-weight: 500;
+}
+
+p {
+    color: white;
+    font-size: 100%;
+    padding-left: 7.5%;
+    padding-bottom: 5%;
+    width: 75%;
+    font-weight: 500;
+}
+
+#scan-image-text {
+    color: white;
+    font-size: 100%;
+    padding-left: 7.5%;
+    padding-bottom: 10%;
+    font-weight: bold;
+    width: 50%;
+    clear: right;
+    margin-right: 0%;
+}
+
+#blue {
+    background-color: blue;
+    color: white;
+}
+
+#orange {
+    background-color: orange;
+    color: white;
+}
+
+#purple {
+    background-color: purple;
+    color: white;
+}
+
+#red {
+    background-color: red;
+    color: white;
+}
+
+#teal {
+    background-color: teal;
+    color: white;
+}
+
+#page-content {
+    background-color: black;
+}
+
+
+img {
+    width: 10%;
+    height:10%;
+    float:right;
+}
+
+#toggle-button-cost{
+    width: 100%;
+    height: 50%;
+    left:0px;
+    top:100%;
+    bottom:0px;
+    
+}
+
+.btn {
+    background-color: white;
+    position: absolute;
+    color:black;
+    height: 8%;
+    width: 25%;
+    font-size: 100%;
+    font-weight: 500;
+    align-items: center;
+    padding-top: 1%;
+    border-radius: 0px;
+    float: left;
+}
+
+#toggle-button-cost .px-0 {
+    box-sizing: content-box;
+    width: 100%;
+    border-color: white;
+}
+
+.btn:hover{
+    background-color: black;
+    color: white;
+    transition: 0.5s;
+}
+
+
+@media (min-width: 576px) {
+
+}

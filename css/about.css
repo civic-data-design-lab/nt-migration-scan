@@ -28,6 +28,7 @@ h2{
     padding-top: 7.5%;
     padding-left: 7.5%;
     padding-bottom: 2%;
+    background-color: black;
 }
 
 p {
@@ -61,16 +62,23 @@ p {
     float: left;
 }
 
+a.btn.btn-sm {
+    color: black;
+}
+
+a:active {
+    background-color: black;
+    color: white;
+}
+
+
+.solid-white >* {
+    background-color: black;
+}
 
 
 #toggle-button-cost .px-0 {
     box-sizing: content-box;
     width: 100%;
     border-color: white;
-}
-
-.btn:hover{
-    background-color: black;
-    color: white;
-    transition: 0.5s;
 }

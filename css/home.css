@@ -89,11 +89,19 @@ img {
     bottom:0px;
     
 }
+a.btn.btn-sm {
+    color: black;
+}
+
+a:active {
+    background-color: black;
+    color: white;
+}
+
 
 .btn {
     background-color: white;
     position: absolute;
-    color:black;
     height: 8%;
     width: 25%;
     font-size: 100%;
@@ -104,16 +112,19 @@ img {
     float: left;
 }
 
+#buttons-motivations {
+    padding-left: calc(15.5% + 2px);
+    padding-right: 2px;
+}
+#toggle-buttons-motivations {
+    padding-left: calc(15.5% + 2px);
+    padding-right: 2px;
+}
+
 #toggle-button-cost .px-0 {
     box-sizing: content-box;
     width: 100%;
     border-color: white;
-}
-
-.btn:hover{
-    background-color: black;
-    color: white;
-    transition: 0.5s;
 }
 
 

@@ -49,7 +49,7 @@
     
     <div id="page-content" class="content-block solid-white">
         <div id="motivations" class="container-lg position-sticky">
-            <div id="viz-content" class="mt-5 vh-100 px-xl-5 align-items-center">
+            <div id="viz-content" class="mt-5 px-xl-5 align-items-center">
                 <div id="viz-col" class="col">
                     <!-- <div id="title-text" class="row mb-3 me-0">
                         Motivations to Migrate
@@ -166,51 +166,53 @@
                             <h3 class="label-pathway text-color">Irregular Pathway on One's Own or with a Caravan</h3>
                         </div>
                     </div>
-
-                    <!-- NARRATIVES TEXT AND BUTTONS -->
-                    <div id="carousel-slides">
-                        <button id="narrative_1to3" onclick="toggle_narrative_1_to_3()"><</button>
-                        <div class="narrative-1">
-                            <span class="migrant-name">Name</span> (<span class="migrant-age">Age</span>) migrated from <span class="migrant-country">Country</span> <span class="migrant-motivation">due to several reasons</span>.
-                        </div>
-                        <button id="narrative_1to2" onclick="toggle_narrative_1_to_2()">></button>
-
-                        <button id="narrative_2to1" style="display: none" onclick="toggle_narrative_2_to_1()"><</button>
-                        <div class="narrative-2" style="display: none">
-                            <span class="migrant-name">Name</span> spent $<span class="migrant-cost">Cost</span> (USD) to migrate <span class="migrant-channel">through a Channel</span>.
-                        </div>
-                        <button id="narrative_2to3" style="display: none" onclick="toggle_narrative_2_to_3()">></button>
-                        
-                        <button id="narrative_3to2" style="display: none" onclick="toggle_narrative_3_to_2()"><</button>
-                        <div class="narrative-3" style="display: none">
-                            <span class="migrant-unique-narrative"></span>
-                        </div>
-                        <button id="narrative_3to1" style="display: none" onclick="toggle_narrative_3_to_1()">></button>
-                    </div>
-
-                    <!-- TABS -->
-                    <div id="toggle-buttons-cost" class="row mb-3 me-0">
-                        <div class="col px-0">
-                            <a href="/home"  onclick="route()" class="btn btn-sm">Home</a>
-                        </div>
-                        <div class="col px-0">
-                            <button id="" class="btn btn-sm text-uppercase text-blue"
-                                onclick="toggle_motivation_on()">Motivations</button>
-
-                        </div>
-                        <div class="col px-0">
-                            <button id="" class="btn btn-sm text-uppercase text-blue"
-                                onclick="toggle_cost_on()">Costs</button>
-
-                        </div>
-                        <div class="col px-0">
-                            <a href="/about"  onclick="route()" class="btn btn-sm" >About</a>
-                        </div>
-                    </div>
-
                 </div><!-- close col -->
             </div><!-- close row -->
         </div><!-- close container -->
+
+        <div id="carousel-button">
+            <!-- NARRATIVES TEXT AND BUTTONS -->
+            <div id="carousel-slides">
+                <button id="narrative_1to3" onclick="toggle_narrative_1_to_3()"><</button>
+                <div class="narrative-1">
+                    <span class="migrant-name">Name</span> (<span class="migrant-age">Age</span>) migrated from <span class="migrant-country">Country</span> <span class="migrant-motivation">due to several reasons</span>.
+                </div>
+                <button id="narrative_1to2" onclick="toggle_narrative_1_to_2()">></button>
+
+                <button id="narrative_2to1" style="display: none" onclick="toggle_narrative_2_to_1()"><</button>
+                <div class="narrative-2" style="display: none">
+                    <span class="migrant-name">Name</span> spent $<span class="migrant-cost">Cost</span> (USD) to migrate <span class="migrant-channel">through a Channel</span>.
+                </div>
+                <button id="narrative_2to3" style="display: none" onclick="toggle_narrative_2_to_3()">></button>
+                
+                <button id="narrative_3to2" style="display: none" onclick="toggle_narrative_3_to_2()"><</button>
+                <div class="narrative-3" style="display: none">
+                    <span class="migrant-unique-narrative"></span>
+                </div>
+                <button id="narrative_3to1" style="display: none" onclick="toggle_narrative_3_to_1()">></button>
+            </div>
+
+            <!-- TABS -->
+            <div id="toggle-buttons-cost" class="row">
+                <div class="col px-0">
+                    <a href="/home"  onclick="route()" class="btn btn-sm">Home</a>
+                </div>
+                <div class="col px-0">
+                    <button id="" class="btn btn-sm"
+                        onclick="toggle_motivation_on()">Motivations</button>
+
+                </div>
+                <div class="col px-0">
+                    <button id="" class="btn btn-sm"
+                        onclick="toggle_cost_on()">Costs</button>
+
+                </div>
+                <div class="col px-0">
+                    <a href="/about"  onclick="route()" class="btn btn-sm" style="width:100%">About</a>
+                </div>
+            </div>
+        </div>
+
     </div>
     <!-- onclick="document.getElementById('cost-container').style.display = 'none'; document.getElementById('motivations-container').style.display = 'block';">Motivation to Migrate</button> -->
     <!-- onclick="document.getElementById('motivations-container').style.display = 'none'; document.getElementById('cost-container').style.display = 'block';">Cost to Migrate</button> -->

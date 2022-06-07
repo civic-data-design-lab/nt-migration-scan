@@ -8,11 +8,6 @@ html > * {
     overflow: auto;
 }
 
-/*
-    height: 1920px;
-    width: 1080px;
-*/
-
 body{
     background-color: black;
     height: 100%;
@@ -21,10 +16,9 @@ body{
     min-width: 100%;
 }
 
-
 h2{
     color: white;
-    font-size:200%;
+    font-size:175%;
     font-weight: 500;
     padding-top: 7.5%;
     padding-left: 7.5%;
@@ -94,4 +88,5 @@ a.btn.btn-sm {
     background-color: black;
     color:white;
     pointer-events: none;
+    width: 100%;
 }

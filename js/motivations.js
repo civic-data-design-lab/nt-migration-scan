@@ -7,6 +7,7 @@
 // else {
 //     const item_scanned = false
 // }
+const shift_amount = 50
 
 // svg animation transition
 let transitionTime = 1000;
@@ -958,7 +959,7 @@ function selectScale(d, nPos, sortBy) {
         // }
         // else {
             const ny = Math.floor(sortIndex / numPerRow);
-            return scale(ny);
+            return 50+scale(ny);
         // }
     }
 }
@@ -998,7 +999,7 @@ function trianglePath(d, sortBy, triPos) {
                 (d.rsp_id2 == "rsp1418-1")
             )) {
                 // flip to top right
-                triPath = "M " + scale(nx) + " " + scale(ny) + " L " + (scale(nx) + sqLen) + " " + scale(ny) + " L " + (scale(nx) + sqLen) + " " + (scale(ny) + sqLen) + " Z";
+                triPath = "M " + scale(nx) + " " + (50+parseInt(scale(ny))).toString() + " L " + (scale(nx) + sqLen) + " " + (50+parseInt(scale(ny))).toString() + " L " + (scale(nx) + sqLen) + " " + (50+parseInt(scale(ny)) + sqLen) + " Z";
             }
             else {
                 triPath = "M " + scale(nx) + " " + (50+parseInt(scale(ny))).toString() + " L " + scale(nx) + " " + (50+parseInt(scale(ny)) + sqLen) + " L " + (scale(nx) + sqLen) + " " + (50+parseInt(scale(ny)) + sqLen) + " Z";
@@ -1015,13 +1016,13 @@ function trianglePath(d, sortBy, triPos) {
                 (d.rsp_id2 == 'rsp4718-4' || d.rsp_id2 == 'rsp4957-1')
             )) {
                 // flip to bottom left
-                triPath = "M " + scale(nx) + " " + scale(ny) + " L " + scale(nx) + " " + (scale(ny) + sqLen) + " L " + (scale(nx) + sqLen) + " " + (scale(ny) + sqLen) + " Z";
+                triPath = "M " + scale(nx) + " " + (50+parseInt(scale(ny))).toString() + " L " + scale(nx) + " " + (50+parseInt(scale(ny)) + sqLen) + " L " + (scale(nx) + sqLen) + " " + (50+parseInt(scale(ny)) + sqLen) + " Z";
             }
             else if (sortBy == "motivs" && d.motiv_cat.includes("clim") && (1279 + (7 * numPerRow) + 35) <= sortIndex && sortIndex <= (1301 + (7 * numPerRow) + 35)) {
                 // flip to bottom left and shift left 22
                 const nx = (sortIndex - 22) % numPerRow;
                 const ny = Math.floor((sortIndex - 22) / numPerRow);
-                triPath = "M " + scale(nx) + " " + scale(ny) + " L " + scale(nx) + " " + (scale(ny) + sqLen) + " L " + (scale(nx) + sqLen) + " " + (scale(ny) + sqLen) + " Z";
+                triPath = "M " + scale(nx) + " " + (50+parseInt(scale(ny))).toString() + " L " + scale(nx) + " " + (50+parseInt(scale(ny)) + sqLen) + " L " + (scale(nx) + sqLen) + " " + (50+parseInt(scale(ny)) + sqLen) + " Z";
             }
             else {
                 triPath = "M " + scale(nx) + " " + (50+parseInt(scale(ny))).toString() + " L " + (scale(nx) + sqLen) + " " + (50+parseInt(scale(ny))).toString() + " L " + (scale(nx) + sqLen) + " " + (50+parseInt(scale(ny)) + sqLen) + " Z";
@@ -1030,7 +1031,7 @@ function trianglePath(d, sortBy, triPos) {
         else if (triPos == "top") {
             if (sortBy == "motivs" && d.rsp_id2 == "rsp1358-5") {
                 // flip to right
-                triPath = "M " + (scale(nx) + sqLen/2) + " " + (scale(ny) + sqLen/2) + " L " + (scale(nx) + sqLen) + " " + (scale(ny)) + " L " + (scale(nx) + sqLen) + " " + (scale(ny) + sqLen) + " Z";
+                triPath = "M " + (scale(nx) + sqLen/2) + " " + (50+parseInt(scale(ny)) + sqLen/2) + " L " + (scale(nx) + sqLen) + " " + (50+parseInt(scale(ny))).toString() + " L " + (scale(nx) + sqLen) + " " + (50+parseInt(scale(ny)) + sqLen) + " Z";
             }
             else {
                 triPath = "M " + scale(nx) + " " + (50+parseInt(scale(ny))).toString() + " L " + (scale(nx) + sqLen) + " " + (50+parseInt(scale(ny))).toString() + " L " + (scale(nx) + sqLen/2) + " " + (50+parseInt(scale(ny)) + sqLen/2) + " Z";
@@ -1039,7 +1040,7 @@ function trianglePath(d, sortBy, triPos) {
         else if (triPos == "right") {
             if (sortBy == "motivs" && (d.rsp_id2 == 'rsp1364' || d.rsp_id2 == 'rsp1450')) {
                 // flip to top
-                triPath = "M " + scale(nx) + " " + scale(ny) + " L " + (scale(nx) + sqLen) + " " + scale(ny) + " L " + (scale(nx) + sqLen/2) + " " + (scale(ny) + sqLen/2) + " Z";
+                triPath = "M " + scale(nx) + " " + (50+parseInt(scale(ny))).toString() + " L " + (scale(nx) + sqLen) + " " + (50+parseInt(scale(ny))).toString() + " L " + (scale(nx) + sqLen/2) + " " + (50+parseInt(scale(ny)) + sqLen/2) + " Z";
             }
             else {
                 triPath = "M " + (scale(nx) + sqLen/2) + " " + (50+parseInt(scale(ny)) + sqLen/2) + " L " + (scale(nx) + sqLen) + " " + (50+parseInt(scale(ny))).toString() + " L " + (scale(nx) + sqLen) + " " + (50+parseInt(scale(ny)) + sqLen) + " Z";
@@ -1346,9 +1347,9 @@ function plotLabels(labelList, sortBy) {
             .attr("id", d => "text-" + d.group)
             .attr("x", d => -sqLen)
             .attr("y", d => {
-                return (labelList.length == 5) ? scale(motivAttr[d.group].yPosSide)
-                : (labelList.length == 6) ? scale(incomeAttr[d.group].yPosSide)
-                : (labelList.length == 3) ? scale(cariAttr[d.group].yPosSide)
+                return (labelList.length == 5) ? 50+scale(motivAttr[d.group].yPosSide)
+                : (labelList.length == 6) ? 50+scale(incomeAttr[d.group].yPosSide)
+                : (labelList.length == 3) ? 50+scale(cariAttr[d.group].yPosSide)
                 : null;
             })
             .attr("dy", "-0.125em")
@@ -1384,15 +1385,15 @@ function plotLabels(labelList, sortBy) {
             .attr("x1", -(sideWidth + sqLen))
             .attr("x2", -sqLen)
             .attr("y1", d => {
-                return (labelList.length == 5) ? scale(motivAttr[d.group].yPosSide) - 1.5 * sqLen
-                : (labelList.length == 6) ? scale(incomeAttr[d.group].yPosSide) - 1.5 * sqLen
-                : (labelList.length == 3) ? scale(cariAttr[d.group].yPosSide) - 1.5 * sqLen
+                return (labelList.length == 5) ? 50+scale(motivAttr[d.group].yPosSide) - 1.5 * sqLen
+                : (labelList.length == 6) ? 50+scale(incomeAttr[d.group].yPosSide) - 1.5 * sqLen
+                : (labelList.length == 3) ? 50+scale(cariAttr[d.group].yPosSide) - 1.5 * sqLen
                 : null;
             })
             .attr("y2", d => {
-                return (labelList.length == 5) ? scale(motivAttr[d.group].yPosSide) - 1.5 * sqLen
-                : (labelList.length == 6) ? scale(incomeAttr[d.group].yPosSide) - 1.5 * sqLen
-                : (labelList.length == 3) ? scale(cariAttr[d.group].yPosSide) - 1.5 * sqLen
+                return (labelList.length == 5) ? 50+scale(motivAttr[d.group].yPosSide) - 1.5 * sqLen
+                : (labelList.length == 6) ? 50+scale(incomeAttr[d.group].yPosSide) - 1.5 * sqLen
+                : (labelList.length == 3) ? 50+scale(cariAttr[d.group].yPosSide) - 1.5 * sqLen
                 : null;
             })
             .attr("stroke", "#1540C4")

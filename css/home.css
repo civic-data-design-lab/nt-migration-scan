@@ -98,7 +98,7 @@ a.btn.btn-sm {
     color: black;
 }
 
-a:active a:hover >* {
+a:active a:hover > * {
     background-color: black;
     color: white;
 }

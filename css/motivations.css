@@ -1,5 +1,4 @@
 html > * {
-    height: 100%;
     border: 0%;
     margin: 0%;
     height:100%;
@@ -26,24 +25,28 @@ div#transition {
 }
 
 /* BUTTON */
-#buttons-motivations {
+/*#buttons-motivations {
     padding-left: calc(15.5% + 2px);
     padding-right: 2px;
 }
 #toggle-buttons-motivations {
     padding-left: calc(15.5% + 2px);
-    padding-right: 2px;
-}
-.btn {
+    padding-right: 2px; 
+}*/
+#toggle-buttons-cost {
     width: 100%;
+    border-radius: 0;
     font-weight: 500;
     background-color: #fff;
-    border: solid 2px #1540C4;
+    border-color:blue;
     border-radius: 0px;
+    text-align: center;
+    align-items: center;
 }
-.btn.active, .btn:hover {
-    color: #fff;
-    background-color: #1540C4;
+#toggle-buttons-cost .btn:hover {
+    width:100%;
+    color: white;
+    background-color: blue;
 }
 
 a {
@@ -54,7 +57,7 @@ button.btn.btn-sm.text-uppercase.text-blue {
     color: black;
 }
 
-a:active {
+a:hover a:active > * {
     background-color: #1540C4;
     color: white;
 }
@@ -65,16 +68,25 @@ a:active {
     border-left: none;
 }
 /* Carousel */
-#carousel-slides > * {
+#carousel-slides {
     background-color: blue;
     width: 100%;
     height: 25%;
 }
 
 /* Button - arrow for slides */
-button > * { 
-    border: none;
-    color: red;
+
+#carousel-slides button {
+    border:0;
+    color:white;
+}
+
+#narrative_1to3, #narrative_1to2, #narrative_2to3 {
+    float:left;
+}
+
+#narrative_2to1, #narrative_3to2, #narrative_3to1 {
+    float:right;
 }
 
 /* bootstrap tooltip */

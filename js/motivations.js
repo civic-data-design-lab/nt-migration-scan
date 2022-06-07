@@ -252,7 +252,8 @@ function updateTransLayout(layout) {
 const svg = d3.select("#frame-motivations")
     .append("svg")
         .attr("id", "viz-motivations")
-        .attr("viewBox", [-(sideWidth + sqLen), 0, width + (sideWidth + sqLen), height]);
+        .attr("viewBox", [-(sideWidth + sqLen), 0, width + (sideWidth + sqLen), height])
+
 
 // define tooltip
 const divMotivs = d3.select("#viz-col").append("div")
@@ -456,6 +457,21 @@ const dataset = d3.csv("./data/motivations.csv", d3.autoType)
             // change opacity of specific rectangle or triangles
             if (svg.select("#sq-" + "rsp"+migrant_id).empty() == false) {
                 svg.select("#sq-" + "rsp"+migrant_id).attr("opacity", 1)
+                // draw line and write name of migrant
+                const migrant_x = $("#sq-" + "rsp"+migrant_id).attr("x")
+                const migrant_y = $("#sq-" + "rsp"+migrant_id).attr("y")
+                console.log("UPDATED X:", (parseInt(migrant_x)+12).toString())
+                svg.append("line")
+                .style("stroke", "black")  // colour the line
+                .style('stroke-width', '2px')
+                .attr("x1", (parseInt(migrant_x)+12).toString())     // x position of the first end of the line
+                .attr("y1", migrant_y)      // y position of the first end of the line
+                .attr("x2", (parseInt(migrant_x)+12).toString())    // x position of the second end of the line
+                .attr("y2", 0);
+                svg.append("text")
+                .attr("x", (parseInt(migrant_x)+12).toString())
+                .attr("y", 20)
+                .text(selected_migrant.name)
             }
             else if (svg.select("#tri-tr-" + "rsp"+migrant_id).empty() == false) {
                 svg.select("#tri-tr-" + "rsp"+migrant_id).attr("opacity", 1)
@@ -469,6 +485,7 @@ const dataset = d3.csv("./data/motivations.csv", d3.autoType)
             else {
                 console.log("error: can't locate d3 item for this migrant")
             }
+
         
             // select motivation paragraph and change text
             const narrative1_textContent = $(".narrative-1");
@@ -984,7 +1001,7 @@ function trianglePath(d, sortBy, triPos) {
                 triPath = "M " + scale(nx) + " " + scale(ny) + " L " + (scale(nx) + sqLen) + " " + scale(ny) + " L " + (scale(nx) + sqLen) + " " + (scale(ny) + sqLen) + " Z";
             }
             else {
-                triPath = "M " + scale(nx) + " " + scale(ny) + " L " + scale(nx) + " " + (scale(ny) + sqLen) + " L " + (scale(nx) + sqLen) + " " + (scale(ny) + sqLen) + " Z";
+                triPath = "M " + scale(nx) + " " + (50+parseInt(scale(ny))).toString() + " L " + scale(nx) + " " + (50+parseInt(scale(ny)) + sqLen) + " L " + (scale(nx) + sqLen) + " " + (50+parseInt(scale(ny)) + sqLen) + " Z";
             }
         }
         else if (triPos == "topRight") {
@@ -1007,7 +1024,7 @@ function trianglePath(d, sortBy, triPos) {
                 triPath = "M " + scale(nx) + " " + scale(ny) + " L " + scale(nx) + " " + (scale(ny) + sqLen) + " L " + (scale(nx) + sqLen) + " " + (scale(ny) + sqLen) + " Z";
             }
             else {
-                triPath = "M " + scale(nx) + " " + scale(ny) + " L " + (scale(nx) + sqLen) + " " + scale(ny) + " L " + (scale(nx) + sqLen) + " " + (scale(ny) + sqLen) + " Z";
+                triPath = "M " + scale(nx) + " " + (50+parseInt(scale(ny))).toString() + " L " + (scale(nx) + sqLen) + " " + (50+parseInt(scale(ny))).toString() + " L " + (scale(nx) + sqLen) + " " + (50+parseInt(scale(ny)) + sqLen) + " Z";
             }
         }
         else if (triPos == "top") {
@@ -1016,7 +1033,7 @@ function trianglePath(d, sortBy, triPos) {
                 triPath = "M " + (scale(nx) + sqLen/2) + " " + (scale(ny) + sqLen/2) + " L " + (scale(nx) + sqLen) + " " + (scale(ny)) + " L " + (scale(nx) + sqLen) + " " + (scale(ny) + sqLen) + " Z";
             }
             else {
-                triPath = "M " + scale(nx) + " " + scale(ny) + " L " + (scale(nx) + sqLen) + " " + scale(ny) + " L " + (scale(nx) + sqLen/2) + " " + (scale(ny) + sqLen/2) + " Z";
+                triPath = "M " + scale(nx) + " " + (50+parseInt(scale(ny))).toString() + " L " + (scale(nx) + sqLen) + " " + (50+parseInt(scale(ny))).toString() + " L " + (scale(nx) + sqLen/2) + " " + (50+parseInt(scale(ny)) + sqLen/2) + " Z";
             }
         }
         else if (triPos == "right") {
@@ -1025,7 +1042,7 @@ function trianglePath(d, sortBy, triPos) {
                 triPath = "M " + scale(nx) + " " + scale(ny) + " L " + (scale(nx) + sqLen) + " " + scale(ny) + " L " + (scale(nx) + sqLen/2) + " " + (scale(ny) + sqLen/2) + " Z";
             }
             else {
-                triPath = "M " + (scale(nx) + sqLen/2) + " " + (scale(ny) + sqLen/2) + " L " + (scale(nx) + sqLen) + " " + (scale(ny)) + " L " + (scale(nx) + sqLen) + " " + (scale(ny) + sqLen) + " Z";
+                triPath = "M " + (scale(nx) + sqLen/2) + " " + (50+parseInt(scale(ny)) + sqLen/2) + " L " + (scale(nx) + sqLen) + " " + (50+parseInt(scale(ny))).toString() + " L " + (scale(nx) + sqLen) + " " + (50+parseInt(scale(ny)) + sqLen) + " Z";
             }
         }
     // }
@@ -1051,7 +1068,7 @@ function plotInitialGrid(data) {
             .attr("y", d => {
                 const iInitial = motivsIndex[d.rsp_id2].initial;
                 const ny = Math.floor(iInitial / numPerRow);
-                return scale(ny);
+                return 50+scale(ny);
             })
             .attr("width", sqLen)
             .attr("height", sqLen)

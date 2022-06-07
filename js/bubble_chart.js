@@ -8,7 +8,11 @@ const pathwayAttr = {
     "irrregular coyote": {"label": "Using a Smuggler to Migrate", "color": "#662d91"},
     "irregular on own, with caravan": {"label": "Migrating on One's Own or with a Caravan", "color": "#faa41a"}
 };
-
+const pathwayAttr_narrative = {
+  "regular": {"label": "through a regular pathway", "color": "#e23cad"},
+  "irrregular coyote": {"label": "using a smuggler", "color": "#662d91"},
+  "irregular on own, with caravan": {"label": "individually or with a caravan", "color": "#faa41a"}
+};
 const financeText = {
     "1": {"label":"No Response"}
 };
@@ -331,26 +335,26 @@ function display(error, data) {
   if (window.location.hash.length != 0){
 
     d3v4.selectAll('circle')
-    .attr("opacity", 0.1)
+    .attr("opacity", 0.2)
 
     // get migrant id
     const migrant_id = window.location.hash.slice(1,)
     console.log("HASH ID HERE in bubble chart:", migrant_id)
 
     const selected_migrant_array = data.filter(item => item.rsp_id == migrant_id)
-            const selected_migrant = selected_migrant_array[0]
-            console.log("cost selected_migrant", selected_migrant)
+    const selected_migrant = selected_migrant_array[0]
+    console.log("cost selected_migrant", selected_migrant)
 
-            // change opacity of specific rectangle
-            d3v4.select("#cir-" + migrant_id)
-            .attr("opacity", 1)
+    // change opacity of specific rectangle
+    d3v4.select("#cir-" + migrant_id)
+    .attr("opacity", 1)
 
     // select motivation paragraph and change text
     const costTextContent = $(".narrative-2");
     // textContent.find(".text-color").css("color", motivColor);
-    costTextContent.find(".migrant-name").html(migrant_id);
-    costTextContent.find(".migrant-age").html(migrant_id);
-
+    costTextContent.find(".migrant-name").html(selected_migrant.name);
+    costTextContent.find(".migrant-cost").html(selected_migrant.mig_ext_cost_total);
+    costTextContent.find(".migrant-channel").html(pathwayAttr_narrative[selected_migrant.mig_ext_medio].label);
   }
   
 }

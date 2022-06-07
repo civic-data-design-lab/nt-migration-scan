@@ -465,11 +465,11 @@ const dataset = d3.csv("./data/motivations.csv", d3.autoType)
                 // draw line
                 svg.append("line")
                 .attr("id", "migrant-line")
-                .style("stroke", "black")  // color the line
+                .style("stroke", "black") 
                 .style('stroke-width', '2px')
-                .attr("x1", (parseInt(migrant_x)+12).toString())     // x position of the first end of the line
-                .attr("y1", migrant_y)      // y position of the first end of the line
-                .attr("x2", (parseInt(migrant_x)+12).toString())    // x position of the second end of the line
+                .attr("x1", (parseInt(migrant_x)+12).toString())     
+                .attr("y1", migrant_y)    
+                .attr("x2", (parseInt(migrant_x)+12).toString())   
                 .attr("y2", 52);
 
                 // write name of migrant
@@ -492,11 +492,11 @@ const dataset = d3.csv("./data/motivations.csv", d3.autoType)
                 // draw line
                 svg.append("line")
                 .attr("id", "migrant-line")
-                .style("stroke", "black")  // color the line
+                .style("stroke", "black") 
                 .style('stroke-width', '2px')
-                .attr("x1", (parseInt(migrant_x)+12).toString())     // x position of the first end of the line
-                .attr("y1", migrant_y)      // y position of the first end of the line
-                .attr("x2", (parseInt(migrant_x)+12).toString())    // x position of the second end of the line
+                .attr("x1", (parseInt(migrant_x)+12).toString())     
+                .attr("y1", migrant_y)   
+                .attr("x2", (parseInt(migrant_x)+12).toString())    
                 .attr("y2", 52);
 
                 // write name of migrant
@@ -520,11 +520,11 @@ const dataset = d3.csv("./data/motivations.csv", d3.autoType)
                 // draw line
                 svg.append("line")
                 .attr("id", "migrant-line")
-                .style("stroke", "black")  // color the line
+                .style("stroke", "black") 
                 .style('stroke-width', '2px')
-                .attr("x1", (parseInt(migrant_x)+12).toString())     // x position of the first end of the line
-                .attr("y1", migrant_y)      // y position of the first end of the line
-                .attr("x2", (parseInt(migrant_x)+12).toString())    // x position of the second end of the line
+                .attr("x1", (parseInt(migrant_x)+12).toString())    
+                .attr("y1", migrant_y)      
+                .attr("x2", (parseInt(migrant_x)+12).toString())    
                 .attr("y2", 52);
 
                 // write name of migrant
@@ -1506,12 +1506,20 @@ $(".btn").on("click", function() {
 
     if ($(btnId).hasClass("active")) {
         motivSort = "initial";
+            // $("#migrant-line").css("display", "block")
+        // $("#migrant-name-label").css("display", "block")
+        $("#migrant-line").fadeIn(time/2);
+        $("#migrant-name-label").fadeIn(time/2);
         $(btnId).removeClass("active");
         $(labelsId).fadeOut(time/2);
-        updatePlotSort("initial");
+        updatePlotSort("initial")
     }
     else {
         motivSort = sortBy;
+        // $("#migrant-line").css("display", "none")
+        // $("#migrant-name-label").css("display", "none")
+        $("#migrant-line").fadeOut(time/2);
+        $("#migrant-name-label").fadeOut(time/2);
         $(".btn").removeClass("active");
         $(".chart-labels").fadeOut(time/2);
         $(btnId).addClass("active");

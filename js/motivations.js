@@ -7,6 +7,7 @@
 // else {
 //     const item_scanned = false
 // }
+const shift_amount = 80
 
 // svg animation transition
 let transitionTime = 1000;
@@ -252,7 +253,8 @@ function updateTransLayout(layout) {
 const svg = d3.select("#frame-motivations")
     .append("svg")
         .attr("id", "viz-motivations")
-        .attr("viewBox", [-(sideWidth + sqLen), 0, width + (sideWidth + sqLen), height]);
+        .attr("viewBox", [-(sideWidth + sqLen), 0, width + (sideWidth + sqLen), height])
+
 
 // define tooltip
 const divMotivs = d3.select("#viz-col").append("div")
@@ -455,20 +457,89 @@ const dataset = d3.csv("./data/motivations.csv", d3.autoType)
 
             // change opacity of specific rectangle or triangles
             if (svg.select("#sq-" + "rsp"+migrant_id).empty() == false) {
+
                 svg.select("#sq-" + "rsp"+migrant_id).attr("opacity", 1)
+
+                const migrant_x = $("#sq-" + "rsp"+migrant_id).attr("x")
+                const migrant_y = $("#sq-" + "rsp"+migrant_id).attr("y")
+                // draw line
+                svg.append("line")
+                .attr("id", "migrant-line")
+                .style("stroke", "black") 
+                .style('stroke-width', '2px')
+                .attr("x1", (parseInt(migrant_x)+12).toString())     
+                .attr("y1", migrant_y)    
+                .attr("x2", (parseInt(migrant_x)+12).toString())   
+                .attr("y2", 52);
+
+                // write name of migrant
+                svg.append("text")
+                .attr("id", "migrant-name-label")
+                .attr("x", (parseInt(migrant_x)).toString())
+                .attr("y", 40)
+                .style("font-size", "2.5rem")
+                .text(selected_migrant.name)
+
             }
             else if (svg.select("#tri-tr-" + "rsp"+migrant_id).empty() == false) {
+
                 svg.select("#tri-tr-" + "rsp"+migrant_id).attr("opacity", 1)
                 svg.select("#tri-bl-" + "rsp"+migrant_id).attr("opacity", 1)
+
+                const migrant_x = $("#tri-tr-" + "rsp"+migrant_id).attr("d").split(' ')[1]
+                const migrant_y = $("#tri-tr-" + "rsp"+migrant_id).attr("d").split(' ')[2]
+                console.log("x and y", migrant_x, migrant_y)
+                // draw line
+                svg.append("line")
+                .attr("id", "migrant-line")
+                .style("stroke", "black") 
+                .style('stroke-width', '2px')
+                .attr("x1", (parseInt(migrant_x)+12).toString())     
+                .attr("y1", migrant_y)   
+                .attr("x2", (parseInt(migrant_x)+12).toString())    
+                .attr("y2", 52);
+
+                // write name of migrant
+                svg.append("text")
+                .attr("id", "migrant-name-label")
+                .attr("x", (parseInt(migrant_x)).toString())
+                .attr("y", 40)
+                .style("font-size", "2.5rem")
+                .text(selected_migrant.name)
+
             }
             else if (svg.select("#tri-t-" + "rsp"+migrant_id).empty() == false) {
+
                 svg.select("#tri-t-" + "rsp"+migrant_id).attr("opacity", 1)
                 svg.select("#tri-r-" + "rsp"+migrant_id).attr("opacity", 1)
                 svg.select("#tri-bl-" + "rsp"+migrant_id).attr("opacity", 1)
+
+                const migrant_x = $("#tri-tr-" + "rsp"+migrant_id).attr("d").split(' ')[1]
+                const migrant_y = $("#tri-tr-" + "rsp"+migrant_id).attr("d").split(' ')[2]
+                console.log("x and y", migrant_x, migrant_y)
+                // draw line
+                svg.append("line")
+                .attr("id", "migrant-line")
+                .style("stroke", "black") 
+                .style('stroke-width', '2px')
+                .attr("x1", (parseInt(migrant_x)+12).toString())    
+                .attr("y1", migrant_y)      
+                .attr("x2", (parseInt(migrant_x)+12).toString())    
+                .attr("y2", 52);
+
+                // write name of migrant
+                svg.append("text")
+                .attr("id", "migrant-name-label")
+                .attr("x", (parseInt(migrant_x)).toString())
+                .attr("y", 40)
+                .style("font-size", "2.5rem")
+                .text(selected_migrant.name)
+
             }
             else {
                 console.log("error: can't locate d3 item for this migrant")
             }
+
         
             // select motivation paragraph and change text
             const narrative1_textContent = $(".narrative-1");
@@ -941,7 +1012,7 @@ function selectScale(d, nPos, sortBy) {
         // }
         // else {
             const ny = Math.floor(sortIndex / numPerRow);
-            return scale(ny);
+            return shift_amount+scale(ny);
         // }
     }
 }
@@ -981,10 +1052,10 @@ function trianglePath(d, sortBy, triPos) {
                 (d.rsp_id2 == "rsp1418-1")
             )) {
                 // flip to top right
-                triPath = "M " + scale(nx) + " " + scale(ny) + " L " + (scale(nx) + sqLen) + " " + scale(ny) + " L " + (scale(nx) + sqLen) + " " + (scale(ny) + sqLen) + " Z";
+                triPath = "M " + scale(nx) + " " + (shift_amount+parseInt(scale(ny))).toString() + " L " + (scale(nx) + sqLen) + " " + (shift_amount+parseInt(scale(ny))).toString() + " L " + (scale(nx) + sqLen) + " " + (shift_amount+parseInt(scale(ny)) + sqLen) + " Z";
             }
             else {
-                triPath = "M " + scale(nx) + " " + scale(ny) + " L " + scale(nx) + " " + (scale(ny) + sqLen) + " L " + (scale(nx) + sqLen) + " " + (scale(ny) + sqLen) + " Z";
+                triPath = "M " + scale(nx) + " " + (shift_amount+parseInt(scale(ny))).toString() + " L " + scale(nx) + " " + (shift_amount+parseInt(scale(ny)) + sqLen) + " L " + (scale(nx) + sqLen) + " " + (shift_amount+parseInt(scale(ny)) + sqLen) + " Z";
             }
         }
         else if (triPos == "topRight") {
@@ -998,34 +1069,34 @@ function trianglePath(d, sortBy, triPos) {
                 (d.rsp_id2 == 'rsp4718-4' || d.rsp_id2 == 'rsp4957-1')
             )) {
                 // flip to bottom left
-                triPath = "M " + scale(nx) + " " + scale(ny) + " L " + scale(nx) + " " + (scale(ny) + sqLen) + " L " + (scale(nx) + sqLen) + " " + (scale(ny) + sqLen) + " Z";
+                triPath = "M " + scale(nx) + " " + (shift_amount+parseInt(scale(ny))).toString() + " L " + scale(nx) + " " + (shift_amount+parseInt(scale(ny)) + sqLen) + " L " + (scale(nx) + sqLen) + " " + (shift_amount+parseInt(scale(ny)) + sqLen) + " Z";
             }
             else if (sortBy == "motivs" && d.motiv_cat.includes("clim") && (1279 + (7 * numPerRow) + 35) <= sortIndex && sortIndex <= (1301 + (7 * numPerRow) + 35)) {
                 // flip to bottom left and shift left 22
                 const nx = (sortIndex - 22) % numPerRow;
                 const ny = Math.floor((sortIndex - 22) / numPerRow);
-                triPath = "M " + scale(nx) + " " + scale(ny) + " L " + scale(nx) + " " + (scale(ny) + sqLen) + " L " + (scale(nx) + sqLen) + " " + (scale(ny) + sqLen) + " Z";
+                triPath = "M " + scale(nx) + " " + (shift_amount+parseInt(scale(ny))).toString() + " L " + scale(nx) + " " + (shift_amount+parseInt(scale(ny)) + sqLen) + " L " + (scale(nx) + sqLen) + " " + (shift_amount+parseInt(scale(ny)) + sqLen) + " Z";
             }
             else {
-                triPath = "M " + scale(nx) + " " + scale(ny) + " L " + (scale(nx) + sqLen) + " " + scale(ny) + " L " + (scale(nx) + sqLen) + " " + (scale(ny) + sqLen) + " Z";
+                triPath = "M " + scale(nx) + " " + (shift_amount+parseInt(scale(ny))).toString() + " L " + (scale(nx) + sqLen) + " " + (shift_amount+parseInt(scale(ny))).toString() + " L " + (scale(nx) + sqLen) + " " + (shift_amount+parseInt(scale(ny)) + sqLen) + " Z";
             }
         }
         else if (triPos == "top") {
             if (sortBy == "motivs" && d.rsp_id2 == "rsp1358-5") {
                 // flip to right
-                triPath = "M " + (scale(nx) + sqLen/2) + " " + (scale(ny) + sqLen/2) + " L " + (scale(nx) + sqLen) + " " + (scale(ny)) + " L " + (scale(nx) + sqLen) + " " + (scale(ny) + sqLen) + " Z";
+                triPath = "M " + (scale(nx) + sqLen/2) + " " + (shift_amount+parseInt(scale(ny)) + sqLen/2) + " L " + (scale(nx) + sqLen) + " " + (shift_amount+parseInt(scale(ny))).toString() + " L " + (scale(nx) + sqLen) + " " + (shift_amount+parseInt(scale(ny)) + sqLen) + " Z";
             }
             else {
-                triPath = "M " + scale(nx) + " " + scale(ny) + " L " + (scale(nx) + sqLen) + " " + scale(ny) + " L " + (scale(nx) + sqLen/2) + " " + (scale(ny) + sqLen/2) + " Z";
+                triPath = "M " + scale(nx) + " " + (shift_amount+parseInt(scale(ny))).toString() + " L " + (scale(nx) + sqLen) + " " + (shift_amount+parseInt(scale(ny))).toString() + " L " + (scale(nx) + sqLen/2) + " " + (shift_amount+parseInt(scale(ny)) + sqLen/2) + " Z";
             }
         }
         else if (triPos == "right") {
             if (sortBy == "motivs" && (d.rsp_id2 == 'rsp1364' || d.rsp_id2 == 'rsp1450')) {
                 // flip to top
-                triPath = "M " + scale(nx) + " " + scale(ny) + " L " + (scale(nx) + sqLen) + " " + scale(ny) + " L " + (scale(nx) + sqLen/2) + " " + (scale(ny) + sqLen/2) + " Z";
+                triPath = "M " + scale(nx) + " " + (shift_amount+parseInt(scale(ny))).toString() + " L " + (scale(nx) + sqLen) + " " + (shift_amount+parseInt(scale(ny))).toString() + " L " + (scale(nx) + sqLen/2) + " " + (shift_amount+parseInt(scale(ny)) + sqLen/2) + " Z";
             }
             else {
-                triPath = "M " + (scale(nx) + sqLen/2) + " " + (scale(ny) + sqLen/2) + " L " + (scale(nx) + sqLen) + " " + (scale(ny)) + " L " + (scale(nx) + sqLen) + " " + (scale(ny) + sqLen) + " Z";
+                triPath = "M " + (scale(nx) + sqLen/2) + " " + (shift_amount+parseInt(scale(ny)) + sqLen/2) + " L " + (scale(nx) + sqLen) + " " + (shift_amount+parseInt(scale(ny))).toString() + " L " + (scale(nx) + sqLen) + " " + (shift_amount+parseInt(scale(ny)) + sqLen) + " Z";
             }
         }
     // }
@@ -1051,7 +1122,7 @@ function plotInitialGrid(data) {
             .attr("y", d => {
                 const iInitial = motivsIndex[d.rsp_id2].initial;
                 const ny = Math.floor(iInitial / numPerRow);
-                return scale(ny);
+                return shift_amount+scale(ny);
             })
             .attr("width", sqLen)
             .attr("height", sqLen)
@@ -1329,9 +1400,9 @@ function plotLabels(labelList, sortBy) {
             .attr("id", d => "text-" + d.group)
             .attr("x", d => -sqLen)
             .attr("y", d => {
-                return (labelList.length == 5) ? scale(motivAttr[d.group].yPosSide)
-                : (labelList.length == 6) ? scale(incomeAttr[d.group].yPosSide)
-                : (labelList.length == 3) ? scale(cariAttr[d.group].yPosSide)
+                return (labelList.length == 5) ? shift_amount+scale(motivAttr[d.group].yPosSide)
+                : (labelList.length == 6) ? shift_amount+scale(incomeAttr[d.group].yPosSide)
+                : (labelList.length == 3) ? shift_amount+scale(cariAttr[d.group].yPosSide)
                 : null;
             })
             .attr("dy", "-0.125em")
@@ -1367,15 +1438,15 @@ function plotLabels(labelList, sortBy) {
             .attr("x1", -(sideWidth + sqLen))
             .attr("x2", -sqLen)
             .attr("y1", d => {
-                return (labelList.length == 5) ? scale(motivAttr[d.group].yPosSide) - 1.5 * sqLen
-                : (labelList.length == 6) ? scale(incomeAttr[d.group].yPosSide) - 1.5 * sqLen
-                : (labelList.length == 3) ? scale(cariAttr[d.group].yPosSide) - 1.5 * sqLen
+                return (labelList.length == 5) ? shift_amount+scale(motivAttr[d.group].yPosSide) - 1.5 * sqLen
+                : (labelList.length == 6) ? shift_amount+scale(incomeAttr[d.group].yPosSide) - 1.5 * sqLen
+                : (labelList.length == 3) ? shift_amount+scale(cariAttr[d.group].yPosSide) - 1.5 * sqLen
                 : null;
             })
             .attr("y2", d => {
-                return (labelList.length == 5) ? scale(motivAttr[d.group].yPosSide) - 1.5 * sqLen
-                : (labelList.length == 6) ? scale(incomeAttr[d.group].yPosSide) - 1.5 * sqLen
-                : (labelList.length == 3) ? scale(cariAttr[d.group].yPosSide) - 1.5 * sqLen
+                return (labelList.length == 5) ? shift_amount+scale(motivAttr[d.group].yPosSide) - 1.5 * sqLen
+                : (labelList.length == 6) ? shift_amount+scale(incomeAttr[d.group].yPosSide) - 1.5 * sqLen
+                : (labelList.length == 3) ? shift_amount+scale(cariAttr[d.group].yPosSide) - 1.5 * sqLen
                 : null;
             })
             .attr("stroke", "#1540C4")
@@ -1435,12 +1506,20 @@ $(".btn").on("click", function() {
 
     if ($(btnId).hasClass("active")) {
         motivSort = "initial";
+            // $("#migrant-line").css("display", "block")
+        // $("#migrant-name-label").css("display", "block")
+        $("#migrant-line").fadeIn(time/2);
+        $("#migrant-name-label").fadeIn(time/2);
         $(btnId).removeClass("active");
         $(labelsId).fadeOut(time/2);
-        updatePlotSort("initial");
+        updatePlotSort("initial")
     }
     else {
         motivSort = sortBy;
+        // $("#migrant-line").css("display", "none")
+        // $("#migrant-name-label").css("display", "none")
+        $("#migrant-line").fadeOut(time/2);
+        $("#migrant-name-label").fadeOut(time/2);
         $(".btn").removeClass("active");
         $(".chart-labels").fadeOut(time/2);
         $(btnId).addClass("active");

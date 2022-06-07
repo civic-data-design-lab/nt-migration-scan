@@ -6,6 +6,35 @@ html > * {
     overflow: auto;
 }
 
+body{
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    min-height: 100%;
+    min-width: 100%;
+    margin: 0px;
+}
+
+/*Container*/
+
+.content-block {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+}
+
+#motivations {
+    justify-content: center;
+    max-width: 100vw;
+    height: 60vh;
+}
+
+.px-xl-5 > * {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
 /* SVG TRANSITION ANIMATION */
 div#transition {
     background-color: #0070ff;
@@ -24,44 +53,39 @@ div#transition {
     padding-right: 2px;
 }
 
+.col {
+    height: 100%;
+}
+
 /* BUTTON */
-/*#buttons-motivations {
-    padding-left: calc(15.5% + 2px);
-    padding-right: 2px;
-}
-#toggle-buttons-motivations {
-    padding-left: calc(15.5% + 2px);
-    padding-right: 2px; 
-}*/
-#toggle-buttons-cost {
-    width: 100%;
-    border-radius: 0;
-    font-weight: 500;
-    background-color: #fff;
-    border-color:blue;
-    border-radius: 0px;
-    text-align: center;
-    align-items: center;
-}
-#toggle-buttons-cost .btn:hover {
-    width:100%;
-    color: white;
-    background-color: blue;
-}
 
-a {
-   color: black;
-}
-
-button.btn.btn-sm.text-uppercase.text-blue {
+a.btn.btn-sm {
     color: black;
 }
 
-a:hover a:active > * {
-    background-color: #1540C4;
-    color: white;
+#toggle-buttons-cost {
+    position: absolute;
+    bottom: 0px;
+    width: 100vw;
+    height: 75px;
+    margin-right: 0px;
+    margin-left:0px;
+
 }
 
+#toggle-buttons-cost .btn {
+    height: 100%;
+    width: 98%;
+    font-size: 100%;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 1%;
+    border-radius: 0px;
+    float:left;
+    background-color: white;
+}
 
 #btn-income {
     border-right: none;
@@ -69,25 +93,41 @@ a:hover a:active > * {
 }
 /* Carousel */
 #carousel-slides {
+    position:absolute;
     background-color: blue;
     width: 100%;
-    height: 25%;
+    height: 100%;
+}
+
+#carousel-button {
+    background-color: blue;
+    width: 100vw;
+    height: 100%;
 }
 
 /* Button - arrow for slides */
 
 #carousel-slides button {
     border:0;
-    color:white;
+    background-color: blue;
+    font-size: 300%;
 }
 
 #narrative_1to3, #narrative_1to2, #narrative_2to3 {
-    float:left;
+    justify-content: left;
+    display: flex;
 }
 
 #narrative_2to1, #narrative_3to2, #narrative_3to1 {
-    float:right;
+    justify-content: right;
+    display: flex;
 }
+
+/*Narratives*/
+.narrative-1, .narrative-2, .narrative-3 {
+    font-size: 300%;
+    text-align: center;
+} 
 
 /* bootstrap tooltip */
 .tooltip.bs-tooltip-top,
@@ -215,10 +255,10 @@ a:hover a:active > * {
 }
 
 /* RESPONSIVE OVERRIDES */
-.btn-sm {
+/*.btn-sm {
     font-size: 0.7rem;
     height: 44px;
-}
+}*/
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
@@ -226,29 +266,11 @@ a:hover a:active > * {
 }
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
-    /* #viz-content {
-        align-items: center;
-    } */
-    .btn-sm {
-        height: auto;
-    }
-    .tooltip {
-        position: absolute;
-        min-width: 310px;
-        max-width: 380px;
-        -webkit-transform: translateX(0);
-        -moz-transform: translateX(0);
-        -ms-transform: translateX(0);
-        -o-transform: translateX(0);
-        transform: translateX(0);
-        display: none;
-    }
+
 }
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-    .btn-sm {
-        font-size: 0.875rem;
-    }
+
 }
 /* X-Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
@@ -261,8 +283,5 @@ a:hover a:active > * {
 
 /* wide aspect ratio */
 @media (min-aspect-ratio: 16/9) {
-    #viz-col {
-        margin: auto;
-        max-width: 150vh;
-    }
+
 }

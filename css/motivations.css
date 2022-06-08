@@ -116,6 +116,19 @@ a.btn.btn-sm {
     padding-left: 5%;
 }
 
+#narrative_1to3, #narrative_1to2, #narrative_2to3 {
+    justify-content: left;
+    display: inline-block;
+    height: 20%;
+}
+
+#narrative_2to1, #narrative_3to2, #narrative_3to1 {
+    justify-content: right;
+    display: inline-block;
+    height: 20%;
+}
+
+
 /*Narratives*/
 .narrative-1, .narrative-2, .narrative-3 {
     font-size: 150%;

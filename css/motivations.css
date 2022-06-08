@@ -26,7 +26,7 @@ body{
 #motivations {
     justify-content: center;
     max-width: 100vw;
-    height: 60vh;
+    height: 70%;
 }
 
 .px-xl-5 > * {
@@ -135,8 +135,9 @@ a.btn.btn-sm {
 /*Narratives*/
 .narrative-1, .narrative-2, .narrative-3 {
     font-size: 150%;
-    text-align: center;
-    padding-top: 10%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
     height:20%;
     width:100%;
 } 

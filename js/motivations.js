@@ -1778,6 +1778,14 @@ function toggle_motivation_on () {
     const narrative3Text = $(".narrative-3");
     narrative3Text.css("display", "none")
 
+    $("#motivations-button").css("background-color","#1540C4")
+    $("#motivations-button").css("color","white")
+    $("#motivations-button").css("pointer-events","none")
+    $("#costs-button").css("background-color","white")
+    $("#costs-button").css("color","black")
+    $("#costs-button").css("pointer-events","none")
+    
+
     $("#narrative_2to1").css("display", "none")
     $("#narrative_2to3").css("display", "none")
     $("#narrative_3to2").css("display", "none")
@@ -1799,6 +1807,13 @@ function toggle_cost_on () {
 
     const narrative3Text = $(".narrative-3");
     narrative3Text.css("display", "none")
+
+    $("#costs-button").css("background-color","#1540C4")
+    $("#costs-button").css("color","white")
+    $("#costs-button").css("pointer-events","none")
+    $("#motivations-button").css("background-color","white")
+    $("#motivations-button").css("color","black")
+    $("#motivations-button").css("pointer-events","none")
 
     $("#narrative_1to3").css("display", "none")
     $("#narrative_1to2").css("display", "none")

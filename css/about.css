@@ -18,8 +18,8 @@ body{
 
 h2{
     color: white;
-    font-size:200%;
-    font-weight: 600;
+    font-size:175%;
+    font-weight: 500;
     padding-top: 7.5%;
     padding-left: 7.5%;
     padding-bottom: 2%;
@@ -28,7 +28,7 @@ h2{
 
 p {
     color: white;
-    font-size: 125%;
+    font-size: 100%;
     padding-left: 7.5%;
     padding-bottom: 2.5%;
     width: 75%;

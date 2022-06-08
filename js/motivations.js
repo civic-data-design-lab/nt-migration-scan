@@ -253,7 +253,7 @@ function updateTransLayout(layout) {
 const svg = d3.select("#frame-motivations")
     .append("svg")
         .attr("id", "viz-motivations")
-        .attr("viewBox", [-(sideWidth + sqLen), 0, width + (sideWidth + sqLen), height])
+        .attr("viewBox", [-(sideWidth + sqLen), 0, width + (sideWidth + sqLen), height+(2*shift_amount)])
 
 
 // define tooltip
@@ -488,7 +488,6 @@ const dataset = d3.csv("./data/motivations.csv", d3.autoType)
 
                 const migrant_x = $("#tri-tr-" + "rsp"+migrant_id).attr("d").split(' ')[1]
                 const migrant_y = $("#tri-tr-" + "rsp"+migrant_id).attr("d").split(' ')[2]
-                console.log("x and y", migrant_x, migrant_y)
                 // draw line
                 svg.append("line")
                 .attr("id", "migrant-line")
@@ -548,7 +547,6 @@ const dataset = d3.csv("./data/motivations.csv", d3.autoType)
             narrative1_textContent.find(".migrant-age").html(selected_migrant.age);
             narrative1_textContent.find(".migrant-country").html(countryText_motivations[selected_migrant.country]);
             if (selected_migrant_motives.length > 1) {
-                console.log(motivDetailAttr[selected_migrant_motives[0]].label)
                 narrative1_textContent.find(".migrant-motivation").html(motivDetailAttr[selected_migrant_motives[0]].label + " and " + motivDetailAttr[selected_migrant_motives[1]].label); 
             }
             else {
@@ -1280,7 +1278,7 @@ function plotInitialGrid(data) {
         .enter()
         .append("rect")
             .attr("x", d => scale(motivAttr[d].xPosLegend))
-            .attr("y", scale(38)) // row number (1624/numPerRow + 9)
+            .attr("y", (shift_amount+parseInt(scale(38))).toString()) // row number (1624/numPerRow + 9) 
             .attr("width", sqLen)
             .attr("height", sqLen)
             .attr("fill", d => motivAttr[d].color)
@@ -1295,7 +1293,7 @@ function plotInitialGrid(data) {
         .enter()
         .append("text")
         .attr("x", d => scale(motivAttr[d].xPosLegend + 1.25))
-        .attr("y", scale(38 + 1))
+        .attr("y", (shift_amount+parseInt(scale(38 + 1))).toString())
         .attr("dy", "-0.125em")
         .attr("text-anchor", "start")
         .attr("fill", d => motivAttr[d].color)
@@ -1309,7 +1307,7 @@ function plotInitialGrid(data) {
         .enter()
         .append("text")
         .attr("x", d => scale(d.nx + 1.25))
-        .attr("y", d => scale(d.ny + 1))
+        .attr("y", d => (shift_amount+parseInt(scale(d.ny + 1))).toString())
         .attr("dy", "-0.125em")
         .attr("text-anchor", "start")
         .attr("fill", "#777")
@@ -1323,7 +1321,7 @@ function plotInitialGrid(data) {
         .enter()
         .append("path")
         .attr("d", d => {
-            return "M " + scale(d.nx) + " " + scale(d.ny) + " L " + scale(d.nx) + " " + (scale(d.ny) + sqLen) + " L " + (scale(d.nx) + sqLen) + " " + (scale(d.ny) + sqLen) + " Z";
+            return "M " + scale(d.nx) + " " + (shift_amount+parseInt(scale(d.ny))).toString() + " L " + scale(d.nx) + " " + (shift_amount+parseInt(scale(d.ny)) + sqLen) + " L " + (scale(d.nx) + sqLen) + " " + (shift_amount+parseInt(scale(d.ny)) + sqLen) + " Z";
         })
         .attr("fill", d => motivAttr[d.colorCat1].color)
         .attr("stroke", "#fff")
@@ -1337,7 +1335,7 @@ function plotInitialGrid(data) {
         .enter()
         .append("path")
         .attr("d", d => {
-            return "M " + scale(d.nx) + " " + scale(d.ny) + " L " + (scale(d.nx) + sqLen) + " " + scale(d.ny) + " L " + (scale(d.nx) + sqLen) + " " + (scale(d.ny) + sqLen) + " Z";
+            return "M " + scale(d.nx) + " " + (shift_amount+parseInt(scale(d.ny))).toString() + " L " + (scale(d.nx) + sqLen) + " " + (shift_amount+parseInt(scale(d.ny))).toString() + " L " + (scale(d.nx) + sqLen) + " " + (shift_amount+parseInt(scale(d.ny)) + sqLen) + " Z";
         })
         .attr("fill", d => motivAttr[d.colorCat2].color)
         .attr("stroke", "#fff")

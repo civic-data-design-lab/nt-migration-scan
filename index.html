@@ -56,34 +56,37 @@
                     </div> -->
                     <!-- MOTIVATIONS VIZ: -->
                      <div id="motivations-container" class="">
+                         <div>
+                             Visualization of migrant motivations
+                         </div>
+                        <!-- frame for d3 visualization -->
+                        <div id="frame-motivations" class="position-relative"></div>
                         <!-- div for buttons -->
                         <div id="buttons-motivations" class="row mb-3 me-0">
                             <div class="col-6 px-0">
-                                <span data-bs-toggle="tooltip" data-bs-placement="top"
-                                    title="Households who had members migrate in the last 5 years specified the motivations of those migrants.">
+                                <!-- <span data-bs-toggle="tooltip" data-bs-placement="top"
+                                    title="Households who had members migrate in the last 5 years specified the motivations of those migrants."> -->
                                     <button type="button" id="btn-motivs"
                                         class="btn btn-sm text-uppercase text-blue" data-bs-toggle="modal"
                                         data-bs-target="#modal-motivs">Motivations</button>
-                                </span>
+                                <!-- </span> -->
                             </div>
                             <div id="btn-center" class="col-3 px-0">
-                                <span data-bs-toggle="tooltip" data-bs-placement="top"
-                                    title="Motivations for migration split up by the monthly income per capita levels of households with a migrant in the last 5 years.">
+                                <!-- <span data-bs-toggle="tooltip" data-bs-placement="top"
+                                    title="Motivations for migration split up by the monthly income per capita levels of households with a migrant in the last 5 years."> -->
                                     <button type="button" id="btn-income"
                                         class="btn btn-sm text-uppercase text-blue" data-bs-toggle="modal"
                                         data-bs-target="#modal-income">Income Level</button>
-                                </span>
+                                <!-- </span> -->
                             </div>
                             <div class="col-3 px-0">
-                                <span data-bs-toggle="tooltip" data-bs-placement="top"
-                                    title="Food Security is measured by the Consolidated Approach to Reporting Indicators of Food Security (CARI) score. Used to classify households into four groups by their food security status, this index is based on indicators that measure different dimensions of food security: the current status of food consumption score and/or food energy shortfall and the capacity of livelihood coping strategies and food expenditure share or poverty status.">
+                                <!-- <span data-bs-toggle="tooltip" data-bs-placement="top"
+                                    title="Food Security is measured by the Consolidated Approach to Reporting Indicators of Food Security (CARI) score. Used to classify households into four groups by their food security status, this index is based on indicators that measure different dimensions of food security: the current status of food consumption score and/or food energy shortfall and the capacity of livelihood coping strategies and food expenditure share or poverty status."> -->
                                     <button type="button" id="btn-cari" class="btn btn-sm text-uppercase text-blue"
                                         data-bs-toggle="modal" data-bs-target="#modal-cari">Food Security</button>
-                                </span>
+                                <!-- </span> -->
                             </div>
                         </div>
-                        <!-- frame for d3 visualization -->
-                        <div id="frame-motivations" class="position-relative"></div>
                         <!-- motivs tooltip template -->
                         <div class="tooltip template">
                             <div class="side-color"></div>
@@ -125,6 +128,9 @@
                     <!-- COST VIZ: -->
                     <!-- frame for d3 visualization -->
                     <div id="cost-container" style="display: none;">
+                        <div>
+                            Visualization of the costs of migration
+                        </div>
                         <div id="frame-cost" class="frame-cost"></div>
                         <!-- div for buttons -->
                         <div id="toolbar" class="row position-relative mt-3 mt-md-5 mt-md-3 mt-lg-5 mb-md-5 mb-lg-0 px-2">

@@ -7,7 +7,8 @@
 // else {
 //     const item_scanned = false
 // }
-const shift_amount = 80
+const top_margin_amount = 50
+const shift_amount = 340
 
 // svg animation transition
 let transitionTime = 1000;
@@ -470,13 +471,13 @@ const dataset = d3.csv("./data/motivations.csv", d3.autoType)
                 .attr("x1", (parseInt(migrant_x)+12).toString())     
                 .attr("y1", migrant_y)    
                 .attr("x2", (parseInt(migrant_x)+12).toString())   
-                .attr("y2", 52);
+                .attr("y2", 280);
 
                 // write name of migrant
                 svg.append("text")
                 .attr("id", "migrant-name-label")
                 .attr("x", (parseInt(migrant_x)).toString())
-                .attr("y", 40)
+                .attr("y", 260)
                 .style("font-size", "2.5rem")
                 .text(selected_migrant.name)
 
@@ -1278,7 +1279,7 @@ function plotInitialGrid(data) {
         .enter()
         .append("rect")
             .attr("x", d => scale(motivAttr[d].xPosLegend))
-            .attr("y", (shift_amount+parseInt(scale(38))).toString()) // row number (1624/numPerRow + 9) 
+            .attr("y", (top_margin_amount+parseInt(scale(0))).toString()) // row number (1624/numPerRow + 9) 
             .attr("width", sqLen)
             .attr("height", sqLen)
             .attr("fill", d => motivAttr[d].color)
@@ -1293,7 +1294,7 @@ function plotInitialGrid(data) {
         .enter()
         .append("text")
         .attr("x", d => scale(motivAttr[d].xPosLegend + 1.25))
-        .attr("y", (shift_amount+parseInt(scale(38 + 1))).toString())
+        .attr("y", (top_margin_amount+parseInt(scale(1))).toString())
         .attr("dy", "-0.125em")
         .attr("text-anchor", "start")
         .attr("fill", d => motivAttr[d].color)
@@ -1307,7 +1308,7 @@ function plotInitialGrid(data) {
         .enter()
         .append("text")
         .attr("x", d => scale(d.nx + 1.25))
-        .attr("y", d => (shift_amount+parseInt(scale(d.ny + 1))).toString())
+        .attr("y", d => (top_margin_amount+parseInt(scale(1))).toString())
         .attr("dy", "-0.125em")
         .attr("text-anchor", "start")
         .attr("fill", "#777")
@@ -1321,7 +1322,7 @@ function plotInitialGrid(data) {
         .enter()
         .append("path")
         .attr("d", d => {
-            return "M " + scale(d.nx) + " " + (shift_amount+parseInt(scale(d.ny))).toString() + " L " + scale(d.nx) + " " + (shift_amount+parseInt(scale(d.ny)) + sqLen) + " L " + (scale(d.nx) + sqLen) + " " + (shift_amount+parseInt(scale(d.ny)) + sqLen) + " Z";
+            return "M " + scale(d.nx) + " " + (top_margin_amount+parseInt(scale(0))).toString() + " L " + scale(d.nx) + " " + (top_margin_amount+parseInt(scale(0)) + sqLen) + " L " + (scale(d.nx) + sqLen) + " " + (top_margin_amount+parseInt(scale(0)) + sqLen) + " Z";
         })
         .attr("fill", d => motivAttr[d.colorCat1].color)
         .attr("stroke", "#fff")
@@ -1335,7 +1336,7 @@ function plotInitialGrid(data) {
         .enter()
         .append("path")
         .attr("d", d => {
-            return "M " + scale(d.nx) + " " + (shift_amount+parseInt(scale(d.ny))).toString() + " L " + (scale(d.nx) + sqLen) + " " + (shift_amount+parseInt(scale(d.ny))).toString() + " L " + (scale(d.nx) + sqLen) + " " + (shift_amount+parseInt(scale(d.ny)) + sqLen) + " Z";
+            return "M " + scale(d.nx) + " " + (top_margin_amount+parseInt(scale(0))).toString() + " L " + (scale(d.nx) + sqLen) + " " + (top_margin_amount+parseInt(scale(0))).toString() + " L " + (scale(d.nx) + sqLen) + " " + (top_margin_amount+parseInt(scale(0)) + sqLen) + " Z";
         })
         .attr("fill", d => motivAttr[d.colorCat2].color)
         .attr("stroke", "#fff")

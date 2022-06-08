@@ -254,7 +254,8 @@ function updateTransLayout(layout) {
 const svg = d3.select("#frame-motivations")
     .append("svg")
         .attr("id", "viz-motivations")
-        .attr("viewBox", [-(sideWidth + sqLen), 0, width + (sideWidth + sqLen), height+(2*shift_amount)])
+        .attr("viewBox", [0, 0, width + (sideWidth + sqLen), height+(2*shift_amount)])
+        // .attr("viewBox", [-(sideWidth + sqLen), 0, width + (sideWidth + sqLen), height+(2*shift_amount)])
 
 
 // define tooltip
@@ -1507,6 +1508,7 @@ $(".btn").on("click", function() {
         motivSort = "initial";
             // $("#migrant-line").css("display", "block")
         // $("#migrant-name-label").css("display", "block")
+        $("#viz-motivations").attr("viewBox", [0, 0, width + (sideWidth + sqLen), height+(2*shift_amount)])
         $("#migrant-line").fadeIn(time/2);
         $("#migrant-name-label").fadeIn(time/2);
         $(btnId).removeClass("active");
@@ -1517,6 +1519,7 @@ $(".btn").on("click", function() {
         motivSort = sortBy;
         // $("#migrant-line").css("display", "none")
         // $("#migrant-name-label").css("display", "none")
+        $("#viz-motivations").attr("viewBox", [-(sideWidth + sqLen), 0, width + (sideWidth + sqLen), height+(2*shift_amount)])
         $("#migrant-line").fadeOut(time/2);
         $("#migrant-name-label").fadeOut(time/2);
         $(".btn").removeClass("active");

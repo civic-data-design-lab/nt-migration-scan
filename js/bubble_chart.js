@@ -1,7 +1,17 @@
+// GLOBAL VARS
+
+// const top_margin_amount = 50
+
 const countryText_bubble = {
     "GTM": "Guatemala",
     "HND": "Honduras",
     "SLV": "El Salvador"
+};
+const pathwaysList = ["regular", "irrregular coyote", "irregular on own, with caravan"];
+const pathwayTypes = {
+  "regular": {label: "Regular Pathway", color: "#e23cad", yPosSide: 1, xPosLegend: 0},
+  "irrregular coyote": {label: "Irregular with Smuggler", color: "#662d91", yPosSide: 25, xPosLegend: 11},
+  "irregular on own, with caravan": {label: "Irregular with a Caravan", color: "#faa41a", yPosSide: 28, xPosLegend: 26}
 };
 const pathwayAttr = {
     "regular": {"label": "Through a Regular Pathway", "color": "#e23cad"},
@@ -174,6 +184,40 @@ var posScaleRev = d3v4.scaleLinear().domain([22000,0]);
     simulation.nodes(nodes);
 
     groupBubbles();
+
+    // motivations categories legend
+    const legend = svg.append("g")
+    .attr("class", "legend")
+ 
+    // legend squares
+    legend.append("g")
+         .attr("class", "legend-sq")
+     .selectAll("rect")
+     .data(pathwaysList)
+     .enter()
+     .append("rect")
+         .attr("x", d => scale(pathwayTypes[d].xPosLegend))
+         .attr("y", (top_margin_amount+parseInt(scale(0))).toString()) // row number (1624/numPerRow + 9) 
+         .attr("width", 24)
+         .attr("height", 24)
+         .attr("fill", d => pathwayTypes[d].color)
+         .attr("stroke", "#fff")
+         .attr("stroke-width", gap);
+
+    // legend text
+    legend.append("g")
+         .attr("class", "legend-text")
+     .selectAll("text")
+     .data(pathwaysList)
+     .enter()
+     .append("text")
+     .attr("x", d => scale(pathwayTypes[d].xPosLegend + 1.25))
+     .attr("y", (top_margin_amount+parseInt(scale(1))).toString())
+     .attr("dy", "-0.18em")
+     .attr("font-size", "1.3em")
+     .attr("text-anchor", "start")
+     .attr("fill", d => pathwayTypes[d].color)
+     .text(d => pathwayTypes[d].label.toUpperCase());
 
   }
   

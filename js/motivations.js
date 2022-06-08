@@ -147,7 +147,7 @@ const tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
 // D3 CHART VARIABLES
 const width = 1346;
 const height = 942;
-const sideWidth = 200;
+const sideWidth = 0;
 
 // animation time
 const time = 1000;
@@ -254,7 +254,7 @@ function updateTransLayout(layout) {
 const svg = d3.select("#frame-motivations")
     .append("svg")
         .attr("id", "viz-motivations")
-        .attr("viewBox", [-(sideWidth + sqLen), 0, width + (sideWidth + sqLen), height+(2*shift_amount)])
+        .attr("viewBox", [0, 0, width + (sideWidth + sqLen), height+(2*shift_amount)])
 
 
 // define tooltip
@@ -1397,59 +1397,60 @@ function plotLabels(labelList, sortBy) {
         .enter()
         .append("text")
             .attr("id", d => "text-" + d.group)
-            .attr("x", d => -sqLen)
+            .attr("x", d => 0)
             .attr("y", d => {
-                return (labelList.length == 5) ? shift_amount+scale(motivAttr[d.group].yPosSide)
-                : (labelList.length == 6) ? shift_amount+scale(incomeAttr[d.group].yPosSide)
-                : (labelList.length == 3) ? shift_amount+scale(cariAttr[d.group].yPosSide)
+                return (labelList.length == 5) ? shift_amount-45+scale(1.09*motivAttr[d.group].yPosSide)
+                : (labelList.length == 6) ? shift_amount-45+scale(1.30*incomeAttr[d.group].yPosSide)
+                : (labelList.length == 3) ? shift_amount-45+scale(1.15*cariAttr[d.group].yPosSide)
                 : null;
             })
             .attr("dy", "-0.125em")
-            .attr("text-anchor", "end")
+            // .attr("text-anchor", "end")
             .text(d => {
                 return (labelList.length == 5) ? motivAttr[d.group].label.toUpperCase()
                 : (labelList.length == 6) ? incomeAttr[d.group].label.toUpperCase()
                 : (labelList.length == 3) ? cariAttr[d.group].sideLabel.toUpperCase()
                 : null;
             })
-            .call(wrapText, sideWidth)
-            .on("mouseover", function(event, d) {
-                sideTooltipHtml(d);
-                divSide.style("top", (divHtml) => {
-                    return (labelList.length == 5) ? ((scale(motivAttr[d.group].yPosSide) - sqLen/2)/height * 100) + "%"
-                    : (labelList.length == 6) ? ((scale(incomeAttr[d.group].yPosSide) - sqLen/2)/height * 100) + "%"
-                    : (labelList.length == 3) ? ((scale(cariAttr[d.group].yPosSide) - sqLen/2)/height * 100) + "%"
-                    : null;
-                    })
-                    .style("left", ((sideWidth + sqLen/2)/width * 100) + "%")
-                    .style("display", "block");
-            })
-            .on("mouseout", function() {
-                divSide.style("display", "none");
-            });
+            // .call(wrapText, sideWidth)
+            // .on("mouseover", function(event, d) {
+            //     sideTooltipHtml(d);
+            //     divSide.style("top", (divHtml) => {
+            //         return (labelList.length == 5) ? ((scale(motivAttr[d.group].yPosSide) - sqLen/2)/height * 100) + "%"
+            //         : (labelList.length == 6) ? ((scale(incomeAttr[d.group].yPosSide) - sqLen/2)/height * 100) + "%"
+            //         : (labelList.length == 3) ? ((scale(cariAttr[d.group].yPosSide) - sqLen/2)/height * 100) + "%"
+            //         : null;
+            //         })
+            //         .style("left", ((sideWidth + sqLen/2)/width * 100) + "%")
+            //         .style("display", "block");
+            // })
+            // .on("mouseout", function() {
+            //     divSide.style("display", "none");
+            // });
+
     // lines
-    labelGroup.append("g")
-            .attr("class", "chart-lines")
-        .selectAll("path")
-        .data(labelList)
-        .enter()
-        .append("line")
-            .attr("x1", -(sideWidth + sqLen))
-            .attr("x2", -sqLen)
-            .attr("y1", d => {
-                return (labelList.length == 5) ? shift_amount+scale(motivAttr[d.group].yPosSide) - 1.5 * sqLen
-                : (labelList.length == 6) ? shift_amount+scale(incomeAttr[d.group].yPosSide) - 1.5 * sqLen
-                : (labelList.length == 3) ? shift_amount+scale(cariAttr[d.group].yPosSide) - 1.5 * sqLen
-                : null;
-            })
-            .attr("y2", d => {
-                return (labelList.length == 5) ? shift_amount+scale(motivAttr[d.group].yPosSide) - 1.5 * sqLen
-                : (labelList.length == 6) ? shift_amount+scale(incomeAttr[d.group].yPosSide) - 1.5 * sqLen
-                : (labelList.length == 3) ? shift_amount+scale(cariAttr[d.group].yPosSide) - 1.5 * sqLen
-                : null;
-            })
-            .attr("stroke", "#1540C4")
-            .attr("stroke-width", 2)
+    // labelGroup.append("g")
+    //         .attr("class", "chart-lines")
+    //     .selectAll("path")
+    //     .data(labelList)
+    //     .enter()
+    //     .append("line")
+    //         .attr("x1", -(sideWidth + sqLen))
+    //         .attr("x2", -sqLen)
+    //         .attr("y1", d => {
+    //             return (labelList.length == 5) ? shift_amount+scale(motivAttr[d.group].yPosSide) - 1.5 * sqLen
+    //             : (labelList.length == 6) ? shift_amount+scale(incomeAttr[d.group].yPosSide) - 1.5 * sqLen
+    //             : (labelList.length == 3) ? shift_amount+scale(cariAttr[d.group].yPosSide) - 1.5 * sqLen
+    //             : null;
+    //         })
+    //         .attr("y2", d => {
+    //             return (labelList.length == 5) ? shift_amount+scale(motivAttr[d.group].yPosSide) - 1.5 * sqLen
+    //             : (labelList.length == 6) ? shift_amount+scale(incomeAttr[d.group].yPosSide) - 1.5 * sqLen
+    //             : (labelList.length == 3) ? shift_amount+scale(cariAttr[d.group].yPosSide) - 1.5 * sqLen
+    //             : null;
+    //         })
+    //         .attr("stroke", "#1540C4")
+    //         .attr("stroke-width", 2)
 }
 
 // create narratives after migrant outcomes viz

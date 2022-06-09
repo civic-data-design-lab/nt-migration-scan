@@ -92,7 +92,7 @@ a.btn.btn-sm {
 }
 /* Carousel */
 #carousel-slides {
-    background-color: #1540C4;
+    background-color: #24418f;
     width: 100%;
     height: 100%;
     display: flex;
@@ -101,7 +101,7 @@ a.btn.btn-sm {
 }
 
 #carousel-button {
-    background-color: #1540C4;
+    background-color: #24418f;
     width: 100vw;
     height: 100%;
     bottom: 0;
@@ -141,7 +141,7 @@ a.btn.btn-sm {
 
 #carousel-slides button {
     border: 0;
-    background-color: #1540C4;
+    background-color: #24418f;
     color: white;
     font-size: 250%;
     height: 20%;

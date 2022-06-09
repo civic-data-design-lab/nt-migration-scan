@@ -729,43 +729,43 @@ function indexPos(d, sortBy, triPos) {
         if (triPos == "botLeft") {
             // to oth from sec
             if (1530 <= sortIndex && sortIndex <= 1538) {
-                sortIndex += (6 * numPerRow) + 35;
+                sortIndex += (14 * numPerRow) + 35;
             }
             // to oth from reun
             else if (1477 <= sortIndex && sortIndex <= 1486) {
-                sortIndex += (7 * numPerRow) + 22;
+                sortIndex += (15 * numPerRow) + 22;
             }
             // to oth from econ
             else if (1366 <= sortIndex && sortIndex <= 1379) {
-                sortIndex += (9 * numPerRow) + 7;
+                sortIndex += (17 * numPerRow) + 7;
             }
             // to clim from econ
             else if (1302 <= sortIndex && sortIndex <= 1305) {
-                sortIndex += (7 * numPerRow) - 14;
+                sortIndex += (13 * numPerRow) - 14;
             }
             // security
             else if (1520 <= sortIndex && sortIndex <= 1529) {
-                sortIndex += 25;
+                sortIndex += (4 * numPerRow) + 25;
             }
             // to sec from econ (3 categories)
             else if (d.rsp_id2 == 'rsp1358-5') {
-                sortIndex += (3 * numPerRow) + 9;
+                sortIndex += (7 * numPerRow) + 9;
             }
             // to sec from econ
             else if (1237 <= sortIndex && sortIndex <= 1252) {
-                sortIndex += (5 * numPerRow) + 47;
+                sortIndex += (9 * numPerRow) + 47;
             }
             // reun
             else if (1463 <= sortIndex && sortIndex <= 1476) {
-                sortIndex += 12 - numPerRow;
+                sortIndex += 12 + numPerRow;
             }
             // to reun from econ (3 categories)
             else if (d.rsp_id2 == 'rsp1364' || d.rsp_id2 == 'rsp1450') {
-                sortIndex += numPerRow - 5;
+                sortIndex += 2*numPerRow - 5;
             }
             // to reun from econ (last 2 flipped)
             else if (1174 <= sortIndex && sortIndex <= 1183) {
-                sortIndex += (5 * numPerRow) - 18;
+                sortIndex += (7 * numPerRow) - 18;
             }
             // econ (and sec)
             else if (d.motiv_cat.includes("sec") && 1184 <= sortIndex && sortIndex <= 1236) {
@@ -794,48 +794,48 @@ function indexPos(d, sortBy, triPos) {
         else if (triPos == "topRight") {
             // to oth from sec (flipped)
             if (1521 <= sortIndex && sortIndex <= 1529) {
-                sortIndex += (7 * numPerRow) - 3;
+                sortIndex += (13 * numPerRow) - 3;
             }
             // to oth from reun (flipped)
             else if (1463 <= sortIndex && sortIndex <= 1476) {
-                sortIndex += (8 * numPerRow) + 8;
+                sortIndex += (16 * numPerRow) + 8;
             }
             // to oth from econ (flipped)
             else if (d.rsp_id2 == 'rsp4864' || d.rsp_id2 == 'rsp4867' || d.rsp_id2 == 'rsp4957-2') {
-                sortIndex += (10 * numPerRow) + 10;
+                sortIndex += (18 * numPerRow) + 10;
             }
             // to oth from econ
             else if (1306 <= sortIndex && sortIndex <= 1362) {
-                sortIndex += (10 * numPerRow) + 11;
+                sortIndex += (18 * numPerRow) + 11;
             }
             // to clim from econ
             else if (1253 <= sortIndex && sortIndex <= 1301) {
                 // 1279 - 1301
-                sortIndex += (7 * numPerRow) + 35;
+                sortIndex += (13 * numPerRow) + 35;
             }
             // sec (flipped)
             else if (1529 <= sortIndex && sortIndex < 1538) {
-                sortIndex += 25;
+                sortIndex += (4 * numPerRow) + 25;
             }
             // to sec from econ (flipped)
             else if (d.rsp_id2 == 'rsp4510' || d.rsp_id2 == 'rsp4515' || d.rsp_id2 == 'rsp4560-1' || d.rsp_id2 == 'rsp4703-1' || d.rsp_id2 == 'rsp4703-2' || d.rsp_id2 == 'rsp4723' || d.rsp_id2 == 'rsp4738' || d.rsp_id2 == 'rsp4805' || d.rsp_id2 == 'rsp4959' || d.rsp_id2 == 'rsp4489-2') {
-                sortIndex += (6 * numPerRow) + 17;
+                sortIndex += (10 * numPerRow) + 17;
             }
             // to sec from econ
             else if (1184 <= sortIndex && sortIndex <= 1226) {
-                sortIndex += (6 * numPerRow) + 25;
+                sortIndex += (10 * numPerRow) + 25;
             }
             // reun
             else if (1477 <= sortIndex && sortIndex <= 1486) {
-                sortIndex -= numPerRow + 2;
+                sortIndex -= -numPerRow + 2;
             }
             // to reun from sec (flipped)
             else if (d.rsp_id2 == 'rsp1418-2') {
-                sortIndex -= numPerRow + 31;
+                sortIndex -= -numPerRow + 31;
             }
             // to reun from econ
             else if (1155 <= sortIndex && sortIndex <= 1173) {
-                sortIndex += (5 * numPerRow) - 6;
+                sortIndex += (7 * numPerRow) - 6;
             }
             // econ (and sec)
             else if (d.motiv_cat.includes("sec") && 1237 <= sortIndex && sortIndex <= 1252) {
@@ -853,23 +853,23 @@ function indexPos(d, sortBy, triPos) {
         else if (triPos == "top") {
             // to oth from econ
             if (d.rsp_id2 == 'rsp3254') {
-                sortIndex += (10 * numPerRow) - 6;
+                sortIndex += (18 * numPerRow) - 6;
             }
             // to clim from econ
             if (d.rsp_id2 == 'rsp1418-1') {
-                sortIndex += (6 * numPerRow) - 17;
+                sortIndex += (12 * numPerRow) - 17;
             }
             // to sec from econ
             if (d.rsp_id2 == 'rsp1039-2') {
-                sortIndex += (4 * numPerRow) - 21;
+                sortIndex += (8 * numPerRow) - 21;
             }
             // to reun from sec
             if (d.rsp_id2 == 'rsp999') {
-                sortIndex -= numPerRow + 36;
+                sortIndex -= -numPerRow + 36;
             }
             // to reun from econ
             if (d.rsp_id2 == 'rsp3187-1' || d.rsp_id2 == 'rsp3187-2') {
-                sortIndex += numPerRow + 11;
+                sortIndex += 3*numPerRow + 11;
             }
             // econ (3 categories)
             else if (d.rsp_id2 == "rsp1364" || d.rsp_id2 == "rsp1450") {
@@ -883,42 +883,42 @@ function indexPos(d, sortBy, triPos) {
         else if (triPos == "right") {
             // to oth from econ
             if (d.rsp_id2 == 'rsp3187-1' || d.rsp_id2 == 'rsp3187-2') {
-                sortIndex += (10 * numPerRow) - 6;
+                sortIndex += (18 * numPerRow) - 6;
             }
             // to oth from econ (flip to top)
             if (d.rsp_id2 == 'rsp1364' || d.rsp_id2 == 'rsp1450') {
-                sortIndex += (10 * numPerRow) - 9;
+                sortIndex += (18 * numPerRow) - 9;
             }
             // sec
             else if (d.rsp_id2 == 'rsp999') {
-                sortIndex += numPerRow - 6;
+                sortIndex += 5*numPerRow - 6;
             }
             // to sec from econ
             else if (d.rsp_id2 == 'rsp1418-1') {
-                sortIndex += (4 * numPerRow) - 22;
+                sortIndex += (8 * numPerRow) - 22;
             }
             // to reun from econ
             else if (d.rsp_id2 == 'rsp3254') {
-                sortIndex += numPerRow + 8;
+                sortIndex += 3*numPerRow + 8;
             }
             // to reun from econ
             else if (d.rsp_id2 == 'rsp1039-2' || d.rsp_id2 == 'rsp1358-5') {
-                sortIndex += numPerRow + 6;
+                sortIndex += 3*numPerRow + 6;
             }
         }
         // if 1 category (square)
         else {
             // other
             if (1539 <= sortIndex) {
-                sortIndex += (4 * numPerRow) + 29; // 12
+                sortIndex += (12 * numPerRow) + 29; // 12
             }
             // security
             else if (1487 <= sortIndex && sortIndex < 1539) {
-                sortIndex += 25; // 4
+                sortIndex += (4 * numPerRow) + 25; // 4
             }
             // reunion
             else if (1388 <= sortIndex && sortIndex < 1487) {
-                sortIndex += 12 - numPerRow; // 2
+                sortIndex += 12 + numPerRow; // 2
             }
         }
     }

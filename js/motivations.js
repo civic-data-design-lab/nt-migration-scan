@@ -761,7 +761,7 @@ function indexPos(d, sortBy, triPos) {
             }
             // to reun from econ (3 categories)
             else if (d.rsp_id2 == 'rsp1364' || d.rsp_id2 == 'rsp1450') {
-                sortIndex += 2*numPerRow - 5;
+                sortIndex += 3*numPerRow - 5;
             }
             // to reun from econ (last 2 flipped)
             else if (1174 <= sortIndex && sortIndex <= 1183) {
@@ -794,7 +794,7 @@ function indexPos(d, sortBy, triPos) {
         else if (triPos == "topRight") {
             // to oth from sec (flipped)
             if (1521 <= sortIndex && sortIndex <= 1529) {
-                sortIndex += (13 * numPerRow) - 3;
+                sortIndex += (15 * numPerRow) - 3;
             }
             // to oth from reun (flipped)
             else if (1463 <= sortIndex && sortIndex <= 1476) {
@@ -1062,10 +1062,10 @@ function trianglePath(d, sortBy, triPos) {
         }
         else if (triPos == "topRight") {
             if (sortBy == "motivs" && (
-                (d.motiv_cat == "sec-oth-2" && (1521 + (7 * numPerRow) - 3) <= sortIndex && sortIndex <= (1529 + (7 * numPerRow) - 3)) || 
-                (d.motiv_cat == "reun-oth-2" && (1463 + (8 * numPerRow) + 8) <= sortIndex && sortIndex <= (1476 + (8 * numPerRow) + 8)) || 
+                (d.motiv_cat == "sec-oth-2" && (1521 + (15 * numPerRow) - 3) <= sortIndex && sortIndex <= (1529 + (15 * numPerRow) - 3)) || 
+                (d.motiv_cat == "reun-oth-2" && (1463 + (16 * numPerRow) + 8) <= sortIndex && sortIndex <= (1476 + (16 * numPerRow) + 8)) || 
                 (d.rsp_id2 == 'rsp4864' || d.rsp_id2 == 'rsp4867' || d.rsp_id2 == 'rsp4957-2') || 
-                (d.motiv_cat == "sec-oth-2" && (1529 + 25 <= sortIndex && sortIndex < 1538 + 25)) || 
+                (d.motiv_cat == "sec-oth-2" && (1529 + 25 + (4 * numPerRow) <= sortIndex && sortIndex < 1538 + 25 + (4 * numPerRow))) || 
                 (d.rsp_id2 == 'rsp4510' || d.rsp_id2 == 'rsp4515' || d.rsp_id2 == 'rsp4560-1' || d.rsp_id2 == 'rsp4703-1' || d.rsp_id2 == 'rsp4703-2' || d.rsp_id2 == 'rsp4723' || d.rsp_id2 == 'rsp4738' || d.rsp_id2 == 'rsp4805' || d.rsp_id2 == 'rsp4959' || d.rsp_id2 == 'rsp4489-2') || 
                 (d.rsp_id2 == 'rsp1418-2') || 
                 (d.rsp_id2 == 'rsp4718-4' || d.rsp_id2 == 'rsp4957-1')
@@ -1073,7 +1073,7 @@ function trianglePath(d, sortBy, triPos) {
                 // flip to bottom left
                 triPath = "M " + scale(nx) + " " + (shift_amount+parseInt(scale(ny))).toString() + " L " + scale(nx) + " " + (shift_amount+parseInt(scale(ny)) + sqLen) + " L " + (scale(nx) + sqLen) + " " + (shift_amount+parseInt(scale(ny)) + sqLen) + " Z";
             }
-            else if (sortBy == "motivs" && d.motiv_cat.includes("clim") && (1279 + (7 * numPerRow) + 35) <= sortIndex && sortIndex <= (1301 + (7 * numPerRow) + 35)) {
+            else if (sortBy == "motivs" && d.motiv_cat.includes("clim") && (1279 + (13 * numPerRow) + 35) <= sortIndex && sortIndex <= (1301 + (13 * numPerRow) + 35)) {
                 // flip to bottom left and shift left 22
                 const nx = (sortIndex - 22) % numPerRow;
                 const ny = Math.floor((sortIndex - 22) / numPerRow);

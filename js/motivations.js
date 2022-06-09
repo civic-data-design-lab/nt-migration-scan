@@ -57,13 +57,13 @@ const motivAttr = {
     "econ": {label: "Economics", color: "#1540c4", responses: ['1', '2', '6', '7', '8'], 
         descr: "Responses for economic motivations to migrate included: search for a better job, salary, or working conditions; unemployment; lack of money to cover basic needs (such as health, education, housing, clothing, services); and to send remittances.", yPosSide: 1, xPosLegend: 0},
     "reun":  {label: "Reunification", color: "#eb4927", responses: ['12'], 
-        descr: "Family reunification was the only response in this category.", yPosSide: 25, xPosLegend: 8},
+        descr: "Family reunification was the only response in this category.", yPosSide: 27, xPosLegend: 8},
     "sec": {label: "Security", color: "#93278f", responses: ['10', '11'], 
-        descr: "Responses for security motivations to migrate included: unsafety or domestic violence.", yPosSide: 28, xPosLegend: 18},
+        descr: "Responses for security motivations to migrate included: unsafety or domestic violence.", yPosSide: 32, xPosLegend: 18},
     "clim": {label: "Climate", color: "#00a99d", responses: ['3', '4', '5'], 
-        descr: "Responses for climate motivations to migrate included: direct impact from a natural hazard, deterioration of livelihoods due to natural hazards (such as floods, droughts, volcanic eruptions, hurricanes, plagues) or the loss of land due to land use changes.", yPosSide: 31, xPosLegend: 25},
+        descr: "Responses for climate motivations to migrate included: direct impact from a natural hazard, deterioration of livelihoods due to natural hazards (such as floods, droughts, volcanic eruptions, hurricanes, plagues) or the loss of land due to land use changes.", yPosSide: 37, xPosLegend: 25},
     "oth":  {label: "Other", color: "#f1a650", responses: ['9', '13', '14', '15', '16'], 
-        descr: "Responses for climate motivations to migrate included: education, for cultural reasons or customs, for health-related reasons (such as treatments, surgeries, medical consultations, or medicines), for tourism, other reasons not listed, and responses that did not respond or reported not knowing.", yPosSide: 33, xPosLegend: 32}
+        descr: "Responses for climate motivations to migrate included: education, for cultural reasons or customs, for health-related reasons (such as treatments, surgeries, medical consultations, or medicines), for tourism, other reasons not listed, and responses that did not respond or reported not knowing.", yPosSide: 41, xPosLegend: 32}
 };
 const motivDetailAttr = {
     "1": {label: "to search for a better job", category: "econ", color: "#1540c4"},
@@ -86,19 +86,19 @@ const motivDetailAttr = {
 };
 const incomeAttr = {
     1: {label: "extremely low income", range: "Less than $2.50", yPosSide: 1},
-    2: {label: "low income", range: "$2.50&ndash;10.40", yPosSide: 8},
-    3: {label: "mid-low income", range: "$10.40&ndash;37.40", yPosSide: 15},
-    4: {label: "mid income", range: "$37.40&ndash;128.70", yPosSide: 22},
-    5: {label: "mid-high income", range: "$128.70&ndash;436.50", yPosSide: 33},
-    6: {label: "high income", range: "Greater than $436.50", yPosSide: 37}
+    2: {label: "low income", range: "$2.50&ndash;10.40", yPosSide: 10},
+    3: {label: "mid-low income", range: "$10.40&ndash;37.40", yPosSide: 19},
+    4: {label: "mid income", range: "$37.40&ndash;128.70", yPosSide: 28},
+    5: {label: "mid-high income", range: "$128.70&ndash;436.50", yPosSide: 41},
+    6: {label: "high income", range: "Greater than $436.50", yPosSide: 47}
 };
 const cariAttr = {
     1: {label: "food secure", sideLabel: "food secure", 
         descr: "Households are able to meet essential food and non-food necessities without engaging in atypical coping strategies.", yPosSide: 1},
     2: {label: "marginally food secure", sideLabel: "marginally food secure", 
-        descr: "Househods have minimally adequate food consumption without engaging in irreversible coping strategies; some may be unable to afford some essential non-food related expenditures.", yPosSide: 16},
+        descr: "Househods have minimally adequate food consumption without engaging in irreversible coping strategies; some may be unable to afford some essential non-food related expenditures.", yPosSide: 18},
     3: {label: "moderately food insecure", sideLabel: "moderately or severely food insecure", 
-        descr: "Moderately food insecure households have significant food consumption gaps or are only marginally able to meet minimum food needs with irreversible coping strategies. Severely food insecure households have extreme food consumption gaps or have extreme loss of livelihood assets that will lead to food consumption gaps or worse.", yPosSide: 30},
+        descr: "Moderately food insecure households have significant food consumption gaps or are only marginally able to meet minimum food needs with irreversible coping strategies. Severely food insecure households have extreme food consumption gaps or have extreme loss of livelihood assets that will lead to food consumption gaps or worse.", yPosSide: 35},
     4: {label: "severely food insecure"}
 };
 
@@ -146,7 +146,7 @@ const tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
 
 // D3 CHART VARIABLES
 const width = 1346;
-const height = 942;
+const height = 942; // may need to increase based on number of rows
 const sideWidth = 0;
 
 // animation time
@@ -910,34 +910,34 @@ function indexPos(d, sortBy, triPos) {
         else {
             // other
             if (1539 <= sortIndex) {
-                sortIndex += (4 * numPerRow) + 29;
+                sortIndex += (4 * numPerRow) + 29; // 12
             }
             // security
             else if (1487 <= sortIndex && sortIndex < 1539) {
-                sortIndex += 25;
+                sortIndex += 25; // 4
             }
             // reunion
             else if (1388 <= sortIndex && sortIndex < 1487) {
-                sortIndex += 12 - numPerRow;
+                sortIndex += 12 - numPerRow; // 2
             }
         }
     }
     else if (sortBy == "income") {
         // income tier 6
         if (1610 <= sortIndex) {
-            sortIndex += (7 * numPerRow) + 14;
+            sortIndex += (17 * numPerRow) + 14;
         }
         // income tier 5
         else if (1463 <= sortIndex && sortIndex < 1610) {
-            sortIndex += (5 * numPerRow) + 49;
+            sortIndex += (13 * numPerRow) + 49;
         }
         // income tier 4
         else if (942 <= sortIndex && sortIndex < 1463) {
-            sortIndex += (4 * numPerRow) + 10;
+            sortIndex += (10 * numPerRow) + 10;
         }
         // income tier 3
         else if (626 <= sortIndex && sortIndex < 942) {
-            sortIndex += (2 * numPerRow) + 46;
+            sortIndex += (6 * numPerRow) + 46;
         }
         // income tier 2
         else if (316 <= sortIndex && sortIndex < 626) {
@@ -945,7 +945,7 @@ function indexPos(d, sortBy, triPos) {
             //     sortIndex += numPerRow + 20 + ((sortIndex - 143) / numPerRow.income[2]);
             // }
             // else {
-                sortIndex += numPerRow + 20;
+                sortIndex += (3 * numPerRow) + 20;
             // }
         }
         // income tier 1
@@ -957,16 +957,19 @@ function indexPos(d, sortBy, triPos) {
     }
     else if (sortBy == "cari") {
         // cari score 4
-        if (1619 <= sortIndex) {
+        if (1624 <= sortIndex) {
             sortIndex += 5;
+        }
+        if (1619 <= sortIndex && sortIndex < 1624) {
+            sortIndex += (5 * numPerRow) + 5;
         }
         // cari score 3
         else if (1474 <= sortIndex && sortIndex < 1619) {
-            sortIndex += (2 * numPerRow) + 43;
+            sortIndex += (7 * numPerRow) + 43;
         }
         // cari score 2
         if (749 <= sortIndex && sortIndex < 1474) {
-            sortIndex += numPerRow + 35;
+            sortIndex += (3 * numPerRow) + 35;
         }
     }
     return sortIndex;
@@ -1399,9 +1402,9 @@ function plotLabels(labelList, sortBy) {
             .attr("id", d => "text-" + d.group)
             .attr("x", d => 0)
             .attr("y", d => {
-                return (labelList.length == 5) ? shift_amount-45+scale(1.09*motivAttr[d.group].yPosSide)
-                : (labelList.length == 6) ? shift_amount-45+scale(1.30*incomeAttr[d.group].yPosSide)
-                : (labelList.length == 3) ? shift_amount-45+scale(1.15*cariAttr[d.group].yPosSide)
+                return (labelList.length == 5) ? shift_amount-45+scale(motivAttr[d.group].yPosSide)
+                : (labelList.length == 6) ? shift_amount-45+scale(incomeAttr[d.group].yPosSide)
+                : (labelList.length == 3) ? shift_amount-45+scale(cariAttr[d.group].yPosSide)
                 : null;
             })
             .attr("dy", "-0.125em")

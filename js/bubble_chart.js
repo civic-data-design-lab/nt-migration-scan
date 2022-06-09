@@ -376,6 +376,8 @@ function display(error, data) {
 
   myBubbleChart('#vis', data);
 
+  // put this in .then:
+
   if (window.location.hash.length != 0){
 
     d3v4.selectAll('circle')
@@ -392,6 +394,9 @@ function display(error, data) {
     // change opacity of specific rectangle
     d3v4.select("#cir-" + migrant_id)
     .attr("opacity", 1)
+
+    // console.log("COST ATTR:", $("#cir-" + migrant_id).attr())
+    // console.log("COST ATTR:", $("#cir-" + migrant_id).attr("cx"))
 
     // select motivation paragraph and change text
     const costTextContent = $(".narrative-2");

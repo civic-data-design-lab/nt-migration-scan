@@ -51,13 +51,6 @@ div#transition {
     display: none;
 }
 
-/* HEADING */
-#costs-heading, #motivations-heading {
-    font-size: 150%;
-    font-weight: 500;
-    padding-left:5%;
-}
-
 
 .col {
     height: 100%;
@@ -114,7 +107,14 @@ a.btn.btn-sm {
     bottom: 0;
 }
 
-/*Containers*/
+/* HEADING */
+#costs-heading, #motivations-heading {
+    font-size: 150%;
+    font-weight: 500;
+    padding-left:5%;
+}
+
+/*Motivation Containers*/
 /*SORT BY BUTTONS*/
 #buttons-motivations {
     position: absolute;
@@ -124,16 +124,17 @@ a.btn.btn-sm {
     width: 100%;
 }
 
-/*Visualization Container (MOTIVATION)*/
-#frame-motivations {
+/*Motivation Container*/
+#frame-motivations, #frame-cost {
     padding-left: 5%;
     padding-right: 5%;
 }
 
-#motivations-container {
+#motivations-container, #cost-container {
     display: flex;
     flex-direction: column;
 }
+
 
 
 /* Button - arrow for slides */

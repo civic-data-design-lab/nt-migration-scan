@@ -114,6 +114,28 @@ a.btn.btn-sm {
     bottom: 0;
 }
 
+/*Containers*/
+/*SORT BY BUTTONS*/
+#buttons-motivations {
+    position: absolute;
+    bottom: 2%;
+    padding-left:5%;
+    padding-right:5%;
+    width: 100%;
+}
+
+/*Visualization Container (MOTIVATION)*/
+#frame-motivations {
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+#motivations-container {
+    display: flex;
+    flex-direction: column;
+}
+
+
 /* Button - arrow for slides */
 
 #carousel-slides button {

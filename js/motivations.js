@@ -1774,7 +1774,7 @@ function toggle_motivation_on () {
     const motivationContainer = $("#motivations-container");
     motivationContainer.css("display", "block")
     const currentNarrativeText = $(".m_narrative_1");
-    currentNarrativeText.css("display", "flex")
+    currentNarrativeText.css("display", "block")
 
     const costContainer = $("#cost-container");
     costContainer.css("display", "none")
@@ -1793,7 +1793,7 @@ function toggle_motivation_on () {
     $("#c_narrative_1to2").css("display", "none")
     $("#c_narrative_2to1").css("display", "none")
     $("#m_narrative_2to1").css("display", "none")
-    $("#m_narrative_1to2").css("display", "flex")
+    $("#m_narrative_1to2").css("display", "block")
 
     $("#carousel-slides").css("background-color", "#28448c")
     $("#carousel-button").css("background-color", "#28448c")
@@ -1803,7 +1803,7 @@ function toggle_cost_on () {
     const motivationContainer = $("#motivations-container");
     motivationContainer.css("display", "none")
     const currentNarrativeText = $(".c_narrative_1");
-    currentNarrativeText.css("display", "flex")
+    currentNarrativeText.css("display", "block")
 
     const costContainer = $("#cost-container");
     costContainer.css("display", "block")
@@ -1821,7 +1821,7 @@ function toggle_cost_on () {
     $("#m_narrative_1to2").css("display", "none")
     $("#m_narrative_2to1").css("display", "none")
     $("#c_narrative_2to1").css("display", "none")
-    $("#c_narrative_1to2").css("display", "flex")
+    $("#c_narrative_1to2").css("display", "block")
     
     $("#carousel-slides").css("background-color", "#d2a214")
     $("#carousel-button").css("background-color", "#d2a214")
@@ -1832,38 +1832,38 @@ function toggle_m_narrative_1_to_2 () {
     const currentNarrative = $(".m_narrative_1")
     currentNarrative.css("display", "none")
     const nextNarrative = $(".m_narrative_2")
-    nextNarrative.css("display", "flex")
+    nextNarrative.css("display", "block")
 
     $("#m_narrative_1to2").css("display", "none")
-    $("#m_narrative_2to1").css("display", "flex")
+    $("#m_narrative_2to1").css("display", "block")
 }
 
 function toggle_m_narrative_2_to_1 () {
     const currentNarrative = $(".m_narrative_2")
     currentNarrative.css("display", "none")
     const nextNarrative = $(".m_narrative_1")
-    nextNarrative.css("display", "flex")
+    nextNarrative.css("display", "block")
 
     $("#m_narrative_2to1").css("display", "none")
-    $("#m_narrative_1to2").css("display", "flex")
+    $("#m_narrative_1to2").css("display", "block")
 }
 
 function toggle_c_narrative_1_to_2 () {
     const currentNarrative = $(".c_narrative_1")
     currentNarrative.css("display", "none")
     const nextNarrative = $(".c_narrative_2")
-    nextNarrative.css("display", "flex")
+    nextNarrative.css("display", "block")
 
     $("#c_narrative_1to2").css("display", "none")
-    $("#c_narrative_2to1").css("display", "flex")
+    $("#c_narrative_2to1").css("display", "block")
 }
 
 function toggle_c_narrative_2_to_1 () {
     const currentNarrative = $(".c_narrative_2")
     currentNarrative.css("display", "none")
     const nextNarrative = $(".c_narrative_1")
-    nextNarrative.css("display", "flex")
+    nextNarrative.css("display", "block")
 
     $("#c_narrative_2to1").css("display", "none")
-    $("#c_narrative_1to2").css("display", "flex")
+    $("#c_narrative_1to2").css("display", "block")
 }

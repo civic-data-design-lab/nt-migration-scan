@@ -9,19 +9,19 @@ const countryText_bubble = {
 };
 const pathwaysList = ["regular", "irrregular coyote", "irregular on own, with caravan"];
 const pathwayTypes = {
-  "regular": {label: "Regular Pathway", color: "#e23cad", yPosSide: 1, xPosLegend: 0},
-  "irrregular coyote": {label: "Irregular with Smuggler", color: "#662d91", yPosSide: 25, xPosLegend: 11},
-  "irregular on own, with caravan": {label: "Irregular with a Caravan", color: "#faa41a", yPosSide: 28, xPosLegend: 26}
+  "regular": {label: "Regular Pathway", color: "#d8a414", yPosSide: 1, xPosLegend: 0},
+  "irrregular coyote": {label: "Irregular with Smuggler", color: "#a06444", yPosSide: 25, xPosLegend: 11},
+  "irregular on own, with caravan": {label: "Irregular with a Caravan", color: "#888484", yPosSide: 28, xPosLegend: 26}
 };
 const pathwayAttr = {
-    "regular": {"label": "Through a Regular Pathway", "color": "#e23cad"},
-    "irrregular coyote": {"label": "Using a Smuggler to Migrate", "color": "#662d91"},
-    "irregular on own, with caravan": {"label": "Migrating on One's Own or with a Caravan", "color": "#faa41a"}
+    "regular": {"label": "Through a Regular Pathway", "color": "#d8a414"},
+    "irrregular coyote": {"label": "Using a Smuggler to Migrate", "color": "#a06444"},
+    "irregular on own, with caravan": {"label": "Migrating on One's Own or with a Caravan", "color": "#888484"}
 };
 const pathwayAttr_narrative = {
-  "regular": {"label": "through a regular pathway", "color": "#e23cad"},
-  "irrregular coyote": {"label": "using a smuggler", "color": "#662d91"},
-  "irregular on own, with caravan": {"label": "individually or with a caravan", "color": "#faa41a"}
+  "regular": {"label": "through a regular pathway", "color": "#d8a414"},
+  "irrregular coyote": {"label": "using a smuggler", "color": "#a06444"},
+  "irregular on own, with caravan": {"label": "individually or with a caravan", "color": "#888484"}
 };
 const financeText = {
     "1": {"label":"No Response"}
@@ -101,7 +101,7 @@ var posScaleRev = d3v4.scaleLinear().domain([22000,0]);
 
 //   var fillColor = d3v4.scaleOrdinal()
 //     .domain(['low', 'medium', 'high'])
-//     .range(['#3ba7c9', '#1540c4', '#e23cad']);
+//     .range(['#3ba7c9', '#1540c4', '#d8a414']);
 
   function createNodes(rawData) {
 
@@ -456,15 +456,15 @@ function display(error, data) {
       .attr("x1", (parseInt(migrant_x)+12).toString())     
       .attr("y1", migrant_y)    
       .attr("x2", (parseInt(migrant_x)+12).toString())   
-      .attr("y2", 280);
+      .attr("y2", 180);
   
       // write name of migrant
       d3v4.select("#cost-svg").append("text")
       .attr("id", "migrant-name-label")
       .attr("x", (parseInt(migrant_x)).toString())
-      .attr("y", 260)
+      .attr("y", 160)
       .style("font-size", "2.5rem")
-      .text(selected_migrant.name)
+      .text("$" + selected_migrant.mig_ext_cost_total + " spent by " + selected_migrant.name)
 
       // d3v4.select("#cost-svg").append("text")
       // .attr("id", "migrant-name-label")
@@ -481,7 +481,7 @@ function display(error, data) {
       // costTextContent.find(".migrant-channel").html(pathwayAttr_narrative[selected_migrant.mig_ext_medio].label);
     }
 
-  }, 12000);
+  }, 15000);
 
 
   
@@ -494,19 +494,19 @@ function display(error, data) {
 
 var fillColor = d3v4.scaleOrdinal()
     .domain(['irrregular coyote', 'irregular on own, with caravan', 'regular'])
-    .range(['#662d91', '#faa41a', '#e23cad']);   
+    .range(['#a06444', '#888484', '#d8a414']);   
     
 var highlightirrcoy = d3v4.scaleOrdinal()
     .domain(['irrregular coyote', 'irregular on own, with caravan', 'regular'])
-    .range(['#662d91', '#f9e4c5', '#ffdbf5']);    
+    .range(['#a06444', '#f9e4c5', '#ffdbf5']);    
     
 var highlightirrown = d3v4.scaleOrdinal()
     .domain(['irrregular coyote', 'irregular on own, with caravan', 'regular'])
-    .range(['#e9d7f7', '#faa41a', '#ffdbf5']); 
+    .range(['#e9d7f7', '#888484', '#ffdbf5']); 
     
 var highlightregular = d3v4.scaleOrdinal()
     .domain(['irrregular coyote', 'irregular on own, with caravan', 'regular'])
-    .range(['#e9d7f7', '#f9e4c5', '#e23cad']);   
+    .range(['#e9d7f7', '#f9e4c5', '#d8a414']);   
     
 
 
@@ -798,7 +798,7 @@ const makeAnnotations5 = d3.annotation()
 function addAvICAnn(){
 d3v4.select("svg")
   .append("g")
-  .attr('fill', "#662d91")
+  .attr('fill', "#a06444")
   .attr("class", "annotation-groupe")
   .attr("font-size", "1em")
   .style("opacity",1)
@@ -836,7 +836,7 @@ const makeAnnotations7 = d3.annotation()
 function addAvIOAnn(){
 d3v4.select("svg")
   .append("g")
-  .attr('fill', "#faa41a")
+  .attr('fill', "#888484")
   .attr("class", "annotation-groupf")
   .attr("font-size", "1em")
   .style("opacity",1)
@@ -874,7 +874,7 @@ const makeAnnotations8 = d3.annotation()
 function addAvRegAnn(){
 d3v4.select("svg")
   .append("g")
-  .attr('fill', "#e23cad")
+  .attr('fill', "#d8a414")
   .attr("class", "annotation-groupg")
   .attr("font-size", "1em")
   .style("opacity",1)
@@ -896,7 +896,7 @@ d3v4.select("svg")
   .attr('x', 650)
   .attr('y', 830)
 	.attr('class', "annotation-note-title  irrsmuggler")
-	.style('fill','#662d91')
+	.style('fill','#a06444')
   .text("$1.7 Billion");
 d3v4.select("svg")
 .append('text')
@@ -919,7 +919,7 @@ d3v4.select("svg")
   .attr('x', 650)
   .attr('y', 830)
 	.attr('class', "annotation-note-title  irrsmuggler")
-	.style('fill','#662d91')
+	.style('fill','#a06444')
   .text("$1.7 Billion");
 d3v4.select("svg")
 .append('text')
@@ -937,7 +937,7 @@ d3v4.select("svg")
   .attr('x', 650)
   .attr('y', 830)
 	.attr('class', "annotation-note-title  irrown")
-	.style('fill','#faa41a')
+	.style('fill','#888484')
   .text("$230 Million");
 d3v4.select("svg")
 .append('text')
@@ -960,7 +960,7 @@ d3v4.select("svg")
   .attr('x', 650)
   .attr('y', 830)
 	.attr('class', "annotation-note-title  irrown")
-	.style('fill','#faa41a')
+	.style('fill','#888484')
   .text("$230 Million");
 d3v4.select("svg")
 .append('text')
@@ -973,7 +973,7 @@ d3v4.select("svg")
   }
   
 function addReg(){  
- d3v4.select(".means2").style("fill","#e23cad");}
+ d3v4.select(".means2").style("fill","#d8a414");}
  
  function remReg(){  
  d3v4.select(".means2").style("fill","black");}

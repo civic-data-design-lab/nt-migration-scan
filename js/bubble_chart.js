@@ -398,12 +398,16 @@ function display(error, data) {
     // console.log("COST ATTR:", $("#cir-" + migrant_id).attr())
     // console.log("COST ATTR:", $("#cir-" + migrant_id).attr("cx"))
 
-    // select motivation paragraph and change text
-    const costTextContent = $(".narrative-2");
+    // select cost paragraph and change text
+    const costTextContent = $(".c_narrative_1");
     // textContent.find(".text-color").css("color", motivColor);
     costTextContent.find(".migrant-name").html(selected_migrant.name);
     costTextContent.find(".migrant-cost").html(selected_migrant.mig_ext_cost_total);
     costTextContent.find(".migrant-channel").html(pathwayAttr_narrative[selected_migrant.mig_ext_medio].label);
+  
+    // change text of narrative 2
+    const narrative2_textContent = $(".c_narrative_2");
+    narrative2_textContent.find(".migrant-unique-narrative").html(selected_migrant.narrative3)
   }
   
 }

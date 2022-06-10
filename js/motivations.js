@@ -542,7 +542,7 @@ const dataset = d3.csv("./data/motivations.csv", d3.autoType)
 
         
             // select motivation paragraph and change text
-            const narrative1_textContent = $(".narrative-1");
+            const narrative1_textContent = $(".m_narrative_1");
             // console.log("NAME, AGE", selected_migrant.name, selected_migrant.age)
             narrative1_textContent.find(".migrant-name").html(selected_migrant.name);
             narrative1_textContent.find(".migrant-age").html(selected_migrant.age);
@@ -554,9 +554,9 @@ const dataset = d3.csv("./data/motivations.csv", d3.autoType)
                 narrative1_textContent.find(".migrant-motivation").html(motivDetailAttr[selected_migrant_motives[0]].label); 
             }
 
-            // change text of narrative 3
-            const narrative3_textContent = $(".narrative-3");
-            narrative3_textContent.find(".migrant-unique-narrative").html(selected_migrant.narrative3)
+            // change text of narrative 2
+            const narrative2_textContent = $(".m_narrative_2");
+            narrative2_textContent.find(".migrant-unique-narrative").html(selected_migrant.narrative3)
         }
     });
 
@@ -1752,12 +1752,14 @@ window.onload = function() {
     }
 
     else {
-        const narrative1_textContent = $(".narrative-1");
+        const narrative1_textContent = $(".m_narrative_1");
         narrative1_textContent.html("Scan an item to get started")
-        const narrative2_textContent = $(".narrative-2");
+        const narrative2_textContent = $(".m_narrative_2");
         narrative2_textContent.html("Scan an item to get started")
-        const narrative3_textContent = $(".narrative-3");
+        const narrative3_textContent = $(".c_narrative_1");
         narrative3_textContent.html("Scan an item to get started")
+        const narrative4_textContent = $(".c_narrative_2");
+        narrative4_textContent.html("Scan an item to get started")
     }
 
 }
@@ -1771,131 +1773,97 @@ window.onhashchange = function() {
 function toggle_motivation_on () {
     const motivationContainer = $("#motivations-container");
     motivationContainer.css("display", "block")
-    const narrative1Text = $(".narrative-1");
-    narrative1Text.css("display", "flex")
+    const currentNarrativeText = $(".m_narrative_1");
+    currentNarrativeText.css("display", "flex")
 
     const costContainer = $("#cost-container");
     costContainer.css("display", "none")
-    const narrative2Text = $(".narrative-2");
-    narrative2Text.css("display", "none")
+    $(".m_narrative_2").css("display", "none")
+    $(".c_narrative_1").css("display", "none")
+    $(".c_narrative_2").css("display", "none")
 
-    const narrative3Text = $(".narrative-3");
-    narrative3Text.css("display", "none")
 
-    $("#motivations-button").css("background-color","#1540C4")
+    $("#motivations-button").css("background-color","#28448c")
     $("#motivations-button").css("color","white")
     $("#motivations-button").css("pointer-events","none")
     $("#costs-button").css("background-color","white")
     $("#costs-button").css("color","black")
     $("#costs-button").css("pointer-events","none")
-    
 
-    $("#narrative_2to1").css("display", "none")
-    $("#narrative_2to3").css("display", "none")
-    $("#narrative_3to2").css("display", "none")
-    $("#narrative_3to1").css("display", "none")
-    $("#narrative_1to3").css("display", "flex")
-    $("#narrative_1to2").css("display", "flex")
+    $("#c_narrative_1to2").css("display", "none")
+    $("#c_narrative_2to1").css("display", "none")
+    $("#m_narrative_2to1").css("display", "none")
+    $("#m_narrative_1to2").css("display", "flex")
+
+    $("#carousel-slides").css("background-color", "#28448c")
+    $("#carousel-button").css("background-color", "#28448c")
 }
 
 function toggle_cost_on () {
     const motivationContainer = $("#motivations-container");
     motivationContainer.css("display", "none")
-    const narrative1Text = $(".narrative-1");
-    narrative1Text.css("display", "none")
+    const currentNarrativeText = $(".c_narrative_1");
+    currentNarrativeText.css("display", "flex")
 
     const costContainer = $("#cost-container");
     costContainer.css("display", "block")
-    const narrative2Text = $(".narrative-2");
-    narrative2Text.css("display", "flex")
+    $(".c_narrative_2").css("display", "none")
+    $(".m_narrative_1").css("display", "none")
+    $(".m_narrative_2").css("display", "none")
 
-    const narrative3Text = $(".narrative-3");
-    narrative3Text.css("display", "none")
-
-    $("#costs-button").css("background-color","#1540C4")
+    $("#costs-button").css("background-color","#d2a214")
     $("#costs-button").css("color","white")
     $("#costs-button").css("pointer-events","none")
     $("#motivations-button").css("background-color","white")
     $("#motivations-button").css("color","black")
     $("#motivations-button").css("pointer-events","none")
 
-    $("#narrative_1to3").css("display", "none")
-    $("#narrative_1to2").css("display", "none")
-    $("#narrative_3to2").css("display", "none")
-    $("#narrative_3to1").css("display", "none")
-    $("#narrative_2to1").css("display", "flex")
-    $("#narrative_2to3").css("display", "flex")
+    $("#m_narrative_1to2").css("display", "none")
+    $("#m_narrative_2to1").css("display", "none")
+    $("#c_narrative_2to1").css("display", "none")
+    $("#c_narrative_1to2").css("display", "flex")
+    
+    $("#carousel-slides").css("background-color", "#d2a214")
+    $("#carousel-button").css("background-color", "#d2a214")
 }
 
 
-function toggle_narrative_1_to_3 () {
-    const currentNarrative = $(".narrative-1")
+function toggle_m_narrative_1_to_2 () {
+    const currentNarrative = $(".m_narrative_1")
     currentNarrative.css("display", "none")
-    const nextNarrative = $(".narrative-3")
+    const nextNarrative = $(".m_narrative_2")
     nextNarrative.css("display", "flex")
 
-    $("#narrative_1to3").css("display", "none")
-    $("#narrative_1to2").css("display", "none")
-    $("#narrative_3to2").css("display", "flex")
-    $("#narrative_3to1").css("display", "flex")
+    $("#m_narrative_1to2").css("display", "none")
+    $("#m_narrative_2to1").css("display", "flex")
 }
 
-function toggle_narrative_3_to_1 () {
-    const currentNarrative = $(".narrative-3")
+function toggle_m_narrative_2_to_1 () {
+    const currentNarrative = $(".m_narrative_2")
     currentNarrative.css("display", "none")
-    const nextNarrative = $(".narrative-1")
+    const nextNarrative = $(".m_narrative_1")
     nextNarrative.css("display", "flex")
 
-    $("#narrative_3to2").css("display", "none")
-    $("#narrative_3to1").css("display", "none")
-    $("#narrative_1to3").css("display", "flex")
-    $("#narrative_1to2").css("display", "flex")
+    $("#m_narrative_2to1").css("display", "none")
+    $("#m_narrative_1to2").css("display", "flex")
 }
 
-function toggle_narrative_2_to_3 () {
-    const currentNarrative = $(".narrative-2")
+function toggle_c_narrative_1_to_2 () {
+    const currentNarrative = $(".c_narrative_1")
     currentNarrative.css("display", "none")
-    const nextNarrative = $(".narrative-3")
+    const nextNarrative = $(".c_narrative_2")
     nextNarrative.css("display", "flex")
 
-    $("#narrative_2to1").css("display", "none")
-    $("#narrative_2to3").css("display", "none")
-    $("#narrative_3to2").css("display", "flex")
-    $("#narrative_3to1").css("display", "flex")
+    $("#c_narrative_1to2").css("display", "none")
+    $("#c_narrative_2to1").css("display", "flex")
 }
 
-function toggle_narrative_3_to_2 () {
-    const currentNarrative = $(".narrative-3")
+function toggle_c_narrative_2_to_1 () {
+    const currentNarrative = $(".c_narrative_2")
     currentNarrative.css("display", "none")
-    const nextNarrative = $(".narrative-2")
+    const nextNarrative = $(".c_narrative_1")
     nextNarrative.css("display", "flex")
 
-    $("#narrative_3to2").css("display", "none")
-    $("#narrative_3to1").css("display", "none")
-    $("#narrative_2to1").css("display", "flex")
-    $("#narrative_2to3").css("display", "flex")
-}
-
-function toggle_narrative_1_to_2 () {
-    const currentNarrative = $(".narrative-1")
-    currentNarrative.css("display", "none")
-    const nextNarrative = $(".narrative-2")
-    nextNarrative.css("display", "flex")
-
-    $("#narrative_1to3").css("display", "none")
-    $("#narrative_1to2").css("display", "none")
-    $("#narrative_2to1").css("display", "flex")
-    $("#narrative_2to3").css("display", "flex")
-}
-
-function toggle_narrative_2_to_1 () {
-    const currentNarrative = $(".narrative-2")
-    currentNarrative.css("display", "none")
-    const nextNarrative = $(".narrative-1")
-    nextNarrative.css("display", "flex")
-
-    $("#narrative_2to3").css("display", "none")
-    $("#narrative_2to1").css("display", "none")
-    $("#narrative_1to3").css("display", "flex")
-    $("#narrative_1to2").css("display", "flex")
+    $("#c_narrative_2to1").css("display", "none")
+    $("#c_narrative_1to2").css("display", "flex")
 }

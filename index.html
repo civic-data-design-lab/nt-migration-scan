@@ -87,41 +87,6 @@
                                 <!-- </span> -->
                             </div>
                         </div>
-                        <!-- motivs tooltip template -->
-                        <div class="tooltip template">
-                            <div class="side-color"></div>
-                            <p>Motivation for Migrating</p>
-                            <h3 class="text-color">
-                                <span class="label-motiv-pct">90</span>%
-                                <span class="label-motiv text-uppercase">Economic</span>
-                            </h3>
-                            <span class="text-hh text-color">of
-                                <span class="label-hh">surveyed</span> households
-                            </span>
-                            <div class="row mt-1">
-                                <div class="col-left">
-                                    <p>Reason for Migrating</p>
-                                    <span class="label-motiv-detail text-label">Search for a better job, salary or working conditions, lack of money to buy food, lack of money to cover basic needs</span>
-                                </div>
-                                <div class="col-right">
-                                    <p>Origin Country</p>
-                                    <span class="label-country text-label">El Salvador</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- side tooltip template -->
-                        <div class="tooltip-side p-2 template">
-                            <p class="text-uppercase mb-1">
-                                <span class="label-group px-1 text-white">Low Income</span>&ensp;<b class="text-blue"><span class="label-group-pct">42</span>%</b>
-                            </p>
-                            <p>
-                                of Surveyed Households with a Migrant<br>in the Last 5 Years
-                            </p>
-                            <p class="label-descr mb-0">Monthly Household Income per Capita:</p>
-                            <!-- <p class="text-range mb-0">
-                                <span class="label-range">$128.70&ndash;436.50</span>
-                            </p> -->
-                        </div>
                     </div>
 
 
@@ -132,45 +97,7 @@
                             Visualization of the costs of migration
                         </div>
                         <div id="frame-cost" class="frame-cost"></div>
-                        <!-- div for buttons -->
-                        <div id="toolbar" class="row position-relative mt-3 mt-md-5 mt-md-3 mt-lg-5 mb-md-5 mb-lg-0 px-2">
-                            <div class="col-3 px-0">
-                                <button type="button" id="all" class="button btn btn-sm text-uppercase text-blue"
-                                    data-bs-toggle="modal" data-bs-target="#modal-motivs">Group Items</button>
-                                </span>
-                            </div>
-                            <div class="col-3 px-0">
-                                <button type="button" id="year" class="button btn btn-sm text-uppercase text-blue">Split
-                                    by Migration Pathways</button>
-                                </span>
-                            </div>
-                            <div class="col-3 px-0">
-                                <button type="button" id="country" class="button btn btn-sm text-uppercase text-blue">Split
-                                    by Country of
-                                    Origin</button>
-                                </span>
-                            </div>
-                            <div class="col-3 px-0">
-                                <button type="bee" id="bee" class="button active btn btn-sm text-uppercase text-blue">Estimated
-                                    Time to pay Debt</button>
-                                </span>
-                            </div>
-                        </div>
-        
-                        <!-- tooltip template -->
-                        <div class="tooltip mb-5 mb-md-0 template">
-                            <div class="side-color"></div>
-                            <div class="row mb-1">
-                                <div class="col-7">
-                                    <p class="text-label-onemigrant">ONE MIGRANT</p>
-                                <p>From <span class="label-country text-label">El Salvador</span> Spent</p> 
-                                </div>
-                                <div class="col-5">                  
-                                    <h3 class="label-cost text-color">$8,500</h3>
-                                </div>
-                            </div>
-                            <h3 class="label-pathway text-color">Irregular Pathway on One's Own or with a Caravan</h3>
-                        </div>
+
                     </div>
                 </div><!-- close col -->
             </div><!-- close row -->
@@ -179,23 +106,27 @@
         <div id="carousel-button">
             <!-- NARRATIVES TEXT AND BUTTONS -->
             <div id="carousel-slides">
-                <button id="narrative_1to3" onclick="toggle_narrative_1_to_3()"><</button>
-                <div class="narrative-1">
+                
+                <div class="m_narrative_1">
                     <span class="migrant-name">Name</span> (<span class="migrant-age">Age</span>) migrated from <span class="migrant-country">Country</span> <span class="migrant-motivation">due to several reasons</span>.
                 </div>
-                <button id="narrative_1to2" onclick="toggle_narrative_1_to_2()">></button>
+                <button id="m_narrative_1to2" onclick="toggle_m_narrative_1_to_2()">></button>
 
-                <button id="narrative_2to1" style="display: none" onclick="toggle_narrative_2_to_1()"><</button>
-                <div class="narrative-2" style="display: none">
-                    <span class="migrant-name">Name</span> spent $<span class="migrant-cost">Cost</span> (USD) to migrate <span class="migrant-channel">through a Channel</span>.
-                </div>
-                <button id="narrative_2to3" style="display: none" onclick="toggle_narrative_2_to_3()">></button>
-                
-                <button id="narrative_3to2" style="display: none" onclick="toggle_narrative_3_to_2()"><</button>
-                <div class="narrative-3" style="display: none">
+                <button id="m_narrative_2to1" style="display: none" onclick="toggle_m_narrative_2_to_1()"><</button>
+                <div class="m_narrative_2" style="display: none">
                     <span class="migrant-unique-narrative"></span>
                 </div>
-                <button id="narrative_3to1" style="display: none" onclick="toggle_narrative_3_to_1()">></button>
+            
+                <div class="c_narrative_1" style="display: none">
+                    <span class="migrant-name">Name</span> spent $<span class="migrant-cost">Cost</span> (USD) to migrate <span class="migrant-channel">through a Channel</span>.
+                </div>
+                <button id="c_narrative_1to2" style="display: none; background-color: #d2a214" onclick="toggle_c_narrative_1_to_2()">></button>
+                
+                <button id="c_narrative_2to1" style="display: none; background-color: #d2a214" onclick="toggle_c_narrative_2_to_1()"><</button>
+                <div class="c_narrative_2" style="display: none">
+                    <span class="migrant-unique-narrative"></span>
+                </div>
+
             </div>
 
             <!-- TABS -->

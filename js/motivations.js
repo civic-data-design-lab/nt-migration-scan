@@ -1760,6 +1760,18 @@ window.onload = function() {
         narrative3_textContent.html("Scan an item to get started")
         const narrative4_textContent = $(".c_narrative_2");
         narrative4_textContent.html("Scan an item to get started")
+
+        narrative1_textContent.css("padding-top","13%")
+        narrative1_textContent.css("padding-left","27%")
+
+        narrative2_textContent.css("padding-top","13%")
+        narrative2_textContent.css("padding-left","15%")
+
+        narrative3_textContent.css("padding-top","13%")
+        narrative3_textContent.css("padding-left","27%")
+
+        narrative4_textContent.css("padding-top","13%")
+        narrative4_textContent.css("padding-left","15%")
     }
 
 }

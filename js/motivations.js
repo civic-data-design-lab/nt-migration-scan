@@ -448,11 +448,11 @@ const dataset = d3.csv("./data/motivations.csv", d3.autoType)
 
             // get migrant id
             const migrant_id = window.location.hash.slice(1,)
-            console.log("HASH ID HERE:", migrant_id)
+            // console.log("HASH ID HERE:", migrant_id)
 
             const selected_migrant_array = motivationsData.filter(item => item.rsp_id2 == "rsp"+migrant_id)
             const selected_migrant = selected_migrant_array[0]
-            console.log("selected_migrant", selected_migrant)
+            // console.log("selected_migrant", selected_migrant)
             const selected_migrant_motives = selected_migrant.mig_ext_motivo.toString().split(' ');
             // console.log("motives", selected_migrant_motives)
 
@@ -541,7 +541,7 @@ const dataset = d3.csv("./data/motivations.csv", d3.autoType)
             }
 
         
-            // select motivation paragraph and change text
+            // change text of motivations narrative slide 1
             const narrative1_textContent = $(".m_narrative_1");
             // console.log("NAME, AGE", selected_migrant.name, selected_migrant.age)
             narrative1_textContent.find(".migrant-name").html(selected_migrant.name);
@@ -554,7 +554,7 @@ const dataset = d3.csv("./data/motivations.csv", d3.autoType)
                 narrative1_textContent.find(".migrant-motivation").html(motivDetailAttr[selected_migrant_motives[0]].label); 
             }
 
-            // change text of narrative 2
+            // change text of motivations narrative slide 2
             const narrative2_textContent = $(".m_narrative_2");
             narrative2_textContent.find(".migrant-unique-narrative").html(selected_migrant.narrative3)
         }

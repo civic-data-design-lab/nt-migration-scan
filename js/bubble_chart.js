@@ -383,34 +383,24 @@ function display(error, data) {
 
     // get migrant id
     const migrant_id = window.location.hash.slice(1,)
-    console.log("HASH ID HERE in bubble chart:", migrant_id)
+    // console.log("HASH ID HERE in bubble chart:", migrant_id)
 
     const selected_migrant_array = data.filter(item => item.rsp_id == migrant_id)
     const selected_migrant = selected_migrant_array[0]
-    console.log("cost selected_migrant", selected_migrant)
+    // console.log("cost selected_migrant", selected_migrant)
 
-    // change opacity of specific rectangle
+    // change opacity of specific circle
     d3v4.select("#cir-" + migrant_id)
     .attr("opacity", 1)
 
-    // // write name of migrant
-    // const migrant_x = d3v4.select("#cir-" + migrant_id).data()[0].x
-    // const migrant_y = d3v4.select("#cir-" + migrant_id).data()[0].y
-    // d3v4.select("#cost-svg").append("text")
-    //   .attr("id", "migrant-name-label")
-    //   .attr("x", (parseInt(migrant_x)).toString())
-    //   .attr("y", (parseInt(migrant_y)).toString())
-    //   .style("font-size", "2.5rem")
-    //   .text(selected_migrant.name)
-
-    // select cost paragraph and change text
+    // change text of cost narrative slide 1
     const costTextContent = $(".c_narrative_1");
     // textContent.find(".text-color").css("color", motivColor);
     costTextContent.find(".migrant-name").html(selected_migrant.name);
     costTextContent.find(".migrant-cost").html(selected_migrant.mig_ext_cost_total);
     costTextContent.find(".migrant-channel").html(pathwayAttr_narrative[selected_migrant.mig_ext_medio].label);
   
-    // change text of narrative 2
+    // change text of cost narrative slide 2
     const narrative2_textContent = $(".c_narrative_2");
     narrative2_textContent.find(".migrant-unique-narrative").html(selected_migrant.narrative3)
   }
@@ -420,9 +410,6 @@ function display(error, data) {
     
     if (window.location.hash.length != 0){
 
-      // d3v4.selectAll('circle')
-      // .attr("opacity", 0.2)
-  
       // get migrant id
       const migrant_id = window.location.hash.slice(1,)
       console.log("HASH ID HERE in bubble chart:", migrant_id)
@@ -431,21 +418,6 @@ function display(error, data) {
       const selected_migrant = selected_migrant_array[0]
       console.log("cost selected_migrant", selected_migrant)
   
-      // // change opacity of specific rectangle
-      // d3v4.select("#cir-" + migrant_id)
-      // .attr("opacity", 1)
-  
-      // console.log("COST ATTR:", $("#cir-" + migrant_id).attr())
-      console.log("COST ATTR1:", $("#cir-" + migrant_id))
-      console.log("COST ATTR2:", d3v4.select("#cir-" + migrant_id).data())
-      console.log("DATA1:", $("#cir-" + migrant_id)[0].__data__.x)
-      // console.log("DATA2:", d3v4.select("#cir-" + migrant_id).data()[0].x)
-      console.log("DATA2:", d3v4.select("#cir-" + migrant_id).attr("x"))
-  
-      // const migrant_x = $("#sq-" + "rsp"+migrant_id).attr("x")
-      // const migrant_y = $("#sq-" + "rsp"+migrant_id).attr("y")
-      // const migrant_x = $("#cir-" + migrant_id)[0].__data__.x
-      // const migrant_y = $("#cir-" + migrant_id)[0].__data__.y
       const migrant_x = d3v4.select("#cir-" + migrant_id).data()[0].x
       const migrant_y = d3v4.select("#cir-" + migrant_id).data()[0].y
       // draw line
@@ -466,23 +438,9 @@ function display(error, data) {
       .style("font-size", "2.5rem")
       .text("$" + selected_migrant.mig_ext_cost_total + " spent by " + selected_migrant.name)
 
-      // d3v4.select("#cost-svg").append("text")
-      // .attr("id", "migrant-name-label")
-      // .attr("x", (parseInt(migrant_x)).toString())
-      // .attr("y", (parseInt(migrant_y)-60).toString())
-      // .style("font-size", "2.5rem")
-      // .text(selected_migrant.name)
-  
-      // // select motivation paragraph and change text
-      // const costTextContent = $(".narrative-2");
-      // // textContent.find(".text-color").css("color", motivColor);
-      // costTextContent.find(".migrant-name").html(selected_migrant.name);
-      // costTextContent.find(".migrant-cost").html(selected_migrant.mig_ext_cost_total);
-      // costTextContent.find(".migrant-channel").html(pathwayAttr_narrative[selected_migrant.mig_ext_medio].label);
     }
 
   }, 15000);
-
 
   
 }

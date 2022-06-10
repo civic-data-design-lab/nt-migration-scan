@@ -8,7 +8,7 @@
 //     const item_scanned = false
 // }
 const top_margin_amount = 50
-const shift_amount = 340
+const shift_amount = 250
 
 // svg animation transition
 let transitionTime = 1000;
@@ -471,13 +471,13 @@ const dataset = d3.csv("./data/motivations.csv", d3.autoType)
                 .attr("x1", (parseInt(migrant_x)+12).toString())     
                 .attr("y1", migrant_y)    
                 .attr("x2", (parseInt(migrant_x)+12).toString())   
-                .attr("y2", 280);
+                .attr("y2", 210);
 
                 // write name of migrant
                 svg.append("text")
                 .attr("id", "migrant-name-label")
                 .attr("x", (parseInt(migrant_x)).toString())
-                .attr("y", 260)
+                .attr("y", 190)
                 .style("font-size", "2.5rem")
                 .text(selected_migrant.name)
 

@@ -114,9 +114,9 @@ a.btn.btn-sm {
 
 .btn {
     background-color: white;
-    height: 120%;
+    height: 100%;
     width: 99%;
-    font-size: 100%;
+    font-size: 120%;
     font-weight: 500;
     display: flex;
     align-items: center;
@@ -128,8 +128,21 @@ a.btn.btn-sm {
 
 /* Responsive */
 /* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) {
+@media (max-width: 576px) {
+    p {
+        font-size: 100%;
+    }
+    #scan-image-text {
+        font-size: 100%;;
+    }
+    
+    h1 {
+        font-size:150%;
+    }
 
+    .btn {
+        font-size: 100%;
+    }
 }
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {

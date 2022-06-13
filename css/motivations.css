@@ -339,8 +339,21 @@ a.btn.btn-sm {
 }*/
 
 /* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) {
+@media (max-width: 576px) {
+    #toggle-buttons-cost .btn {
+        font-size: 80%;
+    }
+    #motivations-heading {
+        font-size: 100%;
+    }
 
+    #buttons-motivations {
+        font-size: 70%;
+    }
+
+    #buttons-motivations .btn {
+        height: fit-content;
+    }
 }
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {

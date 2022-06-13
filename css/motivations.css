@@ -104,6 +104,8 @@ a.btn.btn-sm {
 #carousel-slides {
     background-color: #28448c;
     width: 100%;
+    display: flex;
+    flex-direction: row;
 }
 
 /* HEADING */

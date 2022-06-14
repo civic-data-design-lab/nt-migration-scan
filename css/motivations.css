@@ -100,12 +100,26 @@ a.btn.btn-sm {
     position: absolute;
 }
 
+#carousel-slides-motiv, #carousel-slides-costs {
+    height:22vh;
+}
+
+.carousel-inner {
+    height: 100%;
+}
+
 #carousel-slides {
     background-color: #28448c;
     width: 100%;
     display: flex;
     flex-direction: row;
+    height: 22vh;
 }
+
+.carousel-item {
+    height: 100%;
+}
+
 
 /* HEADING */
 #costs-heading, #motivations-heading {
@@ -121,6 +135,7 @@ a.btn.btn-sm {
     align-self: center;
     font-size: 120%;
     font-weight: 500;
+    text-align: center;
 }
 
 #btn-motivs.active, #btn-income.active, #btn-cari.active {
@@ -129,19 +144,23 @@ a.btn.btn-sm {
 
 .col-6.px-0 {
     width: 25%;
+    align-self: center;
 }
 
 .col-3.px-0 {
     width: 28%;
+    align-self: center;
 }
 
 #buttons-motivations {
     position: relative;
     bottom: 0;
     padding-bottom: 5%;
-    width: 100%;
+    width: 100vw;
     display: flex;
     flex-direction: row;
+    padding-left:1%;
+
 }
 
 #buttons-motivations .btn {
@@ -163,8 +182,6 @@ a.btn.btn-sm {
     max-width: 100%;
     overflow: scroll;
 }
-
-
 
 /* Button - arrow for slides */
 
@@ -188,8 +205,6 @@ a.btn.btn-sm {
     font-weight: 500;
     width: 100%;
     height: 20%;
-    padding-top: 15%;
-    padding-left:10%;
 } 
 
 .m_narrative_2, .c_narrative_2 {
@@ -198,9 +213,6 @@ a.btn.btn-sm {
     font-weight: 500;
     width: 100%;
     height: 20%;
-    padding-top: 10%;
-    padding-right: 10%;
-    padding-left: 3%;
 }
 
 .migrant-unique-narrative > * {
@@ -266,14 +278,8 @@ a.btn.btn-sm {
     opacity: 0.75;
 }
 
-/* RESPONSIVE OVERRIDES */
-/*.btn-sm {
-    font-size: 0.7rem;
-    height: 44px;
-}*/
-
-/* Small devices (landscape phones, 576px and up) */
-@media (max-width: 576px) {
+/*mobile (320px-425px)*/
+@media (min-width: 320px) and (max-width: 425px) {
     #toggle-buttons-cost .btn {
         font-size: 85%;
     }
@@ -287,15 +293,19 @@ a.btn.btn-sm {
     }
 
     #buttons-motivations .btn {
-        font-size: 80%;
+        font-size: 70%;
         width: fit-content;
         height: fit-content;
     }
 
     #sort-by {
-        font-size: 80%;
+        font-size: 70%;
         text-align: center;
     }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
 
 }
 /* Medium devices (tablets, 768px and up) */

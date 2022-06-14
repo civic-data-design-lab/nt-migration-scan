@@ -65,18 +65,17 @@ a.btn.btn-sm {
 }
 
 #toggle-buttons-cost {
+    height: 8vh;
     position: absolute;
     bottom: 0px;
     width: 100vw;
-    height: 7vh;
+    margin-left: 0px;
     margin-right: 0px;
-    margin-left:0px;
-
 }
 
 #toggle-buttons-cost .btn {
     height: 100%;
-    width: 98%;
+    width: 99%;
     font-size: 120%;
     font-weight: 500;
     display: flex;
@@ -137,8 +136,9 @@ a.btn.btn-sm {
 }
 
 #buttons-motivations {
-    position: absolute;
+    position: relative;
     bottom: 0;
+    padding-bottom: 5%;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -161,6 +161,7 @@ a.btn.btn-sm {
     flex-direction: column;
     height:100%;
     max-width: 100%;
+    overflow: scroll;
 }
 
 
@@ -207,33 +208,6 @@ a.btn.btn-sm {
     padding-right: 10%;
 }
 
-/* bootstrap tooltip */
-.tooltip.bs-tooltip-top,
-.tooltip.bs-tooltip-right,
-.tooltip.bs-tooltip-left,
-.tooltip.bs-tooltip-bottom,
-.tooltip.bs-tooltip {
-    margin: 0;
-    padding: 0.4rem 0;
-    background: none;
-    border: none;
-    box-shadow: none;
-}
-.tooltip.bs-tooltip-top.show,
-.tooltip.bs-tooltip-right.show,
-.tooltip.bs-tooltip-left.show,
-.tooltip.bs-tooltip-bottom.show,
-.tooltip.bs-tooltip.show {
-    opacity: 1;
-}
-.tooltip-inner {
-    max-width: none;
-    color: #1540C4 !important;
-    background-color: #fff !important;
-    border: solid 2px #28448c !important;
-    border-radius: 0 !important;
-}
-
 /* LABELS */
 .chart-labels {
     display: none;
@@ -246,46 +220,6 @@ a.btn.btn-sm {
 }
 .chart-text text {
     fill: #1540C4;
-}
-
-/* TOOLTIP */
-.tooltip {
-    position: relative;
-    width: 85%;
-    top: 1rem;
-    left: 57%;
-    -webkit-transform: translateX(-50%);
-    -moz-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
-    -o-transform: translateX(-50%);
-    transform: translateX(-50%);
-}
-.tooltip .side-color {
-    background-color: #28448c;
-}
-.tooltip .text-hh {
-    font-size: 1rem;
-}
-.tooltip .col-right {
-    width: 115px;
-}
-.tooltip .col-left {
-    width: calc(100% - 115px);
-}
-.tooltip-side {
-    position: absolute;
-    max-width: 325px;
-    color: #28448c;
-    background-color: #fff;
-    border: solid 2px #28448c;
-    box-shadow: 2px 2px 6px rgb(0 0 0 / 50%);
-}
-.tooltip-side p {
-    font-size: 0.8rem;
-}
-.tooltip-side .label-group {
-    display: inline-block;
-    background-color: #28448c;
 }
 
 /* SCROLLYTELLING */
@@ -341,19 +275,28 @@ a.btn.btn-sm {
 /* Small devices (landscape phones, 576px and up) */
 @media (max-width: 576px) {
     #toggle-buttons-cost .btn {
-        font-size: 80%;
+        font-size: 85%;
     }
-    #motivations-heading {
+
+    .m_narrative_1, .c_narrative_1 {
+        font-size: 100%;
+    } 
+
+    #motivations-heading, #costs-heading {
         font-size: 100%;
     }
 
-    #buttons-motivations {
-        font-size: 70%;
-    }
-
     #buttons-motivations .btn {
+        font-size: 80%;
+        width: fit-content;
         height: fit-content;
     }
+
+    #sort-by {
+        font-size: 80%;
+        text-align: center;
+    }
+
 }
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {

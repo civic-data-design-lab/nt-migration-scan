@@ -94,7 +94,7 @@ img {
 }
 
 #toggle-buttons-cost{
-    height: 75px;
+    height: 8vh;
     position:absolute;
     bottom:0px;
     width:100vw;
@@ -141,7 +141,7 @@ a.btn.btn-sm {
     }
 
     .btn {
-        font-size: 100%;
+        font-size: 85%;
     }
 }
 /* Medium devices (tablets, 768px and up) */

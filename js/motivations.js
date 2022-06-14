@@ -1763,19 +1763,15 @@ window.onload = function() {
 
         narrative1_textContent.css("padding-top","13%")
         narrative1_textContent.css("padding-left","27%")
-        narrative1_textContent.css("font-size","200%")
 
         narrative2_textContent.css("padding-top","13%")
         narrative2_textContent.css("padding-left","15%")
-        narrative2_textContent.css("font-size","200%")
 
         narrative3_textContent.css("padding-top","13%")
         narrative3_textContent.css("padding-left","27%")
-        narrative3_textContent.css("font-size","200%")
 
         narrative4_textContent.css("padding-top","13%")
         narrative4_textContent.css("padding-left","15%")
-        narrative4_textContent.css("font-size","200%")
     }
 
 }

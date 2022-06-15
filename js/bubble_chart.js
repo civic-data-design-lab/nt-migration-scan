@@ -402,7 +402,7 @@ function display(error, data) {
   
     // change text of cost narrative slide 2
     const narrative2_textContent = $(".c_narrative_2");
-    narrative2_textContent.find(".migrant-unique-narrative").html(selected_migrant.narrative3)
+    narrative2_textContent.find(".migrant-cost-narrative").html(selected_migrant.narrative4)
   }
 
   // put this in .then:

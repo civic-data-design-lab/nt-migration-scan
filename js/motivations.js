@@ -556,7 +556,7 @@ const dataset = d3.csv("./data/motivations.csv", d3.autoType)
 
             // change text of motivations narrative slide 2
             const narrative2_textContent = $(".m_narrative_2");
-            narrative2_textContent.find(".migrant-unique-narrative").html(selected_migrant.narrative3)
+            narrative2_textContent.find(".migrant-motiv-narrative").html(selected_migrant.narrative2)
         }
     });
 

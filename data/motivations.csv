@@ -1,4 +1,4 @@
-rsp_id,rsp_id2,country,mig_ext_motivo,migrated_yn_5,CARI,income_per_capita_tier,mig_ext_intention,mig_ext_plan_12months,mig_ext_preparacion,motiv_cat,selected,name,age,sex,narrative3,
+rsp_id,rsp_id2,country,mig_ext_motivo,migrated_yn_5,CARI,income_per_capita_tier,mig_ext_intention,mig_ext_plan_12months,mig_ext_preparacion,motiv_cat,selected,name,age,sex,narrative2,
 12,rsp12,GT,1 2 6,1,2,4,0,,,econ-1,,,,,,
 15,rsp15,HND,1 8,1,2,4,1,0,,econ-1,,,,,,
 24,rsp24,HND,1 2 6,1,2,5,1,1,1,econ-1,,,,,,

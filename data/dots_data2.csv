@@ -1,4 +1,4 @@
-rsp_id,ID,country,departamento,mig_ext_medio,mig_ext_cost_currency,mig_ext_cost_total,mig_ext_finance,mig_ext_country,mig_ext_llego,mig_ext_return,nul,selected,name,age,sex,narrative3
+rsp_id,ID,country,departamento,mig_ext_medio,mig_ext_cost_currency,mig_ext_cost_total,mig_ext_finance,mig_ext_country,mig_ext_llego,mig_ext_return,nul,selected,name,age,sex,narrative4
 12,1,GTM,San Marcos,irrregular coyote,,1,no loans,United States of America,"Yes, you reside in the destination country",,50000,,,,,
 15,2,HND,Francisco Morazan,"irregular on own, with caravan",1,800,all loans,United States of America,"Yes, but was returned to the country of origin",Due to expulsion from authorities or involuntarily,800,,,,,
 24,3,HND,Yoro,"irregular on own, with caravan",,1,no loans,United States of America,"Yes, but was returned to the country of origin",Due to expulsion from authorities or involuntarily,50000,,,,,
@@ -194,7 +194,7 @@ rsp_id,ID,country,departamento,mig_ext_medio,mig_ext_cost_currency,mig_ext_cost_
 613,213,GTM,Huehuetenango,irrregular coyote,,1,all loans,United States of America,"Yes, you reside in the destination country",,50000,,,,,
 613,214,GTM,Huehuetenango,irrregular coyote,,1,all loans,United States of America,"Yes, you reside in the destination country",,50000,,,,,
 615,215,GTM,San Marcos,irrregular coyote,,1,some loans,United States of America,"Yes, you reside in the destination country",,50000,,,,,
-623,216,GTM,San Marcos,irrregular coyote,3,15600,all loans,United States of America,"Yes, but was returned to the country of origin",Due to expulsion from authorities or involuntarily,15600,y,Jose,35,M,"Jose financed his journey entirely through loans. After arriving in the US, he was forced to involuntarily return to Guatemala. Though he returned home, the debt from his journey remains."
+623,216,GTM,San Marcos,irrregular coyote,3,15600,all loans,United States of America,"Yes, but was returned to the country of origin",Due to expulsion from authorities or involuntarily,15600,y,Jose,35,M,"test"
 636,217,GTM,Huehuetenango,irrregular coyote,3,3250,all loans,United States of America,"Yes, but was returned to the country of origin",By voluntary decision: other,3250,,,,,
 636,218,GTM,Huehuetenango,irrregular coyote,3,4550,all loans,United States of America,"Yes, but was returned to the country of origin",By voluntary decision: family reunification,4550,,,,,
 636,219,GTM,Huehuetenango,irrregular coyote,3,8060,all loans,United States of America,"Yes, but was returned to the country of origin",Due to illness or accident,8060,,,,,

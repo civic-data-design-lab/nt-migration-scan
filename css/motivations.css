@@ -99,6 +99,17 @@ a.btn.btn-sm {
     
 }
 
+#toggle-buttons-cost{
+    height: 5vh;
+    position:absolute;
+    bottom:0px;
+    width:100vw;
+    margin-left: 0px;
+    margin-right:0px;
+}
+
+
+
 
 /* HEADING */
 #costs-heading, #motivations-heading {

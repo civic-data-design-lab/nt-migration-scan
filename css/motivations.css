@@ -215,8 +215,8 @@ a.btn.btn-sm {
 
 .carousel-caption {
     top: 10%;
-    left: 0;
     bottom: auto;
+    width: 70%;
 }
 
 /* LABELS */

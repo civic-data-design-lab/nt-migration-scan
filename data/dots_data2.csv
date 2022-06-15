@@ -5,12 +5,12 @@ rsp_id,ID,country,departamento,mig_ext_medio,mig_ext_cost_currency,mig_ext_cost_
 29,4,GTM,San Marcos,irrregular coyote,3,10400,all loans,United States of America,"Yes, you reside in the destination country",,10400,,,,,
 31,5,SLV,Usulutan,irrregular coyote,1,11000,some loans,United States of America,"Yes, you reside in the destination country",,11000,,,,,
 32,6,GTM,San Marcos,irrregular coyote,3,10400,all loans,United States of America,"Yes, but was returned to the country of origin",By voluntary decision: start business,10400,,,,,
-36,7,SLV,Usulutan,irrregular coyote,1,12000,all loans,United States of America,"Yes, you reside in the destination country",,12000,y,Blanca,47,F,Blanca's family is struggling to cover basic needs using their current level of income. They use the remittances they receive to pay for medical expenses.
+36,7,SLV,Usulutan,irrregular coyote,1,12000,all loans,United States of America,"Yes, you reside in the destination country",,12000,y,Blanca,47,F,Bianca's family uses remittances they receive to pay for medical expenses.
 38,8,SLV,Usulutan,"irregular on own, with caravan",,1,all loans,United States of America,"Yes, you reside in the destination country",,50000,,,,,
 39,9,SLV,Ahuachapan,"irregular on own, with caravan",1,300,no loans,United States of America,"No, but he resided in another country and was returned",Due to expulsion from authorities or involuntarily,300,,,,,
 41,10,GTM,Huehuetenango,irrregular coyote,3,11700,all loans,United States of America,"Not yet, it is in transit to the destination country",,11700,,,,,
 41,11,GTM,Huehuetenango,irrregular coyote,3,11700,all loans,United States of America,"Not yet, it is in transit to the destination country",,11700,,,,,
-43,12,GTM,Huehuetenango,irrregular coyote,3,7800,all loans,United States of America,"Not yet, it is in transit to the destination country",,7800,y,Pedro,23,M,"Pedro now works in agriculture in the US, reflecting the country's reliance on immigrant labor in the agriculture sector. Visas for such labor are commonly given to Mexican migrants, but more could also be allocated to Central American workers."
+43,12,GTM,Huehuetenango,irrregular coyote,3,7800,all loans,United States of America,"Not yet, it is in transit to the destination country",,7800,y,Pedro,23,M,"Visas for agriculture labor in the US are commonly given to Mexican migrants. More policies could be put in place to help Central American worker obtain these visas."
 49,16,HND,Cortes,"irregular on own, with caravan",,1,all loans,United States of America,"Yes, you reside in the destination country",,50000,,,,,
 50,17,GTM,Huehuetenango,irrregular coyote,3,3900,all loans,United States of America,"Yes, but was returned to the country of origin",Due to expulsion from authorities or involuntarily,3900,,,,,
 50,18,GTM,Huehuetenango,irrregular coyote,3,3900,all loans,United States of America,"No, but he resided in another country and was returned",Due to expulsion from authorities or involuntarily,3900,,,,,
@@ -152,7 +152,7 @@ rsp_id,ID,country,departamento,mig_ext_medio,mig_ext_cost_currency,mig_ext_cost_
 484,166,GTM,San Marcos,irrregular coyote,3,7800,all loans,United States of America,"Yes, you reside in the destination country",,7800,,,,,
 486,167,GTM,San Marcos,irrregular coyote,,1,all loans,United States of America,"Yes, you reside in the destination country",,50000,,,,,
 491,168,GTM,San Marcos,irrregular coyote,3,9100,all loans,United States of America,"Yes, you reside in the destination country",,9100,,,,,
-495,169,GTM,San Marcos,irrregular coyote,3,117000,some loans,United States of America,"Yes, you reside in the destination country",,117000,y,Sandra,33,F,"Sandra paid a significantly high amount to migrate through a smuggler; although this particular level of payment is uncommon, hiring a smuggler is often expensive."
+495,169,GTM,San Marcos,irrregular coyote,3,117000,some loans,United States of America,"Yes, you reside in the destination country",,117000,y,Sandra,33,F,"Sandra paid almost 10 times the average cost of a smuggler. Migration costs become higher as migrants make multiple trips and are returned home and try again."
 500,170,HND,Cortes,irrregular coyote,,1,all loans,United States of America,"Yes, but was returned to the country of origin",Due to expulsion from authorities or involuntarily,50000,,,,,
 500,171,HND,Cortes,irrregular coyote,,1,all loans,United States of America,"Yes, but was returned to the country of origin",Due to expulsion from authorities or involuntarily,50000,,,,,
 500,172,HND,Cortes,irrregular coyote,,1,all loans,United States of America,"Yes, but was returned to the country of origin",Due to expulsion from authorities or involuntarily,50000,,,,,
@@ -194,7 +194,7 @@ rsp_id,ID,country,departamento,mig_ext_medio,mig_ext_cost_currency,mig_ext_cost_
 613,213,GTM,Huehuetenango,irrregular coyote,,1,all loans,United States of America,"Yes, you reside in the destination country",,50000,,,,,
 613,214,GTM,Huehuetenango,irrregular coyote,,1,all loans,United States of America,"Yes, you reside in the destination country",,50000,,,,,
 615,215,GTM,San Marcos,irrregular coyote,,1,some loans,United States of America,"Yes, you reside in the destination country",,50000,,,,,
-623,216,GTM,San Marcos,irrregular coyote,3,15600,all loans,United States of America,"Yes, but was returned to the country of origin",Due to expulsion from authorities or involuntarily,15600,y,Jose,35,M,"test"
+623,216,GTM,San Marcos,irrregular coyote,3,15600,all loans,United States of America,"Yes, but was returned to the country of origin",Due to expulsion from authorities or involuntarily,15600,y,Jose,35,M,"Jose financed his journey using $15,600 in loans. Though he was returned home, the debt from his journey remains."
 636,217,GTM,Huehuetenango,irrregular coyote,3,3250,all loans,United States of America,"Yes, but was returned to the country of origin",By voluntary decision: other,3250,,,,,
 636,218,GTM,Huehuetenango,irrregular coyote,3,4550,all loans,United States of America,"Yes, but was returned to the country of origin",By voluntary decision: family reunification,4550,,,,,
 636,219,GTM,Huehuetenango,irrregular coyote,3,8060,all loans,United States of America,"Yes, but was returned to the country of origin",Due to illness or accident,8060,,,,,
@@ -421,7 +421,7 @@ rsp_id,ID,country,departamento,mig_ext_medio,mig_ext_cost_currency,mig_ext_cost_
 1269,454,HND,Cortes,"irregular on own, with caravan",1,8000,all loans,United States of America,"Yes, you reside in the destination country",,8000,,,,,
 1273,455,HND,Cortes,irrregular coyote,2,1230,all loans,United States of America,"Yes, but was returned to the country of origin",Due to expulsion from authorities or involuntarily,1230,,,,,
 1273,456,HND,Cortes,irrregular coyote,2,1230,all loans,United States of America,"Yes, but was returned to the country of origin",Due to expulsion from authorities or involuntarily,1230,,,,,
-1278,457,GTM,Chiquimula,irrregular coyote,3,9100,all loans,United States of America,"Yes, you reside in the destination country",,9100,y,Francisco,80,M,"Francisco financed his journey entirely through loans. A common method of paying for migration, resorting to loans from banks and loved ones is very risky and puts migrants in precarious financial situations."
+1278,457,GTM,Chiquimula,irrregular coyote,3,9100,all loans,United States of America,"Yes, you reside in the destination country",,9100,y,Francisco,80,M,"Francisco financed his journey entirely through loans. It is surprising that 14.9% of Guatemalans used bank loans and 26.1% of their loan from relatives or friends abroad to finance their trip."
 1282,458,GTM,Huehuetenango,irrregular coyote,3,1950,all loans,United States of America,"Yes, but was returned to the country of origin",Due to expulsion from authorities or involuntarily,1950,,,,,
 1288,459,HND,Yoro,"irregular on own, with caravan",,1,all loans,United States of America,"Yes, you reside in the destination country",,50000,,,,,
 1296,461,GTM,Huehuetenango,irrregular coyote,3,11310,all loans,United States of America,"Yes, you reside in the destination country",,11310,,,,,
@@ -854,7 +854,7 @@ rsp_id,ID,country,departamento,mig_ext_medio,mig_ext_cost_currency,mig_ext_cost_
 2561,925,HND,Cortes,"irregular on own, with caravan",,1,no loans,United States of America,"Not yet, it is in transit to the destination country",,50000,,,,,
 2566,926,SLV,Ahuachapan,regular,,1,no loans,United States of America,"Yes, you reside in the destination country",,50000,,,,,
 2571,927,SLV,Ahuachapan,"irregular on own, with caravan",,1,no loans,United States of America,"Yes, but was returned to the country of origin",Due to expulsion from authorities or involuntarily,50000,,,,,
-2577,928,HND,Yoro,irrregular coyote,1,12000,no loans,United States of America,"Yes, you reside in the destination country",,12000,y,Juan,62,M,Juan was able to finance his journey without loans. His family now uses the remittances he sends back to pay for food.
+2577,928,HND,Yoro,irrregular coyote,1,12000,no loans,United States of America,"Yes, you reside in the destination country",,12000,y,Juan,62,M,Juan was able to finance his journey without loans, however 55.6% of migrants need to take out loans to pay for their journey.
 2581,929,SLV,Ahuachapan,irrregular coyote,1,700,some loans,United States of America,"No, but he resided in another country and was returned",Due to expulsion from authorities or involuntarily,700,,,,,
 2595,930,SLV,Ahuachapan,"irregular on own, with caravan",1,120,no loans,United States of America,"Yes, but was returned to the country of origin",Due to expulsion from authorities or involuntarily,120,,,,,
 2599,932,SLV,Ahuachapan,regular,,1,all loans,United States of America,"Yes, you reside in the destination country",,50000,,,,,
@@ -1112,7 +1112,7 @@ rsp_id,ID,country,departamento,mig_ext_medio,mig_ext_cost_currency,mig_ext_cost_
 3733,1233,HND,Yoro,regular,,1,no loans,United States of America,"Yes, but was returned to the country of origin",By voluntary decision: other,50000,,,,,
 3733,1234,HND,Yoro,regular,,1,no loans,United States of America,"Yes, but was returned to the country of origin",By voluntary decision: other,50000,,,,,
 3733,1235,HND,Yoro,regular,,1,no loans,United States of America,"Yes, but was returned to the country of origin",By voluntary decision: other,50000,,,,,
-3734,1236,HND,Yoro,irrregular coyote,1,3500,no loans,United States of America,"Yes, you reside in the destination country",,3500,y,Reina,67,F,"Reina's family uses the remittances she sends back to pay for food, bills for basic services, and medical expenses; this may have aligned with her motivation to migrate for a better quality of life."
+3734,1236,HND,Yoro,irrregular coyote,1,3500,no loans,United States of America,"Yes, you reside in the destination country",,3500,y,Reina,67,F,"Reina's family uses the remittances she sends back to pay for food, bills for basic services, and medical expenses."
 3737,1237,GTM,Alta Verapaz,"irregular on own, with caravan",,1,no loans,United States of America,"Not yet, it is in transit to the destination country",,50000,,,,,
 3742,1238,GTM,Alta Verapaz,irrregular coyote,3,9750,all loans,United States of America,"Yes, you reside in the destination country",,9750,,,,,
 3753,1239,HND,Yoro,regular,1,760,no loans,United States of America,"Yes, but was returned to the country of origin",By voluntary decision: family reunification,760,,,,,
@@ -1139,10 +1139,10 @@ rsp_id,ID,country,departamento,mig_ext_medio,mig_ext_cost_currency,mig_ext_cost_
 3828,1262,SLV,Cabanas,irrregular coyote,,1,all loans,United States of America,"Yes, you reside in the destination country",,50000,,,,,
 3828,1263,SLV,Cabanas,irrregular coyote,,1,all loans,United States of America,"Yes, you reside in the destination country",,50000,,,,,
 3832,1264,SLV,Cabanas,irrregular coyote,1,3500,all loans,United States of America,"Yes, you reside in the destination country",,3500,,,,,
-3833,1265,SLV,Cabanas,irrregular coyote,1,4000,no loans,United States of America,"Yes, you reside in the destination country",,4000,y,Carlos,26,M,"Carlos financed his migration without loans, which is sometimes possible when families are able to save up enough money for the journey."
+3833,1265,SLV,Cabanas,irrregular coyote,1,4000,no loans,United States of America,"Yes, you reside in the destination country",,4000,y,Carlos,26,M,"Carlos used his saving to migrate. 13.8% of El Salvadoran migrants found their migration through their own savining."
 3834,1266,SLV,Cabanas,irrregular coyote,1,3000,all loans,United States of America,"Yes, you reside in the destination country",,3000,,,,,
 3834,1267,SLV,Cabanas,irrregular coyote,1,3000,all loans,United States of America,"Yes, you reside in the destination country",,3000,,,,,
-3839,1268,SLV,Cabanas,irrregular coyote,1,5500,all loans,United States of America,"Yes, you reside in the destination country",,5500,y,Claudia,43,F,"After fleeing from violence, which women like her are especially vulnerable to, Claudia now performs unpaid home care in the US."
+3839,1268,SLV,Cabanas,irrregular coyote,1,5500,all loans,United States of America,"Yes, you reside in the destination country",,5500,y,Claudia,43,F,"Claudia in now living in the US and doesn't have paid work but stays home looking after her children."
 3845,1269,SLV,Cabanas,irrregular coyote,1,5000,no loans,United States of America,"Yes, you reside in the destination country",,5000,,,,,
 3845,1270,SLV,Cabanas,irrregular coyote,1,5000,no loans,United States of America,"Yes, you reside in the destination country",,5000,,,,,
 3862,1271,SLV,Cabanas,irrregular coyote,,1,all loans,United States of America,"Yes, you reside in the destination country",,50000,,,,,
@@ -1235,9 +1235,8 @@ rsp_id,ID,country,departamento,mig_ext_medio,mig_ext_cost_currency,mig_ext_cost_
 4111,1369,GTM,Alta Verapaz,irrregular coyote,3,6240,all loans,United States of America,"Yes, you reside in the destination country",,6240,,,,,
 4113,1370,HND,Yoro,"irregular on own, with caravan",,1,all loans,United States of America,"Yes, but was returned to the country of origin",Due to expulsion from authorities or involuntarily,50000,,,,,
 4115,1371,GTM,Alta Verapaz,irrregular coyote,3,3250,no loans,United States of America,"Yes, you reside in the destination country",,3250,,,,,
-4124,1373,HND,Yoro,irrregular coyote,1,7000,some loans,United States of America,"Yes, but was returned to the country of origin",Due to expulsion from authorities or involuntarily,7000,,,,,
-4126,1374,HND,Yoro,"irregular on own, with caravan",1,7000,all loans,United States of America,"Yes, you reside in the destination country",,7000,y,Santos,35,M,Santos now performs informal labor in the US; his family uses the remittances he sends back to pay for food and bills for basic services such as water and electricity.
-4137,1375,GTM,Chiquimula,irrregular coyote,3,4.55,all loans,United States of America,"Not yet, it is in transit to the destination country",,4.55,,,,,
+4124,1373,HND,Yoro,irrregular coyote,1,7000,some loans,United States of America,"Yes, but was returned to the country of origin",Due to expulsion from authorities or involuntarily,7000,y,Santos,35,M,Santos send $156 USD in remittances back home every three months (56% of the average monthly household income in rural Honduras). The money pays for food, bills for essential services such as water and electricity.
+4126,1374,HND,Yoro,"irregular on own, with caravan",1,7000,all loans,United States of America,"Yes, you reside in the destination country",,7000,,,,,
 4140,1376,GTM,Chiquimula,irrregular coyote,1,15000,all loans,United States of America,"Yes, you reside in the destination country",,15000,,,,,
 4142,1377,GTM,Chiquimula,irrregular coyote,3,11050,all loans,United States of America,"Yes, you reside in the destination country",,11050,,,,,
 4147,1378,GTM,Chiquimula,irrregular coyote,,1,all loans,United States of America,"Yes, you reside in the destination country",,50000,,,,,
@@ -1405,7 +1404,7 @@ rsp_id,ID,country,departamento,mig_ext_medio,mig_ext_cost_currency,mig_ext_cost_
 4718,1563,SLV,San Salvador,irrregular coyote,1,500,all loans,United States of America,"No, but he resided in another country and was returned",By voluntary decision: other,500,,,,,
 4718,1564,SLV,San Salvador,irrregular coyote,1,500,all loans,United States of America,"No, but he resided in another country and was returned",By voluntary decision: other,500,,,,,
 4723,1566,SLV,San Salvador,"irregular on own, with caravan",,1,no loans,United States of America,,,50000,,,,,
-4725,1567,SLV,San Salvador,regular,1,800,all loans,United States of America,"Yes, you reside in the destination country",,800,y,Marta,80,F,"Although Marta is 80 years old and migrated primarily to reunite with family, she still performs domestic work in the US."
+4725,1567,SLV,San Salvador,regular,1,800,all loans,United States of America,"Yes, you reside in the destination country",,800,y,Marta,80,F,"Now living with her family she contributes to the bills as a domestic worker. 4.1% of migrants work as domestic workers after they migrate."
 4726,1568,GTM,Alta Verapaz,irrregular coyote,3,3640,no loans,United States of America,"Yes, you reside in the destination country",,3640,,,,,
 4726,1569,GTM,Alta Verapaz,irrregular coyote,3,3640,all loans,United States of America,"Yes, you reside in the destination country",,3640,,,,,
 4738,1570,SLV,San Salvador,irrregular coyote,1,10000,all loans,United States of America,"No, but he resided in another country and was returned",Due to expulsion from authorities or involuntarily,10000,,,,,

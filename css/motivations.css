@@ -113,9 +113,10 @@ a.btn.btn-sm {
 
 /* HEADING */
 #costs-heading, #motivations-heading {
-    font-size: 200%;
+    font-size: 400%;
     font-weight: 500;
     padding-left:5%;
+    line-height: 120%;
 }
 
 /*Motivation Containers*/

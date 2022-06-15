@@ -25,6 +25,7 @@ h1 {
     font-weight: 500;
 }
 
+
 p {
     color: white;
     font-size: 3vh;
@@ -33,6 +34,7 @@ p {
     width: 85%;
     font-weight: 600;
 }
+
 
 #scan-image-text {
     color: white;
@@ -43,6 +45,14 @@ p {
     width: 50%;
     clear: right;
     margin-right: 0%;
+}
+
+#scan-image {
+    
+    padding-right: 7.5%;
+    padding-bottom: 10%;
+    clear: left;
+    margin-left: 0%;
 }
 
 #blue {
@@ -94,7 +104,7 @@ img {
 }
 
 #toggle-buttons-cost{
-    height: 8vh;
+    height: 5vh;
     position:absolute;
     bottom:0px;
     width:100vw;
@@ -116,7 +126,7 @@ a.btn.btn-sm {
     background-color: white;
     height: 100%;
     width: 99%;
-    font-size: 120%;
+    font-size: 170%;
     font-weight: 500;
     display: flex;
     align-items: center;

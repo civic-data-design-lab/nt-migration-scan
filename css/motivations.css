@@ -79,7 +79,7 @@ a.btn.btn-sm {
 }
 
 #carousel-slides-motiv, #carousel-slides-costs {
-    height:22vh;
+    height:25vh;
 }
 
 .carousel-inner {
@@ -91,11 +91,12 @@ a.btn.btn-sm {
     width: 100%;
     display: flex;
     flex-direction: row;
-    height: 22vh;
+    height: 25vh;
 }
 
 .carousel-item {
     height: 100%;
+    
 }
 
 
@@ -197,6 +198,14 @@ a.btn.btn-sm {
 .migrant-unique-narrative > * {
     font-size: 4vmin;
     padding-right: 10%;
+}
+
+/* CAROUSEL CAPTION */
+
+.carousel-caption {
+    top: 10%;
+    left: 0;
+    bottom: auto;
 }
 
 /* LABELS */

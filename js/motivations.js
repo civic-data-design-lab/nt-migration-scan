@@ -110,21 +110,6 @@ const legendSplit = {
     label: "selected multiple motivations"
 }
 
-const modalData = [
-    {
-        id: "modal-motivs", 
-        html: "<h2 class='scrollytelling'>Migrants Want to Stay</h2><h3 class='scrollytelling description'>Despite a rising desire to migrate, only a fraction of the surveyed population plan to do so.The primary motivation for migration is largely driven by economics.</h3>"
-    },
-    {
-        id: "modal-income", 
-        html: "<h2 class='scrollytelling'>Migrants Come from All Income Groups</h2><h3 class='scrollytelling description'>Our data counters prior studies that say households with more resources are more likely to be able to migrate. This survey shows that migration occurs in all income levels.</h3>"
-    },
-    {
-        id: "modal-cari", 
-        html: "<h2 class='scrollytelling'>Providing for Basic Needs are Migrants' Main Motivation</h2><h3 class='scrollytelling description'>Households with migrants showed that their primary motivation to leave was driven by the need to provide for basic needs. Individuals experiencing food insecurity were more likely (23%) to make concrete plans to migrate than those who were food secure (7%).</h3>"
-    }
-];
-
 // narrative text
 const narrativesData = [
     {
@@ -592,21 +577,6 @@ function motivDetailText(motivRsp, sortBy, motivCat) {
     }
     return motivDetailStr;
 }
-
-// create modals
-function createModals() {
-    const modalTemplate = $(".modal.template");
-    modalData.forEach((item) => {
-        const modal = modalTemplate.clone();
-        const sortBy = item.id.split('-')[-1],
-            modalId = item.id,
-            modalHtml = item.html;
-
-        modal.attr("id", modalId).attr("aria-labelledby", sortBy);
-        modal.find(".modal-body").html(modalHtml);
-        modal.removeClass("template").appendTo(modalTemplate.parent());
-    })
-};
 
 // // create tooltip
 // function tooltipHtml(d, shape) {
@@ -1456,52 +1426,6 @@ function plotLabels(labelList, sortBy) {
     //         .attr("stroke-width", 2)
 }
 
-// create narratives after migrant outcomes viz
-function createNarratives() {
-    const narrativeTemplate = $(".step.fully.active.template");
-    narrativesData.forEach((item, i) => {
-        const narrativeDiv = narrativeTemplate.clone();
-        
-        narrativeDiv.attr("id", "scene-" + i);
-        
-        if (item.hasOwnProperty("image")) {
-            narrativeDiv.find(".scrollytelling-text").remove();
-
-            narrativeDiv.find(".ribbon-image img").attr("src", "./img/motivations/" + item.image);
-            narrativeDiv.find("h2.scrollytelling").html(item.title);
-            narrativeDiv.find("h3.description").html(item.description);
-        }
-        else {
-            narrativeDiv.find(".ribbon-image").remove();
-            narrativeDiv.find(".scrollytelling-caption").remove();
-
-            narrativeDiv.find("h2.scrollytelling").html(item.title);
-            narrativeDiv.find("h3.description").html(item.description);
-        }
-
-        narrativeDiv.removeClass("template").appendTo(narrativeTemplate.parent());
-    });
-};
-
-function updateScene(sortBy) {
-    motivSort = sortBy;
-    btnId = "#btn-" + sortBy;
-    labelsId = "#frame-motivations #labels-" + sortBy;
-
-    if (sortBy == "initial") {
-        $(".btn").removeClass("active");
-        $(".chart-labels").fadeOut(time/2);
-        updatePlotSort("initial");
-    }
-    else {
-        $(".btn").removeClass("active");
-        $(".chart-labels").fadeOut(time/2);
-        $(btnId).addClass("active");
-        $(labelsId).delay(time/2).fadeIn(time/2);
-        updatePlotSort(sortBy);
-    }
-}
-
 $(".btn").on("click", function() {
     btnId = "#" + $(this).attr("id");
     sortBy = $(this).attr("id").slice(4);
@@ -1531,206 +1455,11 @@ $(".btn").on("click", function() {
     }
 });
 
-// create narratives
-createNarratives();
-
 // document ready
 $(document).ready(function() {
     function getDivHeight(id) {
         return $(id).height();
     };
-
-    // ScrollMagic
-    const controller = new ScrollMagic.Controller();
-
-    const scrollScene = new ScrollMagic.Scene({
-        triggerElement: "#narrative-scroll",
-        duration: getDivHeight("#narrative-scroll")
-    })
-        .addTo(controller)
-        .on("progress", e => {
-            currentScrollPos = $("#open").scrollTop();
-            // console.log(e.progress);
-
-            // change scroll direction
-            if (lastScrollPos < currentScrollPos && scrollDirection != "forward") {
-                scrollDirection = "forward";
-                // console.log("change scroll direction, now forward");
-            }
-            else if (lastScrollPos > currentScrollPos && scrollDirection != "reverse") {
-                scrollDirection = "reverse";
-                // console.log("change scroll direction, now reverse");
-            }
-            lastScrollPos = currentScrollPos;
-            // console.log(scrollDirection);
-        })
-
-    const transitionScene = new ScrollMagic.Scene({
-        triggerElement: "#story #features #map-state-3 .scrolly-container-motivations .ribbon-image",
-        duration: getDivHeight("#story #features #map-state-3 .scrolly-container-motivations .ribbon-image") + winHeight*1.5
-    })
-        .addTo(controller)
-        .on("progress", e => {
-            // console.log(e.progress);
-
-            if (e.progress <= 0.17) {
-                $("#transition").fadeOut();
-            }
-            else {
-                $("#transition").fadeIn();
-            }
-
-            if (e.progress <= 0.55) {
-                $("#map-outline").fadeIn(transitionTime);
-                $("#labels").fadeIn(transitionTime);
-            }
-            else {
-                $("#map-outline").fadeOut(transitionTime);
-                $("#labels").fadeOut(transitionTime);
-            }
-
-            if (e.progress <= 0.65) {
-                updateTransLayout("map");
-                $("#transition svg").addClass("mt-3 mt-md-4");
-            }
-            else {
-                updateTransLayout("grid");
-                $("#transition svg").removeClass("mt-3 mt-md-4");
-            }
-
-            if (e.progress <= 0.75) {
-                $("#transition").css("background-color", "#0070ff");
-
-                svgTransition.select("#background")
-                    .select("rect")
-                    .transition()
-                        .duration(transitionTime)
-                        .attr("fill", "#0070ff");
-
-                svgTransRect
-                    .attr("fill", "#fff");
-            }
-            else {
-                $("#transition").css("background-color", "#fff");
-
-                svgTransition.select("#background")
-                    .select("rect")
-                    .transition()
-                        .duration(transitionTime)
-                        .attr("fill", "#fff");
-
-                svgTransRect
-                    .attr("fill", "#ddd");
-            }
-
-            if (e.progress <= 0.85) {
-                $(".cell").fadeIn(transitionTime);
-                $(".grid-color").fadeOut(transitionTime);
-            }
-            else {
-                $(".grid-color").fadeIn(transitionTime);
-                $(".cell").fadeOut(transitionTime);
-            }
-
-            // square stroke changing multiple times
-            if (e.progress <= 0.55) {
-                svgTransRect
-                    .attr("stroke", "#322DCD");
-            }
-            else if (e.progress > 0.55 && e.progress <= 0.75) {
-                svgTransRect
-                    .attr("stroke", "#0070ff");
-            }
-            else {
-                svgTransRect
-                    .attr("stroke", "#fff");
-            }
-        });
-
-    const transitionSceneEnd = new ScrollMagic.Scene({
-        triggerElement: "#story #features #map-state-4 .scrolly-container-motivations .scrollytelling-caption",
-        duration: getDivHeight("#story #features #map-state-4 .scrolly-container-motivations .scrollytelling-caption")
-    })
-        .addTo(controller)
-        .on("end", e => {
-            $(".grid-color").fadeToggle(0);
-        })
-
-    const motivsSceneStart = new ScrollMagic.Scene({
-        triggerElement: "#motivations",
-        duration: winHeight/2
-    })
-        .addTo(controller)
-        .on("start", e => {
-            updateScene("initial");
-        })
-        .on("end", e => {
-            if (scrollDirection == "forward") {
-                updateScene("motivs");
-            }
-        });
-
-    const motivsScene0 = new ScrollMagic.Scene({
-        triggerElement: "#narrative-scroll #scene-0",
-        duration: getDivHeight("#scene-0") + winHeight/2
-    })
-        .addTo(controller)
-        .on("start", e => {
-            if (scrollDirection == "reverse") {
-                updateScene("motivs");
-            }
-        })
-        .on("end", e => {
-            if (scrollDirection == "forward") {
-                updateScene("income");
-            }
-        })
-
-    const motivsScene1 = new ScrollMagic.Scene({
-        triggerElement: "#narrative-scroll #scene-1",
-        duration: getDivHeight("#scene-1") + winHeight/5*2
-    })
-        .addTo(controller)
-        .on("start", e => {
-            if (scrollDirection == "reverse") {
-                updateScene("income");
-            }
-
-            // // update skip to viz shortcut button
-            $("#shortcut a").attr("class", "text-white");
-            $("#shortcut a").find("span").html("Skip to Visualization");
-            $("#shortcut a").find(".arrow").css("border-color", "#fff").removeClass("arrow-up");
-        })
-        .on("end", e => {
-            // console.log("end cari");
-            updateScene("cari");
-
-            // // update skip to top shortcut button
-            $("#shortcut a").attr("class", "text-blue top");
-            $("#shortcut a").find("span").html("Back to Top");
-            $("#shortcut a").find(".arrow").css("border-color", "#1540C4").addClass("arrow-up");
-        });
-
-    // bootstrap modal
-    createModals();
-    const modalMotivs = new bootstrap.Modal(document.getElementById('modal-motivs')),
-        modalIncome = new bootstrap.Modal(document.getElementById('modal-income')),
-        modalCari = new bootstrap.Modal(document.getElementById('modal-cari'));
-
-    $(".btn").on("click", function() {
-        if (!$(btnId).hasClass("visited")) {
-        if (sortBy == "motivs") {
-            modalMotivs.show();
-        }
-        else if (sortBy == "income") {
-            modalIncome.show();
-        }
-        else if (sortBy == "cari") {
-            modalCari.show();
-        }
-        $(this).addClass("visited");
-    }
-    })
 })
 
 // window resize

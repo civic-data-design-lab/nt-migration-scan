@@ -64,33 +64,11 @@ a.btn.btn-sm {
     color: black;
 }
 
-#toggle-buttons-cost {
-    height: 8vh;
-    position: absolute;
-    bottom: 0px;
-    width: 100vw;
-    margin-left: 0px;
-    margin-right: 0px;
-}
-
-#toggle-buttons-cost .btn {
-    height: 100%;
-    width: 99%;
-    font-size: 120%;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 1%;
-    border-radius: 0px;
-    float:left;
-    background-color: white;
-}
-
 #btn-income {
     border-right: none;
     border-left: none;
 }
+
 /* Carousel */
 #carousel-button {
     background-color: #28448c;
@@ -280,10 +258,6 @@ a.btn.btn-sm {
 
 /*mobile (320px-425px)*/
 @media (min-width: 320px) and (max-width: 425px) {
-    #toggle-buttons-cost .btn {
-        font-size: 85%;
-    }
-
     .m_narrative_1, .c_narrative_1 {
         font-size: 100%;
     } 

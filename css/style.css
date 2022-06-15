@@ -24,7 +24,6 @@
     --blur-off: grayscale(1) blur(0px);
     --filters-off: grayscale(0) blur(0px);
     --background-image-height: 100vh;
-    --scrollytelling-padding: 10%;
 }
 
 /*GENERAL HTML */
@@ -765,149 +764,6 @@ i.arrow-up {
     height: 100%;
 }
 
-
-.scrolly-container-motivations .ribbon-image {
-    /* overflow: hidden; */
-    /* background-color: rgba(33, 83, 245, 0.5); */
-    background-color: rgba(21, 64, 196, 0.5);
-
-    -webkit-backdrop-filter: var(--blur-on);
-    -moz-backdrop-filter: var(--blur-on);
-    -ms-backdrop-filter: var(--blur-on);
-    -o-backdrop-filter: var(--blur-on);
-    backdrop-filter: var(--blur-on);
-}
-
-.scrolly-container-motivations .scrollytelling-caption,
-.scrolly-container-motivations .scrollytelling-text {
-    background-color: rgba(21, 64, 196, 0.75);
-    -webkit-backdrop-filter: var(--blur-on);
-    -moz-backdrop-filter: var(--blur-on);
-    -ms-backdrop-filter: var(--blur-on);
-    -o-backdrop-filter: var(--blur-on);
-    backdrop-filter: var(--blur-on);
-}
-
-.scrolly-container-profile .ribbon-image {
-    background-color: rgba(59, 168, 201, 0.5);
-    -webkit-backdrop-filter: var(--blur-on);
-    -moz-backdrop-filter: var(--blur-on);
-    -ms-backdrop-filter: var(--blur-on);
-    -o-backdrop-filter: var(--blur-on);
-    backdrop-filter: var(--blur-on);
-}
-
-.scrolly-container-profile .scrollytelling-caption,
-.scrolly-container-profile .scrollytelling-text {
-    background-color: rgba(59, 168, 201, 0.75);
-    -webkit-backdrop-filter: var(--blur-on);
-    -moz-backdrop-filter: var(--blur-on);
-    -ms-backdrop-filter: var(--blur-on);
-    -o-backdrop-filter: var(--blur-on);
-    backdrop-filter: var(--blur-on);
-}
-
-.scrolly-container-outcomes .ribbon-image {
-    /* overflow: hidden; */
-    /* background-color: rgb(224, 135, 220,0.5); */
-    background-color: rgba(226, 60, 173, 0.5);
-    -webkit-backdrop-filter: var(--blur-on);
-    -moz-backdrop-filter: var(--blur-on);
-    -ms-backdrop-filter: var(--blur-on);
-    -o-backdrop-filter: var(--blur-on);
-    backdrop-filter: var(--blur-on);
-}
-
-.scrolly-container-outcomes .scrollytelling-caption,
-.scrolly-container-outcomes .scrollytelling-text {
-    background-color: rgba(226, 60, 173, 0.75);
-    -webkit-backdrop-filter: var(--blur-on);
-    -moz-backdrop-filter: var(--blur-on);
-    -ms-backdrop-filter: var(--blur-on);
-    -o-backdrop-filter: var(--blur-on);
-    backdrop-filter: var(--blur-on);
-}
-
-.scrolly-container-cost .ribbon-image {
-    /* overflow: hidden; */
-    background-color: rgba(102, 45, 145, 0.5);
-    -webkit-backdrop-filter: var(--blur-on);
-    -moz-backdrop-filter: var(--blur-on);
-    -ms-backdrop-filter: var(--blur-on);
-    -o-backdrop-filter: var(--blur-on);
-    backdrop-filter: var(--blur-on);
-}
-
-.scrolly-container-cost .scrollytelling-caption,
-.scrolly-container-cost .scrollytelling-text {
-    background-color: rgba(102, 45, 145, 0.75);
-    -webkit-backdrop-filter: var(--blur-on);
-    -moz-backdrop-filter: var(--blur-on);
-    -ms-backdrop-filter: var(--blur-on);
-    -o-backdrop-filter: var(--blur-on);
-    backdrop-filter: var(--blur-on);
-}
-
-.scrollytelling-caption .footnote,
-.scrollytelling-text .footnote {
-    width: 100%;
-    left: 0px;
-    font-size: 0.6rem;
-}
-
-.fully .scrollytelling-caption .footnote,
-.fully .scrollytelling-text .footnote {
-    bottom: 5%;
-    padding-left: calc(var(--scrollytelling-padding));
-    padding-right: calc(var(--scrollytelling-padding));
-}
-
-.lefty .scrollytelling-caption .footnote,
-.lefty .scrollytelling-text .footnote,
-.righty .scrollytelling-caption .footnote,
-.righty .scrollytelling-text .footnote {
-    bottom: calc(var(--scrollytelling-padding)/2);
-    padding-left: calc(var(--scrollytelling-padding));
-    padding-right: calc(var(--scrollytelling-padding))
-}
-
-.scrollytelling-caption .footnote a,
-.scrollytelling-text .footnote a {
-    text-decoration: none;
-}
-
-.scrollytelling-caption .footnote a:hover,
-.scrollytelling-text .footnote a:hover {
-    text-decoration: underline;
-}
-
-
-
-#scrolly-overlay {
-    width: 100%;
-    height: 100%;
-    background: yellow;
-    z-index: 10;
-
-}
-
-.step {
-    padding-bottom: 100vh;
-    opacity: 1;
-    transition: 0.5s;
-}
-
-.step.active {
-    opacity: 1;
-}
-
-/* .step div {
-} */
-
-/* .step img {
-    width: 100%;
-} */
-
 @media (max-width: 770px) {
 
     .centered,
@@ -956,60 +812,10 @@ i.arrow-up {
     mix-blend-mode: overlay;
 }
 
-
-
 .padded-image {
     padding: 2em;
 
 }
-
-.scrollytelling {
-    color: white;
-    font-weight: bold;
-    font-style: normal;
-    font-size: 2.2em;
-    line-height: 1em;
-    /* margin-top: 1rem;
-    margin-bottom: 1rem; */
-    /* padding: var(--scrollytelling-padding); */
-}
-
-
-.fully .scrollytelling {
-    padding-left: calc(var(--scrollytelling-padding)*1.5);
-    padding-right: calc(var(--scrollytelling-padding)*1.5);
-}
-
-.scrollytelling-text {
-    padding: var(--scrollytelling-padding);
-}
-
-.fully .scrollytelling-caption {
-    padding: calc(var(--scrollytelling-padding)/3);
-    -webkit-transform: translateY(-50vh);
-    -moz-transform: translateY(-50vh);
-    -ms-transform: translateY(-50vh);
-    -o-transform: translateY(-50vh);
-    transform: translateY(-50vh);
-    -webkit-backdrop-filter: var(--blur-off);
-    -moz-backdrop-filter: var(--blur-off);
-    -ms-backdrop-filter: var(--blur-off);
-    -o-backdrop-filter: var(--blur-off);
-    backdrop-filter: var(--blur-off);
-
-
-}
-
-.lefty .scrollytelling-caption {
-    padding: calc(var(--scrollytelling-padding));
-    /* border: 3px solid red; */
-}
-
-.righty .scrollytelling-caption {
-    padding: calc(var(--scrollytelling-padding));
-    /* border: 3px solid red; */
-}
-
 
 .description {
     font-weight: 300;
@@ -1133,19 +939,10 @@ i.arrow-up {
         flex: 1 0 5vh;
     }
 
-
-    .scrollytelling-caption {
-        padding: calc(var(--scrollytelling-padding)/2);
-    }
-
     h1 {
         font-size: 3em;
         line-height: 1em;
 
-    }
-
-    .scrollytelling {
-        font-size: 2em;
     }
 
     .description {
@@ -1157,11 +954,6 @@ i.arrow-up {
         font-size: 0.6rem;
         padding-top: 1vh;
 
-    }
-
-    .fully .scrollytelling {
-        padding-left: calc(var(--scrollytelling-padding)/100);
-        padding-right: calc(var(--scrollytelling-padding)/100);
     }
 
     .chapter-title {
@@ -1465,20 +1257,10 @@ i.arrow-up {
 
 @media (min-width: 770px) {
 
-    .fully .scrollytelling-caption .footnote,
-    .fully .scrollytelling-text .footnote {
-        padding-left: calc(var(--scrollytelling-padding)*2.25);
-        padding-right: calc(var(--scrollytelling-padding)*2.25);
-    }
 }
 
 @media (min-width: 1400px) {
 
-    .fully .scrollytelling-caption .footnote,
-    .fully .scrollytelling-text .footnote {
-        padding-left: calc(var(--scrollytelling-padding)*1.5 + var(--scrollytelling-padding)/3);
-        padding-right: calc(var(--scrollytelling-padding)*1.5 + var(--scrollytelling-padding)/3);
-    }
 }
 
 .about-descr {

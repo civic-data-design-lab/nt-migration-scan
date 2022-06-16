@@ -334,11 +334,6 @@ margin-top:3rem;}
     top: 0;
     left: 0;
 } */
-/* RESPONSIVE OVERRIDES */
-.btn-sm {
-    font-size: 0.7rem;
-    height: 60px;
-}
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
@@ -346,26 +341,10 @@ margin-top:3rem;}
 }
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
-    .btn-sm {
-        height: 44px;
-    }
-    .tooltip {
-        position: absolute;
-        max-width: 360px;
-        -webkit-transform: translateX(0);
-        -moz-transform: translateX(0);
-        -ms-transform: translateX(0);
-        -o-transform: translateX(0);
-        transform: translateX(0);
-        opacity: 0;
-    }
 }
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-    .btn-sm {
-        height: 54px;
-        font-size: 0.875rem;
-    }
+    
 }
 /* X-Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {

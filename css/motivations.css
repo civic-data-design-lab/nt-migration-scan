@@ -111,7 +111,7 @@ a.btn.btn-sm {
     bottom: 0; */
     padding-top: 3%;
     padding-bottom: 2%;
-    width: 100vw;
+    width: 93vw;
     display: flex;
     flex-direction: row;
     padding-left:0%;
@@ -119,9 +119,9 @@ a.btn.btn-sm {
 }
 
 #buttons-motivations .btn {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: 500;
-    width: 95%;
+    width: 100%;
 }
 
 /*Motivation Container*/

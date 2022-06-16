@@ -4,7 +4,7 @@
 }
 
 #home-container h1 {
-    font-size: 3rem;
+    font-size: 5rem;
     color: white;
     padding-top: 7.5%;
     padding-left: 7.5%;
@@ -28,7 +28,7 @@ h3 {
     padding-left: 7.5%;
     padding-bottom: 5%;
     width: 85%;
-    font-weight: 600;
+    font-weight: 500;
 } */
 
 #scan-box {
@@ -36,12 +36,14 @@ h3 {
 }
 #scan-image-text {
     color: white;
-    font-size: 2rem;
+    font-size: 4rem;
     padding-bottom: 10%;
-    font-weight: 600;
+    padding-left: 7.5%;
+    font-weight: 500;
     width: 50%;
     clear: right;
     margin-right: 0%;
+    line-height: 5rem;
 }
 
 #scan-image {

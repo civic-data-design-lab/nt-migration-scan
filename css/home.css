@@ -3,13 +3,8 @@
     border: solid 1px #000;
 }
 
-<<<<<<< HEAD
-h1 {
-    font-size: 5.5rem;
-=======
 #home-container h1 {
     font-size: 3rem;
->>>>>>> 3e3fbf3cc8b13d6cd964749698175a2094b9e7bf
     color: white;
     padding-top: 7.5%;
     padding-left: 7.5%;
@@ -27,20 +22,7 @@ h3 {
     line-height: 5rem;
 }
 
-<<<<<<< HEAD
-h4 {
-    color: white;
-    font-size: 4rem;
-    padding-left: 0%;
-    padding-right: 0%;
-    font-weight: 500;
-    line-height: 5rem;
-}
-
-/* p {
-=======
 #home-container p {
->>>>>>> 3e3fbf3cc8b13d6cd964749698175a2094b9e7bf
     color: white;
     font-size: 2rem;
     padding-left: 7.5%;

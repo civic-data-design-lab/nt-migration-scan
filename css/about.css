@@ -5,11 +5,7 @@
 
 #about-container h2{
     color: white;
-<<<<<<< HEAD
-    font-size:3.5rem;
-=======
     font-size:2rem;
->>>>>>> 3e3fbf3cc8b13d6cd964749698175a2094b9e7bf
     font-weight: 600;
     padding-top: 7.5%;
     padding-left: 7.5%;
@@ -19,11 +15,7 @@
 
 #about-container p {
     color: white;
-<<<<<<< HEAD
-    font-size: 2rem;
-=======
     font-size: 1.5rem;
->>>>>>> 3e3fbf3cc8b13d6cd964749698175a2094b9e7bf
     padding-left: 7.5%;
     padding-bottom: 2.5%;
     width: 75%;

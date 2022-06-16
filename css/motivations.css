@@ -23,17 +23,17 @@ body{
     position: fixed;
 }
 
-#motivations {
+/* #viz-container {
     justify-content: center;
     max-width: 100vw;
     height: 70vh;
     display: flex;
     flex-direction: column;
-}
+} */
 
-#viz-content {
+/* #viz-content {
     height:100%;
-}
+} */
 
 .px-xl-5 > * {
     padding-left: 0;
@@ -68,36 +68,6 @@ a.btn.btn-sm {
     border-right: none;
     border-left: none;
 }
-
-/* Carousel */
-#carousel-button {
-    background-color: #28448c;
-    width: 100vw;
-    height: 30vh;
-    bottom: 0;
-    position: absolute;
-}
-
-#carousel-slides-motiv, #carousel-slides-costs {
-    height:22vh;
-}
-
-.carousel-inner {
-    height: 100%;
-}
-
-#carousel-slides {
-    background-color: #28448c;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    height: 22vh;
-}
-
-.carousel-item {
-    height: 100%;
-}
-
 
 /* HEADING */
 #costs-heading, #motivations-heading {
@@ -277,6 +247,11 @@ a.btn.btn-sm {
         text-align: center;
     }
 }
+/* RESPONSIVE OVERRIDES */
+#buttons-motivations .btn-sm {
+    font-size: 0.7rem;
+    height: 60px;
+}
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
@@ -284,11 +259,16 @@ a.btn.btn-sm {
 }
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
-
+    #buttons-motivations .btn-sm {
+        height: 44px;
+    }
 }
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-
+    #buttons-motivations .btn-sm {
+        height: 54px;
+        font-size: 0.875rem;
+    }
 }
 /* X-Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {

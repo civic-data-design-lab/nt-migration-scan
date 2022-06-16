@@ -1,19 +1,6 @@
-html > * {
-    background-color: black;
-    height: 100%;
-    border: 0%;
-    margin: 0%;
-    height:100%;
-    width: 56.25%;
-    overflow: auto;
-}
-
-body{
-    background-color: black;
-    height: 100%;
-    width: 100%;
-    min-height: 100%;
-    min-width: 100%;
+#about-container {
+    background: #000;
+    border: solid 1px #000;
 }
 
 h2{
@@ -35,62 +22,6 @@ p {
     font-weight: 500;
 }
 
-#toggle-buttons-cost{
-    height: 8vh;
-    position:absolute;
-    bottom:0px;
-    width:100vw;
-    margin-left: 0px;
-    margin-right:0px;
-}
-
-.btn {
-    background-color: white;
-    /* position: absolute; */
-    color:black;
-    height: 100%;
-    width: 99%;
-    font-size: 120%;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 1%;
-    border-radius: 0px;
-    float: left;
-}
-
-a.btn.btn-sm {
-    color: black;
-}
-
-
-.solid-white > * {
-    background-color: black;
-}
-
-
-#toggle-button-cost .px-0 {
-    box-sizing: content-box;
-    width: 100%;
-    border-color: white;
-}
-
-.content-block {
-    height:100vh;
-}
-
-.col {
-    height:100%;
-}
-
-#active.btn {
-    background-color: black;
-    color:white;
-    pointer-events: none;
-    width: 100%;
-}
-
 /* Responsive */
 /* Small devices (landscape phones, 576px and up) */
 @media (max-width: 576px) {
@@ -98,10 +29,6 @@ a.btn.btn-sm {
         font-size: 85%;
         width: 90%;
         padding-bottom: 0%;
-    }
-
-    .btn {
-        font-size: 85%;
     }
 }
 /* Medium devices (tablets, 768px and up) */

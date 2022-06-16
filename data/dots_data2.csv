@@ -98,7 +98,7 @@ rsp_id,ID,country,departamento,mig_ext_medio,mig_ext_cost_currency,mig_ext_cost_
 337,109,HND,Cortes,irrregular coyote,,1,no loans,United States of America,"Yes, but was returned to the country of origin",Due to expulsion from authorities or involuntarily,50000,,,,,
 342,110,HND,Cortes,irrregular coyote,1,8000,all loans,United States of America,"Yes, you reside in the destination country",,8000,,,,,
 346,111,HND,Cortes,"irregular on own, with caravan",,1,no loans,United States of America,"Yes, but was returned to the country of origin",Due to expulsion from authorities or involuntarily,50000,,,,,
-351,112,HND,Cortes,"irregular on own, with caravan",2,451,no loans,United States of America,"No, but he resided in another country and was returned",,451,y,Rosa,31,F,"Rosa traveled on her own or with a caravan, which is often safer and more affordable than hiring a smuggler."
+351,112,HND,Cortes,"irregular on own, with caravan",2,451,no loans,United States of America,"No, but he resided in another country and was returned",,451,y,Rosa,31,F,"Rosa traveled using a caravan, which is more common in Honduras (4.6%) comparied to 0.6% in Guatemala and 1.6% in EI Salvadoran. Traveling in a caravan helps prevent the extortion from coyote and safety issues migrants face when traveling alone."
 355,113,HND,Cortes,regular,,1,no loans,United States of America,"Yes, you reside in the destination country",,50000,,,,,
 355,114,HND,Cortes,regular,,1,no loans,United States of America,"Yes, you reside in the destination country",,50000,,,,,
 359,115,HND,Cortes,"irregular on own, with caravan",,1,no loans,United States of America,"Yes, you reside in the destination country",,50000,,,,,
@@ -147,7 +147,7 @@ rsp_id,ID,country,departamento,mig_ext_medio,mig_ext_cost_currency,mig_ext_cost_
 458,161,GTM,San Marcos,irrregular coyote,3,5200,all loans,United States of America,"Yes, but was returned to the country of origin",By voluntary decision: family reunification,5200,,,,,
 469,162,GTM,San Marcos,regular,,1,all loans,United States of America,"Yes, you reside in the destination country",,50000,,,,,
 474,163,GTM,Chiquimula,irrregular coyote,3,13.91,all loans,United States of America,"Yes, you reside in the destination country",,13.91,,,,,
-477,164,GTM,Chiquimula,irrregular coyote,3,7.8,no loans,United States of America,"Yes, but was returned to the country of origin",By voluntary decision: other,7.8,y,Gloria,24,F,"Gloria migrated in large part due to the devastating effects of climate change, which heavily affects Central American countries that are economically dependent on agriculture and vulnerable to natural disasters."
+477,164,GTM,Chiquimula,irrregular coyote,3,7.8,no loans,United States of America,"Yes, but was returned to the country of origin",By voluntary decision: other,7.8,y,Gloria,24,F,"Using a coyate is the most common way to migrate, with 55% of migrants using that means."
 479,165,GTM,Chiquimula,irrregular coyote,3,15600,no loans,United States of America,"Yes, you reside in the destination country",,15600,,,,,
 484,166,GTM,San Marcos,irrregular coyote,3,7800,all loans,United States of America,"Yes, you reside in the destination country",,7800,,,,,
 486,167,GTM,San Marcos,irrregular coyote,,1,all loans,United States of America,"Yes, you reside in the destination country",,50000,,,,,
@@ -312,7 +312,7 @@ rsp_id,ID,country,departamento,mig_ext_medio,mig_ext_cost_currency,mig_ext_cost_
 998,341,SLV,Usulutan,irrregular coyote,1,7000,no loans,United States of America,"Yes, but was returned to the country of origin",Due to expulsion from authorities or involuntarily,7000,,,,,
 998,342,SLV,Usulutan,regular,1,800,no loans,United States of America,"Yes, you reside in the destination country",,800,,,,,
 999,343,SLV,Usulutan,irrregular coyote,1,2500,some loans,United States of America,"Yes, but was returned to the country of origin",Due to expulsion from authorities or involuntarily,2500,,,,,
-1000,344,SLV,Usulutan,regular,1,1300,all loans,United States of America,"Yes, but was returned to the country of origin",Due to insufficient financial resources,1300,y,Miguel,29,M,"Miguel formerly performed informal work in El Salvador, but he now owns his own business in the US."
+1000,344,SLV,Usulutan,regular,1,1300,all loans,United States of America,"Yes, but was returned to the country of origin",Due to insufficient financial resources,1300,y,Miguel,29,M,"Migel was able to start his own business 5.9% of migrants are able to start their own business."
 1001,345,SLV,Usulutan,irrregular coyote,,1,no loans,United States of America,"Yes, but was returned to the country of origin",Due to expulsion from authorities or involuntarily,50000,,,,,
 1002,346,SLV,Usulutan,irrregular coyote,1,6000,some loans,United States of America,"Yes, but was returned to the country of origin",By voluntary decision: other,6000,,,,,
 1006,347,SLV,Usulutan,irrregular coyote,1,10000,all loans,United States of America,"No, but he resided in another country and was returned",Due to expulsion from authorities or involuntarily,10000,,,,,
@@ -346,7 +346,7 @@ rsp_id,ID,country,departamento,mig_ext_medio,mig_ext_cost_currency,mig_ext_cost_
 1039,376,SLV,Usulutan,irrregular coyote,,1,no loans,United States of America,"Yes, you reside in the destination country",,50000,,,,,
 1046,377,SLV,Usulutan,irrregular coyote,1,6600,all loans,United States of America,"Yes, but was returned to the country of origin",By voluntary decision: family reunification,6600,,,,,
 1048,378,SLV,Usulutan,"irregular on own, with caravan",1,300,no loans,United States of America,"Yes, but was returned to the country of origin",Due to expulsion from authorities or involuntarily,300,,,,,
-1052,379,SLV,Usulutan,irrregular coyote,1,7000,all loans,United States of America,,,7000,y,Ana,29,F,Ana's family is food insecure and struggling to cover basic expenses. Inability to pay for basic needs is a common motivation for migration.
+1052,379,SLV,Usulutan,irrregular coyote,1,7000,all loans,United States of America,,,7000,y,Ana,29,F,Inability to pay for basic needs is a common motivation for migration. 36% of families who want to migrate can not pay for their basic needs.
 1055,380,SLV,Usulutan,"irregular on own, with caravan",,1,no loans,United States of America,"Yes, but was returned to the country of origin",By voluntary decision: other,50000,,,,,
 1059,381,HND,Yoro,irrregular coyote,1,11000,some loans,United States of America,"Yes, you reside in the destination country",,11000,,,,,
 1061,388,SLV,Usulutan,"irregular on own, with caravan",,1,all loans,United States of America,"Yes, but was returned to the country of origin",Other,50000,,,,,
@@ -413,7 +413,7 @@ rsp_id,ID,country,departamento,mig_ext_medio,mig_ext_cost_currency,mig_ext_cost_
 1239,446,GTM,San Marcos,irrregular coyote,3,9100,all loans,United States of America,"Yes, you reside in the destination country",,9100,,,,,
 1243,447,GTM,San Marcos,irrregular coyote,3,9750,all loans,United States of America,"Yes, but was returned to the country of origin",By voluntary decision: family reunification,9750,,,,,
 1249,448,GTM,San Marcos,"irregular on own, with caravan",3,1300,some loans,United States of America,"Yes, you reside in the destination country",,1300,y,Luis,37,M,"Luis was unable to find employment in Guatemala, but he now peforms domestic work in the US."
-1261,449,GTM,Chiquimula,regular,3,650,no loans,United States of America,"Yes, but was returned to the country of origin",By voluntary decision: start business,650,y,Juana,70,F,"Juana was able to reunite with her family in the US, where, unlike most migrants, they own a business."
+1261,449,GTM,Chiquimula,regular,3,650,no loans,United States of America,"Yes, but was returned to the country of origin",By voluntary decision: start business,650,y,Juana,70,F,"Because Juana had family already in the US she was able to use regular channels to migrate. 20.5% migrants use regular channels to migrate."
 1263,450,GTM,Chiquimula,irrregular coyote,3,5.85,some loans,United States of America,"Yes, you reside in the destination country",,5.85,,,,,
 1265,451,GTM,Chiquimula,irrregular coyote,3,15600,all loans,United States of America,"Yes, you reside in the destination country",,15600,,,,,
 1266,452,GTM,Chiquimula,irrregular coyote,,1,all loans,United States of America,"Yes, you reside in the destination country",,50000,,,,,
@@ -548,7 +548,7 @@ rsp_id,ID,country,departamento,mig_ext_medio,mig_ext_cost_currency,mig_ext_cost_
 1545,585,GTM,San Marcos,irrregular coyote,3,6500,all loans,United States of America,"Yes, you reside in the destination country",,6500,,,,,
 1546,586,GTM,San Marcos,irrregular coyote,3,9750,all loans,United States of America,"Yes, you reside in the destination country",,9750,,,,,
 1555,588,GTM,San Marcos,irrregular coyote,,1,no loans,United States of America,"Yes, you reside in the destination country",,50000,,,,,
-1564,589,GTM,Chiquimula,regular,3,468,no loans,United States of America,"Yes, you reside in the destination country",,468,y,Carmen,36,F,Carmen's family is struggling to cover basic expenses using their current level of income. Inability to pay for basic needs is a common motivation for migration.
+1564,589,GTM,Chiquimula,regular,3,468,no loans,United States of America,"Yes, you reside in the destination country",,468,y,Carmen,36,F,Carmen traveled to the US using regular channels, which means her trip cost $468 which is significantly less than the average cost ($7500) of irregular migration.
 1569,590,GTM,Chiquimula,irrregular coyote,3,2990,all loans,United States of America,"Yes, you reside in the destination country",,2990,,,,,
 1569,591,GTM,Chiquimula,irrregular coyote,3,2860,all loans,United States of America,"Yes, you reside in the destination country",,2860,,,,,
 1573,592,GTM,Chiquimula,regular,3,1300,no loans,United States of America,"Yes, but was returned to the country of origin",Due to expulsion from authorities or involuntarily,1300,,,,,
@@ -1271,7 +1271,7 @@ rsp_id,ID,country,departamento,mig_ext_medio,mig_ext_cost_currency,mig_ext_cost_
 4259,1413,SLV,Cabanas,irrregular coyote,1,10000,all loans,United States of America,"Yes, you reside in the destination country",,10000,,,,,
 4260,1414,HND,Francisco Morazan,regular,,1,no loans,United States of America,"Yes, but was returned to the country of origin",Due to expulsion from authorities or involuntarily,50000,,,,,
 4261,1415,HND,Francisco Morazan,regular,,1,no loans,United States of America,"Yes, but was returned to the country of origin",Due to expulsion from authorities or involuntarily,50000,,,,,
-4262,1416,HND,Francisco Morazan,regular,2,410,all loans,United States of America,"Yes, but was returned to the country of origin",Due to expulsion from authorities or involuntarily,410,y,Oscar,30,M,Oscar's family is struggling to cover basic expenses using their current level of income. Inability to pay for basic needs is a common motivation for migration.
+4262,1416,HND,Francisco Morazan,regular,2,410,all loans,United States of America,"Yes, but was returned to the country of origin",Due to expulsion from authorities or involuntarily,410,y,Oscar,30,M,Oscar represents only 21.5% percentage of migrants who use regular forms of migration, which is less dangerious and costly.
 4263,1417,HND,Francisco Morazan,regular,2,615,all loans,United States of America,"Yes, you reside in the destination country",,615,,,,,
 4264,1418,HND,Francisco Morazan,"irregular on own, with caravan",,1,no loans,United States of America,"Yes, but was returned to the country of origin",Due to expulsion from authorities or involuntarily,50000,,,,,
 4267,1419,HND,Francisco Morazan,"irregular on own, with caravan",,1,all loans,United States of America,"No, but he resided in another country and was returned",By voluntary decision: other,50000,,,,,
@@ -1368,7 +1368,7 @@ rsp_id,ID,country,departamento,mig_ext_medio,mig_ext_cost_currency,mig_ext_cost_
 4605,1523,SLV,Cabanas,irrregular coyote,1,10000,all loans,United States of America,"Yes, you reside in the destination country",,10000,,,,,
 4610,1524,SLV,Cabanas,irrregular coyote,,1,all loans,United States of America,"Yes, you reside in the destination country",,50000,,,,,
 4612,1525,SLV,Cabanas,irrregular coyote,,1,all loans,United States of America,"Yes, but was returned to the country of origin",By voluntary decision: family reunification,50000,,,,,
-4614,1526,SLV,Cabanas,regular,1,12000,all loans,United States of America,"Not yet, it is in transit to the destination country",,12000,y,Maria,F,32,Maria's family is severely food insecure and her family uses remittances sent back to buy food. Food insecurity is one of the driving causes of migration among households.
+4614,1526,SLV,Cabanas,regular,1,12000,all loans,United States of America,"Not yet, it is in transit to the destination country",,12000,y,Maria,F,32,Maria is similiar to 11.2% of El Salvadorans migrants who cite food insecurity as a driving motivation to migrate.
 4620,1527,SLV,Cabanas,irrregular coyote,1,5000,all loans,United States of America,"Yes, but was returned to the country of origin",Due to expulsion from authorities or involuntarily,5000,,,,,
 4623,1528,SLV,Cabanas,irrregular coyote,1,8000,no loans,United States of America,"Yes, but was returned to the country of origin",Due to expulsion from authorities or involuntarily,8000,,,,,
 4623,1529,SLV,Cabanas,irrregular coyote,1,6000,all loans,United States of America,"Yes, but was returned to the country of origin",Due to expulsion from authorities or involuntarily,6000,,,,,

@@ -399,10 +399,16 @@ function display(error, data) {
     costTextContent.find(".migrant-name").html(selected_migrant.name);
     costTextContent.find(".migrant-cost").html(selected_migrant.mig_ext_cost_total);
     costTextContent.find(".migrant-channel").html(pathwayAttr_narrative[selected_migrant.mig_ext_medio].label);
-  
+    costTextContent.css("width","70%");
+
     // change text of cost narrative slide 2
     const narrative2_textContent = $(".c_narrative_2");
     narrative2_textContent.find(".migrant-cost-narrative").html(selected_migrant.narrative4)
+    narrative2_textContent.css("width","70%");
+
+    $(".carousel-caption").css("display","flex");
+    $(".carousel-caption").css("justify-content","center");
+    $(".carousel-caption").css("align-items","center");
   }
 
   // put this in .then:

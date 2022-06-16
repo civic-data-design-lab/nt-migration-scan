@@ -538,10 +538,17 @@ const dataset = d3.csv("./data/motivations.csv", d3.autoType)
             else {
                 narrative1_textContent.find(".migrant-motivation").html(motivDetailAttr[selected_migrant_motives[0]].label); 
             }
+            narrative1_textContent.css("width","70%");
 
             // change text of motivations narrative slide 2
             const narrative2_textContent = $(".m_narrative_2");
-            narrative2_textContent.find(".migrant-motiv-narrative").html(selected_migrant.narrative2)
+            narrative2_textContent.find(".migrant-motiv-narrative").html(selected_migrant.narrative2);
+            narrative2_textContent.css("width","70%");
+
+            $(".carousel-caption").css("display","flex");
+            $(".carousel-caption").css("justify-content","center");
+            $(".carousel-caption").css("align-items","center");
+
         }
     });
 
@@ -578,118 +585,6 @@ function motivDetailText(motivRsp, sortBy, motivCat) {
     return motivDetailStr;
 }
 
-// // create tooltip
-// function tooltipHtml(d, shape) {
-//     $("#tt-motivs").empty();
-//     const tooltipTemplate = $(".tooltip.template");
-//     const tooltip = tooltipTemplate.clone();
-
-//     if (shape == "sq") {
-//         motivCat = d.motiv_cat.split('-')[0];
-//     }
-//     else if (shape == "tri-bl") {
-//         const motiv = d.mig_ext_motivo.split(' ')[0];
-//         motivCat = motivDetailAttr[motiv].category;
-//     }
-//     else if (shape == "tri-tr") {
-//         const motiv1 = d.mig_ext_motivo.split(' ')[0];
-//         const motivCat1 = d.motiv_cat.split('-')[0];
-//         const motivCat2 = d.motiv_cat.split('-')[1];
-//         if (motivDetailAttr[motiv1].category == motivCat1) {
-//             motivCat = motivCat2;
-//         }
-//         else {
-//             motivCat = motivCat1;
-//         }
-//     }
-//     else if (shape == "tri-t") {
-//         const motiv2 = d.mig_ext_motivo.split(' ')[1];
-//         motivCat = motivDetailAttr[motiv2].category;
-//     }
-//     else if (shape == "tri-r") {
-//         const motiv3 = d.mig_ext_motivo.split(' ')[2];
-//         motivCat = motivDetailAttr[motiv3].category;
-//     }
-
-//     if (motivSort == "income") {
-//         surveyedLabel = incomeAttr[d.income_per_capita_tier].label;
-//         motivPct = roundAccurately(motivationsData.filter((item) => item.motiv_cat.includes(motivCat) && item.income_per_capita_tier == d.income_per_capita_tier).length / motivationsData.filter((item) => item.income_per_capita_tier == d.income_per_capita_tier).length * 100, 0);
-//     }
-//     else if (motivSort == "cari") {
-//         surveyedLabel = cariAttr[d.CARI].label;
-//         motivPct = roundAccurately(motivationsData.filter((item) => item.motiv_cat.includes(motivCat) && item.CARI == d.CARI).length / motivationsData.filter((item) => item.CARI == d.CARI).length * 100, 0);
-//     }
-//     else {
-//         surveyedLabel = "surveyed";
-//         motivPct = roundAccurately(motivationsData.filter((item) => item.motiv_cat.includes(motivCat)).length / motivationsData.length * 100, 0);
-//     }
-
-//     const motivColor = motivAttr[motivCat].color;
-//     const motivLabel = motivAttr[motivCat].label;
-//     const countryLabel = countryText_motivations[d.country];
-
-//     tooltip.find(".side-color").css("background", motivColor);
-//     tooltip.find(".text-color").css("color", motivColor);
-//     tooltip.find(".label-motiv-pct").html(motivPct);
-//     tooltip.find(".label-motiv").html(motivLabel);
-//     tooltip.find(".label-hh").html(surveyedLabel);
-//     tooltip.find(".label-motiv-detail").html(motivDetailText(d.mig_ext_motivo, motivSort, motivCat));
-//     tooltip.find(".label-country").html(countryLabel);
-
-//     tooltip.children().appendTo("#tt-motivs");
-// }
-// // tooltip position on mousemove
-// function divMotivsOnMousemove(event) {
-//     if (winWidth > 768) {
-//         divMotivs
-//         .style("top", (divHtml) => {
-//             var divY = event.pageY;
-//             var ttHeight = $("#tt-motivs").outerHeight();
-//             var divHeight = $("#viz-motivations").height();
-
-//             if ((divY + ttHeight + 60) > winHeight) {
-//                 divY = divY - ttHeight - 15;
-//             };
-//             return (divY + 10) + "px"
-//         })
-//         .style("left", (divHtml) => {
-//             var divX = event.pageX;
-//             var ttWidth = $("#tt-motivs").outerWidth();
-//             var divWidth = $("#viz-motivations").width();
-
-//             if ((divX + ttWidth) > divWidth) {
-//                 divX = divX - ttWidth - 15;
-//             };
-//             return (divX + 10) + "px"
-//         })
-//     }
-//     else {
-//         divMotivs.style("top", "1rem")
-//             .style("left", "57%");
-//     }
-// }
-// // side tooltip
-// function sideTooltipHtml(d) {
-//     $("#tt-side").empty();
-//     var tooltipTemplate = $(".tooltip-side.template");
-//     var tooltip = tooltipTemplate.clone();
-
-//     if (motivSort == "motivs") {
-//         tooltip.find(".label-group").html(motivAttr[d.group].label);
-//         tooltip.find(".label-descr").html(motivAttr[d.group].descr);
-//     }
-//     else if (motivSort == "income") {
-//         tooltip.find(".label-group").html(incomeAttr[d.group].label);
-//         tooltip.find(".label-descr").html("Monthly Household Income per Capita:<br><b>" + incomeAttr[d.group].range + "</b>");
-//     }
-//     else if (motivSort == "cari") {
-//         tooltip.find(".label-group").html(cariAttr[d.group].sideLabel);
-//         tooltip.find(".label-descr").html(cariAttr[d.group].descr);
-//     }
-//     tooltip.find(".label-group-pct").html(d.pct);
-
-//     tooltip.children().appendTo("#tt-side");
-// }
 // update sort index position
 function indexPos(d, sortBy, triPos) {
     let sortIndex = motivsIndex[d.rsp_id2][sortBy];
@@ -1471,43 +1366,3 @@ $(window).resize(function() {
         divMotivs.style("display", "block");
     }
 })
-
-// function toggle_m_narrative_1_to_2 () {
-//     const currentNarrative = $(".m_narrative_1")
-//     currentNarrative.css("display", "none")
-//     const nextNarrative = $(".m_narrative_2")
-//     nextNarrative.css("display", "block")
-
-//     $("#m_narrative_1to2").css("display", "none")
-//     $("#m_narrative_2to1").css("display", "block")
-// }
-
-// function toggle_m_narrative_2_to_1 () {
-//     const currentNarrative = $(".m_narrative_2")
-//     currentNarrative.css("display", "none")
-//     const nextNarrative = $(".m_narrative_1")
-//     nextNarrative.css("display", "block")
-
-//     $("#m_narrative_2to1").css("display", "none")
-//     $("#m_narrative_1to2").css("display", "block")
-// }
-
-// function toggle_c_narrative_1_to_2 () {
-//     const currentNarrative = $(".c_narrative_1")
-//     currentNarrative.css("display", "none")
-//     const nextNarrative = $(".c_narrative_2")
-//     nextNarrative.css("display", "block")
-
-//     $("#c_narrative_1to2").css("display", "none")
-//     $("#c_narrative_2to1").css("display", "block")
-// }
-
-// function toggle_c_narrative_2_to_1 () {
-//     const currentNarrative = $(".c_narrative_2")
-//     currentNarrative.css("display", "none")
-//     const nextNarrative = $(".c_narrative_1")
-//     nextNarrative.css("display", "block")
-
-//     $("#c_narrative_2to1").css("display", "none")
-//     $("#c_narrative_1to2").css("display", "block")
-// }

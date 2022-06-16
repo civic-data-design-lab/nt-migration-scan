@@ -162,8 +162,8 @@ a.btn.btn-sm {
     color: white;
     font-size: 4vmin;
     font-weight: 500;
-    width: 100%;
-    height: 100%;
+    /* width: 100%;
+    height: 100%; */
 }
 
 .migrant-unique-narrative > * {
@@ -178,7 +178,7 @@ a.btn.btn-sm {
     /* bottom: auto; */
     width: 100%;
     height: 100%;
-    /* position: unset; */
+    position: unset;
 }
 
 /* LABELS */

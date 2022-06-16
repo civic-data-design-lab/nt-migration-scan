@@ -40,6 +40,7 @@
 
 <body>
     
+<<<<<<< HEAD
     <div id="page-content" class="content-block solid-white d-flex flex-column">
         <!-- HOME TAB LAYOUT -->
         <div id="home-container" class="flex-grow-1" style="display: none;">
@@ -55,6 +56,12 @@
         <div id="viz-container" class="w-100 px-0 flex-grow-1">
             <div class="h-100 d-flex flex-column">
                 <div id="viz-content" class="container-lg flex-grow-1 mt-5 px-xl-5 align-items-center">
+=======
+    <div id="page-content" class="content-block solid-white">
+        <div id="motivations" class="container-lg  position-sticky">
+            <div id="viz-content" class="mt-5 px-xl-5 align-items-center">
+                <div id="viz-col" class="col">
+>>>>>>> main
                     <!-- <div id="title-text" class="row mb-3 me-0">
                         Motivations to Migrate
                     </div> -->
@@ -165,6 +172,7 @@
                 <button id="tab-home" class="btn btn-sm p-3" style="border-color: #28448c;"
                     onclick="toggle_home_on()">Home</button>
             </div>
+<<<<<<< HEAD
             <div class="col px-0">
                 <button id="tab-motivations" class="btn btn-sm p-3 active" style="border-color: #28448c;"
                     onclick="toggle_motivation_on()">Motivations</button>
@@ -177,15 +185,33 @@
                 <!-- <a href="./about.html" class="btn btn-sm" style="width:100%">About</a> -->
                 <button id="tab-about" class="btn btn-sm p-3"
                     onclick="toggle_about_on()">About</button>
+=======
+
+
+            <!-- TABS -->
+            <div id="toggle-buttons-cost" class="row">
+                <div class="col px-0">
+                    <a href="./home.html" class="btn btn-sm">Home</a>
+                </div>
+                <div class="col px-0">
+                    <button id="" class="btn btn-sm"
+                        onclick="toggle_motivation_on()">Motivations</button>
+
+                </div>
+                <div class="col px-0">
+                    <button id="" class="btn btn-sm"
+                        onclick="toggle_cost_on()">Costs</button>
+
+                </div>
+                <div class="col px-0">
+                    <a href="./about.html" class="btn btn-sm" style="width:100%">About</a>
+                </div>
+>>>>>>> main
             </div>
         </div>
         <!-- </div> -->
 
     </div>
-    <!-- onclick="document.getElementById('cost-container').style.display = 'none'; document.getElementById('motivations-container').style.display = 'block';">Motivation to Migrate</button> -->
-    <!-- onclick="document.getElementById('motivations-container').style.display = 'none'; document.getElementById('cost-container').style.display = 'block';">Cost to Migrate</button> -->
-    <!-- onclick="toggle_motivation_on()">Motivation to Migrate</button> -->
-    <!-- onclick="toggle_cost_on()">Motivation to Migrate</button> -->
 
     <script type="text/javascript" src="./js/popper.min.js"></script>
     <script type="text/javascript" src="./js/bootstrap.min.js"></script>
@@ -195,8 +221,6 @@
     <script type="text/javascript" src="./js/bubble_chart.js"></script>
     <script type="text/javascript" src="./js/cost.js"></script>
 
-    <!-- <script type="text/javascript" src="./js/router.js"></script> -->
-    <!-- <script type="text/javascript" src="./js/id-router.js"></script> -->
 
 </body>
 

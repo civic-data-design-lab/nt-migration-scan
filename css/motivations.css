@@ -101,8 +101,8 @@ a.btn.btn-sm {
 }
 
 #buttons-motivations {
-    position: absolute;
-    bottom: 0;
+    /* position: absolute;
+    bottom: 0; */
     padding-top: 3%;
     padding-bottom: 2%;
     width: 100vw;

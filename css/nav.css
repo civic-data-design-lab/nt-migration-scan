@@ -31,15 +31,15 @@
 
 /* NAV TABS */
 #nav-tabs .btn {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 500;
     width: 100%;
     background-color: white;
     border-radius: 0px;
 }
-#nav-tabs .btn:not(#tab-about) {
+/* #nav-tabs .btn:not(#tab-about) {
     border-right: solid 6px #000;
-}
+} */
 
 #nav-tabs #tab-home.active,
 #nav-tabs #tab-about.active {

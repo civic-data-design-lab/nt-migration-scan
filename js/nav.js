@@ -7,13 +7,29 @@ window.onload = function() {
 
     else {
         const narrative1_textContent = $(".m_narrative_1");
-        narrative1_textContent.html("Scan an item to get started")
+        narrative1_textContent.html("Scan an item to get started");
+        $(".m_narrative_1").css("display","flex");
+        $(".m_narrative_1").css("align-items","center");
+        $(".m_narrative_1").css("justify-content","center");
+
         const narrative2_textContent = $(".m_narrative_2");
-        narrative2_textContent.html("Scan an item to get started")
+        narrative2_textContent.html("Scan an item to get started");
+        $(".m_narrative_2").css("display","flex");
+        $(".m_narrative_2").css("align-items","center");
+        $(".m_narrative_2").css("justify-content","center");
+
         const narrative3_textContent = $(".c_narrative_1");
-        narrative3_textContent.html("Scan an item to get started")
+        narrative3_textContent.html("Scan an item to get started");
+        $(".c_narrative_1").css("display","flex");
+        $(".c_narrative_1").css("align-items","center");
+        n$(".c_narrative_1").css("justify-content","center");
+
         const narrative4_textContent = $(".c_narrative_2");
-        narrative4_textContent.html("Scan an item to get started")
+        narrative4_textContent.html("Scan an item to get started");
+        $(".c_narrative_2").css("display","flex");
+        $(".c_narrative_2").css("align-items","center");
+        $(".c_narrative_2").css("justify-content","center");
+
     }
 
 }

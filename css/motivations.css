@@ -83,7 +83,7 @@ a.btn.btn-sm {
 #sort-by {
     width: 15%;
     align-self: center;
-    font-size: 1.5rem%;
+    font-size: 1.5rem;
     font-weight: 500;
     text-align: center;
 }
@@ -115,7 +115,7 @@ a.btn.btn-sm {
 }
 
 #buttons-motivations .btn {
-    font-size: 1.5rem%;
+    font-size: 1.5rem;
     font-weight: 500;
     width: 95%;
 }
@@ -154,8 +154,8 @@ a.btn.btn-sm {
     color: white;
     font-size: 4vmin;
     font-weight: 500;
-    width: 100%;
-    height: 100%;
+    /* width: 100%;
+    height: 100%; */
 } 
 
 .m_narrative_2, .c_narrative_2 {
@@ -174,9 +174,11 @@ a.btn.btn-sm {
 /* CAROUSEL CAPTION */
 
 .carousel-caption {
-    top: 10%;
-    bottom: auto;
-    width: 70%;
+    /* top: 10%; */
+    /* bottom: auto; */
+    width: 100%;
+    height: 100%;
+    /* position: unset; */
 }
 
 /* LABELS */
@@ -260,7 +262,7 @@ a.btn.btn-sm {
 }
 /* RESPONSIVE OVERRIDES */
 #buttons-motivations .btn-sm {
-    font-size: 0.7rem;
+    font-size: 1.5rem;
     height: 60px;
 }
 

@@ -18,7 +18,6 @@
 }
 
 #carousel-slides {
-    /* background-color: #28448c; */
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -37,9 +36,9 @@
     background-color: white;
     border-radius: 0px;
 }
-/* #nav-tabs .btn:not(#tab-about) {
-    border-right: solid 6px #000;
-} */
+#nav-tabs .btn:not(#tab-about) {
+    border-right: solid 2px #000;
+}
 
 #nav-tabs #tab-home.active,
 #nav-tabs #tab-about.active {

@@ -21,6 +21,7 @@ body{
     height: 100vh;
     width: 100%;
     position: fixed;
+    overflow: scroll;
 }
 
 /* #viz-container {
@@ -71,7 +72,7 @@ a.btn.btn-sm {
 
 /* HEADING */
 #costs-heading, #motivations-heading {
-    font-size: 400%;
+    font-size: 2rem;
     font-weight: 500;
     padding-left:5%;
     line-height: 120%;
@@ -82,7 +83,7 @@ a.btn.btn-sm {
 #sort-by {
     width: 15%;
     align-self: center;
-    font-size: 170%;
+    font-size: 1.5rem%;
     font-weight: 500;
     text-align: center;
 }
@@ -114,7 +115,7 @@ a.btn.btn-sm {
 }
 
 #buttons-motivations .btn {
-    font-size: 170%;
+    font-size: 1.5rem%;
     font-weight: 500;
     width: 95%;
 }
@@ -139,7 +140,7 @@ a.btn.btn-sm {
     border: 0;
     background-color: #28448c;
     color: white;
-    font-size: 250%;
+    font-size: 2rem;
     height: 10%;
     padding-right: 5%;
     padding-left: 5%;
@@ -239,21 +240,21 @@ a.btn.btn-sm {
 /*mobile (320px-425px)*/
 @media (min-width: 320px) and (max-width: 425px) {
     .m_narrative_1, .c_narrative_1 {
-        font-size: 100%;
+        font-size: 1rem;
     } 
 
     #motivations-heading, #costs-heading {
-        font-size: 100%;
+        font-size: 1rem;
     }
 
     #buttons-motivations .btn {
-        font-size: 70%;
+        font-size: 0.75rem;
         width: fit-content;
         height: fit-content;
     }
 
     #sort-by {
-        font-size: 70%;
+        font-size: 0.75rem;
         text-align: center;
     }
 }

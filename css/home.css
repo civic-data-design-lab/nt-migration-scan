@@ -3,8 +3,8 @@
     border: solid 1px #000;
 }
 
-h1 {
-    font-size: 350%;
+#home-container h1 {
+    font-size: 3rem;
     color: white;
     padding-top: 7.5%;
     padding-left: 7.5%;
@@ -13,20 +13,21 @@ h1 {
 }
 
 
-p {
+#home-container p {
     color: white;
-    font-size: 3vh;
+    font-size: 2rem;
     padding-left: 7.5%;
     padding-bottom: 5%;
     width: 85%;
     font-weight: 600;
 }
 
-
+#scan-box {
+    padding-left:7.5%;
+}
 #scan-image-text {
     color: white;
-    font-size: 3vh;
-    padding-left: 7.5%;
+    font-size: 2rem;
     padding-bottom: 10%;
     font-weight: 600;
     width: 50%;
@@ -45,8 +46,8 @@ p {
 }
 
 #img-scan-module {
-    width: 90%;
-    height: auto;
+    width: 80%;
+    height: 80%;
 }
 
 #blue {
@@ -92,15 +93,15 @@ img {
 /* Responsive */
 /* Small devices (landscape phones, 576px and up) */
 @media (max-width: 576px) {
-    p {
-        font-size: 100%;
+    #home-container p {
+        font-size: 1rem;
     }
     #scan-image-text {
-        font-size: 100%;;
+        font-size: 1rem;
     }
     
-    h1 {
-        font-size:150%;
+    #home-container h1 {
+        font-size:1.5rem;
     }
 }
 /* Medium devices (tablets, 768px and up) */

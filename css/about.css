@@ -3,9 +3,9 @@
     border: solid 1px #000;
 }
 
-h2{
+#about-container h2{
     color: white;
-    font-size:200%;
+    font-size:2rem;
     font-weight: 600;
     padding-top: 7.5%;
     padding-left: 7.5%;
@@ -13,9 +13,9 @@ h2{
     background-color: black;
 }
 
-p {
+#about-container p {
     color: white;
-    font-size: 2vh;
+    font-size: 1.5rem;
     padding-left: 7.5%;
     padding-bottom: 2.5%;
     width: 75%;
@@ -25,8 +25,12 @@ p {
 /* Responsive */
 /* Small devices (landscape phones, 576px and up) */
 @media (max-width: 576px) {
-    p {
-        font-size: 85%;
+
+    #about-container h2 {
+        font-size: 1.5rem;
+    }
+    #about-container p {
+        font-size: 0.75rem;
         width: 90%;
         padding-bottom: 0%;
     }

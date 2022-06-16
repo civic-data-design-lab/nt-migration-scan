@@ -24,17 +24,6 @@ body{
     overflow: scroll;
 }
 
-/* #viz-container {
-    justify-content: center;
-    max-width: 100vw;
-    height: 70vh;
-    display: flex;
-    flex-direction: column;
-} */
-
-/* #viz-content {
-    height:100%;
-} */
 
 #viz-content{
     padding: 0%;

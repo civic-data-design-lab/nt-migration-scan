@@ -32,7 +32,7 @@ function bubbleChart() {
   //   var width = 1500;
   //   var height = 700;
   const width = 1400;
-  const height = 1000;
+  const height = 1500;
   const sqLen = 1;
   const sideWidth = 0;
   var padding = 2;

@@ -1426,7 +1426,7 @@ function plotLabels(labelList, sortBy) {
     //         .attr("stroke-width", 2)
 }
 
-$(".btn").on("click", function() {
+$("#buttons-motivations .btn").on("click", function() {
     btnId = "#" + $(this).attr("id");
     sortBy = $(this).attr("id").slice(4);
     labelsId = "#frame-motivations #labels-" + sortBy;
@@ -1447,7 +1447,7 @@ $(".btn").on("click", function() {
         // $("#migrant-name-label").css("display", "none")
         $("#migrant-line").fadeOut(time/2);
         $("#migrant-name-label").fadeOut(time/2);
-        $(".btn").removeClass("active");
+        $("#buttons-motivations .btn").removeClass("active");
         $(".chart-labels").fadeOut(time/2);
         $(btnId).addClass("active");
         $(labelsId).delay(time/2).fadeIn(time/2);
@@ -1471,77 +1471,6 @@ $(window).resize(function() {
         divMotivs.style("display", "block");
     }
 })
-
-
-window.onload = function() {
-    const id_with_hash = window.location.hash
-
-    if (id_with_hash.length != 0) {
-        console.log("item has been scanned")
-    }
-
-    else {
-        const narrative1_textContent = $(".m_narrative_1");
-        narrative1_textContent.html("Scan an item to get started")
-        const narrative2_textContent = $(".m_narrative_2");
-        narrative2_textContent.html("Scan an item to get started")
-        const narrative3_textContent = $(".c_narrative_1");
-        narrative3_textContent.html("Scan an item to get started")
-        const narrative4_textContent = $(".c_narrative_2");
-        narrative4_textContent.html("Scan an item to get started")
-
-        // narrative1_textContent.css("padding-top","13%")
-        // narrative1_textContent.css("padding-left","27%")
-
-        // narrative2_textContent.css("padding-top","13%")
-        // narrative2_textContent.css("padding-left","15%")
-
-        // narrative3_textContent.css("padding-top","13%")
-        // narrative3_textContent.css("padding-left","27%")
-
-        // narrative4_textContent.css("padding-top","13%")
-        // narrative4_textContent.css("padding-left","15%")
-    }
-
-}
-
-window.onhashchange = function() { 
-    console.log("HASH CHANGED")
-    location.reload()  
-}
-
-
-function toggle_motivation_on () {
-    const motivationContainer = $("#motivations-container");
-    motivationContainer.css("display", "block")
-    const costContainer = $("#cost-container");
-    costContainer.css("display", "none")
-    
-
-    const motivCarousel = $("#carousel-slides-motiv");
-    motivCarousel.css("display","block")
-    const costCarousel = $("#carousel-slides-cost");
-    costCarousel.css("display","none")
-
-    $("#carousel-slides").css("background-color", "#28448c")
-    $("#carousel-button").css("background-color", "#28448c")
-}
-
-function toggle_cost_on () {
-    const motivationContainer = $("#motivations-container");
-    motivationContainer.css("display", "none")
-    const costContainer = $("#cost-container");
-    costContainer.css("display", "block")
-
-    const motivCarousel = $("#carousel-slides-motiv");
-    motivCarousel.css("display","none")
-    const costCarousel = $("#carousel-slides-cost");
-    costCarousel.css("display","block")
-    
-    $("#carousel-slides").css("background-color", "#d2a214")
-    $("#carousel-button").css("background-color", "#d2a214")
-}
-
 
 // function toggle_m_narrative_1_to_2 () {
 //     const currentNarrative = $(".m_narrative_1")

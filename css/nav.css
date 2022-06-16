@@ -1,40 +1,65 @@
-
-#toggle-buttons-cost {
-    height: 8vh;
-    position: absolute;
-    bottom: 0px;
-    width: 100vw;
-    margin-left: 0px;
-    margin-right: 0px;
+/* CAROUSEL */
+#carousel {
+    height: 30vh;
+    transform: translateY(1px);
+    transition: all 0.3s linear;
 }
 
-#toggle-buttons-cost .btn {
-    height: 100%;
-    width: 99%;
-    font-size: 170%;
-    font-weight: 500;
+#carousel.motivations {
+    background-color: #28448c;
+}
+#carousel.costs {
+    background-color: #d2a214;
+}
+
+#carousel .carousel-caption {
+    text-align: left!important;
+    top: 4rem;
+}
+
+#carousel-slides {
+    /* background-color: #28448c; */
+    width: 100%;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 1%;
-    border-radius: 0px;
-    float:left;
-    background-color: white;
+    flex-direction: row;
 }
 
-#toggle-buttons-cost #nav-btn-motivs.active {
+.carousel-item {
+    height: 100%;
+    transition: all 0.3s linear;
+}
+
+/* NAV TABS */
+#nav-tabs .btn {
+    font-size: 2rem;
+    font-weight: 500;
+    width: 100%;
+    background-color: white;
+    border-radius: 0px;
+}
+#nav-tabs .btn:not(#tab-about) {
+    border-right: solid 6px #000;
+}
+
+#nav-tabs #tab-home.active,
+#nav-tabs #tab-about.active {
+    color: #fff;
+    background-color: #000;
+}
+
+#nav-tabs #tab-motivations.active {
     color: #fff;
     background-color: #28448c;
 }
 
-#toggle-buttons-cost #nav-btn-cost.active {
+#nav-tabs #tab-costs.active {
     color: #fff;
     background-color: #d2a214;
 }
 
 /*mobile (320px-425px)*/
 @media (min-width: 320px) and (max-width: 425px) {
-    #toggle-buttons-cost .btn {
+    #nav-tabs .btn {
         font-size: 85%;
     }
 }

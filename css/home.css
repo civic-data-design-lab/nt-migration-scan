@@ -35,11 +35,18 @@ p {
 }
 
 #scan-image {
-    
     padding-right: 7.5%;
     padding-bottom: 10%;
+    width: 50%;
+    overflow: auto;
     clear: left;
-    margin-left: 0%;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+#img-scan-module {
+    width: 90%;
+    height: auto;
 }
 
 #blue {

@@ -29,21 +29,20 @@ h3 {
     padding-bottom: 5%;
     width: 85%;
     font-weight: 500;
-} */
-
-#scan-box {
-    padding-left:7.5%;
 }
+
 #scan-image-text {
     color: white;
-    font-size: 4rem;
+    font-size: 2rem;
     padding-bottom: 10%;
-    padding-left: 7.5%;
     font-weight: 500;
     width: 50%;
     clear: right;
     margin-right: 0%;
-    line-height: 5rem;
+}
+
+#scan-box {
+    padding-left: 7.5%;
 }
 
 #scan-image {

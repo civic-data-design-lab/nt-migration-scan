@@ -57,8 +57,14 @@
 }
 
 /*mobile (320px-425px)*/
-@media (min-width: 320px) and (max-width: 425px) {
+@media (max-width: 425px) {
     #nav-tabs .btn {
-        font-size: 85%;
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 633px) {
+    #nav-tabs .btn {
+        font-size: 1rem;
     }
 }

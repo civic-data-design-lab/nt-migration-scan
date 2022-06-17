@@ -48,9 +48,9 @@ div#transition {
 }
 
 
-.col {
+/* .col {
     height: 100%;
-}
+} */
 
 /* BUTTON */
 
@@ -96,19 +96,18 @@ a.btn.btn-sm {
 }
 
 #buttons-motivations {
-    /* position: absolute;
-    bottom: 0; */
+    position: relative;
+    bottom: 0;
     padding-top: 5%;
     padding-bottom: 0%;
-    width: 93vw;
     display: flex;
     flex-direction: row;
-    padding-left:0%;
+    margin-left:0;
 
 }
 
 #buttons-motivations .btn {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: 500;
     width: 100%;
 }
@@ -117,7 +116,7 @@ a.btn.btn-sm {
 #frame-motivations, #frame-cost {
     padding-left: 0%;
     padding-right: 0%;
-    height: 49vh;
+    /* height: 49vh; */
 }
 
 #motivations-container, #cost-container {
@@ -126,6 +125,8 @@ a.btn.btn-sm {
     height:100%;
     max-width: 100%;
     overflow: scroll;
+    padding-left: 5vw;
+    padding-right: 5vw;
 }
 
 /* Button - arrow for slides */
@@ -251,18 +252,23 @@ a.btn.btn-sm {
 
     #sort-by {
         font-size: 0.75rem;
-        text-align: center;
+        text-align: left;
     }
 }
-/* RESPONSIVE OVERRIDES */
-#buttons-motivations .btn-sm {
-    font-size: 1.5rem;
-    height: 60px;
-}
-
 /* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) {
+@media (max-width: 633px) {
+    #buttons-motivations .btn-sm {
+        font-size: 0.75rem;
+    }
 
+    #sort-by {
+        font-size: 0.75rem;
+        text-align: left;
+    }
+
+    #costs-heading, #motivations-heading {
+        font-size: 1.5rem;
+    }
 }
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
@@ -274,7 +280,7 @@ a.btn.btn-sm {
 @media (min-width: 992px) {
     #buttons-motivations .btn-sm {
         height: 54px;
-        font-size: 0.875rem;
+        /* font-size: 0.875rem; */
     }
 }
 /* X-Large devices (large desktops, 1200px and up) */

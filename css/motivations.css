@@ -237,6 +237,10 @@ a.btn.btn-sm {
         font-size: 1rem;
     } 
 
+    .m_narrative_2, .c_narrative_2 {
+        font-size: 1rem;
+    } 
+
     #motivations-heading, #costs-heading {
         font-size: 1rem;
     }

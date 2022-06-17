@@ -39,7 +39,7 @@
 #nav-tabs .btn:not(#tab-about) {
     border-right: solid 2px #000;
 }
-
+ 
 #nav-tabs #tab-home.active,
 #nav-tabs #tab-about.active {
     color: #fff;

@@ -8,9 +8,9 @@
     color: white;
     padding-top: 7.5%;
     padding-left: 7.5%;
-    padding-bottom: 1%;
+    padding-bottom: 3%;
     font-weight: 500;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.1rem;
 }
 
 #home-container p {
@@ -95,28 +95,136 @@ img {
 /* Responsive */
 /* Small devices (landscape phones, 576px and up) */
 @media (max-width: 576px) {
-    #home-container p {
-        font-size: 1rem;
+    #home-container p { 
+        font-size: 1.067rem;
     }
+
     #scan-image-text {
-        font-size: 1rem;
+        font-size: 1.067rem;
     }
     
     #home-container h1 {
-        font-size:1.5rem;
+        font-size:  2.667rem;
+        letter-spacing: 0.053rem;
+        padding-bottom: 1.6%;
     }
 }
-/* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {
+
+/*mobile (320px-425px)*/
+@media (min-width: 320px) and (max-width: 425px) {
+    #home-container p {
+        font-size: 0.59rem;
+    }
+
+    #scan-image-text {
+        font-size: 0.59rem;
+    }
+    
+    #home-container h1 {
+        font-size:1.48rem;
+        letter-spacing: 0.03rem;
+        padding-bottom: 0.89%;
+    }
 }
+
+/* Small devices (425px and up) */
+@media (min-width: 425px) and (max-width: 633px) {
+    #home-container p {
+        font-size: 0.79rem;
+    }
+
+    #scan-image-text {
+        font-size: 0.79rem;
+    }
+    
+    #home-container h1 {
+        font-size:1.97rem;
+        letter-spacing: 0.04rem;
+        padding-bottom: 1.18%;
+    }
+}
+
+/* Medium devices (tablets, 633px and up) */
+@media (min-width: 633px) and (max-width: 768px) {
+    #home-container p {
+        font-size: 1.17rem;
+    }
+
+    #scan-image-text {
+        font-size: 1.17rem;
+    }
+    
+    #home-container h1 {
+        font-size: 2.93rem;
+        letter-spacing: 0.06rem;
+        padding-bottom: 1.76%;
+    } 
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    #home-container p {
+        font-size: 1.42rem;
+    }
+
+    #scan-image-text {
+        font-size: 1.42rem;
+    }
+    
+    #home-container h1 {
+        font-size: 3.56rem;
+        letter-spacing: 0.07em;
+        padding-bottom: 2.13%;
+    }
+
+}
+
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
+    #home-container p {
+        font-size: 1.84rem;
+    }
+
+    #scan-image-text {
+        font-size: 1.84rem;
+    }
+    
+    #home-container h1 {
+        font-size: 4.59rem;
+        letter-spacing: 0.09rem;
+        padding-bottom: 2.76%;
+    }
+
 }
+
 /* X-Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
+    #home-container p {
+        font-size: 2.22rem;
+    }
+
+    #scan-image-text {
+        font-size: 2.22rem;
+    }
     
+    #home-container h1 {
+        font-size: 5.56rem;
+        letter-spacing: 0.11rem;
+        padding-bottom: 3.33%;
+    }
 }
 /* XX-Large devices (larger desktops, 1400px and up) */
 @media (min-width: 1400px) {
+    #home-container p {
+        font-size: 2.59rem;
+    }
+
+    #scan-image-text {
+        font-size: 2.59rem;
+    }
     
+    #home-container h1 {
+        font-size: 6.48rem;
+        letter-spacing: 0.13rem;
+        padding-bottom: 3.89%;
+    }
 }

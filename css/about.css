@@ -9,13 +9,13 @@
     font-weight: 500;
     padding-top: 7.5%;
     padding-left: 7.5%;
-    padding-bottom: 2%;
+    padding-bottom: 3%;
     background-color: black;
 }
 
 #about-container p {
     color: white;
-    font-size: 1.5rem;
+    font-size: 2rem;
     padding-left: 7.5%;
     padding-bottom: 2.5%;
     width: 75%;
@@ -25,7 +25,7 @@
 /* Responsive */
 /* Small devices (landscape phones, 576px and up) */
 @media (max-width: 576px) {
-
+ 
     #about-container h2 {
         font-size: 1.5rem;
     }
@@ -35,17 +35,86 @@
         padding-bottom: 0%;
     }
 }
-/* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {
+
+/*mobile (320px-425px)*/
+@media (min-width: 320px) and (max-width: 425px) {
+    #about-container h2 {
+        font-size: 1.19rem;
+    }
+
+    #about-container p {
+        font-size: 0.59rem;
+        width: 75%;
+    }
 }
+
+/* Small devices (425px and up) */
+@media (min-width: 425px) and (max-width: 633px) {
+    #about-container h2 {
+        font-size: 1.57rem;
+    }
+
+    #about-container p {
+        font-size: 0.79rem;
+        width: 75%;
+    }
+}
+
+/* Medium devices (tablets, 633px and up) */
+@media (min-width: 633px) and (max-width: 768px) {
+    #about-container h2 {
+        font-size: 2.34rem;
+    }
+
+    #about-container p {
+        font-size: 1.17rem;
+        width: 75%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    #about-container h2 {
+        font-size: 2.84rem;
+    }
+
+    #about-container p {
+        font-size: 1.42rem;
+        width: 75%;
+    }
+}
+
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
+    #about-container h2 {
+        font-size: 3.67rem;
+    }
+
+    #about-container p {
+        font-size: 1.84rem;
+        width: 75%;
+    }
+
 }
+
 /* X-Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
-    
+    #about-container h2 {
+        font-size: 4.44rem;
+    }
+
+    #about-container p {
+        font-size: 2.22rem;
+        width: 75%;
+    }
 }
 /* XX-Large devices (larger desktops, 1400px and up) */
 @media (min-width: 1400px) {
-    
+    #about-container h2 {
+        font-size: 5.19rem;
+    }
+
+    #about-container p {
+        font-size: 2.59rem;
+        width: 75%;
+    }
 }

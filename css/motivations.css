@@ -116,6 +116,7 @@ a.btn.btn-sm {
 #frame-motivations, #frame-cost {
     padding-left: 0%;
     padding-right: 0%;
+    padding-bottom: 10%;
     /* height: 49vh; */
 }
 

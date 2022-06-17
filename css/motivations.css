@@ -65,7 +65,7 @@ a.btn.btn-sm {
 
 /* HEADING */
 #costs-heading, #motivations-heading {
-    font-size: 4rem;
+    /* font-size: 4rem; */
     font-weight: 500;
     padding-left: 0%;
     line-height: 120%;
@@ -76,7 +76,7 @@ a.btn.btn-sm {
 #sort-by {
     width: 15%;
     align-self: center;
-    font-size: 1.5rem;
+    /* font-size: 1.5rem; */
     font-weight: 500;
     text-align: center;
 }
@@ -107,7 +107,7 @@ a.btn.btn-sm {
 }
 
 #buttons-motivations .btn {
-    font-size: 1.5rem;
+    /* font-size: 1.5rem; */
     font-weight: 500;
     width: 100%;
 }
@@ -135,7 +135,7 @@ a.btn.btn-sm {
     border: 0;
     background-color: #28448c;
     color: white;
-    font-size: 2rem;
+    /* font-size: 2rem; */
     height: 10%;
     padding-right: 5%;
     padding-left: 5%;
@@ -147,7 +147,7 @@ a.btn.btn-sm {
 /*Narratives*/
 .m_narrative_1, .c_narrative_1 {
     color: white;
-    font-size: 4vmin;
+    /* font-size: 4vmin; */
     font-weight: 500;
     /* width: 100%;
     height: 100%; */
@@ -155,15 +155,10 @@ a.btn.btn-sm {
 
 .m_narrative_2, .c_narrative_2 {
     color: white;
-    font-size: 4vmin;
+    /* font-size: 4vmin; */
     font-weight: 500;
     /* width: 100%;
     height: 100%; */
-}
-
-.migrant-unique-narrative > * {
-    font-size: 4vmin;
-    padding-right: 10%;
 }
 
 /* CAROUSEL CAPTION */
@@ -175,6 +170,7 @@ a.btn.btn-sm {
     height: 100%;
     position: unset;
 }
+
 
 /* LABELS */
 .chart-labels {
@@ -254,9 +250,13 @@ a.btn.btn-sm {
         font-size: 0.75rem;
         text-align: left;
     }
+
+    .migrant-motiv-narrative .migrant-cost-narrative {
+        font-size: 1rem;
+    }
 }
-/* Small devices (landscape phones, 576px and up) */
-@media (max-width: 633px) {
+/* Small devices (425px and up) */
+@media (min-width: 425px) and (max-width: 633px) {
     #buttons-motivations .btn-sm {
         font-size: 0.75rem;
     }
@@ -267,32 +267,73 @@ a.btn.btn-sm {
     }
 
     #costs-heading, #motivations-heading {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
     }
+
+    .m_narrative_1, .c_narrative_1 {
+        font-size: 1rem;
+    } 
 }
-/* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {
+/* Medium devices (tablets, 633px and up) */
+@media (min-width: 633px) and (max-width: 768px) {
     #buttons-motivations .btn-sm {
         height: 44px;
     }
+
+    #sort-by {
+        font-size: 0.75rem;
+        text-align: left;
+    }
+
+    #costs-heading, #motivations-heading {
+        font-size: 1.5rem;
+    }
+
+    .m_narrative_1, .c_narrative_1 {
+        font-size: 1rem;
+    } 
 }
-/* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) {
+
+@media (min-width: 768px) and (max-width: 992px) {
     #buttons-motivations .btn-sm {
         height: 54px;
         /* font-size: 0.875rem; */
     }
-}
-/* X-Large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {
-    
-}
-/* XX-Large devices (larger desktops, 1400px and up) */
-@media (min-width: 1400px) {
-    
+
+    .m_narrative_1, .c_narrative_1 {
+        font-size: 1.5rem;
+    } 
+
+    .m_narrative_2, .c_narrative_2 {
+        font-size: 1.5rem !important;
+    } 
 }
 
-/* wide aspect ratio */
-@media (min-aspect-ratio: 16/9) {
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    #buttons-motivations .btn-sm {
+        height: 65px;
+        font-size: 1.5rem;
+    }
 
+    #sort-by {
+        font-size: 1.5rem;
+        text-align: left;
+    }
+
+    .m_narrative_1, .c_narrative_1 {
+        font-size: 2rem;
+    } 
+
+    .m_narrative_2, .c_narrative_2 {
+        font-size: 1.75rem !important;
+    } 
+
+    #motivations-heading {
+        font-size: 3rem;
+    }
+
+    #costs-heading {
+        font-size: 2.5rem;
+    }
 }

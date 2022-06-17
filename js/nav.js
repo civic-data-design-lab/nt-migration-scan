@@ -18,6 +18,7 @@ window.onload = function() {
         $(".carousel-caption").css("display","flex");
         $(".carousel-caption").css("align-items","center");
         $(".carousel-caption").css("justify-content","center");
+        $(".carousel-caption").css("font-size","4vmin");
 
     }
 

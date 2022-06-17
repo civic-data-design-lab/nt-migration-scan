@@ -30,7 +30,7 @@
 
 /* NAV TABS */
 #nav-tabs .btn {
-    font-size: 1.5rem;
+    /* font-size: 1.5rem; */
     font-weight: 500;
     width: 100%;
     background-color: white;
@@ -57,14 +57,26 @@
 }
 
 /*mobile (320px-425px)*/
-@media (max-width: 425px) {
+@media (min-width: 320px) and (max-width: 425px) {
     #nav-tabs .btn {
         font-size: 0.75rem;
     }
 }
 
-@media (max-width: 633px) {
+@media (min-width: 425px) and (max-width: 633px) {
+    #nav-tabs .btn {
+        font-size: 0.75rem;
+    }
+}
+
+@media (min-width: 633px) and (max-width: 768px) {
     #nav-tabs .btn {
         font-size: 1rem;
+    }
+}
+
+@media (min-width: 992px) {
+    #nav-tabs .btn {
+        font-size: 1.5rem;
     }
 }

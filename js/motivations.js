@@ -549,18 +549,6 @@ const dataset = d3.csv("./data/motivations.csv", d3.autoType)
             $(".carousel-caption").css("justify-content","center");
             $(".carousel-caption").css("align-items","center");
 
-            if (migrant_id == 4124) {
-                $(".m_narrative_2").css("font-size","3.5vmin");
-                $(".c_narrative_2").css("font-size","3.5vmin");
-            }
-
-            if (migrant_id == 351) {
-                $(".c_narrative_2").css("font-size","3.5vmin");
-            }
-
-            if (migrant_id == 477) {
-                $(".m_narrative_2").css("font-size","3.5vmin");
-            }
         }
     });
 

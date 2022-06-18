@@ -426,10 +426,10 @@ const dataset = d3.csv("./data/motivations.csv", d3.autoType)
 
             // change opacity of all rectangles and triangles
             svg.selectAll("rect")
-            .attr("opacity", 0.2)
+            .attr("opacity", 0.4)
 
             svg.selectAll("path")
-            .attr("opacity", 0.2)
+            .attr("opacity", 0.4)
 
             // get migrant id
             const migrant_id = window.location.hash.slice(1,)

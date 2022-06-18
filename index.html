@@ -42,30 +42,36 @@
     
     <div id="page-content" class="content-block solid-white d-flex flex-column">
         <!-- HOME TAB LAYOUT -->
-        <div id="home-container" class="flex-grow-1" style="display: none;">
-            <h1>WHY MIGRATE?</h1>
-            <p>Each square of the data tapestry represents a migrant and their primary reasons for migrating: <mark id="blue">economic,</mark> <mark id="orange">quality of life,</mark> <mark id="purple">security,</mark> <mark id="red">reunification,</mark> and <mark id="teal">climate change</mark>.</p>
-            
-            <h1>LEARN MORE</h1>
-            <div id="scan-box" class="row">
-                <div id="scan-image-text" class="col">Scan a fragment of the data tapestry below to learn about a migrant.</div>
-                <div id="scan-image" class="col">
-                    <img id="img-scan-module" src="img/square module/Square Module-01.png" alt="scan image">
+        <div id="home-container" class="flex-grow-1 h-100 p-5" style="display: none;">
+            <div class="h-100 d-flex flex-column">
+                <div class="h-50">
+                    <h1>WHY MIGRATE?</h1>
+                    <p class="col-9">Each square of the data tapestry represents a migrant and their primary reasons for migrating: <mark id="blue">economic,</mark> <mark id="orange">quality of life,</mark> <mark id="purple">security,</mark> <mark id="red">reunification,</mark> and <mark id="teal">climate change</mark>.</p>
+                </div>
+                <div class="h-50">
+                    <h1>LEARN MORE</h1>
+                    <div class="row">
+                        <div class="col-7">
+                            <p>Scan a fragment of the data tapestry below to learn about a migrant.</p>
+                        </div>
+                        <div id="scan-image" class="col-5">
+                            <img id="img-scan-module" src="img/square module/Square Module-01.png" alt="scan image">
+                        </div>
+                    </div>
                 </div>
             </div>
-            
         </div><!-- close home-container -->
 
         <!-- VISUALIZATIONS TABS (MOTIVATIONS & COST) LAYOUTS -->
         <div id="viz-container" class="w-100 px-0 flex-grow-1">
             <div class="h-100 d-flex flex-column">
-                <div id="viz-content" class="container-lg flex-grow-1 mt-5 px-xl-5 align-items-center">
+                <div id="viz-content" class="container-lg flex-grow-1 px-xl-5 align-items-center">
                     <!-- <div id="title-text" class="row mb-3 me-0">
                         Motivations to Migrate
                     </div> -->
                     <!-- MOTIVATIONS VIZ -->
                         <div id="motivations-container" class="container">
-                            <div id="motivations-heading">
+                            <div id="motivations-heading" class="mt-5">
                                 Visualization of migrant motivations
                             </div>
                         <!-- frame for d3 visualization -->
@@ -105,7 +111,7 @@
                     <!-- COST VIZ -->
                     <!-- frame for d3 visualization -->
                     <div id="cost-container" class="container" style="display: none;">
-                        <div id="costs-heading">
+                        <div id="costs-heading" class="mt-5">
                             The cost of migration through different routes
                         </div>
                         <div id="frame-cost" class="frame-cost"></div>
@@ -157,10 +163,12 @@
         </div><!-- close viz-container -->
 
         <!-- ABOUT TAB LAYOUT -->
-        <div id="about-container" class="flex-grow-1" style="display: none;">
-            <h2>About the Data</h2>
-            <p>In 2021, the World Food Program interviewed 4,998 households in Guatemala, Honduras, and El Salvador and asked them questions related to food security but also used the opportunity to ask whether someone from their household migrated and related questions about the motivations, costs, economic impact of migration.</p>
-            <p>In 2022, the World Food Program provided internet to migrants making the passage starting in Columbia’s Dairen Jungle and making their way through the Central American on their way to Mexico and the United States. In order to receive internet, the migrants were asked questions about their home country, their path to Columbia, their preparations, cost and the risks they had to take to arrive on the path. This rare data set include 2,109 migrants from 43 countries all over the world.</p>
+        <div id="about-container" class="flex-grow-1 p-5" style="display: none;">
+            <div class="col-9">
+                <h2 class="mb-5">About the Data</h2>
+                <p>In 2021, the World Food Program interviewed 4,998 households in Guatemala, Honduras, and El Salvador and asked them questions related to food security but also used the opportunity to ask whether someone from their household migrated and related questions about the motivations, costs, economic impact of migration.</p>
+                <p>In 2022, the World Food Program provided internet to migrants making the passage starting in Columbia’s Dairen Jungle and making their way through the Central American on their way to Mexico and the United States. In order to receive internet, the migrants were asked questions about their home country, their path to Columbia, their preparations, cost and the risks they had to take to arrive on the path. This rare data set include 2,109 migrants from 43 countries all over the world.</p>
+            </div>
         </div><!-- close about-container -->
 
         <!-- NAV TABS -->
@@ -194,7 +202,7 @@
     <script type="text/javascript" src="./js/motivations.js"></script>
     <script type="text/javascript" src="./js/nav.js"></script>
     <script type="text/javascript" src="./js/bubble_chart.js"></script>
-    <script type="text/javascript" src="./js/cost.js"></script>
+    <!-- <script type="text/javascript" src="./js/cost.js"></script> -->
 
 
 </body>

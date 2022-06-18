@@ -379,7 +379,7 @@ function display(error, data) {
   if (window.location.hash.length != 0){
 
     d3v4.selectAll('circle')
-    .attr("opacity", 0.2)
+    .attr("opacity", 0.4)
 
     // get migrant id
     const migrant_id = window.location.hash.slice(1,)
@@ -446,7 +446,7 @@ function display(error, data) {
 
     }
 
-  }, 15000);
+  }, 20000);
 
   
 }

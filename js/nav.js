@@ -36,7 +36,7 @@ function toggle_home_on () {
     $("#viz-container").css("display", "none");
     $("#about-container").css("display", "none");
 
-    // $("#nav-tabs .btn:not(#tab-about)").css("border-color", "#000");
+    $("#nav-tabs .btn:not(#tab-about)").css("border-right", "solid 2px #000");
 }
 
 function toggle_motivation_on () {
@@ -50,9 +50,9 @@ function toggle_motivation_on () {
     });
 
     // styles
-    // $("#nav-tabs .btn:not(#tab-about)").css("border-color", "#000");
-    // $("#tab-home").css("border-color", "#28448c");
-    // $("#tab-motivations").css("border-color", "#28448c");
+    $("#nav-tabs .btn:not(#tab-about)").css("border-right", "solid 2px #000");
+    $("#tab-home").css("border-right", "solid 2px #28448c");
+    $("#tab-motivations").css("border-right", "solid 2px #28448c");
     
     if (!$("#carousel").hasClass("motivations")) {
         $("#carousel").removeClass("costs");
@@ -79,9 +79,9 @@ function toggle_cost_on () {
     });
 
     // styles
-    // $("#nav-tabs .btn:not(#tab-about)").css("border-color", "#000");
-    // $("#tab-motivations").css("border-color", "#d2a214");
-    // $("#tab-costs").css("border-color", "#d2a214");
+    $("#nav-tabs .btn:not(#tab-about)").css("border-right", "solid 2px #000");
+    $("#tab-motivations").css("border-right", "solid 2px #d2a214");
+    $("#tab-costs").css("border-right", "solid 2px #d2a214");
     if (!$("#carousel").hasClass("costs")) {
         $("#carousel").removeClass("motivations");
         $("#carousel").addClass("costs");
@@ -103,7 +103,7 @@ function toggle_about_on () {
     $("#viz-container").css("display", "none");
     $("#about-container").css("display", "block");
 
-    // $("#nav-tabs .btn:not(#tab-about)").css("border-color", "#000");
+    $("#nav-tabs .btn:not(#tab-about)").css("border-right", "solid 2px #000");
 }
 
 $(".carousel-control").on("click", function() {
@@ -122,4 +122,9 @@ $(".carousel-control").on("click", function() {
     else if (carouselPos == 3 && clickDirection == "prev") {
         toggle_motivation_on();
     }
+});
+
+$(document).ready(function() {
+    $("#tab-home").css("border-right", "solid 2px #28448c");
+    $("#tab-motivations").css("border-right", "solid 2px #28448c");
 });

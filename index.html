@@ -42,7 +42,7 @@
     
     <div id="page-content" class="content-block solid-white d-flex flex-column">
         <!-- HOME TAB LAYOUT -->
-        <div id="home-container" class="flex-grow-1 h-100 p-5" style="display: none;">
+        <div id="home-container" class="flex-grow-1 h-100 p-4 p-md-5" style="display: none;">
             <div class="h-100 d-flex flex-column">
                 <div class="h-50">
                     <h1>WHY MIGRATE?</h1>
@@ -55,7 +55,7 @@
                             <p>Scan a fragment of the data tapestry below to learn about a migrant.</p>
                         </div>
                         <div id="scan-image" class="col-5">
-                            <img id="img-scan-module" src="img/square module/Square Module-01.png" alt="scan image">
+                            <img id="img-scan-module" src="./img/square-module/square-module-fill.svg" alt="Data tapestry fragment">
                         </div>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
 
         <!-- VISUALIZATIONS TABS (MOTIVATIONS & COST) LAYOUTS -->
         <div id="viz-container" class="w-100 px-0 flex-grow-1">
-            <div class="h-100 d-flex flex-column">
+            <div class="position-relative h-100 d-flex flex-column">
                 <div id="viz-content" class="container-lg flex-grow-1 px-xl-5 align-items-center">
                     <!-- <div id="title-text" class="row mb-3 me-0">
                         Motivations to Migrate
@@ -77,36 +77,26 @@
                         <!-- frame for d3 visualization -->
                         <div id="frame-motivations" class="position-relative"></div>
                         <!-- div for buttons -->
-                        <div id="buttons-motivations" class="row mb-3 me-0">
+                        <div id="buttons-motivations" class="row">
                             <div class="col-3 px-0" id="sort-by">
                                 Sort by:
                             </div>
                             <div class="col-3 px-0">
-                                <!-- <span data-bs-toggle="tooltip" data-bs-placement="top"
-                                    title="Households who had members migrate in the last 5 years specified the motivations of those migrants."> -->
-                                    <button type="button" id="btn-motivs"
+                                <button type="button" id="btn-motivs"
                                         class="btn btn-sm" data-bs-toggle="modal"
                                         data-bs-target="#modal-motivs">Motivations</button>
-                                <!-- </span> -->
                             </div>
                             <div id="btn-center" class="col-3 px-0">
-                                <!-- <span data-bs-toggle="tooltip" data-bs-placement="top"
-                                    title="Motivations for migration split up by the monthly income per capita levels of households with a migrant in the last 5 years."> -->
-                                    <button type="button" id="btn-income"
+                                <button type="button" id="btn-income"
                                         class="btn btn-sm" data-bs-toggle="modal"
                                         data-bs-target="#modal-income">Income Level</button>
-                                <!-- </span> -->
                             </div>
                             <div class="col-3 px-0">
-                                <!-- <span data-bs-toggle="tooltip" data-bs-placement="top"
-                                    title="Food Security is measured by the Consolidated Approach to Reporting Indicators of Food Security (CARI) score. Used to classify households into four groups by their food security status, this index is based on indicators that measure different dimensions of food security: the current status of food consumption score and/or food energy shortfall and the capacity of livelihood coping strategies and food expenditure share or poverty status."> -->
-                                    <button type="button" id="btn-cari" class="btn btn-sm"
+                                <button type="button" id="btn-cari" class="btn btn-sm"
                                         data-bs-toggle="modal" data-bs-target="#modal-cari">Food Security</button>
-                                <!-- </span> -->
                             </div>
                         </div>
                     </div>
-    
     
                     <!-- COST VIZ -->
                     <!-- frame for d3 visualization -->
@@ -159,41 +149,53 @@
                         </a>
                     </div>
                 </div><!-- close carousel -->
+
+                <!-- SCAN FRAGMENT REMINDER -->
+                <div class="scan-another position-absolute start-0 bottom-0 col-6 col-md-3 mb-1 mb-md-3 ps-3">
+                    <div class="d-flex">
+                        <div class="col-2 col-md-3 me-2">
+                            <img src="./img/square-module/square-module-outline.svg" alt="Data tapestry fragment outline">
+                        </div>
+                        <div class="position-relative flex-grow-1">
+                            <p class="position-absolute start-0 top-50 translate-middle-y mb-0">Scan below to learn about a different migrant.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div><!-- close viz-container -->
 
         <!-- ABOUT TAB LAYOUT -->
-        <div id="about-container" class="flex-grow-1 p-5" style="display: none;">
+        <div id="about-container" class="position-relative flex-grow-1 p-4 p-md-5" style="display: none;">
             <div class="col-9">
                 <h2 class="mb-5">About the Data</h2>
                 <p>In 2021, the World Food Program interviewed 4,998 households in Guatemala, Honduras, and El Salvador and asked them questions related to food security but also used the opportunity to ask whether someone from their household migrated and related questions about the motivations, costs, economic impact of migration.</p>
                 <p>In 2022, the World Food Program provided internet to migrants making the passage starting in Columbia’s Dairen Jungle and making their way through the Central American on their way to Mexico and the United States. In order to receive internet, the migrants were asked questions about their home country, their path to Columbia, their preparations, cost and the risks they had to take to arrive on the path. This rare data set include 2,109 migrants from 43 countries all over the world.</p>
             </div>
+
+            <!-- SCAN FRAGMENT REMINDER -->
+            <div class="scan-another position-absolute start-0 bottom-0 col-6 col-md-3 mb-1 mb-md-3 ps-3">
+                <div class="d-flex">
+                    <div class="col-2 col-md-3 me-2">
+                        <img src="./img/square-module/square-module-outline.svg" alt="Data tapestry fragment outline">
+                    </div>
+                    <div class="position-relative flex-grow-1">
+                        <p class="position-absolute start-0 top-50 translate-middle-y mb-0">Scan below to learn about a migrant.</p>
+                    </div>
+                </div>
+            </div>
         </div><!-- close about-container -->
 
         <!-- NAV TABS -->
         <div id="nav-tabs" class="row w-100 m-0">
-            <div class="col px-0">
-                <!-- <a href="./home.html" class="btn btn-sm">Home</a>-->
-                <button id="tab-home" class="btn btn-sm p-3"
+                <button id="tab-home" class="col btn btn-sm p-3"
                     onclick="toggle_home_on()">Home</button>
-            </div>
-            <div class="col px-0">
-                <button id="tab-motivations" class="btn btn-sm p-3 active"
+                <button id="tab-motivations" class="col btn btn-sm p-3 active"
                     onclick="toggle_motivation_on()">Motivations</button>
-            </div>
-            <div class="col px-0">
-                <button id="tab-costs" class="btn btn-sm p-3"
+                <button id="tab-costs" class="col btn btn-sm p-3"
                     onclick="toggle_cost_on()">Costs</button>
-            </div>
-            <div class="col px-0">
-                <!-- <a href="./about.html" class="btn btn-sm" style="width:100%">About</a> -->
-                <button id="tab-about" class="btn btn-sm p-3"
+                <button id="tab-about" class="col btn btn-sm p-3"
                     onclick="toggle_about_on()">About</button>
-            </div>
         </div>
-        <!-- </div> -->
-
     </div>
 
     <script type="text/javascript" src="./js/popper.min.js"></script>
@@ -202,9 +204,6 @@
     <script type="text/javascript" src="./js/motivations.js"></script>
     <script type="text/javascript" src="./js/nav.js"></script>
     <script type="text/javascript" src="./js/bubble_chart.js"></script>
-    <!-- <script type="text/javascript" src="./js/cost.js"></script> -->
-
-
 </body>
 
 </html>

@@ -93,8 +93,6 @@ a.btn.btn-sm {
 #buttons-motivations {
     position: relative;
     bottom: 0;
-    padding-top: 5%;
-    padding-bottom: 0%;
     display: flex;
     flex-direction: row;
     margin-left:0;
@@ -108,19 +106,11 @@ a.btn.btn-sm {
 }
 
 /*Motivation Container*/
-#frame-motivations, #frame-cost {
-    padding-left: 0%;
-    padding-right: 0%;
-    padding-bottom: 10%;
-    /* height: 49vh; */
-}
-
 #motivations-container, #cost-container {
     display: flex;
     flex-direction: column;
     height:100%;
-    /* max-width: 100%; */
-    overflow: scroll;
+    overflow: hidden;
     padding-left: 5vw;
     padding-right: 5vw;
 }

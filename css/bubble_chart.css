@@ -154,7 +154,7 @@ font-family: neue-haas-grotesk-text, sans-serif;
 .tooltip .name {
   font-weight:bold;
 } */
-.tooltip {
+/* .tooltip {
     position: relative;
     width: 85%;
     min-width: 355px;
@@ -174,17 +174,17 @@ font-family: neue-haas-grotesk-text, sans-serif;
 .tooltip .label-pathway {
     font-weight: 600;
     font-size: 1.5em;
-}
+} */
 
 .footer {
   text-align: center;
 }
 
-.tooltip .text-label-onemigrant {
+/* .tooltip .text-label-onemigrant {
     font-weight: 600;
     font-size: 1.2rem;
     line-height: 1rem;
-}
+} */
 
 
      .axis, .axis text {

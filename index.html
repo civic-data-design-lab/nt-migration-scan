@@ -16,6 +16,8 @@
     <link rel="stylesheet" type="text/css" href="./css/home.css">
     <link rel="stylesheet" type="text/css" href="./css/about.css">
     <link rel="stylesheet" type="text/css" href="./css/motivations.css">
+    <link rel="stylesheet" href="css/bubble_chart.css">
+    <link rel="stylesheet" type="text/css" href="./css/tooltip.css">
     <script type="text/javascript" src="./js/jquery-3.6.0.min.js"></script>
     <!-- <script type="text/javascript" src="./js/d3.v7.min.js"></script> -->
 
@@ -31,11 +33,7 @@
 
 
     <script type="text/javascript" src="./js/tooltip.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/2.5.1/d3-annotation.min.js"
-        integrity="sha512-iBAeBWWWFb8HqSBcrqcz98iIpuVH1la39dEYHtyQ/pGpeCQTQVvLJOWAuhv2Q7JSHp9k7hWA7sGxU3hHJe+tFg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-    <link rel="stylesheet" href="css/bubble_chart.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/2.5.1/d3-annotation.min.js" integrity="sha512-iBAeBWWWFb8HqSBcrqcz98iIpuVH1la39dEYHtyQ/pGpeCQTQVvLJOWAuhv2Q7JSHp9k7hWA7sGxU3hHJe+tFg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
@@ -74,9 +72,33 @@
                             <div id="motivations-heading" class="mt-5">
                                 Visualization of migrant motivations
                             </div>
-                        <!-- frame for d3 visualization -->
-                        <div id="frame-motivations" class="position-relative"></div>
-                        <!-- div for buttons -->
+                        <!-- FRAME FOR D3 VISUALIZATION -->
+                        <div id="frame-motivations"></div>
+                        
+                        <!-- D3 HOVER TOOLTIP TEMPLATE -->
+                        <div class="tooltip template">
+                            <div class="side-color"></div>
+                            <p>Motivation for Migrating</p>
+                            <h3 class="text-color">
+                                <span class="label-motiv-pct">90</span>%
+                                <span class="label-motiv text-uppercase">Economic</span>
+                            </h3>
+                            <span class="text-hh text-color">of
+                                <span class="label-hh">surveyed</span> households
+                            </span>
+                            <div class="row mt-1">
+                                <div class="col-left">
+                                    <p>Reason for Migrating</p>
+                                    <span class="label-motiv-detail text-label">Search for a better job, salary or working conditions, lack of money to buy food, lack of money to cover basic needs</span>
+                                </div>
+                                <div class="col-right">
+                                    <p>Origin Country</p>
+                                    <span class="label-country text-label">El Salvador</span>
+                                </div>
+                            </div>
+                        </div><!-- close tooltip -->
+
+                        <!-- BUTTONS FOR MOTIVATIONS VIZ -->
                         <div id="buttons-motivations" class="row">
                             <div class="col-3 px-0" id="sort-by">
                                 Sort by:

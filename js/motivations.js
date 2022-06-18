@@ -243,11 +243,12 @@ const svg = d3.select("#frame-motivations")
 
 
 // // define tooltip
-// const divMotivs = d3.select("#viz-col").append("div")
-//     .attr("id", "tt-motivs")
-//     .attr("class", "tooltip mb-5 mb-md-0")
-//     .style("z-index", "10")
-//     .html("<div class='side-color' style='background: rgb(21, 64, 196);'></div><p>Motivation for Migrating</p><h3 class='text-color' style='color: rgb(21, 64, 196);'><span class='label-motiv-pct'>87</span>% <span class='label-motiv text-uppercase'>Economic</span></h3><br><span class='text-hh text-color'>of <span class='label-hh'>surveyed</span> households</span><div class='row mt-1'><div class='col-left'><p>Reason for Migrating</p><span class='label-motiv-detail text-label' style='color: rgb(21, 64, 196);'>Search for a better job, unemplpoyment, lack of money to buy food</span></div><div class='col-right'><p>Origin Country</p><span class='label-country text-label'>Guatemala</span></div></div>");
+const divMotivs = d3.select("#frame-motivations").append("div")
+    .attr("id", "tt-motivs")
+    .attr("class", "tooltip mb-5 mb-md-0")
+    .style("z-index", "10")
+    .html("<div class='side-color' style='background: rgb(21, 64, 196);'></div><p>Motivation for Migrating</p><h3 class='text-color' style='color: rgb(21, 64, 196);'><span class='label-motiv-pct'>87</span>% <span class='label-motiv text-uppercase'>Economic</span></h3><br><span class='text-hh text-color'>of <span class='label-hh'>surveyed</span> households</span><div class='row mt-1'><div class='col-left'><p>Reason for Migrating</p><span class='label-motiv-detail text-label' style='color: rgb(21, 64, 196);'>Search for a better job, unemplpoyment, lack of money to buy food</span></div><div class='col-right'><p>Origin Country</p><span class='label-country text-label'>Guatemala</span></div></div>")
+    .style("display", "none");
 // const divSide = d3.select("#frame-motivations").append("div")
 //     .attr("id", "tt-side")
 //     .attr("class", "tooltip-side p-2")
@@ -595,6 +596,97 @@ function motivDetailText(motivRsp, sortBy, motivCat) {
         motivDetailStr += "<span style='color:" + motivDetailAttr[motivRsp].color + "'>" + sentenceCase(motivDetailAttr[motivRsp].label) + "</span>";
     }
     return motivDetailStr;
+}
+
+// create tooltip
+function tooltipHtml(d, shape) {
+    $("#tt-motivs").empty();
+    const tooltipTemplate = $(".tooltip.template");
+    const tooltip = tooltipTemplate.clone();
+
+    if (shape == "sq") {
+        motivCat = d.motiv_cat.split('-')[0];
+    }
+    else if (shape == "tri-bl") {
+        const motiv = d.mig_ext_motivo.split(' ')[0];
+        motivCat = motivDetailAttr[motiv].category;
+    }
+    else if (shape == "tri-tr") {
+        const motiv1 = d.mig_ext_motivo.split(' ')[0];
+        const motivCat1 = d.motiv_cat.split('-')[0];
+        const motivCat2 = d.motiv_cat.split('-')[1];
+        if (motivDetailAttr[motiv1].category == motivCat1) {
+            motivCat = motivCat2;
+        }
+        else {
+            motivCat = motivCat1;
+        }
+    }
+    else if (shape == "tri-t") {
+        const motiv2 = d.mig_ext_motivo.split(' ')[1];
+        motivCat = motivDetailAttr[motiv2].category;
+    }
+    else if (shape == "tri-r") {
+        const motiv3 = d.mig_ext_motivo.split(' ')[2];
+        motivCat = motivDetailAttr[motiv3].category;
+    }
+
+    if (motivSort == "income") {
+        surveyedLabel = incomeAttr[d.income_per_capita_tier].label;
+        motivPct = roundAccurately(motivationsData.filter((item) => item.motiv_cat.includes(motivCat) && item.income_per_capita_tier == d.income_per_capita_tier).length / motivationsData.filter((item) => item.income_per_capita_tier == d.income_per_capita_tier).length * 100, 0);
+    }
+    else if (motivSort == "cari") {
+        surveyedLabel = cariAttr[d.CARI].label;
+        motivPct = roundAccurately(motivationsData.filter((item) => item.motiv_cat.includes(motivCat) && item.CARI == d.CARI).length / motivationsData.filter((item) => item.CARI == d.CARI).length * 100, 0);
+    }
+    else {
+        surveyedLabel = "surveyed";
+        motivPct = roundAccurately(motivationsData.filter((item) => item.motiv_cat.includes(motivCat)).length / motivationsData.length * 100, 0);
+    }
+
+    const motivColor = motivAttr[motivCat].color;
+    const motivLabel = motivAttr[motivCat].label;
+    const countryLabel = countryText_motivations[d.country];
+
+    tooltip.find(".side-color").css("background", motivColor);
+    tooltip.find(".text-color").css("color", motivColor);
+    tooltip.find(".label-motiv-pct").html(motivPct);
+    tooltip.find(".label-motiv").html(motivLabel);
+    tooltip.find(".label-hh").html(surveyedLabel);
+    tooltip.find(".label-motiv-detail").html(motivDetailText(d.mig_ext_motivo, motivSort, motivCat));
+    tooltip.find(".label-country").html(countryLabel);
+
+    tooltip.children().appendTo("#tt-motivs");
+}
+// tooltip position on mousemove
+function divMotivsOnMousemove(event) {
+    if (winWidth > 768) {
+        divMotivs
+        .style("top", (divHtml) => {
+            var divY = event.pageY;
+            var ttHeight = $("#tt-motivs").outerHeight();
+            var divHeight = $("#viz-motivations").height();
+
+            if ((divY + ttHeight + 60) > winHeight) {
+                divY = divY - ttHeight - 15;
+            };
+            return (divY + 5) + "px"
+        })
+        .style("left", (divHtml) => {
+            var divX = event.pageX;
+            var ttWidth = $("#tt-motivs").outerWidth();
+            var divWidth = $("#viz-motivations").width();
+
+            if ((divX + ttWidth) > divWidth) {
+                divX = divX - ttWidth - 15;
+            };
+            return (divX + 5) + "px"
+        })
+    }
+    else {
+        divMotivs.style("top", "1rem")
+            .style("left", "57%");
+    }
 }
 
 // update sort index position
@@ -1013,7 +1105,15 @@ function plotInitialGrid(data) {
             .attr("stroke-width", gap)
         .on("mouseover", function(event, d) {
             tooltipHtml(d, "sq");
-            divMotivs.style("display", "block");
+            // responsive - show only if MED screen or larger
+            if (winWidth > 768) {
+                divMotivs.style("display", "block");
+                setTimeout(() => {
+                    if (divMotivs.style("display") == "block") {
+                        $("#tt-motivs").fadeOut();
+                    }
+                }, 5000)
+            }
         })
         .on("mousemove", function(event) {
             divMotivsOnMousemove(event);
@@ -1042,7 +1142,15 @@ function plotInitialGrid(data) {
             .attr("stroke-width", gap)
         .on("mouseover", function(event, d) {
             tooltipHtml(d, "tri-bl");
-            divMotivs.style("display", "block");
+            // responsive - show only if MED screen or larger
+            if (winWidth > 768) {
+                divMotivs.style("display", "block");
+                setTimeout(() => {
+                    if (divMotivs.style("display") == "block") {
+                        $("#tt-motivs").fadeOut();
+                    }
+                }, 5000)
+            }
         })
         .on("mousemove", function(event) {
             divMotivsOnMousemove(event);
@@ -1078,7 +1186,15 @@ function plotInitialGrid(data) {
             .attr("stroke-width", gap)
         .on("mouseover", function(event, d) {
             tooltipHtml(d, "tri-tr");
-            divMotivs.style("display", "block");
+            // responsive - show only if MED screen or larger
+            if (winWidth > 768) {
+                divMotivs.style("display", "block");
+                setTimeout(() => {
+                    if (divMotivs.style("display") == "block") {
+                        $("#tt-motivs").fadeOut();
+                    }
+                }, 5000)
+            }
         })
         .on("mousemove", function(event) {
             divMotivsOnMousemove(event);
@@ -1107,7 +1223,15 @@ function plotInitialGrid(data) {
             .attr("stroke-width", gap)
         .on("mouseover", function(event, d) {
             tooltipHtml(d, "tri-t");
-            divMotivs.style("display", "block");
+            // responsive - show only if MED screen or larger
+            if (winWidth > 768) {
+                divMotivs.style("display", "block");
+                setTimeout(() => {
+                    if (divMotivs.style("display") == "block") {
+                        $("#tt-motivs").fadeOut();
+                    }
+                }, 5000)
+            }
         })
         .on("mousemove", function(event) {
             divMotivsOnMousemove(event);
@@ -1136,7 +1260,15 @@ function plotInitialGrid(data) {
             .attr("stroke-width", gap)
         .on("mouseover", function(event, d) {
             tooltipHtml(d, "tri-r");
-            divMotivs.style("display", "block");
+            // responsive - show only if MED screen or larger
+            if (winWidth > 768) {
+                divMotivs.style("display", "block");
+                setTimeout(() => {
+                    if (divMotivs.style("display") == "block") {
+                        $("#tt-motivs").fadeOut();
+                    }
+                }, 5000)
+            }
         })
         .on("mousemove", function(event) {
             divMotivsOnMousemove(event);
@@ -1371,7 +1503,7 @@ $(document).ready(function() {
 
 // window resize
 $(window).resize(function() {
-    if (winWidth > 768) {
+    if (winWidth < 768) {
         divMotivs.style("display", "none");
     }
     else {

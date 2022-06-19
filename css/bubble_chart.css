@@ -293,6 +293,11 @@ margin-top:3rem;}
     left: 0;
 } */
 
+#migrant-line,
+#migrant-name-label {
+    transition: all 2s;
+}
+
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
 

@@ -719,11 +719,10 @@ function display(error, data) {
       .attr("x", (parseInt(migrant_x)).toString())
       .attr("y", 160)
       .style("font-size", "2.5rem")
-      .text("$" + selected_migrant.mig_ext_cost_total + " spent by " + selected_migrant.name)
-
+      .text(selected_migrant.name + " spent $" + selected_migrant.mig_ext_cost_total)
     }
 
-  }, 20000);
+  }, 15000);
 
   
 }

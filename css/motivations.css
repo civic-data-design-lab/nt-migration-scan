@@ -129,9 +129,9 @@ a.btn.btn-sm {
 #viz-motivations text {
     font-size: 1.4rem;
 }
-.chart-text text {
+/* .chart-text text {
     fill: #1540C4;
-}
+} */
 
 /* SCROLLYTELLING */
 #map-state-4 {

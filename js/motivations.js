@@ -62,7 +62,7 @@ const motivAttr = {
         descr: "Responses for security motivations to migrate included: unsafety or domestic violence.", yPosSide: 32, xPosLegend: 18},
     "clim": {label: "Climate", color: "#00a99d", responses: ['3', '4', '5'], 
         descr: "Responses for climate motivations to migrate included: direct impact from a natural hazard, deterioration of livelihoods due to natural hazards (such as floods, droughts, volcanic eruptions, hurricanes, plagues) or the loss of land due to land use changes.", yPosSide: 37, xPosLegend: 25},
-    "oth":  {label: "Other", color: "#f1a650", responses: ['9', '13', '14', '15', '16'], 
+    "oth":  {label: "Quality of Life", color: "#f1a650", responses: ['9', '13', '14', '15', '16'], 
         descr: "Responses for climate motivations to migrate included: education, for cultural reasons or customs, for health-related reasons (such as treatments, surgeries, medical consultations, or medicines), for tourism, other reasons not listed, and responses that did not respond or reported not knowing.", yPosSide: 41, xPosLegend: 32}
 };
 const motivDetailAttr = {
@@ -443,12 +443,14 @@ const dataset = d3.csv("./data/motivations.csv", d3.autoType)
             // console.log("motives", selected_migrant_motives)
 
             // change opacity of specific rectangle or triangles
-            if (svgM.select("#sq-" + "rsp"+migrant_id).empty() == false) {
+            if (svgM.select("#sq-rsp"+migrant_id).empty() == false) {
 
-                svgM.select("#sq-" + "rsp"+migrant_id).attr("opacity", 1)
+                svgM.select("#sq-rsp"+migrant_id).attr("opacity", 1);
 
-                const migrant_x = $("#sq-" + "rsp"+migrant_id).attr("x")
-                const migrant_y = $("#sq-" + "rsp"+migrant_id).attr("y")
+                const migrant_x = $("#sq-rsp"+migrant_id).attr("x")
+                const migrant_y = $("#sq-rsp"+migrant_id).attr("y")
+                const motivationLabel = motivAttr[motivationsData.filter(e => e.rsp_id == selected_migrant.rsp_id)[0].motiv_cat.split('-')[0]].label;
+
                 // draw line
                 svgM.append("line")
                 .attr("id", "migrant-line")
@@ -465,16 +467,23 @@ const dataset = d3.csv("./data/motivations.csv", d3.autoType)
                 .attr("x", (parseInt(migrant_x)).toString())
                 .attr("y", 190)
                 .style("font-size", "2.5rem")
-                .text(selected_migrant.name)
+                .text(selected_migrant.name + ": " + motivationLabel)
+                // .text((d) => {
+                //     return motivDetailAttr
+                //     selected_migrant.name + ", " + motivAttr[motivDetailAttr[selected_migrant.mig_ext_motivo].category].label
+                // })
 
             }
             else if (svgM.select("#tri-tr-" + "rsp"+migrant_id).empty() == false) {
 
-                svgM.select("#tri-tr-" + "rsp"+migrant_id).attr("opacity", 1)
-                svgM.select("#tri-bl-" + "rsp"+migrant_id).attr("opacity", 1)
+                svgM.select("#tri-tr-rsp"+migrant_id).attr("opacity", 1);
+                svgM.select("#tri-bl-rsp"+migrant_id).attr("opacity", 1);
 
                 const migrant_x = $("#tri-tr-" + "rsp"+migrant_id).attr("d").split(' ')[1]
                 const migrant_y = $("#tri-tr-" + "rsp"+migrant_id).attr("d").split(' ')[2]
+                const motivationLabel1 = motivAttr[motivationsData.filter(e => e.rsp_id == selected_migrant.rsp_id)[0].motiv_cat.split('-')[0]].label;
+                const motivationLabel2 = motivAttr[motivationsData.filter(e => e.rsp_id == selected_migrant.rsp_id)[0].motiv_cat.split('-')[1]].label;
+
                 // draw line
                 svgM.append("line")
                 .attr("id", "migrant-line")
@@ -483,15 +492,15 @@ const dataset = d3.csv("./data/motivations.csv", d3.autoType)
                 .attr("x1", (parseInt(migrant_x)+12).toString())     
                 .attr("y1", migrant_y)   
                 .attr("x2", (parseInt(migrant_x)+12).toString())    
-                .attr("y2", 52);
+                .attr("y2", 210);
 
                 // write name of migrant
                 svgM.append("text")
                 .attr("id", "migrant-name-label")
                 .attr("x", (parseInt(migrant_x)).toString())
-                .attr("y", 40)
+                .attr("y", 190)
                 .style("font-size", "2.5rem")
-                .text(selected_migrant.name)
+                .text(selected_migrant.name + ": " + motivationLabel1 + " & " + motivationLabel2)
 
             }
             else if (svgM.select("#tri-t-" + "rsp"+migrant_id).empty() == false) {
@@ -511,13 +520,13 @@ const dataset = d3.csv("./data/motivations.csv", d3.autoType)
                 .attr("x1", (parseInt(migrant_x)+12).toString())    
                 .attr("y1", migrant_y)      
                 .attr("x2", (parseInt(migrant_x)+12).toString())    
-                .attr("y2", 52);
+                .attr("y2", 210);
 
                 // write name of migrant
                 svgM.append("text")
                 .attr("id", "migrant-name-label")
                 .attr("x", (parseInt(migrant_x)).toString())
-                .attr("y", 40)
+                .attr("y", 190)
                 .style("font-size", "2.5rem")
                 .text(selected_migrant.name)
 

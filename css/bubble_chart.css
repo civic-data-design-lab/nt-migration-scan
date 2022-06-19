@@ -8,8 +8,6 @@
     src: url();
 }
 
-@import url(https://fonts.googleapis.com/css?family=Patrick+Hand+SC);
-
 a, a:visited, a:active {
   color: #fff;
 }
@@ -26,7 +24,6 @@ a, a:visited, a:active {
     height: auto;
     filter: var(--filters-off);
     transition: var(--transition-speed);
-    /* border: 3px solid red; */
 }
 
 .content-block1 * {
@@ -38,46 +35,7 @@ a, a:visited, a:active {
     margin: auto;
 }
 
-#toolbar {
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.3s linear;
-}
-#toolbar.active {
-    opacity: 1;
-    pointer-events: auto;
-}
-.button {
-	width: 100%;
-    font-weight: 500;
-   	color: #662d91;
-    background-color: #fff;
-    border: solid 2px #662d91;
-    border-radius: 0px;
-    /* box-shadow: 2px 2px 6px rgb(0 0 0 / 50%); */
-}
-.button.active, .button:hover {
-    color: #fff;
-    background-color: #662d91;
-}
-.btn#year {
-    border-left: none;
-    border-right: none;
-}
-.btn#country {
-    border-right: 0px;
-}
-
-/* 
-#vis {
-  width: 1600px;
-  height: 600px;
-  clear: both;
-  margin-bottom: 10px;
-}
- */
-
-.year,.finance3,.means {
+.channel,.finance3,.means {
   font-family: neue-haas-grotesk-text, sans-serif;
     font-weight: 700;
     font-style: normal;
@@ -85,7 +43,7 @@ a, a:visited, a:active {
     line-height: 1em;
 }
 
-.year2, .means2, .finance {
+.channel2, .means2, .finance {
   font-family: neue-haas-grotesk-text, sans-serif;
   
     font-weight: 1000;
@@ -100,7 +58,7 @@ a, a:visited, a:active {
     font-size: 1em;
 }
 
-.year3 {
+.channel3 {
  	background-color: black !important;
   	font-family: neue-haas-grotesk-text, sans-serif;
     font-weight: 700;
@@ -365,7 +323,7 @@ margin-top:3rem;}
     #frame-cost svg {
         max-height: calc(100vh - 100px);
     }
-    #toolbar {
+    #buttons-cost {
         margin-top: 0.5rem!important;
     }
 }

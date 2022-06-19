@@ -236,7 +236,7 @@ function updateTransLayout(layout) {
 };
 
 // define svg
-const svg = d3.select("#frame-motivations")
+const svgM = d3.select("#frame-motivations")
     .append("svg")
         .attr("id", "viz-motivations")
         .attr("viewBox", [0, 0, width + (sideWidth + sqLen), height+(2*shift_amount)])
@@ -426,11 +426,11 @@ const dataset = d3.csv("./data/motivations.csv", d3.autoType)
         if (window.location.hash.length != 0){
 
             // change opacity of all rectangles and triangles
-            svg.selectAll("rect")
-            .attr("opacity", 0.4)
+            svgM.selectAll("rect")
+                .attr("opacity", 0.8)
 
-            svg.selectAll("path")
-            .attr("opacity", 0.4)
+            svgM.selectAll("path")
+                .attr("opacity", 0.8)
 
             // get migrant id
             const migrant_id = window.location.hash.slice(1,)
@@ -443,14 +443,14 @@ const dataset = d3.csv("./data/motivations.csv", d3.autoType)
             // console.log("motives", selected_migrant_motives)
 
             // change opacity of specific rectangle or triangles
-            if (svg.select("#sq-" + "rsp"+migrant_id).empty() == false) {
+            if (svgM.select("#sq-" + "rsp"+migrant_id).empty() == false) {
 
-                svg.select("#sq-" + "rsp"+migrant_id).attr("opacity", 1)
+                svgM.select("#sq-" + "rsp"+migrant_id).attr("opacity", 1)
 
                 const migrant_x = $("#sq-" + "rsp"+migrant_id).attr("x")
                 const migrant_y = $("#sq-" + "rsp"+migrant_id).attr("y")
                 // draw line
-                svg.append("line")
+                svgM.append("line")
                 .attr("id", "migrant-line")
                 .style("stroke", "black") 
                 .style('stroke-width', '2px')
@@ -460,7 +460,7 @@ const dataset = d3.csv("./data/motivations.csv", d3.autoType)
                 .attr("y2", 210);
 
                 // write name of migrant
-                svg.append("text")
+                svgM.append("text")
                 .attr("id", "migrant-name-label")
                 .attr("x", (parseInt(migrant_x)).toString())
                 .attr("y", 190)
@@ -468,15 +468,15 @@ const dataset = d3.csv("./data/motivations.csv", d3.autoType)
                 .text(selected_migrant.name)
 
             }
-            else if (svg.select("#tri-tr-" + "rsp"+migrant_id).empty() == false) {
+            else if (svgM.select("#tri-tr-" + "rsp"+migrant_id).empty() == false) {
 
-                svg.select("#tri-tr-" + "rsp"+migrant_id).attr("opacity", 1)
-                svg.select("#tri-bl-" + "rsp"+migrant_id).attr("opacity", 1)
+                svgM.select("#tri-tr-" + "rsp"+migrant_id).attr("opacity", 1)
+                svgM.select("#tri-bl-" + "rsp"+migrant_id).attr("opacity", 1)
 
                 const migrant_x = $("#tri-tr-" + "rsp"+migrant_id).attr("d").split(' ')[1]
                 const migrant_y = $("#tri-tr-" + "rsp"+migrant_id).attr("d").split(' ')[2]
                 // draw line
-                svg.append("line")
+                svgM.append("line")
                 .attr("id", "migrant-line")
                 .style("stroke", "black") 
                 .style('stroke-width', '2px')
@@ -486,7 +486,7 @@ const dataset = d3.csv("./data/motivations.csv", d3.autoType)
                 .attr("y2", 52);
 
                 // write name of migrant
-                svg.append("text")
+                svgM.append("text")
                 .attr("id", "migrant-name-label")
                 .attr("x", (parseInt(migrant_x)).toString())
                 .attr("y", 40)
@@ -494,17 +494,17 @@ const dataset = d3.csv("./data/motivations.csv", d3.autoType)
                 .text(selected_migrant.name)
 
             }
-            else if (svg.select("#tri-t-" + "rsp"+migrant_id).empty() == false) {
+            else if (svgM.select("#tri-t-" + "rsp"+migrant_id).empty() == false) {
 
-                svg.select("#tri-t-" + "rsp"+migrant_id).attr("opacity", 1)
-                svg.select("#tri-r-" + "rsp"+migrant_id).attr("opacity", 1)
-                svg.select("#tri-bl-" + "rsp"+migrant_id).attr("opacity", 1)
+                svgM.select("#tri-t-" + "rsp"+migrant_id).attr("opacity", 1)
+                svgM.select("#tri-r-" + "rsp"+migrant_id).attr("opacity", 1)
+                svgM.select("#tri-bl-" + "rsp"+migrant_id).attr("opacity", 1)
 
                 const migrant_x = $("#tri-tr-" + "rsp"+migrant_id).attr("d").split(' ')[1]
                 const migrant_y = $("#tri-tr-" + "rsp"+migrant_id).attr("d").split(' ')[2]
                 console.log("x and y", migrant_x, migrant_y)
                 // draw line
-                svg.append("line")
+                svgM.append("line")
                 .attr("id", "migrant-line")
                 .style("stroke", "black") 
                 .style('stroke-width', '2px')
@@ -514,7 +514,7 @@ const dataset = d3.csv("./data/motivations.csv", d3.autoType)
                 .attr("y2", 52);
 
                 // write name of migrant
-                svg.append("text")
+                svgM.append("text")
                 .attr("id", "migrant-name-label")
                 .attr("x", (parseInt(migrant_x)).toString())
                 .attr("y", 40)
@@ -601,7 +601,7 @@ function motivDetailText(motivRsp, sortBy, motivCat) {
 // create tooltip
 function tooltipHtml(d, shape) {
     $("#tt-motivs").empty();
-    const tooltipTemplate = $(".tooltip.template");
+    const tooltipTemplate = $(".tooltip-motivs.template");
     const tooltip = tooltipTemplate.clone();
 
     if (shape == "sq") {
@@ -1077,7 +1077,7 @@ function trianglePath(d, sortBy, triPos) {
 // plot initial squares grid
 function plotInitialGrid(data) {
     // squares
-    svg.append("g")
+    svgM.append("g")
             .attr("class", "g-sq")
         .selectAll("rect")
         .data(data.filter(item => item.motiv_cat.endsWith('1')))
@@ -1125,7 +1125,7 @@ function plotInitialGrid(data) {
         });
 
     // triangle bottom-left
-    svg.append("g")
+    svgM.append("g")
             .attr("class", "g-tri-bl")
         .selectAll("path")
         .data(data.filter(item => !item.motiv_cat.endsWith('1')))
@@ -1162,7 +1162,7 @@ function plotInitialGrid(data) {
         });
         
     // triangle top-right for 2 responses
-    svg.append("g")
+    svgM.append("g")
             .attr("class", "g-tri-tr")
         .selectAll("path")
         .data(data.filter(item => item.motiv_cat.endsWith('2')))
@@ -1206,7 +1206,7 @@ function plotInitialGrid(data) {
         });
 
     // triangle top for 3 responses
-    svg.append("g")
+    svgM.append("g")
             .attr("class", "g-tri-t")
         .selectAll("path")
         .data(data.filter(item => item.motiv_cat.endsWith('3')))
@@ -1243,7 +1243,7 @@ function plotInitialGrid(data) {
         });
 
     // triangle right for 3 responses
-    svg.append("g")
+    svgM.append("g")
             .attr("class", "g-tri-r")
         .selectAll("path")
         .data(data.filter(item => item.motiv_cat.endsWith('3')))
@@ -1280,7 +1280,7 @@ function plotInitialGrid(data) {
         });
 
     // motivations categories legend
-    const legend = svg.append("g")
+    const legend = svgM.append("g")
         .attr("class", "legend")
     
     // legend squares
@@ -1359,7 +1359,7 @@ function plotInitialGrid(data) {
 function updatePlotSort(sortBy) {
     
     // squares
-    svg.select(".g-sq")
+    svgM.select(".g-sq")
         .selectAll("rect")
         .transition()
             .duration(time)
@@ -1367,28 +1367,28 @@ function updatePlotSort(sortBy) {
             .attr("y", d => selectScale(d, "ny", sortBy));
     
     // triangle bottom-left
-    svg.select(".g-tri-bl")
+    svgM.select(".g-tri-bl")
         .selectAll("path")
         .transition()
             .duration(time)
             .attr("d", d => trianglePath(d, sortBy, "botLeft"));
         
         // triangle top-right
-        svg.select(".g-tri-tr")
+        svgM.select(".g-tri-tr")
             .selectAll("path")
             .transition()
                 .duration(time)
                 .attr("d", d => trianglePath(d, sortBy, "topRight"));
 
         // triangle top for 3 responses
-        svg.select(".g-tri-t")
+        svgM.select(".g-tri-t")
             .selectAll("path")
             .transition()
                 .duration(time)
                 .attr("d", d => trianglePath(d, sortBy, "top"));
 
         // triangle right for 3 responses
-        svg.select(".g-tri-r")
+        svgM.select(".g-tri-r")
             .selectAll("path")
             .transition()
                 .duration(time)
@@ -1398,7 +1398,7 @@ function updatePlotSort(sortBy) {
 // plot labels
 function plotLabels(labelList, sortBy) {
     // labels
-    labelGroup = svg.append("g")
+    labelGroup = svgM.append("g")
             .attr("id", "labels-" + sortBy)
             .attr("class", "chart-labels")
     
@@ -1465,6 +1465,7 @@ function plotLabels(labelList, sortBy) {
     //         .attr("stroke-width", 2)
 }
 
+// button functions
 $("#buttons-motivations .btn").on("click", function() {
     btnId = "#" + $(this).attr("id");
     sortBy = $(this).attr("id").slice(4);

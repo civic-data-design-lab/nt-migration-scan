@@ -66,45 +66,6 @@ a.btn.btn-sm {
     line-height: 120%;
 }
 
-/*Motivation Containers*/
-/*SORT BY BUTTONS*/
-#sort-by {
-    width: 15%;
-    align-self: center;
-    /* font-size: 1.5rem; */
-    font-weight: 500;
-    text-align: center;
-}
-
-#btn-motivs.active, #btn-income.active, #btn-cari.active {
-    border: 2px solid black;
-}
-
-.col-6.px-0 {
-    width: 25%;
-    align-self: center;
-}
-
-.col-3.px-0 {
-    width: 27%;
-    align-self: center;
-}
-
-#buttons-motivations {
-    position: relative;
-    bottom: 0;
-    display: flex;
-    flex-direction: row;
-    margin-left:0;
-    border-radius: 0px ;
-}
-
-#buttons-motivations .btn {
-    /* font-size: 1.5rem; */
-    font-weight: 500;
-    width: 100%;
-}
-
 /*Motivation Container*/
 #motivations-container, #cost-container {
     display: flex;
@@ -230,27 +191,12 @@ a.btn.btn-sm {
         font-size: 1rem;
     }
 
-    #buttons-motivations .btn {
-        font-size: 0.75rem;
-        width: fit-content;
-        height: fit-content;
-    }
-
-    #sort-by {
-        font-size: 0.75rem;
-        text-align: left;
-    }
-
     .migrant-motiv-narrative .migrant-cost-narrative {
         font-size: 1rem;
     }
 }
 /* Small devices (425px and up) */
 @media (min-width: 425px) and (max-width: 633px) {
-    #buttons-motivations .btn-sm {
-        font-size: 0.75rem;
-    }
-
     #sort-by {
         font-size: 0.75rem;
         text-align: left;
@@ -266,10 +212,6 @@ a.btn.btn-sm {
 }
 /* Medium devices (tablets, 633px and up) */
 @media (min-width: 633px) and (max-width: 768px) {
-    #buttons-motivations .btn-sm {
-        height: 44px;
-    }
-
     #sort-by {
         font-size: 0.75rem;
         text-align: left;
@@ -285,11 +227,6 @@ a.btn.btn-sm {
 }
 
 @media (min-width: 768px) and (max-width: 992px) {
-    #buttons-motivations .btn-sm {
-        height: 54px;
-        /* font-size: 0.875rem; */
-    }
-
     .m_narrative_1, .c_narrative_1 {
         font-size: 1.5rem;
     } 
@@ -301,11 +238,6 @@ a.btn.btn-sm {
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-    #buttons-motivations .btn-sm {
-        height: 65px;
-        font-size: 1.5rem;
-    }
-
     #sort-by {
         font-size: 1.5rem;
         text-align: left;

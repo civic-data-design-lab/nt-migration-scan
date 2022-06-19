@@ -10,54 +10,113 @@ const countryText_bubble = {
 const pathwaysList = ["regular", "irrregular coyote", "irregular on own, with caravan"];
 const pathwayTypes = {
   "regular": {label: "Regular Pathway", color: "#d8a414", yPosSide: 1, xPosLegend: 0},
-  "irrregular coyote": {label: "Irregular with Smuggler", color: "#a06444", yPosSide: 25, xPosLegend: 11},
-  "irregular on own, with caravan": {label: "Irregular with a Caravan", color: "#888484", yPosSide: 28, xPosLegend: 26}
+  "irrregular coyote": {label: "Irregular with smuggler", color: "#a06444", yPosSide: 25, xPosLegend: 11},
+  "irregular on own, with caravan": {label: "Irregular on own or with a caravan", color: "#888484", yPosSide: 28, xPosLegend: 26}
 };
 const pathwayAttr = {
-    "regular": {"label": "Through a Regular Pathway", "color": "#d8a414"},
-    "irrregular coyote": {"label": "Using a Smuggler to Migrate", "color": "#a06444"},
-    "irregular on own, with caravan": {"label": "Migrating on One's Own or with a Caravan", "color": "#888484"}
+    "regular": {label: "Through a Regular Pathway", color: "#d8a414"},
+    "irrregular coyote": {label: "Using a Smuggler to Migrate", color: "#a06444"},
+    "irregular on own, with caravan": {label: "Migrating on one's own or with a caravan", color: "#888484"}
 };
 const pathwayAttr_narrative = {
-  "regular": {"label": "through a regular pathway", "color": "#d8a414"},
-  "irrregular coyote": {"label": "using a smuggler", "color": "#a06444"},
-  "irregular on own, with caravan": {"label": "individually or with a caravan", "color": "#888484"}
+  "regular": {label: "through a regular pathway", color: "#d8a414"},
+  "irrregular coyote": {label: "using a smuggler", color: "#a06444"},
+  "irregular on own, with caravan": {label: "individually or with a caravan", color: "#888484"}
 };
 const financeText = {
-    "1": {"label":"No Response"}
+    "1": {label:"No Response"}
 };
 
-function bubbleChart() {
+//   const width = 1400;
+//   const height = 1000;
+const widthC = 1370;
+const heightC = 1442;
+const radius = 12;
 
-  //   var width = 1500;
-  //   var height = 700;
-  const width = 1400;
-  const height = 1500;
-  const sqLen = 1;
-  const sideWidth = 0;
+const svg = d3v4.select("#frame-cost")
+      .append('svg')
+      .attr('id', 'cost-svg')
+      .attr("viewBox", [0, -(2*radius), widthC, heightC]);
+
+function bubbleChart() {
+    createLegendText();
+
   var padding = 2;
   var tooltip = floatingTooltip('viz-col');
-  var center = { x: width / 2, y: height / 2 };
+  var center = { x: widthC / 2, y: heightC / 2 };
 
-  var yearCenters = {
-    "GTM": { x: width / 5.4, y: height / 2 },
-    "HND": { x: width / 1.9, y: height / 2 },
-    "SLV": { x: 2.5 * (1 * width / 3), y: height / 2 }
+  var channelCenters = {
+    "GTM": { x: widthC / 5.4, y: heightC / 2 },
+    "HND": { x: widthC / 1.9, y: heightC / 2 },
+    "SLV": { x: 2.5 * (1 * widthC / 3), y: heightC / 2 }
   };
   
   var beeCenters = {
-    "all loans": { x: width / 5, y: 0 },
-    "some loans": { x: width / 1.9, y:0 },
-    "no loans": { x: 2.5 * (1 * width / 3), y:0 }
+    "all loans": { x: widthC / 5, y: 0 },
+    "some loans": { x: widthC / 1.9, y:0 },
+    "no loans": { x: 2.5 * (1 * widthC / 3), y:0 }
   };
   
   var meansCenters = {
-    "regular": { x: width / 7, y: height / 2 },
-    "irregular on own, with caravan": { x: 2.9 * (1 * width / 5), y: height / 2 },
-    "irrregular coyote": { x: 3.5 * (1 * width / 5), y: height / 2 }
+    "regular": { x: widthC / 7, y: heightC / 2 },
+    "irregular on own, with caravan": { x: 2.9 * (1 * widthC / 5), y: heightC / 2 },
+    "irrregular coyote": { x: 3.5 * (1 * widthC / 5), y: heightC / 2 }
   };
      
-        
+  var channelsTitleX = {
+    "Migrants Spent": 180,  //  $1.2 Billion Migrants Spend to Migrate
+    "Migrants Spent ": widthC / 2.2,  // $450 Million Billion Migrants Spend to Migrate
+    "Migrants Spent  ": widthC - 310   // {$520 Million Migrants Spend to Migrate}
+  };
+  
+  var channelsTitleX2 = {
+    "$1.2 Billion": 180,  //  $1.2 Billion Migrants Spend to Migrate
+    "$520 Million": widthC / 2.2,  // $450 Million Billion Migrants Spend to Migrate
+    "$450 Million": widthC - 310   // {$520 Million Migrants Spend to Migrate}
+  };
+  
+  var channelsTitleX3 = {
+    "Guatemala": 180,  //  $1.2 Billion Migrants Spend to Migrate
+    "Honduras": widthC / 2.1,  // $450 Million Billion Migrants Spend to Migrate
+    "El Salvador": widthC - 310   // {$520 Million Migrants Spend to Migrate}
+  };
+  
+  var meansTitleX = {
+    "Regular Pathway": 120,
+    "Irregular Pathway": widthC - 490
+   //  "Irregular Pathway": widthC - 250
+  };
+  
+  var meansTitleX2 = {
+    "$240 Million": 120,
+    "$2.0 Billion": widthC - 490
+   //  "Irregular Pathway": widthC - 250
+  };
+  
+  var meansTitleX3 = {
+    "Migrants Spent to Migrate": 120,
+    "Migrants Spent to Migrate  ": widthC - 490
+   //  "Irregular Pathway": widthC - 250
+  };
+  
+  var financeTitleX = {
+    "56%": 330,
+    "8%": widthC - 720,
+    "36%": widthC - 320
+  };
+  
+  var financeTitleX2 = {
+    "Financed Migration ": 330,
+    "Financed Migration": widthC - 720,
+    "Financed Migration  ": widthC - 320
+  };
+  
+  var financeTitleX3 = {
+    "Entirely with Loans": 330,
+    "with Some Loans": widthC - 720,
+    "without Loans": widthC - 320
+  };
+
   var forceStrength = 0.023;
 //   var svg = null;
 //   var bubbles = null;
@@ -68,13 +127,13 @@ function bubbleChart() {
   }
   
   var posScale = d3v4.scaleLinear().domain([20,22000]);
-    posScale.range([0, height]);
+    posScale.range([0, heightC]);
     
   var posScaleMonths = d3v4.scaleLinear().domain([20,22000]);
-    posScale.range([0, height]);
+    posScale.range([0, heightC]);
  
-var posScaleRev = d3v4.scaleLinear().domain([22000,0]); 
-    posScaleRev.range([0, height]); 
+  var posScaleRev = d3v4.scaleLinear().domain([22000,0]); 
+    posScaleRev.range([0, heightC]); 
     
   var simulation = d3v4.forceSimulation()
     .velocityDecay(0.17)
@@ -123,7 +182,7 @@ var posScaleRev = d3v4.scaleLinear().domain([22000,0]);
         name: d.mig_ext_medio,
         // org: d.organization,
         group: d.mig_ext_finance,
-        year: d.country,
+        channel: d.country,
         x: Math.random() * 1800,
         y: Math.random() * 1000
       };
@@ -137,30 +196,11 @@ var posScaleRev = d3v4.scaleLinear().domain([22000,0]);
   var chart = function chart(selector, rawData) {
     nodes = createNodes(rawData);
     
-
-// 
-// const svg = d3v4.select("#frame-motivations")
-//     .append("svg")
-//         .attr("id", "viz-motivations")
-//         .attr("viewBox", [-(sideWidth), 0, width + (sideWidth), height]);
-        
-    var svg = d3v4.select("#frame-cost")
-      .append('svg')
-      .attr('id', 'cost-svg')
-      .attr("viewBox", [-(sideWidth + sqLen), 0, width + (sideWidth + sqLen), height + 20]);
-    //   .classed("svg-content-responsive", true)
-    //   .classed("svg-container", true) 
-    //   .attr("preserveAspectRatio", "xMidYMid meet");
-
-//   svg = d3v4.select(selector)
-//       .append('svg')
-//       .attr('width', width)
-//       .attr('height', height);
-
     bubbles = svg.selectAll('.bubble')
       .data(nodes, function (d) { return d.id; });
 
-    var bubblesE = bubbles.enter().append('circle')
+    var bubblesE = bubbles.enter()
+    .append('circle')
       .attr("id", d => "cir-" + d.rsp_id)
       .classed('bubble', true)
       .attr('r', 0)
@@ -184,22 +224,22 @@ var posScaleRev = d3v4.scaleLinear().domain([22000,0]);
     simulation.nodes(nodes);
 
     groupBubbles();
-
-    // motivations categories legend
+  }
+  function createLegendText() {
+    // cost categories legend
     const legend = svg.append("g")
-    .attr("class", "legend")
+        .attr("class", "legend")
  
-    // legend squares
+    // legend circles
     legend.append("g")
-         .attr("class", "legend-sq")
-     .selectAll("rect")
+         .attr("class", "legend-circles")
+     .selectAll("circle")
      .data(pathwaysList)
      .enter()
-     .append("rect")
-         .attr("x", d => scale(pathwayTypes[d].xPosLegend))
-         .attr("y", (top_margin_amount+parseInt(scale(0))).toString()) // row number (1624/numPerRow + 9) 
-         .attr("width", 24)
-         .attr("height", 24)
+     .append("circle")
+         .attr("cx", d => scale(pathwayTypes[d].xPosLegend) + radius)
+         .attr("cy", 0)
+         .attr("r", radius)
          .attr("fill", d => pathwayTypes[d].color)
          .attr("stroke", "#fff")
          .attr("stroke-width", gap);
@@ -212,15 +252,14 @@ var posScaleRev = d3v4.scaleLinear().domain([22000,0]);
      .enter()
      .append("text")
      .attr("x", d => scale(pathwayTypes[d].xPosLegend + 1.25))
-     .attr("y", (top_margin_amount+parseInt(scale(1))).toString())
+     .attr("y", radius)
      .attr("dy", "-0.18em")
      .attr("font-size", "1.3em")
      .attr("text-anchor", "start")
      .attr("fill", d => pathwayTypes[d].color)
      .text(d => pathwayTypes[d].label.toUpperCase());
-
   }
-  
+
   function axis() {
     d3v4.select("svg").append("svg").attr("class","axis")
         .call(d3v4.axisRight(posScaleRev).ticks(5).tickFormat((d, i) => ['50', '40', '25', '15', '0'][i]).tickSize(0))
@@ -254,7 +293,7 @@ var posScaleRev = d3v4.scaleLinear().domain([22000,0]);
 //       function ticked() {
 //     bubbles
 //       .attr('cx', function (d) { return d.x; })
-//       .attr('cy', function(d){return height - posScale(d.value);});
+//       .attr('cy', function(d){return heightC - posScale(d.value);});
 //   }
 
   function nodeMeansPos(d) {
@@ -262,7 +301,7 @@ var posScaleRev = d3v4.scaleLinear().domain([22000,0]);
   }
   
   function nodeCountryPos(d) {
-    return yearCenters[d.year].x;
+    return channelCenters[d.channel].x;
   }
   
   function nodeBeePosb(d) {
@@ -275,7 +314,7 @@ var posScaleRev = d3v4.scaleLinear().domain([22000,0]);
   
 
   function groupBubbles() {
-    hideYearTitles();
+    hidechannelTitles();
     hideMeansTitles();
     hideFinanceTitles();
     showNullValues();
@@ -289,37 +328,251 @@ var posScaleRev = d3v4.scaleLinear().domain([22000,0]);
     simulation.alpha(1).restart();
 
   }
+  function splitBubbles() {
+    hidechannelTitles();
+    hideFinanceTitles();
+    showMeansTitles();
+    removeaxis();
+    removeaxis();
+    remAvRegAnn();
+    remFinanceLabel();
 
-  function hideYearTitles() {
-    svg.selectAll('.year,.year2,.year3').remove();
+    simulation.force('x', d3v4.forceX().strength(forceStrength).x(nodeMeansPos));
+	simulation.force('y', d3v4.forceY().strength(forceStrength).y(center.y));
+    simulation.alpha(1).restart();
+  }
+  
+  function splitBubblesCountry() {
+    hideMeansTitles();
+    hideFinanceTitles();
+    showchannelTitles();
+    removeaxis();
+    remAvRegAnn();
+    remFinanceLabel();
+
+    simulation.force('x', d3v4.forceX().strength(forceStrength).x(nodeCountryPos));
+    simulation.force('y', d3v4.forceY().strength(forceStrength).y(center.y));
+
+    simulation.alpha(1).restart();
+  }
+  function splitBubblesBee() {
+    hideFinanceTitles();
+    hidechannelTitles();
+    hideMeansTitles();
+    showFinanceTitles();
+    hideNullValues();
+    fillColorN();
+    updateaxis();
+
+    simulation.force('x', d3v4.forceX().strength(forceStrength).x(nodeBeePosb));
+    simulation.force('y', d3v4.forceY().strength(.06).y(function(d){return heightC - posScale(d.valuenull);}));
+
+    simulation.alpha(1).restart();
+  }
+  function hidechannelTitles() {
+    d3v4.select('#cost-svg').selectAll('.channel,.channel2,.channel3').remove();
   }
   
     function hideMeansTitles() {
-    svg.selectAll('.means,.means2,.means3').remove();
+    d3v4.select('#cost-svg').selectAll('.means,.means2,.means3').remove();
   }
   
     function hideFinanceTitles() {
-    svg.selectAll('.finance,.finance2,.finance3').remove();
+    d3v4.select('#cost-svg').selectAll('.finance,.finance2,.finance3').remove();
   }
   
   function hideNullValues() {
-      svg.selectAll('circle').filter(function(d){ return d.value <= 1; }).transition().attr('y', 50000);
+      svg.selectAll('.bubble').filter(function(d){ return d.value <= 1; }).transition().attr('y', 50000);
       // .style('stroke', "#fff" );
   }
 
   function showNullValues() {
-      svg.selectAll('circle').filter(function(d){ return d.value <= 1; });
+      svg.selectAll('.bubble').filter(function(d){ return d.value <= 1; });
   //     .style('fill', function (d) { if (d.value <= 1) return "#fff";})
   //       .style('stroke', function (d) { if (d.value <= 1) return fillColor(d.name);})
   //       .style('stroke-width', function (d) { if (d.value <= 1) return .9;});
    }
 
+   function showchannelTitles() {
+
+    var channelsData = d3v4.keys(channelsTitleX);
+    var channels = d3v4.select('#cost-svg').selectAll('.name')
+      .data(channelsData);
+
+    channels.enter().append('text')
+      .attr('class', 'channel')
+//       .transition()
+//       .duration(500)
+//       .style('opacity','0')
+//       .transition()
+// //       .ease(d3v4.easeLinear)
+//     .duration(500)
+    .style('opacity','1')
+//     .delay(function(d, i) {
+//     return i * 75;
+//   })
+      .attr('x', function (d) { return channelsTitleX[d]; })
+//       .attr('y', function (d) { if (channelsTitleX[d] === "Guatemala") {return 160}; })
+      .attr('y', 260)
+      .attr('text-anchor', 'start')
+      .text(function (d) { return d; });
+      
+  var channelsData2 = d3v4.keys(channelsTitleX2);
+    var channels2 = d3v4.select('#cost-svg').selectAll('.name')
+      .data(channelsData2);
+
+    channels2.enter().append('text')
+//      .transition()
+//       .ease(d3v4.easeLinear)
+//     .duration(1000)
+//     .delay(function(d, i) {
+//     return i * 75;
+//   })
+      .attr('class', 'channel2')
+      .attr('x', function (d) { return channelsTitleX2[d]; })
+      .attr('y', 300)
+      .attr('text-anchor', 'start')
+      .text(function (d) { return d; });
+      
+      
+var channelsData3 = d3v4.keys(channelsTitleX3);
+    var channels3 = d3v4.select('#cost-svg').selectAll('.name')
+      .data(channelsData3);
+
+channels3.enter().append('rect')
+.attr('class', 'channel3')
+  .attr('x', (d, i) => {
+    return i == 0 ? 178 // Guatemala
+        : i == 1 ? 649 // Honduras
+        : i == 2 ? 1055 // El Salvador
+        : 0;
+  })
+  .attr('y', heightC/2)
+  .attr('width', (d, i) => {
+    return i == 0 ? 172 // Guatemala
+        : i == 1 ? 156 // Honduras
+        : i == 2 ? 182 // El Salvador
+        : 0;
+  })
+  .attr('height', 32)
+  .attr('fill', '#fff');
+  
+channels3.enter().append('text')
+      .attr('class', 'channel3')
+      .attr('x', function (d) { return channelsTitleX3[d]; })
+      .attr('y', heightC/2 + 30)
+      .attr('text-anchor', 'start')
+      .text(function (d) { return d; });      
+  }
+  
+    function showMeansTitles() {
+
+    var nameData = d3v4.keys(meansTitleX);
+    var nameMeans = d3v4.select('#cost-svg').selectAll('.name')
+      .data(nameData);
+
+    nameMeans.enter().append('text')
+//      .transition()
+//     .duration(1000)
+//     .delay(function(d, i) {
+//     return i * 75;
+//   })
+      .attr('class', 'means')
+      .attr('x', function (d) { return meansTitleX[d]; })
+      .attr('y', 265)
+      .attr('text-anchor', 'start')
+      .text(function (d) { return d; });
+      
+var nameData2 = d3v4.keys(meansTitleX2);
+    var nameMeans2 = d3v4.select('#cost-svg').selectAll('.name')
+      .data(nameData2);
+
+    nameMeans2.enter().append('text')
+//      .transition()
+//     .duration(1000)
+//     .delay(function(d, i) {
+//     return i * 75;
+//   })
+      .attr('class', 'means2')
+      .attr('x', function (d) { return meansTitleX2[d]; })
+      .attr('y', 300)
+      .attr('text-anchor', 'start')
+      .text(function (d) { return d; });   
+      
+var nameData3 = d3v4.keys(meansTitleX3);
+    var nameMeans3 = d3v4.select('#cost-svg').selectAll('.name')
+      .data(nameData3);
+
+    nameMeans3.enter().append('text')
+//      .transition()
+//     .duration(1000)
+//     .delay(function(d, i) {
+//     return i * 75;
+//   })
+      .attr('class', 'means3')
+      .attr('x', function (d) { return meansTitleX3[d]; })
+      .attr('y', 325)
+      .attr('text-anchor', 'start')
+      .text(function (d) { return d; });     
+      
+  }
+  
+      function showFinanceTitles() {
+
+    var financeData = d3v4.keys(financeTitleX);
+    var finance = d3v4.select('#cost-svg').selectAll('.name')
+      .data(financeData);
+
+    finance.enter().append('text')
+//      .transition()
+//     .duration(1000)
+//     .delay(function(d, i) {
+//     return i * 75;
+//   })
+      .attr('class', 'finance')
+      .attr('x', function (d) { return financeTitleX[d]; })
+      .attr('y', 60)
+      .attr('text-anchor', 'start')
+      .text(function (d) { return d; });
+      
+    var financeData2 = d3v4.keys(financeTitleX2);
+    var finance2 = d3v4.select('#cost-svg').selectAll('.name')
+      .data(financeData2);
+
+    finance2.enter().append('text')
+//      .transition()
+//     .duration(1000)
+//     .delay(function(d, i) {
+//     return i * 75;
+//   })
+      .attr('class', 'finance2')
+      .attr('x', function (d) { return financeTitleX2[d]; })
+      .attr('y', 80)
+      .attr('text-anchor', 'start')
+      .text(function (d) { return d; });
+      
+var financeData3 = d3v4.keys(financeTitleX3);
+    var finance3 = d3v4.select('#cost-svg').selectAll('.name')
+      .data(financeData3);
+
+    finance3.enter().append('text')
+//        .transition()
+//     .duration(1000)
+//     .delay(function(d, i) {
+//     return i * 75;
+//   })
+      .attr('class', 'finance3')
+      .attr('x', function (d) { return financeTitleX3[d]; })
+      .attr('y', 100)
+      .attr('text-anchor', 'start')
+      .text(function (d) { return d; });
+  }
   
   function showDetail(d) {
     // change outline to indicate hover state.
     d3v4.select(this).attr('stroke', 'black').style('stroke-width','2');
 
-    $("#gates_tooltip").empty();
+    $("#tt-cost").empty();
     const tooltipTemplate = $(".tooltip.template");
     let tooltipContent = tooltipTemplate.clone();
     let pathwayColor = pathwayAttr[d.name].color;
@@ -328,17 +581,17 @@ var posScaleRev = d3v4.scaleLinear().domain([22000,0]);
     tooltipContent.find(".text-color").css("color", pathwayColor);
     tooltipContent.find(".label-cost").html("$" + addCommas(d.value));
     tooltipContent.find('.label-cost').filter(function () { if (d.value <= 1) return this;}).html("N.A.");
-    tooltipContent.find(".label-country").html(countryText_bubble[d.year]);
+    tooltipContent.find(".label-country").html(countryText_bubble[d.channel]);
     tooltipContent.find(".label-pathway").html(pathwayAttr[d.name].label);
 
-    tooltipContent.children().appendTo("#gates_tooltip");
+    tooltipContent.children().appendTo("#tt-cost");
 
     // responsive screenwidths
     if (winWidth > 768) {
         tooltip.showTooltip(event);
     }
     else {
-        $("#gates_tooltip").css({'opacity': 1.0, 'top': '1rem', 'left': '50%'});
+        $("#tt-cost").css({'opacity': 1.0, 'top': '1rem', 'left': '50%'});
     }
   }
 
@@ -352,6 +605,31 @@ var posScaleRev = d3v4.scaleLinear().domain([22000,0]);
         tooltip.hideTooltip();
     }
   }
+
+  chart.toggleDisplay = function (clicked, active) {
+    const activeBtn = $("#buttons-cost").find(".btn.active").attr("id");
+
+    if (clicked == active) {
+        groupBubbles();
+        $("#frame-cost").find("#migrant-line").css("display", "block");
+        $("#frame-cost").find("#migrant-name-label").css("display", "block");
+    }
+    else if (clicked === 'channel') {
+      splitBubbles();
+      $("#frame-cost").find("#migrant-line").css("display", "none");
+      $("#frame-cost").find("#migrant-name-label").css("display", "none");
+    }   
+    else if (clicked === 'country') {
+      splitBubblesCountry();
+      $("#frame-cost").find("#migrant-line").css("display", "none");
+      $("#frame-cost").find("#migrant-name-label").css("display", "none");
+    }
+    else if (clicked === 'bee') {
+      splitBubblesBee();
+      $("#frame-cost").find("#migrant-line").css("display", "none");
+      $("#frame-cost").find("#migrant-name-label").css("display", "none");
+    }
+  };
 
   return chart;
 
@@ -371,7 +649,6 @@ function display(error, data) {
   if (error) {
     console.log(error);
   }
-  
   // console.log("DOTS DATA:", data)
 
   myBubbleChart('#vis', data);
@@ -379,7 +656,7 @@ function display(error, data) {
   if (window.location.hash.length != 0){
 
     d3v4.selectAll('circle')
-    .attr("opacity", 0.4)
+        .attr("opacity", 0.8)
 
     // get migrant id
     const migrant_id = window.location.hash.slice(1,)
@@ -451,10 +728,41 @@ function display(error, data) {
   
 }
 
+// button functions
+function setupButtons() {
+    d3v4.select('#buttons-cost')
+      .selectAll('.btn')
+      .on('click', function () {
+        // Find the button just clicked
+        var button = d3v4.select(this);
+        // Get the id of the button
+        var buttonId = button.attr('id');
 
+        const activeId = $("#buttons-cost").find(".active").attr("id");
 
+        // if (buttonId == activeId) {
+        //     console.log("button clicked for current viz");
+        //     myBubbleChart.groupBubbles();
+        //     $("#frame-cost").find("#migrant-line").css("display", "block");
+        //     $("#frame-cost").find("#migrant-name-label").css("display", "block");
+        // }
+        // else {
+            // Toggle the bubble chart based on
+            // the currently clicked button.
+            myBubbleChart.toggleDisplay(buttonId, activeId);
+        // }
+  
+        // Remove active class from all buttons
+        d3v4.selectAll('#buttons-cost .btn').classed('active', false);
+        
+        // Set it as the active button
+        button.classed('active', true);
 
-
+        if (buttonId == activeId) {
+            $('#buttons-cost .btn').removeClass('active');
+        }
+      });
+  }
 
 var fillColor = d3v4.scaleOrdinal()
     .domain(['irrregular coyote', 'irregular on own, with caravan', 'regular'])
@@ -476,10 +784,9 @@ var highlightregular = d3v4.scaleOrdinal()
 
 function fillColorN() {
 
-  d3v4.selectAll("circle")
+  d3v4.selectAll(".bubble")
       .transition()
       .duration(2000)
-
         .attr('fill', function (d) { if (d.value > 1) return fillColor(d.name);})
         .style('fill', function (d) { if (d.value <= 1) return "#fff";})
         .style('stroke', function (d) { if (d.value <= 1) return fillColor(d.name);})
@@ -990,6 +1297,8 @@ d3v4.select("svg")
 // Load the data.
 d3v4.csv('data/dots_data2.csv', display);
 
+// setup the buttons.
+setupButtons();
 
 // function (d){ if (d.name === "irrregular coyote") return 0.04; else .023}
 
@@ -1018,14 +1327,13 @@ d3v4.csv('data/dots_data2.csv', display);
     });
 }
 
-
 // window resize
 $(window).resize(function() {
     if (winWidth > 768) {
-        $("#gates_tooltip").css('opacity', 0.0);
+        $("#tt-cost").css('opacity', 0.0);
     }
     else {
-        $("#gates_tooltip").css({'opacity': 1.0, 'top': '1rem', 'left': '50%'});
+        $("#tt-cost").css({'opacity': 1.0, 'top': '1rem', 'left': '50%'});
     }
 });
 

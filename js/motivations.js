@@ -103,8 +103,8 @@ const cariAttr = {
 };
 
 const legendSplit = {
-    nx: 38,
-    ny: 38,
+    nx: 0,
+    ny: 1,
     colorCat1: "econ",
     colorCat2: "reun",
     label: "selected multiple motivations"
@@ -1341,6 +1341,7 @@ function plotInitialGrid(data) {
 
     // text for split
     legend.append("g")
+            .attr("id", "select-multiple")
             .attr("class", "legend-text")
         .selectAll("text")
         .data([legendSplit])
@@ -1348,6 +1349,7 @@ function plotInitialGrid(data) {
         .append("text")
         .attr("x", d => scale(d.nx + 1.25))
         .attr("y", d => (top_margin_amount+parseInt(scale(1))).toString())
+        .attr("transform", "translate(0 56)")
         .attr("dy", "-0.125em")
         .attr("text-anchor", "start")
         .attr("fill", "#777")
@@ -1363,6 +1365,7 @@ function plotInitialGrid(data) {
         .attr("d", d => {
             return "M " + scale(d.nx) + " " + (top_margin_amount+parseInt(scale(0))).toString() + " L " + scale(d.nx) + " " + (top_margin_amount+parseInt(scale(0)) + sqLen) + " L " + (scale(d.nx) + sqLen) + " " + (top_margin_amount+parseInt(scale(0)) + sqLen) + " Z";
         })
+        .attr("transform", "translate(0 56)")
         .attr("fill", d => motivAttr[d.colorCat1].color)
         .attr("stroke", "#fff")
         .attr("stroke-width", gap);
@@ -1377,6 +1380,7 @@ function plotInitialGrid(data) {
         .attr("d", d => {
             return "M " + scale(d.nx) + " " + (top_margin_amount+parseInt(scale(0))).toString() + " L " + (scale(d.nx) + sqLen) + " " + (top_margin_amount+parseInt(scale(0))).toString() + " L " + (scale(d.nx) + sqLen) + " " + (top_margin_amount+parseInt(scale(0)) + sqLen) + " Z";
         })
+        .attr("transform", "translate(0 56)")
         .attr("fill", d => motivAttr[d.colorCat2].color)
         .attr("stroke", "#fff")
         .attr("stroke-width", gap);

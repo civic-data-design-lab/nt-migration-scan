@@ -30,7 +30,7 @@ const financeText = {
 //   const width = 1400;
 //   const height = 1000;
 const widthC = 1370;
-const heightC = 1442;
+const heightC = 1270;
 const radius = 12;
 
 // define svg

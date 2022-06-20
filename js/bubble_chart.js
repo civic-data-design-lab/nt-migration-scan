@@ -39,6 +39,9 @@ const svg = d3v4.select("#frame-cost")
       .attr('id', 'cost-svg')
       .attr("viewBox", [0, -(2*radius), widthC, heightC]);
 
+const posScale = d3v4.scaleLinear().domain([20,22000]);
+    posScale.range([0, heightC]);
+
 function bubbleChart() {
     createLegendText();
 
@@ -126,7 +129,7 @@ function bubbleChart() {
   function charge(d) {
     return -Math.pow(d.radius, 1) * forceStrength;
   }
-    
+
   var simulation = d3v4.forceSimulation()
     .velocityDecay(0.17)
     .force('collide', d3v4.forceCollide().radius(function(d) {
@@ -204,7 +207,6 @@ function bubbleChart() {
       .attr('stroke-width', .0)
       .on('mouseover', showDetail)
       .on('mouseout', hideDetail);
-      
 
     bubbles = bubbles.merge(bubblesE);
 
@@ -334,6 +336,7 @@ function bubbleChart() {
 
     simulation.alpha(1).restart();
   }
+
   function splitBubblesBee() {
     hideFinanceTitles();
     hidechannelTitles();
@@ -573,7 +576,7 @@ var financeData3 = d3v4.keys(financeTitleX3);
             if ($("#tt-cost").css("display") == "block") {
                 $("#tt-cost").fadeOut();
             }
-        }, 5000)
+        }, 3000)
     }
     else {
         $("#tt-cost").css({'opacity': 1.0, 'top': '1rem', 'left': '50%'});
@@ -632,9 +635,6 @@ function display(error, data) {
   myBubbleChart('#vis', data);
 
   // axis variables
-  var posScale = d3v4.scaleLinear().domain([20,22000]);
-    posScale.range([0, heightC]);
-    
   var posScaleMonths = d3v4.scaleLinear().domain([20,22000]);
     posScale.range([0, heightC]);
  
@@ -736,7 +736,7 @@ function display(error, data) {
       $("#buttons-cost .btn").css("pointer-events", "auto");
     }
 
-  }, 15000);
+  }, 10000);
 
   
 }

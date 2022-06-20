@@ -1531,6 +1531,8 @@ $(document).ready(function() {
     function getDivHeight(id) {
         return $(id).height();
     };
+
+    $("#tt-motivs").css("display", "none");
 })
 
 // window resize

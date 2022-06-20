@@ -551,3 +551,24 @@ a.text-black:hover {
     font-style: normal;
     overflow: hidden;
 }
+
+/* PORTRAIT ORIENTATION LOCK */
+@media (orientation: landscape) {
+    #page-content {
+        position: absolute;
+        transform: rotate(-90deg);
+        transform-origin: left top;
+        width: 100vh;
+        height: 100vw;
+        top: 100%;
+        left: 0;
+    }
+}
+/* ASPECT RATIO FOR D3 VIZ */
+/* portrait aspect ratio */
+@media (max-aspect-ratio: 2/3) {
+    #frame-motivations,
+    #frame-cost {
+        margin: 0rem;
+    }
+}

@@ -1540,7 +1540,7 @@ $(window).resize(function() {
     if (winWidth < 768) {
         divMotivs.style("display", "none");
     }
-    else {
-        divMotivs.style("display", "block");
-    }
+    // else {
+    //     divMotivs.style("display", "block");
+    // }
 })

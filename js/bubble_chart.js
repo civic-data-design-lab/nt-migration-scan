@@ -126,15 +126,6 @@ function bubbleChart() {
   function charge(d) {
     return -Math.pow(d.radius, 1) * forceStrength;
   }
-  
-  var posScale = d3v4.scaleLinear().domain([20,22000]);
-    posScale.range([0, heightC]);
-    
-  var posScaleMonths = d3v4.scaleLinear().domain([20,22000]);
-    posScale.range([0, heightC]);
- 
-  var posScaleRev = d3v4.scaleLinear().domain([22000,0]); 
-    posScaleRev.range([0, heightC]); 
     
   var simulation = d3v4.forceSimulation()
     .velocityDecay(0.17)
@@ -259,19 +250,6 @@ function bubbleChart() {
      .attr("text-anchor", "start")
      .attr("fill", d => pathwayTypes[d].color)
      .text(d => pathwayTypes[d].label.toUpperCase());
-  }
-
-  function axis() {
-    d3v4.select("svg").append("svg").attr("class","axis")
-        .call(d3v4.axisRight(posScaleRev).ticks(5).tickFormat((d, i) => ['50', '40', '25', '15', '0'][i]).tickSize(0))
-        .call(g => g.selectAll(".tick text").attr("class","axis")
-            .attr("x", 4)
-            .attr("dy", -5));
-    d3v4.select("svg").append("svg")
-        .call(d3v4.axisRight(posScaleRev).ticks(5).tickFormat((d, i) => ['Months', 'Months', 'Months', 'Months', 'Months'][i]).tickSize(0))
-        .call(g => g.selectAll(".tick text").attr("class","axis2")
-            .attr("x", 4)
-            .attr("dy", 8));    
   }
 
   function removeaxis(){
@@ -653,6 +631,36 @@ function display(error, data) {
 
   myBubbleChart('#vis', data);
 
+  // axis variables
+  var posScale = d3v4.scaleLinear().domain([20,22000]);
+    posScale.range([0, heightC]);
+    
+  var posScaleMonths = d3v4.scaleLinear().domain([20,22000]);
+    posScale.range([0, heightC]);
+ 
+  var posScaleRev = d3v4.scaleLinear().domain([22000,0]); 
+    posScaleRev.range([0, heightC]); 
+
+  // set up axis
+  function axis() {
+    d3v4.select("#cost-svg")
+        .append("g")
+            .attr("class","axis")
+        .call(d3v4.axisRight(posScaleRev).ticks(5).tickFormat((d, i) => ['50', '40', '25', '15', '0'][i]).tickSize(0))
+        .call(g => g.selectAll(".tick text").attr("class","axis")
+            .attr("x", 4)
+            .attr("dy", -5));
+    d3v4.select("#cost-svg")
+        .append("g")
+        .call(d3v4.axisRight(posScaleRev).ticks(5).tickFormat((d, i) => ['Months', 'Months', 'Months', 'Months', 'Months'][i]).tickSize(0))
+        .call(g => g.selectAll(".tick text").attr("class","axis2")
+            .attr("x", 4)
+            .attr("dy", 8)); 
+  }
+  axis();
+  d3v4.selectAll(".axis,.axis2")
+      .style("opacity",0);
+
   if (window.location.hash.length != 0){
 
     d3v4.selectAll('circle')
@@ -689,7 +697,7 @@ function display(error, data) {
   }
 
   // don't allow bubble resorting while loading circle positions
-  $("#buttons-cost").css("pointer-events", "none");
+  $("#buttons-cost .btn").css("pointer-events", "none");
 
   // put this in .then:
   setTimeout(() => {
@@ -725,7 +733,7 @@ function display(error, data) {
       .text(selected_migrant.name + " spent $" + selected_migrant.mig_ext_cost_total)
 
       // allow button sorting after line plotted
-      $("#buttons-cost").css("pointer-events", "auto");
+      $("#buttons-cost .btn").css("pointer-events", "auto");
     }
 
   }, 15000);
@@ -1302,7 +1310,7 @@ d3v4.select("svg")
 // Load the data.
 d3v4.csv('data/dots_data2.csv', display);
 
-// setup the buttons.
+// set up the buttons
 setupButtons();
 
 // function (d){ if (d.name === "irrregular coyote") return 0.04; else .023}
@@ -1331,6 +1339,16 @@ setupButtons();
         }
     });
 }
+
+// if buttons clicked while pointer disabled
+$("#buttons-cost").on("click", function() {
+    if($("#buttons-cost .btn").css("pointer-events") == "none") {
+        $("#timeout-note").removeClass("inactive");
+        setTimeout(() => {
+            $("#timeout-note").addClass("inactive");
+        }, 3000)
+    }
+})
 
 // window resize
 $(window).resize(function() {

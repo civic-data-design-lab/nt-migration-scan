@@ -27,6 +27,16 @@
     width: 100%;
 }
 
+/* COST BUTTONS TIMEOUT */
+#timeout-note {
+    left: 0px;
+    top: -3rem;
+    transition: all 3s linear;
+}
+#timeout-note.inactive {
+    display: none;
+}
+
 /* RESPONSIVE DESIGN */
 /*mobile (320px-425px)*/
 @media (min-width: 320px) and (max-width: 425px) {

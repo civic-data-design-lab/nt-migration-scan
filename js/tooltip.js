@@ -80,7 +80,6 @@ function floatingTooltip(divId) {
 
             if ((divX + ttWidth) > divWidth) {
                 divX = divX - ttWidth - 15;
-                console.log("tooltip on right side");
             };
             return (divX + 5) + "px"
         })

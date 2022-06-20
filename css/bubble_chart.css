@@ -181,6 +181,10 @@ font-family: neue-haas-grotesk-text, sans-serif;
       font-size: 1.5em;
     }
 
+.domain {
+    display: none;
+}
+
 /* 
 .frame-cost {
 margin-top:3rem;}

@@ -33,6 +33,7 @@ const widthC = 1370;
 const heightC = 1442;
 const radius = 12;
 
+// define svg
 const svg = d3v4.select("#frame-cost")
       .append('svg')
       .attr('id', 'cost-svg')
@@ -42,7 +43,7 @@ function bubbleChart() {
     createLegendText();
 
   var padding = 2;
-  var tooltip = floatingTooltip('viz-col');
+  var tooltip = floatingTooltip('frame-cost');
   var center = { x: widthC / 2, y: heightC / 2 };
 
   var channelCenters = {
@@ -573,7 +574,7 @@ var financeData3 = d3v4.keys(financeTitleX3);
     d3v4.select(this).attr('stroke', 'black').style('stroke-width','2');
 
     $("#tt-cost").empty();
-    const tooltipTemplate = $(".tooltip.template");
+    const tooltipTemplate = $(".tooltip-cost.template");
     let tooltipContent = tooltipTemplate.clone();
     let pathwayColor = pathwayAttr[d.name].color;
 
@@ -584,11 +585,17 @@ var financeData3 = d3v4.keys(financeTitleX3);
     tooltipContent.find(".label-country").html(countryText_bubble[d.channel]);
     tooltipContent.find(".label-pathway").html(pathwayAttr[d.name].label);
 
+    $("#tt-cost").css("display", "block");
     tooltipContent.children().appendTo("#tt-cost");
 
     // responsive screenwidths
     if (winWidth > 768) {
         tooltip.showTooltip(event);
+        setTimeout(() => {
+            if ($("#tt-cost").css("display") == "block") {
+                $("#tt-cost").fadeOut();
+            }
+        }, 5000)
     }
     else {
         $("#tt-cost").css({'opacity': 1.0, 'top': '1rem', 'left': '50%'});
@@ -600,10 +607,6 @@ var financeData3 = d3v4.keys(financeTitleX3);
      .style('stroke', function (d) { if (d.value <= 1) return fillColor(d.name);})
       .style('stroke-width', function (d) { if (d.value <= 1) return .9;});
 //       .style('stroke-width',function (d) { if (d.value > 1) return 0;});
-
-    if (winWidth > 768) {
-        tooltip.hideTooltip();
-    }
   }
 
   chart.toggleDisplay = function (clicked, active) {
@@ -634,9 +637,6 @@ var financeData3 = d3v4.keys(financeTitleX3);
   return chart;
 
 }
-
-
-
         
 // Create bubble chart using function from above
 var myBubbleChart = bubbleChart();
@@ -688,6 +688,9 @@ function display(error, data) {
     $(".carousel-caption").css("align-items","center");
   }
 
+  // don't allow bubble resorting while loading circle positions
+  $("#buttons-cost").css("pointer-events", "none");
+
   // put this in .then:
   setTimeout(() => {
     
@@ -720,6 +723,9 @@ function display(error, data) {
       .attr("y", 160)
       .style("font-size", "2.5rem")
       .text(selected_migrant.name + " spent $" + selected_migrant.mig_ext_cost_total)
+
+      // allow button sorting after line plotted
+      $("#buttons-cost").css("pointer-events", "auto");
     }
 
   }, 15000);

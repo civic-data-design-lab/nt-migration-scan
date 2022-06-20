@@ -123,12 +123,6 @@ const narrativesData = [
     }
 ]
 
-// bootstrap tooltip popover
-const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-const tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-  return new bootstrap.Tooltip(tooltipTriggerEl)
-});
-
 // D3 CHART VARIABLES
 const width = 1346;
 const height = 942; // may need to increase based on number of rows
@@ -242,10 +236,10 @@ const svgM = d3.select("#frame-motivations")
         .attr("viewBox", [0, 0, width + (sideWidth + sqLen), height+(2*shift_amount)])
 
 
-// // define tooltip
+// define tooltip
 const divMotivs = d3.select("#frame-motivations").append("div")
     .attr("id", "tt-motivs")
-    .attr("class", "tooltip mb-5 mb-md-0")
+    .attr("class", "tooltip")
     .style("z-index", "10")
     .html("<div class='side-color' style='background: rgb(21, 64, 196);'></div><p>Motivation for Migrating</p><h3 class='text-color' style='color: rgb(21, 64, 196);'><span class='label-motiv-pct'>87</span>% <span class='label-motiv text-uppercase'>Economic</span></h3><br><span class='text-hh text-color'>of <span class='label-hh'>surveyed</span> households</span><div class='row mt-1'><div class='col-left'><p>Reason for Migrating</p><span class='label-motiv-detail text-label' style='color: rgb(21, 64, 196);'>Search for a better job, unemplpoyment, lack of money to buy food</span></div><div class='col-right'><p>Origin Country</p><span class='label-country text-label'>Guatemala</span></div></div>")
     .style("display", "none");
@@ -442,10 +436,16 @@ const dataset = d3.csv("./data/motivations.csv", d3.autoType)
             const selected_migrant_motives = selected_migrant.mig_ext_motivo.toString().split(' ');
             // console.log("motives", selected_migrant_motives)
 
+            // flip labels if text is too long/cut off
+            const flipText = [623, 351, 4725, 1249, 1052,];
+
             // change opacity of specific rectangle or triangles
             if (svgM.select("#sq-rsp"+migrant_id).empty() == false) {
 
-                svgM.select("#sq-rsp"+migrant_id).attr("opacity", 1);
+                svgM.select("#sq-rsp"+migrant_id)
+                    .attr("opacity", 1)
+                    // .attr("stroke", "#000").raise();
+                // svgM.select(".g-sq").raise();
 
                 const migrant_x = $("#sq-rsp"+migrant_id).attr("x")
                 const migrant_y = $("#sq-rsp"+migrant_id).attr("y")
@@ -464,23 +464,34 @@ const dataset = d3.csv("./data/motivations.csv", d3.autoType)
                 // write name of migrant
                 svgM.append("text")
                 .attr("id", "migrant-name-label")
-                .attr("x", (parseInt(migrant_x)).toString())
+                .attr("x", (d) => {
+                    return flipText.includes(selected_migrant.rsp_id) ? parseInt(migrant_x) + sqLen/2
+                    : parseInt(migrant_x);
+                })
                 .attr("y", 190)
                 .style("font-size", "2.5rem")
                 .text(selected_migrant.name + ": " + motivationLabel)
-                // .text((d) => {
-                //     return motivDetailAttr
-                //     selected_migrant.name + ", " + motivAttr[motivDetailAttr[selected_migrant.mig_ext_motivo].category].label
-                // })
+                    .attr("text-anchor", (d) => {
+                        return flipText.includes(selected_migrant.rsp_id) ? "end"
+                        : "start";
+                    })
 
             }
-            else if (svgM.select("#tri-tr-" + "rsp"+migrant_id).empty() == false) {
+            else if (svgM.select("#tri-tr-rsp"+migrant_id).empty() == false) {
 
-                svgM.select("#tri-tr-rsp"+migrant_id).attr("opacity", 1);
-                svgM.select("#tri-bl-rsp"+migrant_id).attr("opacity", 1);
+                svgM.select("#tri-bl-rsp"+migrant_id)
+                    .attr("opacity", 1)
+                    // .attr("stroke", "#000")
+                    // .raise()
+                svgM.select("#tri-tr-rsp"+migrant_id)
+                    .attr("opacity", 1)
+                    // .attr("stroke", "#000")
+                    // .raise()
+                // svgM.select(".g-tri-bl").raise()
+                // svgM.select(".g-tri-tr").raise()
 
-                const migrant_x = $("#tri-tr-" + "rsp"+migrant_id).attr("d").split(' ')[1]
-                const migrant_y = $("#tri-tr-" + "rsp"+migrant_id).attr("d").split(' ')[2]
+                const migrant_x = $("#tri-tr-rsp"+migrant_id).attr("d").split(' ')[1]
+                const migrant_y = $("#tri-tr-rsp"+migrant_id).attr("d").split(' ')[2]
                 const motivationLabel1 = motivAttr[motivationsData.filter(e => e.rsp_id == selected_migrant.rsp_id)[0].motiv_cat.split('-')[0]].label;
                 const motivationLabel2 = motivAttr[motivationsData.filter(e => e.rsp_id == selected_migrant.rsp_id)[0].motiv_cat.split('-')[1]].label;
 
@@ -497,20 +508,27 @@ const dataset = d3.csv("./data/motivations.csv", d3.autoType)
                 // write name of migrant
                 svgM.append("text")
                 .attr("id", "migrant-name-label")
-                .attr("x", (parseInt(migrant_x)).toString())
+                .attr("x", (d) => {
+                    return flipText.includes(selected_migrant.rsp_id) ? parseInt(migrant_x) + sqLen/2
+                    : parseInt(migrant_x);
+                })
                 .attr("y", 190)
                 .style("font-size", "2.5rem")
                 .text(selected_migrant.name + ": " + motivationLabel1 + " & " + motivationLabel2)
+                    .attr("text-anchor", (d) => {
+                        return flipText.includes(selected_migrant.rsp_id) ? "end"
+                        : "start";
+                    })
 
             }
-            else if (svgM.select("#tri-t-" + "rsp"+migrant_id).empty() == false) {
+            else if (svgM.select("#tri-t-rsp"+migrant_id).empty() == false) {
 
-                svgM.select("#tri-t-" + "rsp"+migrant_id).attr("opacity", 1)
-                svgM.select("#tri-r-" + "rsp"+migrant_id).attr("opacity", 1)
-                svgM.select("#tri-bl-" + "rsp"+migrant_id).attr("opacity", 1)
+                svgM.select("#tri-t-rsp"+migrant_id).attr("opacity", 1)
+                svgM.select("#tri-r-rsp"+migrant_id).attr("opacity", 1)
+                svgM.select("#tri-bl-rsp"+migrant_id).attr("opacity", 1)
 
-                const migrant_x = $("#tri-tr-" + "rsp"+migrant_id).attr("d").split(' ')[1]
-                const migrant_y = $("#tri-tr-" + "rsp"+migrant_id).attr("d").split(' ')[2]
+                const migrant_x = $("#tri-tr-rsp"+migrant_id).attr("d").split(' ')[1]
+                const migrant_y = $("#tri-tr-rsp"+migrant_id).attr("d").split(' ')[2]
                 console.log("x and y", migrant_x, migrant_y)
                 // draw line
                 svgM.append("line")
@@ -608,7 +626,7 @@ function motivDetailText(motivRsp, sortBy, motivCat) {
 }
 
 // create tooltip
-function tooltipHtml(d, shape) {
+function motivsTooltipHtml(d, shape) {
     $("#tt-motivs").empty();
     const tooltipTemplate = $(".tooltip-motivs.template");
     const tooltip = tooltipTemplate.clone();
@@ -1113,7 +1131,7 @@ function plotInitialGrid(data) {
             .attr("stroke", "#fff")
             .attr("stroke-width", gap)
         .on("mouseover", function(event, d) {
-            tooltipHtml(d, "sq");
+            motivsTooltipHtml(d, "sq");
             // responsive - show only if MED screen or larger
             if (winWidth > 768) {
                 divMotivs.style("display", "block");
@@ -1150,7 +1168,7 @@ function plotInitialGrid(data) {
             .attr("stroke", "#fff")
             .attr("stroke-width", gap)
         .on("mouseover", function(event, d) {
-            tooltipHtml(d, "tri-bl");
+            motivsTooltipHtml(d, "tri-bl");
             // responsive - show only if MED screen or larger
             if (winWidth > 768) {
                 divMotivs.style("display", "block");
@@ -1194,7 +1212,7 @@ function plotInitialGrid(data) {
             .attr("stroke", "#fff")
             .attr("stroke-width", gap)
         .on("mouseover", function(event, d) {
-            tooltipHtml(d, "tri-tr");
+            motivsTooltipHtml(d, "tri-tr");
             // responsive - show only if MED screen or larger
             if (winWidth > 768) {
                 divMotivs.style("display", "block");
@@ -1231,7 +1249,7 @@ function plotInitialGrid(data) {
             .attr("stroke", "#fff")
             .attr("stroke-width", gap)
         .on("mouseover", function(event, d) {
-            tooltipHtml(d, "tri-t");
+            motivsTooltipHtml(d, "tri-t");
             // responsive - show only if MED screen or larger
             if (winWidth > 768) {
                 divMotivs.style("display", "block");
@@ -1268,7 +1286,7 @@ function plotInitialGrid(data) {
             .attr("stroke", "#fff")
             .attr("stroke-width", gap)
         .on("mouseover", function(event, d) {
-            tooltipHtml(d, "tri-r");
+            motivsTooltipHtml(d, "tri-r");
             // responsive - show only if MED screen or larger
             if (winWidth > 768) {
                 divMotivs.style("display", "block");

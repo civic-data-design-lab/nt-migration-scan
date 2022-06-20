@@ -43,7 +43,6 @@
 
 /* MOTIVATIONS TOOLTIP */
 #tt-motivs.tooltip {
-    position: absolute;
     width: 40%;
     max-width: 20rem;
     top: 1rem;
@@ -60,4 +59,32 @@
 }
 #tt-motivs.tooltip .col-left {
     width: calc(100% - 115px);
+}
+
+/* COST TOOLTIP */
+#tt-cost.tooltip {
+    width: 45%;
+    max-width: 26rem;
+    top: 1rem;
+    left: 57%;
+}
+
+#tt-cost.tooltip .text-label-onemigrant {
+    font-weight: 600;
+    font-size: 1.2rem;
+    line-height: 1rem;
+}
+
+#tt-cost.tooltip .label-country {
+    display: inline;
+    font-size: 1rem;
+    line-height: 1.6rem;
+}
+
+#tt-cost.tooltip .col-left {
+    width: 11rem;
+}
+
+#tt-cost.tooltip .label-cost {
+    font-size: 1.8rem;
 }

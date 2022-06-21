@@ -1,3 +1,10 @@
+.h-30 {
+    height: 30%;
+}
+.h-70 {
+    height: 70%;
+}
+
 #home-container {
     color: white;
     background: #000;
@@ -19,34 +26,29 @@
     width: 100%;
 }
 
-#blue {
-    background-color: blue;
+#home-container mark {
     color: white;
     padding: 0 0.1em;
 }
 
-#orange {
-    background-color: orange;
-    color: white;
-    padding: 0 0.1em;
+#blue {
+    background-color: #1540c4;
+}
+
+#yellow {
+    background-color: #f1a650;
 }
 
 #purple {
-    background-color: purple;
-    color: white;
-    padding: 0 0.1em;
+    background-color: #93278f;
 }
 
-#red {
-    background-color: red;
-    color: white;
-    padding: 0 0.1em;
+#orange {
+    background-color: #eb4927;
 }
 
 #teal {
-    background-color: teal;
-    color: white;
-    padding: 0 0.1em;
+    background-color: #00a99d;
 }
 
 .content-block {

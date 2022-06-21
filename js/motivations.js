@@ -437,7 +437,7 @@ const dataset = d3.csv("./data/motivations.csv", d3.autoType)
             // console.log("motives", selected_migrant_motives)
 
             // flip labels if text is too long/cut off
-            const flipText = [623, 351, 4725, 1249, 1052,];
+            const flipTextMotivs = [623, 351, 4725, 1249, 1052, 477];
 
             // change opacity of specific rectangle or triangles
             if (svgM.select("#sq-rsp"+migrant_id).empty() == false) {
@@ -465,14 +465,14 @@ const dataset = d3.csv("./data/motivations.csv", d3.autoType)
                 svgM.append("text")
                 .attr("id", "migrant-name-label")
                 .attr("x", (d) => {
-                    return flipText.includes(selected_migrant.rsp_id) ? parseInt(migrant_x) + sqLen/2
+                    return flipTextMotivs.includes(selected_migrant.rsp_id) ? parseInt(migrant_x) + sqLen/2
                     : parseInt(migrant_x);
                 })
                 .attr("y", 190)
                 .style("font-size", "2.5rem")
                 .text(selected_migrant.name + ": " + motivationLabel)
                     .attr("text-anchor", (d) => {
-                        return flipText.includes(selected_migrant.rsp_id) ? "end"
+                        return flipTextMotivs.includes(selected_migrant.rsp_id) ? "end"
                         : "start";
                     })
 
@@ -509,14 +509,14 @@ const dataset = d3.csv("./data/motivations.csv", d3.autoType)
                 svgM.append("text")
                 .attr("id", "migrant-name-label")
                 .attr("x", (d) => {
-                    return flipText.includes(selected_migrant.rsp_id) ? parseInt(migrant_x) + sqLen/2
+                    return flipTextMotivs.includes(selected_migrant.rsp_id) ? parseInt(migrant_x) + sqLen/2
                     : parseInt(migrant_x);
                 })
                 .attr("y", 190)
                 .style("font-size", "2.5rem")
                 .text(selected_migrant.name + ": " + motivationLabel1 + " & " + motivationLabel2)
                     .attr("text-anchor", (d) => {
-                        return flipText.includes(selected_migrant.rsp_id) ? "end"
+                        return flipTextMotivs.includes(selected_migrant.rsp_id) ? "end"
                         : "start";
                     })
 

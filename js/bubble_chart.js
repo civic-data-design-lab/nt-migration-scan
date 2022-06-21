@@ -724,13 +724,20 @@ function display(error, data) {
       .attr("x2", (parseInt(migrant_x)+12).toString())   
       .attr("y2", 180);
   
+      // flip labels if text is too long/cut off
+      const flipTextCost = [];
+
       // write name of migrant
       d3v4.select("#cost-svg").append("text")
       .attr("id", "migrant-name-label")
       .attr("x", (parseInt(migrant_x)).toString())
       .attr("y", 160)
       .style("font-size", "2.5rem")
-      .text(selected_migrant.name + " spent $" + selected_migrant.mig_ext_cost_total)
+      .text(selected_migrant.name + " spent $" + numberWithCommas(selected_migrant.mig_ext_cost_total))
+        .attr("text-anchor", (d) => {
+            return flipTextCost.includes(selected_migrant.rsp_id) ? "end"
+            : "start";
+        })
 
       // allow button sorting after line plotted
       $("#buttons-cost .btn").css("pointer-events", "auto");

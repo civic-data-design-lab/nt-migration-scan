@@ -1,6 +1,6 @@
 /* VIZ SORT BUTTONS */
 .sort-by {
-    front-size: 0.75rem;
+    font-size: 0.75rem;
     font-weight: 500;
 }
 
@@ -59,7 +59,8 @@
 /* COST BUTTONS TIMEOUT */
 #timeout-note {
     left: 0px;
-    top: -3rem;
+    top: -4rem;
+    font-size: 1.5rem;
     transition: all 3s linear;
 }
 #timeout-note.inactive {

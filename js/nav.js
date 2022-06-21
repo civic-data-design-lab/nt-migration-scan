@@ -46,6 +46,8 @@ function toggle_motivation_on () {
         if (currentCarouselPos > 2) {
             $(".carousel-item").removeClass("active");
             $("#narrative-1").addClass("active");
+            $(".nav-dot").removeClass("active");
+            $("#nav-dot-1").addClass("active");
         }
     });
 
@@ -75,6 +77,8 @@ function toggle_cost_on () {
         if (currentCarouselPos < 3) {
             $(".carousel-item").removeClass("active");
             $("#narrative-3").addClass("active");
+            $(".nav-dot").removeClass("active");
+            $("#nav-dot-3").addClass("active");
         }
     });
 

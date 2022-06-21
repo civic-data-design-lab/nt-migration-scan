@@ -98,9 +98,9 @@
                             </div><!-- close tooltip -->
 
                             <!-- BUTTONS FOR MOTIVATIONS VIZ -->
-                            <div id="buttons-motivations" class="viz-btns row mt-auto mb-3">
+                            <div id="buttons-motivations" class="viz-btns row mt-auto mb-3 mb-lg-5">
                                 <div class="sort-by col-3 px-0">
-                                    <span>Sort by:</span>
+                                    <p>Touch to<br>sort data:</p>
                                 </div>
                                 <div class="col-3 px-0">
                                     <button type="button" id="btn-motivs"
@@ -143,28 +143,28 @@
                             </div>
 
                             <!-- BUTTONS FOR COST VIZ -->
-                            <div id="buttons-cost" class="position-relative viz-btns row d-flex flex-row mt-auto mb-3">
-                                <p id="timeout-note" class="position-absolute p-3 m-0 inactive">Please wait until animation is complete before sorting the data.</p>
-                                <div class="sort-by col-2 px-0">
-                                    <span>Sort by:</span>
+                            <div id="buttons-cost" class="position-relative viz-btns row d-flex flex-row mt-auto mb-3 mb-lg-5">
+                                <p id="timeout-note" class="position-absolute px-0 inactive">Please wait until animation is complete before sorting the data.</p>
+                                <div class="sort-by col-3 px-0">
+                                    <p>Touch to<br>sort data:</p>
                                 </div>
-                                <div class="col-10 px-0">
-                                    <div class="row">
+                                <!-- <div class="col-10 px-0"> -->
+                                    <!-- <div class="row"> -->
                                         <!-- <div class="col-3 px-0">
                                             <button type="button" id="all" class="btn btn-sm active">Total Cost</button>
                                         </div> -->
-                                        <div class="col-4 px-0">
-                                            <button type="button" id="channel" class="btn btn-sm">Migration Channel</button>
-                                        </div>
-                                        <div class="col-4 px-0">
-                                            <button type="button" id="country" class="btn btn-sm">Origin Country</button>
-                                        </div>
-                                        <div class="col-4 px-0">
-                                            <button type="button" id="bee" class="btn btn-sm">Estimated
-                                                Time to Pay Debt</button>
-                                        </div>
-                                    </div>
+                                <div class="col-3 px-0">
+                                    <button type="button" id="channel" class="btn btn-sm">Migration Channel</button>
                                 </div>
+                                <div class="col-3 px-0">
+                                    <button type="button" id="country" class="btn btn-sm">Origin Country</button>
+                                </div>
+                                <div class="col-3 px-0">
+                                    <button type="button" id="bee" class="btn btn-sm">Estimated
+                                        Time to Pay Debt</button>
+                                </div>
+                                    <!-- </div> -->
+                                <!-- </div> -->
                             </div>
                         </div>
                     </div>
@@ -203,24 +203,32 @@
                             </div>
                         </div>
                         <a class="carousel-control carousel-control-prev" href="#carousel-slides-motiv" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="carousel-control-prev-icon position-relative" aria-hidden="true"></span>
                         </a>
                         <a class="carousel-control carousel-control-next" href="#carousel-slides-motiv" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="carousel-control-next-icon position-relative" aria-hidden="true"></span>
                         </a>
                     </div>
                 </div><!-- close carousel -->
 
                 <!-- SCAN FRAGMENT REMINDER -->
-                <div class="scan-another position-absolute start-0 bottom-0 col-6 col-md-3 mb-1 mb-md-3 ps-3">
+                <div class="scan-another position-absolute start-0 bottom-0 col-6 mb-1 mb-md-4 ps-5">
                     <div class="d-flex">
-                        <div class="col-2 col-md-3 me-2">
+                        <div class="me-4">
                             <img src="./img/square-module/square-module-outline.svg" alt="Data tapestry fragment outline">
                         </div>
                         <div class="position-relative flex-grow-1">
-                            <p class="position-absolute start-0 top-50 translate-middle-y mb-0">Scan below to learn about a different migrant.</p>
+                            <p class="position-absolute start-0 bottom-0 mb-0"><b>Scan a tapestry fragment below</b> <br>to learn about a different migrant.</p>
                         </div>
                     </div>
+                </div>
+
+                <!-- CAROUSEL PROGRESS DOTS -->
+                <div class="carousel-progress position-absolute start-50 bottom-0 translate-middle-x b-1 mb-md-4 row">
+                    <span id="nav-dot-1" class="nav-dot m-2 p-0 active"></span>
+                    <span id="nav-dot-2" class="nav-dot m-2 p-0"></span>
+                    <span id="nav-dot-3" class="nav-dot m-2 p-0"></span>
+                    <span id="nav-dot-4" class="nav-dot m-2 p-0"></span>
                 </div>
             </div>
         </div><!-- close viz-container -->

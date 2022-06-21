@@ -58,10 +58,15 @@
     z-index: 1;
     color: white;
     display: none;
+    pointer-events: none;
 }
 
 .scan-another p {
-    font-size: 0.6rem!important;
+    font-size: 1rem!important;
+}
+
+.scan-another img {
+    width: 4rem;
 }
 
 /* Responsive */

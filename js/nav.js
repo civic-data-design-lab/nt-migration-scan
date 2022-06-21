@@ -49,7 +49,7 @@ function toggle_motivation_on () {
         }
     });
 
-    // styles
+    // tab styles
     $("#nav-tabs .btn:not(#tab-about)").css("border-right", "solid 2px #000");
     $("#tab-home").css("border-right", "solid 2px #28448c");
     $("#tab-motivations").css("border-right", "solid 2px #28448c");
@@ -78,7 +78,7 @@ function toggle_cost_on () {
         }
     });
 
-    // styles
+    // tab styles
     $("#nav-tabs .btn:not(#tab-about)").css("border-right", "solid 2px #000");
     $("#tab-motivations").css("border-right", "solid 2px #d2a214");
     $("#tab-costs").css("border-right", "solid 2px #d2a214");
@@ -106,10 +106,18 @@ function toggle_about_on () {
     $("#nav-tabs .btn:not(#tab-about)").css("border-right", "solid 2px #000");
 }
 
+function updateCarouselProgress() {
+
+}
+
+// toggle visibility on carousel arrow click
 $(".carousel-control").on("click", function() {
     const carouselPos = $(".carousel-item.active").attr("id").split("-")[1];
     const clickDirection = $(this).attr("class").split("carousel-control-")[1];
-    console.log($("#nav-tabs").find(".btn.active").attr("id"));
+    const prevCarouselPos = parseInt(carouselPos) - 1;
+    const nextCarouselPos = parseInt(carouselPos) + 1;
+    
+    // toggle visibility for nav tabs
     if ((carouselPos == 2 && clickDirection == "next") || (carouselPos == 1 && clickDirection == "prev")) {
         toggle_cost_on();
     }
@@ -122,6 +130,84 @@ $(".carousel-control").on("click", function() {
     else if (carouselPos == 3 && clickDirection == "prev") {
         toggle_motivation_on();
     }
+
+    // update carousel position
+    if (clickDirection == "next") {
+        $(".nav-dot").removeClass("active");
+        if (nextCarouselPos == 5) {
+            $("#nav-dot-1").addClass("active");
+        }
+        else {
+            $("#nav-dot-" + nextCarouselPos).addClass("active");
+        }
+    }
+    else if (clickDirection == "prev") {
+        $(".nav-dot").removeClass("active");
+        if (prevCarouselPos == 0) {
+            $("#nav-dot-4").addClass("active");
+        }
+        else {
+            $("#nav-dot-" + prevCarouselPos).addClass("active");
+        }
+    }
+});
+
+// toggle visibility on carousel arrow click
+$(".nav-dot").on("click", function() {
+    const carouselPos = parseInt($(".carousel-item.active").attr("id").split("-")[1]);
+    const navClickedPos = parseInt($(this).attr("id").split("-")[2]);
+    const currentTab = $("#nav-tabs").find(".active").attr("id").split("-")[1];
+    console.log("nav tab: " + currentTab);
+
+        if (carouselPos == navClickedPos) {
+            return;
+        }
+        else {
+            if (navClickedPos < 3 && currentTab !== "motivations") {
+                $("#carousel").removeClass("costs");
+                $("#carousel").addClass("motivations");
+
+                // tab styles
+                $("#nav-tabs .btn:not(#tab-about)").css("border-right", "solid 2px #000");
+                $("#tab-home").css("border-right", "solid 2px #28448c");
+                $("#tab-motivations").css("border-right", "solid 2px #28448c");
+
+                // tab visibility
+                $("#nav-tabs .btn").removeClass("active");
+                $("#tab-motivations").addClass("active");
+                $("#motivations-container").css("display", "block");
+                $("#cost-container").css("display", "none");
+            }
+            else if (navClickedPos > 2 && currentTab !== "costs") {
+                $("#carousel").removeClass("motivations");
+                $("#carousel").addClass("costs");
+
+                // tab styles
+                $("#nav-tabs .btn:not(#tab-about)").css("border-right", "solid 2px #000");
+                $("#tab-motivations").css("border-right", "solid 2px #d2a214");
+                $("#tab-costs").css("border-right", "solid 2px #d2a214");
+
+                // tab visibility
+                $("#nav-tabs .btn").removeClass("active");
+                $("#tab-costs").addClass("active");
+                $("#motivations-container").css("display", "none");
+                $("#cost-container").css("display", "block");
+            }
+            $(".nav-dot").removeClass("active");
+            $("#nav-dot-" + navClickedPos).addClass("active");
+            $(".carousel-item").removeClass("active");
+            $("#narrative-" + navClickedPos).addClass("active");
+        }
+    
+//     else if (carouselPos == 1 && clickDirection == "prev") {
+//         toggle_cost_on();
+//     }
+//     else if (carouselPos == 4 && clickDirection == "next") {
+//         toggle_motivation_on();
+//     }
+//     else if (carouselPos == 3 && clickDirection == "prev") {
+//         toggle_motivation_on();
+//     }
 });
 
 $(document).ready(function() {

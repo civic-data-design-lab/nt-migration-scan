@@ -33,6 +33,36 @@
     transition: all 0.3s linear;
 }
 
+.carousel-control-prev-icon::after {
+    content: "PREV";
+}
+.carousel-control-next-icon::after {
+    content: "NEXT";
+}
+.carousel-control-prev-icon::after, 
+.carousel-control-next-icon::after {
+    position: absolute;
+    width: 100%;
+    left: 0px;
+    top: 100%;
+    margin-top: 2rem;
+}
+
+.carousel-progress {
+    z-index: 2;
+}
+.carousel-progress .nav-dot {
+    width: 1.5rem;
+    height: 1.5rem;
+    border: solid 3px #fff;
+    border-radius: 1rem;
+    opacity: 0.5;
+}
+.carousel-progress .nav-dot.active {
+    background-color: #fff;
+    opacity: 1;
+}
+
 /* NAV TABS */
 #nav-tabs .btn {
     /* font-size: 1.5rem; */
@@ -81,6 +111,12 @@
 }
 
 @media (min-width: 992px) {
+    .carousel-control-next-icon,
+    .carousel-control-prev-icon {
+        width: 4rem;
+        height: 4rem;
+    }
+    
     #nav-tabs .btn {
         font-size: 1.5rem;
     }

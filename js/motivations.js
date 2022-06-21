@@ -233,7 +233,7 @@ function updateTransLayout(layout) {
 const svgM = d3.select("#frame-motivations")
     .append("svg")
         .attr("id", "viz-motivations")
-        .attr("viewBox", [0, 0, width + (sideWidth + sqLen), height+(2*shift_amount)])
+        .attr("viewBox", [0, 0, width, height+(2*shift_amount)])
 
 
 // define tooltip

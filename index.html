@@ -45,18 +45,18 @@
             <div class="h-100 d-flex flex-column">
                 <div class="h-80">
                     <h1>WHY MIGRATE?</h1>
-                    <p class="col-9">Each tapestry fragment represents one migrant from El Salvador, Guatemala, or Honduras, with data from a WFP survey in 2021. The colors represent the migrant's primary reasons for migrating: <mark id="blue">economic,</mark> <mark id="yellow">quality of life,</mark> <mark id="purple">security,</mark> <mark id="orange">reunification,</mark> and <mark id="teal">climate change</mark>. The combined squares create a tapestry of migration motivations.</p>
+                    <p class="col-9 col-md-10">Each tapestry fragment represents one migrant from El Salvador, Guatemala, or Honduras, with data from a WFP survey in 2021. The colors represent the migrant's primary reasons for migrating: <mark id="blue">economic,</mark> <mark id="yellow">quality of life,</mark> <mark id="purple">security,</mark> <mark id="orange">reunification,</mark> and <mark id="teal">climate change</mark>. The combined squares create a tapestry of migration motivations.</p>
                     <div class="w-100 mt-5 mb-5">
                         <img id="square-colors" class="w-100" src="./img/square-module/square-colors.png" alt="Diagram of tapestry fragment colors">
                     </div>
                 </div>
                 <div class="h-20">
                     <h1>LEARN MORE</h1>
-                    <div class="col-9 row">
-                        <div class="col-2">
+                    <div class="col-10 row">
+                        <div class="col-4">
                             <img id="img-scan-module" src="./img/square-module/square-module-outline.svg" alt="Data tapestry fragment">
                         </div>
-                        <div class="col-10">
+                        <div class="col-8">
                             <p>Scan a fragment of the data tapestry below to learn about a migrant.</p>
                         </div>
                     </div>
@@ -72,9 +72,9 @@
             <div class="position-relative h-100 d-flex flex-column">
                 <div id="viz-content" class="container-lg flex-grow-1 px-xl-5 align-items-center">
                     <!-- MOTIVATIONS VIZ -->
-                    <div id="motivations-container" class="container">
+                    <div id="motivations-container" class="container-fluid">
                         <div class="h-100 d-flex flex-column">
-                            <div id="motivations-heading" class="mt-5">
+                            <div id="motivations-heading" class="mt-4 mt-sm-5">
                                 Visualization of migrant motivations
                             </div>
                             <!-- FRAME FOR D3 VISUALIZATION -->
@@ -104,20 +104,20 @@
                             </div><!-- close tooltip -->
 
                             <!-- BUTTONS FOR MOTIVATIONS VIZ -->
-                            <div id="buttons-motivations" class="viz-btns row mt-auto mb-3 mb-lg-5">
+                            <div id="buttons-motivations" class="position-relative viz-btns row d-flex flex-row mt-1 mb-3 mb-lg-5">
                                 <div class="sort-by col-3 px-0">
                                     <p>Touch to<br>sort data:</p>
                                 </div>
                                 <div class="col-3 px-0">
                                     <button type="button" id="btn-motivs"
-                                            class="btn btn-sm">Motivations</button>
+                                            class="btn btn-sm h-100 w-100">Motivations</button>
                                 </div>
                                 <div id="btn-center" class="col-3 px-0">
                                     <button type="button" id="btn-income"
-                                            class="btn btn-sm">Income Level</button>
+                                            class="btn btn-sm h-100 w-100">Income Level</button>
                                 </div>
                                 <div class="col-3 px-0">
-                                    <button type="button" id="btn-cari" class="btn btn-sm">Food Security</button>
+                                    <button type="button" id="btn-cari" class="btn btn-sm h-100 w-100">Food Security</button>
                                 </div>
                             </div>
                         </div>
@@ -125,9 +125,9 @@
     
                     <!-- COST VIZ -->
                     <!-- frame for d3 visualization -->
-                    <div id="cost-container" class="container" style="display: none;">
+                    <div id="cost-container" class="container-fluid" style="display: none;">
                         <div class="h-100 d-flex flex-column">
-                            <div id="costs-heading" class="mt-5">
+                            <div id="costs-heading" class="mt-4 mt-sm-5">
                                 The cost of migration through different routes
                             </div>
                             <!-- FRAME FOR D3 VISUALIZATION -->
@@ -149,7 +149,7 @@
                             </div>
 
                             <!-- BUTTONS FOR COST VIZ -->
-                            <div id="buttons-cost" class="position-relative viz-btns row d-flex flex-row mt-auto mb-3 mb-lg-5">
+                            <div id="buttons-cost" class="position-relative viz-btns row d-flex flex-row mt-1 mb-3 mb-lg-5">
                                 <p id="timeout-note" class="position-absolute px-0 inactive">Please wait until animation is complete before sorting the data.</p>
                                 <div class="sort-by col-3 px-0">
                                     <p>Touch to<br>sort data:</p>
@@ -160,13 +160,13 @@
                                             <button type="button" id="all" class="btn btn-sm active">Total Cost</button>
                                         </div> -->
                                 <div class="col-3 px-0">
-                                    <button type="button" id="channel" class="btn btn-sm">Migration Channel</button>
+                                    <button type="button" id="channel" class="btn btn-sm h-100">Migration Channel</button>
                                 </div>
                                 <div class="col-3 px-0">
-                                    <button type="button" id="country" class="btn btn-sm">Origin Country</button>
+                                    <button type="button" id="country" class="btn btn-sm h-100">Origin Country</button>
                                 </div>
                                 <div class="col-3 px-0">
-                                    <button type="button" id="bee" class="btn btn-sm">Estimated
+                                    <button type="button" id="bee" class="btn btn-sm h-100">Estimated
                                         Time to Pay Debt</button>
                                 </div>
                                     <!-- </div> -->

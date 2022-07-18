@@ -59,8 +59,15 @@ a.btn.btn-sm {
 }
 
 /* HEADING */
-#costs-heading, #motivations-heading {
-    font-size: 3rem;
+#motivations-heading {
+    font-size: 1rem;
+    font-weight: 500;
+    padding-left: 0%;
+    line-height: 120%;
+}
+
+#costs-heading {
+    font-size: 0.75rem;
     font-weight: 500;
     padding-left: 0%;
     line-height: 120%;
@@ -187,8 +194,12 @@ a.btn.btn-sm {
         font-size: 1rem;
     } 
 
-    #motivations-heading, #costs-heading {
+    #motivations-heading {
         font-size: 1rem;
+    }
+
+    #costs-heading {
+        font-size: 0.9rem;
     }
 
     .migrant-motiv-narrative .migrant-cost-narrative {
@@ -202,8 +213,11 @@ a.btn.btn-sm {
         text-align: left;
     }
 
-    #costs-heading, #motivations-heading {
+    #motivations-heading {
         font-size: 1.25rem;
+    }
+    #costs-heading{
+        font-size: 1rem;
     }
 
     .m_narrative_1, .c_narrative_1 {
@@ -218,7 +232,7 @@ a.btn.btn-sm {
     }
 
     #costs-heading, #motivations-heading {
-        font-size: 1.5rem;
+        font-size: 1.7rem;
     }
 
     .m_narrative_1, .c_narrative_1 {
@@ -227,6 +241,10 @@ a.btn.btn-sm {
 }
 
 @media (min-width: 768px) and (max-width: 992px) {
+    #costs-heading, #motivations-heading {
+        font-size: 1.7rem;
+    }
+
     .m_narrative_1, .c_narrative_1 {
         font-size: 1.5rem;
     } 
@@ -256,6 +274,6 @@ a.btn.btn-sm {
     }
 
     #costs-heading {
-        font-size: 2.5rem;
+        font-size: 2.4rem;
     }
 }

@@ -48,12 +48,20 @@
     margin-top: 2rem;
 }
 
+.carousel-control.carousel-control-prev {
+    font-size: 0.8rem;
+}
+
+.carousel-control.carousel-control-next {
+    font-size: 0.8rem;
+}
+
 .carousel-progress {
     z-index: 2;
 }
 .carousel-progress .nav-dot {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 0.8rem;
+    height: 0.8rem;
     border: solid 3px #fff;
     border-radius: 1rem;
     opacity: 0.5;
@@ -119,5 +127,68 @@
     
     #nav-tabs .btn {
         font-size: 1.5rem;
+    }
+}
+
+/*RESPONSIVE BOOTSTRAP CSS*/
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    .carousel-progress .nav-dot {
+        width: 1rem;
+        height: 1rem;
+        border: solid 2px #fff;
+    }
+
+    .carousel-control.carousel-control-prev {
+        font-size: 1.2rem;
+    }
+
+    .carousel-control.carousel-control-next {
+        font-size: 1.2rem;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .carousel-progress .nav-dot {
+        width: 1.5rem;
+        height: 1.5rem;
+        border: solid 3px #fff;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .carousel-control.carousel-control-prev {
+        font-size: 1.8rem;
+    }
+
+    .carousel-control.carousel-control-next {
+        font-size: 1.8rem;
+    }
+}
+
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .carousel-control.carousel-control-prev {
+        font-size: 2rem;
+    }
+
+    .carousel-control.carousel-control-next {
+        font-size: 2rem;
+    }
+
+}
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
+    .carousel-control.carousel-control-prev {
+        font-size: 2.5rem;
+    }
+
+    .carousel-control.carousel-control-next {
+        font-size: 2.5rem;
     }
 }

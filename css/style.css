@@ -491,8 +491,6 @@ a.text-black:hover {
 
 /* Medium devices (tablets, 768px and up) */
 /*IPAD  IPAD  IPAD  IPAD  IPAD  IPAD  IPAD  IPAD  IPAD  IPAD  IPAD  IPAD */
-/*IPAD  IPAD  IPAD  IPAD  IPAD  IPAD  IPAD  IPAD  IPAD  IPAD  IPAD  IPAD */
-/*IPAD  IPAD  IPAD  IPAD  IPAD  IPAD  IPAD  IPAD  IPAD  IPAD  IPAD  IPAD */
 @media (min-width: 850px) and (max-width: 1025px) {
 
     #hamburger-menu {
@@ -502,8 +500,6 @@ a.text-black:hover {
 }
 
 
-/*IPHONE IPHONE IPHONE IPHONE IPHONE IPHONE IPHONE IPHONE IPHONE IPHONE IPHONE IPHONE*/
-/*IPHONE IPHONE IPHONE IPHONE IPHONE IPHONE IPHONE IPHONE IPHONE IPHONE IPHONE IPHONE*/
 /*IPHONE IPHONE IPHONE IPHONE IPHONE IPHONE IPHONE IPHONE IPHONE IPHONE IPHONE IPHONE*/
 
 @media(max-width: 576px) {
@@ -522,27 +518,6 @@ a.text-black:hover {
 
 }
 
-/* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) {
-}
-/* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {
-}
-
-/* Large devices (desktops, 992px and up) */
-/* X-Large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {}
-
-/* XX-Large devices (larger desktops, 1400px and up) */
-@media (min-width: 1400px) {}
-
-@media (min-width: 770px) {
-
-}
-
-@media (min-width: 1400px) {
-
-}
 
 .about-descr {
     font-family: neue-haas-grotesk-text;
@@ -572,3 +547,4 @@ a.text-black:hover {
         margin: 0rem;
     }
 }
+

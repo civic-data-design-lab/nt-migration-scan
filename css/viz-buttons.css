@@ -22,13 +22,14 @@
 .viz-btns .btn {
     width: 100%;
     font-weight: 500;
+    font-size: 1rem;
 }
 
 /* MOTIVATIONS BUTTONS */
 #buttons-motivations .btn {
     color: #1540C4;
     background-color: #fff;
-    border: solid 3px #1540C4;
+    border: solid 2px #1540C4;
     border-radius: 0px;
 }
 #buttons-motivations .btn.active {
@@ -44,7 +45,7 @@
 #buttons-cost .btn {
     color: #d2a214;
     background-color: #fff;
-    border: solid 3px #d2a214;
+    border: solid 1.75px #d2a214;
     border-radius: 0px;
 }
 #buttons-cost .btn.active {

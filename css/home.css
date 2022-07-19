@@ -12,9 +12,13 @@
 }
 
 #home-container h1 {
-    font-size: 5rem;
+    font-size: 2rem;
     font-weight: 500;
     letter-spacing: 0.1rem;
+}
+
+#home-container p {
+    font-size:0.75rem;
 }
 
 #scan-image-text {
@@ -72,31 +76,14 @@
 }
 
 /* Responsive */
-/* Small devices (landscape phones, 576px and up) */
-@media (max-width: 576px) {
-    #home-container p { 
-        font-size: 1.067rem;
-    }
-
-    #scan-image-text {
-        font-size: 1.067rem;
-    }
-    
-    #home-container h1 {
-        font-size:  2.667rem;
-        letter-spacing: 0.053rem;
-        padding-bottom: 1.6%;
-    }
-}
-
 /*mobile (320px-425px)*/
 @media (min-width: 320px) and (max-width: 425px) {
     #home-container p {
-        font-size: 0.59rem;
+        font-size: 0.73rem;
     }
 
     #scan-image-text {
-        font-size: 0.59rem;
+        font-size: 0.73rem;
     }
     
     #home-container h1 {

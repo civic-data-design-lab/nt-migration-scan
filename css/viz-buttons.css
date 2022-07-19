@@ -2,6 +2,7 @@
 .sort-by {
     font-size: 0.75rem;
     font-weight: 500;
+    text-align: left;
 }
 
 /* MTWTF DESIGN */
@@ -22,10 +23,14 @@
 .viz-btns .btn {
     width: 100%;
     font-weight: 500;
-    font-size: 1rem;
+    font-size: 0.55rem;
+    height: 75%;
 }
 
 /* MOTIVATIONS BUTTONS */
+#buttons-motivations {
+    width: 100%;
+}
 #buttons-motivations .btn {
     color: #1540C4;
     background-color: #fff;
@@ -72,14 +77,11 @@
 /*mobile (320px-425px)*/
 @media (min-width: 320px) and (max-width: 425px) {
     .viz-btns .btn {
-        font-size: 0.75rem;
-        width: fit-content;
-        height: fit-content;
+        font-size: 0.58rem;
     }
 
     .sort-by {
         font-size: 0.75rem;
-        text-align: left;
     }
 }
 /* Small devices (425px and up) */
@@ -87,18 +89,35 @@
     .viz-btns .btn-sm {
         font-size: 0.75rem;
     }
+
+    .sort-by {
+        font-size: 0.75rem;
+    }
 }
 /* Medium devices (tablets, 633px and up) */
 @media (min-width: 633px) and (max-width: 768px) {
     .viz-btns .btn-sm {
-        height: 44px;
+        /* height: 44px; */
+        font-size: 1rem;
+    }
+
+    .sort-by {
+        font-size: 1rem;
     }
 }
 
 @media (min-width: 768px) and (max-width: 992px) {
     .viz-btns .btn-sm {
         height: 3.5rem;
-        /* font-size: 0.875rem; */
+        font-size: 1.15rem;
+    }
+
+    .sort-by {
+        font-size: 1.15rem;
+    }
+
+    #buttons-motivations {
+        width: 80%;
     }
 }
 /* Large devices (desktops, 992px and up) */
@@ -108,6 +127,11 @@
         font-size: 1.5rem;
         line-height: 1.8rem;
     }
+
+    #buttons-motivations {
+        width: 80%;
+    }
+
     .sort-by {
         font-size: 1.5rem;
         line-height: 1.8rem;

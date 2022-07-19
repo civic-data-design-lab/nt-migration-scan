@@ -1544,3 +1544,5 @@ $(window).resize(function() {
     //     divMotivs.style("display", "block");
     // }
 })
+
+//window rotate alert

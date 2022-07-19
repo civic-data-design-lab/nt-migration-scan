@@ -28,6 +28,22 @@ body{
     padding-left: 0;
     padding-right: 0;
 }
+
+/*Rotate alert*/
+#rotate-warning {
+    background-color: red;
+    border-color: red;
+    color: white;
+    width: 50%;
+    height: fit-content;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -100px;
+    transform: rotate(90deg);
+    z-index:1;
+}
+
 /*SVG*/
 svg#viz-motivations {
     width:100%;
@@ -52,7 +68,19 @@ div#transition {
     display: none;
 }
 
-
+/*Rotation Message Box*/
+div#rotation-box {
+    width:50%;
+    height:5%;
+    position: fixed;
+    background-color: red;            
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -100px;
+    text-align: center;
+    transform: rotate(90deg);
+}
 /* .col {
     height: 100%;
 } */

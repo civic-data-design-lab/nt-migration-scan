@@ -538,6 +538,18 @@ a.text-black:hover {
         top: 100%;
         left: 0;
     }
+    #rotate-warning {
+        display: block;
+    }
+
+}
+
+/*Portrait hide warning*/ 
+
+@media (orientation: portrait) {
+    #rotate-warning {
+        display: none;
+    } 
 }
 /* ASPECT RATIO FOR D3 VIZ */
 /* portrait aspect ratio */

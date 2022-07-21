@@ -73,21 +73,21 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
         <!-- VISUALIZATIONS TABS (MOTIVATIONS & COST) LAYOUTS -->
-        <div id="viz-container" class="w-100 px-0 flex-grow-1">
+        <div id="viz-container" class="w-100 px-0">
             <div class="position-relative h-100 d-flex flex-column">
-                <div id="viz-content" class="container-lg flex-grow-1 px-xl-5 align-items-center">
+                <div id="viz-content" class="container-lg px-xl-5 align-items-center h-100">
                     <!-- MOTIVATIONS VIZ -->
                     <div id="motivations-container" class="h-100 container-fluid">
                         <!-- <div id="rotate-box-warning" class=" alert-warning alert-dismissible fade show" role="alert">
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             <strong>Adjust your screen to portrait mode.</strong>
                         </div> -->
-                        <div class="h-100 d-flex flex-column">
-                            <div id="motivations-heading" class="mt-4 mt-sm-5 mt-md-4">
+                        <div id="motivations-content" class="d-flex flex-column px-3">
+                            <div id="motivations-heading" class="mt-3 mt-md-5">
                                 Visualization of migrant motivations
                             </div>
                             <!-- FRAME FOR D3 VISUALIZATION -->
-                            <div id="frame-motivations" class="h-75"></div>
+                            <div id="frame-motivations" class=""></div>
                             
                             <!-- D3 HOVER TOOLTIP TEMPLATE -->
                             <div class="tooltip tooltip-motivs template">
@@ -113,20 +113,20 @@
                             </div><!-- close tooltip -->
 
                             <!-- BUTTONS FOR MOTIVATIONS VIZ -->
-                            <div id="buttons-motivations" class="position-relative viz-btns row d-flex flex-row mt-0 mb-3 mb-lg-5 w-100">
-                                <div class="sort-by col-3 px-0">
-                                    <p>Touch to<br>sort data:</p>
+                            <div id="buttons-motivations" class="position-relative viz-btns row d-flex flex-row mb-3">
+                                <div class="sort-by col-2 px-0">
+                                    <p class="m-0">Touch to<br>sort data:</p>
                                 </div>
                                 <div class="col-3 px-0">
                                     <button type="button" id="btn-motivs"
-                                            class="btn btn-sm h-100">Motivations</button>
+                                            class="btn btn-sm p-0">Motivations</button>
                                 </div>
                                 <div id="btn-center" class="col-3 px-0">
                                     <button type="button" id="btn-income"
-                                            class="btn btn-sm h-100">Income Level</button>
+                                            class="btn btn-sm p-0">Income Level</button>
                                 </div>
                                 <div class="col-3 px-0">
-                                    <button type="button" id="btn-cari" class="btn btn-sm h-100">Food Security</button>
+                                    <button type="button" id="btn-cari" class="btn btn-sm p-0">Food Security</button>
                                 </div>
                             </div>
                         </div>
@@ -185,8 +185,8 @@
                     </div>
                 </div><!-- close viz-content -->
                 <!-- CAROUSEL FOR NARRATIVES TEXT AND BUTTONS -->
-                <div id="carousel" class="row w-100 m-0 motivations">
-                    <div id="carousel-slides-motiv" class="carousel slide h-100" data-interval="false" data-ride="carousel">
+                <div id="carousel" class="position-absolute bottom-0 row w-100 m-0 motivations">
+                    <div id="carousel-slides-motiv" class="position-relative bottom-0 carousel slide" data-interval="false" data-ride="carousel">
                         <div class="carousel-inner h-100">
                             <div id="narrative-1" class="carousel-item active">
                             <div class="carousel-caption">
@@ -239,7 +239,7 @@
                 </div>
 
                 <!-- CAROUSEL PROGRESS DOTS -->
-                <div class="carousel-progress position-absolute start-50 bottom-0 translate-middle-x b-1 mb-md-4 row">
+                <div class="carousel-progress position-absolute start-50 bottom-0 translate-middle-x b-1 mb-md-2 row">
                     <span id="nav-dot-1" class="nav-dot m-2 p-0 active"></span>
                     <span id="nav-dot-2" class="nav-dot m-2 p-0"></span>
                     <span id="nav-dot-3" class="nav-dot m-2 p-0"></span>
@@ -270,14 +270,14 @@
         </div><!-- close about-container -->
 
         <!-- NAV TABS -->
-        <div id="nav-tabs" class="row w-100 m-0">
-                <button id="tab-home" class="col btn btn-sm p-3"
+        <div id="nav-tabs" class="position-absoulte bottom-fixed row w-100 m-0">
+                <button id="tab-home" class="col btn btn-sm p-1 p-lg-2"
                     onclick="toggle_home_on()">Home</button>
-                <button id="tab-motivations" class="col btn btn-sm p-3 active"
+                <button id="tab-motivations" class="col btn btn-sm p-1 p-lg-2 active"
                     onclick="toggle_motivation_on()">Motivations</button>
-                <button id="tab-costs" class="col btn btn-sm p-3"
+                <button id="tab-costs" class="col btn btn-sm p-1 p-lg-2"
                     onclick="toggle_cost_on()">Costs</button>
-                <button id="tab-about" class="col btn btn-sm p-3"
+                <button id="tab-about" class="col btn btn-sm p-1 p-lg-2"
                     onclick="toggle_about_on()">About</button>
         </div>
     </div>

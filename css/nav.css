@@ -1,11 +1,12 @@
 /* VIZ LAYOUT */
-#viz-content {
+/* #viz-content {
     max-height: 70%;
-}
+} */
 
 /* CAROUSEL */
 #carousel {
-    min-height: 30%;
+    /* height: 30%; */
+    min-height: 200px;
     transform: translateY(1px);
     transition: all 0.3s linear;
 }
@@ -60,8 +61,8 @@
     z-index: 2;
 }
 .carousel-progress .nav-dot {
-    width: 0.8rem;
-    height: 0.8rem;
+    width: 0.65rem;
+    height: 0.65rem;
     border: solid 3px #fff;
     border-radius: 1rem;
     opacity: 0.5;
@@ -72,6 +73,10 @@
 }
 
 /* NAV TABS */
+#nav-tabs {
+    height:34px;
+}
+
 #nav-tabs .btn {
     /* font-size: 1.5rem; */
     font-weight: 500;
@@ -118,25 +123,14 @@
     }
 }
 
-@media (min-width: 992px) {
-    .carousel-control-next-icon,
-    .carousel-control-prev-icon {
-        width: 4rem;
-        height: 4rem;
-    }
-    
-    #nav-tabs .btn {
-        font-size: 1.5rem;
-    }
-}
 
 /*RESPONSIVE BOOTSTRAP CSS*/
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
     .carousel-progress .nav-dot {
-        width: 1rem;
-        height: 1rem;
+        width: 0.8rem;
+        height: 0.8rem;
         border: solid 2px #fff;
     }
 
@@ -152,20 +146,32 @@
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
     .carousel-progress .nav-dot {
-        width: 1.5rem;
-        height: 1.5rem;
+        width: 1rem;
+        height: 1rem;
         border: solid 3px #fff;
     }
 }
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
+    .carousel-control-next-icon, .carousel-control-prev-icon {
+        width: 4rem;
+        height: 4rem;
+    }
+    
+    #nav-tabs .btn {
+        font-size: 1.75rem;
+    }
     .carousel-control.carousel-control-prev {
         font-size: 1.8rem;
     }
 
     .carousel-control.carousel-control-next {
         font-size: 1.8rem;
+    }
+
+    #nav-tabs {
+        height:80px;
     }
 }
 
@@ -178,6 +184,10 @@
 
     .carousel-control.carousel-control-next {
         font-size: 2rem;
+    }
+
+    #nav-tabs .btn {
+        font-size: 1.5rem;
     }
 
 }

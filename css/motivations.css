@@ -29,6 +29,21 @@ body{
     padding-right: 0;
 }
 
+#viz-container {
+    overflow: scroll;
+    height: calc(100vh - 34px);
+    display: block;
+}
+
+#motivations-content {
+    height: calc(100vh - 234px);
+    overflow: scroll;
+}
+
+#frame-motivations {
+    padding-right: 7vh;
+}
+
 /*Rotate alert*/
 #rotate-warning {
     background-color: red;
@@ -314,4 +329,19 @@ a.btn.btn-sm {
     #costs-heading {
         font-size: 2.4rem;
     }
+
+    #viz-container {
+        height: calc(100vh - 80px);
+    }
+
+    #motivations-content {
+        height: calc(100vh - 280px);
+        overflow: scroll;
+    }
 }
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    
+}
+

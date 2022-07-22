@@ -3,6 +3,7 @@
     font-size: 0.75rem;
     font-weight: 500;
     text-align: left;
+    line-height:0.85rem;
 }
 
 /* MTWTF DESIGN */
@@ -36,6 +37,7 @@
     background-color: #fff;
     border: solid 2px #1540C4;
     border-radius: 0px;
+    line-height:0.75rem;
 }
 #buttons-motivations .btn.active {
     color: #fff;
@@ -101,39 +103,79 @@
         font-size: 1rem;
     }
 
+    #btn-motivs, #btn-cari, #btn-income {
+        height: 2.25rem;
+    }
+
+
     .sort-by {
         font-size: 1rem;
+        line-height: 0.95rem;
     }
 }
 
 @media (min-width: 768px) and (max-width: 992px) {
     .viz-btns .btn-sm {
-        height: 3.5rem;
-        font-size: 1.15rem;
+        font-size: 1.1rem;
+    }
+
+    #btn-motivs, #btn-cari, #btn-income {
+        height: 2.5rem;
     }
 
     .sort-by {
-        font-size: 1.15rem;
+        font-size: 1.1rem;
+        line-height: 1.2rem;
     }
 
-    #buttons-motivations {
-        width: 80%;
-    }
 }
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
     .viz-btns .btn-sm {
-        height: 5rem;
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         line-height: 1.8rem;
     }
 
-    #buttons-motivations {
-        width: 80%;
+    #btn-motivs, #btn-cari, #btn-income  {
+        height: 3rem;
     }
 
     .sort-by {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         line-height: 1.8rem;
     }
+}
+
+@media (max-aspect-ratio: 2/3) {
+    #buttons-motivations .btn {
+        line-height: normal;
+        height: 100%;
+    }
+}
+
+@media (max-aspect-ratio: 3/4) and (min-width: 768px) {
+    #carousel {
+        height: 300px;
+    }
+}
+
+@media (max-aspect-ratio: 3/4) and (min-width: 992px) {
+    #carousel {
+        height: 400px;
+    }
+
+    .sort-by {
+        font-size: 1.7rem;
+    }
+    .viz-btns .btn-sm {
+        font-size: 1.7rem;
+    }
+
+}
+
+@media (max-aspect-ratio: 2/3) and (min-width: 992px) {
+    #carousel {
+        height: 480px;
+    }
+
 }

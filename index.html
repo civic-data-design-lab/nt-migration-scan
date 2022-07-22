@@ -134,13 +134,13 @@
     
                     <!-- COST VIZ -->
                     <!-- frame for d3 visualization -->
-                    <div id="cost-container" class="container-fluid" style="display: none;">
-                        <div class="h-100 d-flex flex-column">
-                            <div id="costs-heading" class="mt-4 mt-sm-5 mt-md-4">
+                    <div id="cost-container" class="h-100 container-fluid" style="display: none;">
+                        <div id="cost-content" class="d-flex flex-column px-3 pt-lg-5">
+                            <div id="costs-heading" class="mt-3 mt-md-5 mb-3">
                                 The cost of migration through different routes
                             </div>
                             <!-- FRAME FOR D3 VISUALIZATION -->
-                            <div id="frame-cost" class="h-75 mt-3"></div>
+                            <div id="frame-cost" class=""></div>
                             
                             <!-- D3 HOVER TOOLTIP TEMPLATE -->
                             <div class="tooltip tooltip-cost mb-5 mb-md-0 template">
@@ -158,9 +158,9 @@
                             </div>
 
                             <!-- BUTTONS FOR COST VIZ -->
-                            <div id="buttons-cost" class="position-relative viz-btns row d-flex flex-row mt-0 mb-3 mb-lg-5">
+                            <div id="buttons-cost" class="position-relative viz-btns row d-flex flex-row mb-3">
                                 <p id="timeout-note" class="position-absolute px-0 inactive">Please wait until animation is complete before sorting the data.</p>
-                                <div class="sort-by col-3 px-0">
+                                <div class="sort-by col-2 px-0">
                                     <p>Touch to<br>sort data:</p>
                                 </div>
                                 <!-- <div class="col-10 px-0"> -->
@@ -169,13 +169,13 @@
                                             <button type="button" id="all" class="btn btn-sm active">Total Cost</button>
                                         </div> -->
                                 <div class="col-3 px-0">
-                                    <button type="button" id="channel" class="btn btn-sm h-100">Migration Channel</button>
+                                    <button type="button" id="channel" class="btn btn-sm p-0">Migration Channel</button>
                                 </div>
                                 <div class="col-3 px-0">
-                                    <button type="button" id="country" class="btn btn-sm h-100">Origin Country</button>
+                                    <button type="button" id="country" class="btn btn-sm p-0">Origin Country</button>
                                 </div>
                                 <div class="col-3 px-0">
-                                    <button type="button" id="bee" class="btn btn-sm h-100">Estimated
+                                    <button type="button" id="bee" class="btn btn-sm p-0">Estimated
                                         Time to Pay Debt</button>
                                 </div>
                                     <!-- </div> -->

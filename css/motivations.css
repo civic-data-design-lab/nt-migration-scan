@@ -35,7 +35,7 @@ body{
     display: block;
 }
 
-#motivations-content {
+#motivations-content, #cost-content {
     height: calc(100vh - 234px);
     overflow: scroll;
 }
@@ -345,7 +345,7 @@ a.btn.btn-sm {
         height: calc(100vh - 80px);
     }
 
-    #motivations-content {
+    #motivations-content, #cost-content {
         height: calc(100vh - 480px);
         overflow: scroll;
     }
@@ -361,14 +361,14 @@ a.btn.btn-sm {
         height: calc(100vh - 54px);
     }
 
-    #motivations-content {
+    #motivations-content, #cost-content {
         height: calc(100vh - 354px);
         overflow: scroll;
     }
 }
 
 @media (max-aspect-ratio: 3/4) and (min-width: 992px) {
-    #motivations-content {
+    #motivations-content, #cost-content {
         height: calc(100vh - 480px);
         overflow: scroll;
     }
@@ -379,7 +379,7 @@ a.btn.btn-sm {
 }
 
 @media (max-aspect-ratio: 2/3) and (min-width: 992px) {
-    #motivations-content {
+    #motivations-content, #cost-content {
         height: calc(100vh - 560px);
         overflow: scroll;
     }
@@ -395,7 +395,7 @@ a.btn.btn-sm {
         height: calc(100vh - 80px);
     }
 
-    #motivations-content {
+    #motivations-content, #cost-content {
         height: calc(100vh - 560px);
         overflow: scroll;
     }

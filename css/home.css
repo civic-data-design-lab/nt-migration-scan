@@ -9,6 +9,7 @@
     color: white;
     background: #000;
     border: solid 1px #000;
+    overflow: scroll;
 }
 
 #home-container h1 {

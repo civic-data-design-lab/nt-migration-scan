@@ -538,7 +538,7 @@ a.text-black:hover {
         top: 100%;
         left: 0;
     }
-    #rotate-warning {
+    #rotate-warning, #black-box {
         display: block;
     }
 
@@ -547,7 +547,7 @@ a.text-black:hover {
 /*Portrait hide warning*/ 
 
 @media (orientation: portrait) {
-    #rotate-warning {
+    #rotate-warning, #black-box {
         display: none;
     } 
 }

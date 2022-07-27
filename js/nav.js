@@ -52,8 +52,8 @@ function toggle_motivation_on () {
     });
 
     // tab styles
-    $("#nav-tabs .btn:not(#tab-about)").css("border-right", "solid 2px #000");
-    $("#tab-home").css("border-right", "solid 2px #28448c");
+    // $("#nav-tabs .btn:not(#tab-about)").css("border-right", "solid 2px #000");
+    $("#tab-home").css("border-right", "solid 2px white");
     $("#tab-motivations").css("border-right", "solid 2px #28448c");
     
     if (!$("#carousel").hasClass("motivations")) {
@@ -84,7 +84,7 @@ function toggle_cost_on () {
 
     // tab styles
     $("#nav-tabs .btn:not(#tab-about)").css("border-right", "solid 2px #000");
-    $("#tab-motivations").css("border-right", "solid 2px #d2a214");
+    $("#tab-motivations").css("border-right", "solid 2px white");
     $("#tab-costs").css("border-right", "solid 2px #d2a214");
     if (!$("#carousel").hasClass("costs")) {
         $("#carousel").removeClass("motivations");
@@ -108,6 +108,7 @@ function toggle_about_on () {
     $("#about-container").css("display", "block");
 
     $("#nav-tabs .btn:not(#tab-about)").css("border-right", "solid 2px #000");
+    $("#tab-costs").css("border-right", "solid 2px white");
 }
 
 function updateCarouselProgress() {
@@ -215,6 +216,6 @@ $(".nav-dot").on("click", function() {
 });
 
 $(document).ready(function() {
-    $("#tab-home").css("border-right", "solid 2px #28448c");
+    $("#tab-home").css("border-right", "solid 2px white");
     $("#tab-motivations").css("border-right", "solid 2px #28448c");
 });

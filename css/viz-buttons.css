@@ -68,7 +68,8 @@
 #timeout-note {
     left: 0px;
     top: -4rem;
-    font-size: 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
     transition: all 3s linear;
 }
 #timeout-note.inactive {
@@ -89,7 +90,7 @@
 /* Small devices (425px and up) */
 @media (min-width: 425px) and (max-width: 633px) {
     .viz-btns .btn-sm {
-        font-size: 0.75rem;
+        font-size: 0.65rem;
     }
 
     .sort-by {
@@ -99,8 +100,7 @@
 /* Medium devices (tablets, 633px and up) */
 @media (min-width: 633px) and (max-width: 768px) {
     .viz-btns .btn-sm {
-        /* height: 44px; */
-        font-size: 1rem;
+        font-size: 0.85rem;
     }
 
     #btn-motivs, #btn-cari, #btn-income {

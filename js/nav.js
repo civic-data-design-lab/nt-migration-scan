@@ -55,6 +55,7 @@ function toggle_motivation_on () {
     // $("#nav-tabs .btn:not(#tab-about)").css("border-right", "solid 2px #000");
     $("#tab-home").css("border-right", "solid 2px white");
     $("#tab-motivations").css("border-right", "solid 2px #28448c");
+    $("#tab-costs").css("border-right", "solid 2px black");
     
     if (!$("#carousel").hasClass("motivations")) {
         $("#carousel").removeClass("costs");

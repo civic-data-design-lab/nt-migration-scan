@@ -16,18 +16,6 @@
 }
 
 /* Responsive */
-/* Small devices (landscape phones, 576px and up) */
-@media (max-width: 576px) {
- 
-    #about-container h2 {
-        font-size: 1.5rem;
-    }
-    #about-container p {
-        font-size: 0.75rem;
-        width: 90%;
-        padding-bottom: 0%;
-    }
-}
 
 /*mobile (320px-425px)*/
 @media (min-width: 320px) and (max-width: 425px) {
@@ -36,7 +24,7 @@
     }
 
     #about-container p {
-        font-size: 0.59rem;
+        font-size: 0.75rem;
     }
 }
 
@@ -47,7 +35,7 @@
     }
 
     #about-container p {
-        font-size: 0.79rem;
+        font-size: 0.9rem;
     }
 }
 

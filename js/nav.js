@@ -33,6 +33,7 @@ function toggle_home_on () {
     $("#nav-tabs .btn").removeClass("active");
     $("#tab-home").addClass("active");
     $("#home-container").css("display", "block");
+    $("#carousel").css("display", "none");
     $("#viz-container").css("display", "none");
     $("#about-container").css("display", "none");
 
@@ -56,7 +57,7 @@ function toggle_motivation_on () {
     $("#tab-home").css("border-right", "solid 2px white");
     $("#tab-motivations").css("border-right", "solid 2px #28448c");
     $("#tab-costs").css("border-right", "solid 2px black");
-    
+    $("#carousel").css("display", "block");
     if (!$("#carousel").hasClass("motivations")) {
         $("#carousel").removeClass("costs");
         $("#carousel").addClass("motivations");
@@ -94,6 +95,7 @@ function toggle_cost_on () {
 
     $("#nav-tabs .btn").removeClass("active");
     $("#tab-costs").addClass("active");
+    $("#carousel").css("display", "block");
     $("#home-container").css("display", "none");
     $("#viz-container").css("display", "block");
     $("#motivations-container").css("display", "none");
@@ -105,6 +107,7 @@ function toggle_about_on () {
     $("#nav-tabs .btn").removeClass("active");
     $("#tab-about").addClass("active");
     $("#home-container").css("display", "none");
+    $("#carousel").css("display", "none");
     $("#viz-container").css("display", "none");
     $("#about-container").css("display", "block");
 

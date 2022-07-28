@@ -12,6 +12,10 @@
     bottom:34px;
 }
 
+#carousel-slides-motiv {
+    height:200px;
+}
+
 #carousel.motivations {
     background-color: #28448c;
 }
@@ -187,9 +191,13 @@
         height:80px;
     }
 
-    #carousel {
+    #carousel-slides {
         height: 400px;
         bottom:80px;
+    }
+
+    #carousel-slides-motiv {
+        height:400px;
     }
 }
 

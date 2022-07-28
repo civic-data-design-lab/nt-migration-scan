@@ -15,6 +15,10 @@
     font-weight: 500;
 }
 
+#square-colors {
+    width: 100%;
+}
+
 /* Responsive */
 
 /*mobile (320px-425px)*/
@@ -90,5 +94,11 @@
 
     #about-container p {
         font-size: 2.59rem;
+    }
+}
+
+@media (min-aspect-ratio: 4/5) {
+    #square-colors {
+        width: 80%;
     }
 }

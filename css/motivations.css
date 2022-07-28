@@ -43,11 +43,16 @@ body{
     overflow: scroll;
 }
 
+#motivations-content {
+    padding-bottom: 5vh;
+}
+
 #frame-motivations {
     padding-right: 3vh;
     padding-bottom: 2vh;
     overflow: scroll;
 }
+
 
 #frame-cost {
     overflow: scroll;

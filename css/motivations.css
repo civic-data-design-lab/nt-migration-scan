@@ -33,7 +33,7 @@ body{
 #viz-container {
     overflow: scroll;
     max-height: calc(100vh - 234px);
-    height:100%;
+    height:75%;
     display: block;
 }
 
@@ -364,7 +364,7 @@ a.btn.btn-sm {
 
     #viz-container {
         max-height: calc(100vh - 480px);
-        height:100%;
+        height:75%;
     }
 
     #motivations-content, #cost-content {
@@ -382,7 +382,7 @@ a.btn.btn-sm {
 @media (max-aspect-ratio: 3/4) and (min-width: 768px) {
     #viz-container {
         max-height: calc(100vh - 354px);
-        height:100%;
+        height:75%;
     }
 
     #motivations-content, #cost-content {
@@ -420,7 +420,7 @@ a.btn.btn-sm {
 @media (min-width: 992px) {
     #viz-container {
         max-height: calc(100vh - 560px);
-        height:100%;
+        height:75%;
     }
 
     #motivations-content, #cost-content {

@@ -59,6 +59,7 @@
 
 .carousel-progress {
     z-index: 2;
+    width:auto;
 }
 .carousel-progress .nav-dot {
     width: 0.5rem;

@@ -374,6 +374,7 @@ a.btn.btn-sm {
 @media (max-aspect-ratio: 3/4) and (min-width: 768px) {
     #viz-container {
         height: calc(100vh - 54px);
+        /* height:100%; */
     }
 
     #motivations-content, #cost-content {
@@ -408,6 +409,7 @@ a.btn.btn-sm {
 @media (min-width: 992px) {
     #viz-container {
         height: calc(100vh - 80px);
+        /* height:100%; */
     }
 
     #motivations-content, #cost-content {

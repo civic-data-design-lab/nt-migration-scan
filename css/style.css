@@ -542,6 +542,10 @@ a.text-black:hover {
         display: block;
     }
 
+    #nav-tabs {
+        z-index:0;
+    }
+
 }
 
 /*Portrait hide warning*/ 

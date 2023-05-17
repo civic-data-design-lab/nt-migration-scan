@@ -61,7 +61,7 @@ function floatingTooltip(divId) {
    * based on d3v4 mouse event.
    */
   function updatePosition(event) {    
-    if (winWidth > 768) {
+    if (winWidth >= 720) {
         tt
         .style("top", (divHtml) => {
             var divY = event.pageY;

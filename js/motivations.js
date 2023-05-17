@@ -687,7 +687,7 @@ function motivsTooltipHtml(d, shape) {
 }
 // tooltip position on mousemove
 function divMotivsOnMousemove(event) {
-    if (winWidth > 768) {
+    if (winWidth >= 720) {
         divMotivs
         .style("top", (divHtml) => {
             var divY = event.pageY;
@@ -1133,20 +1133,20 @@ function plotInitialGrid(data) {
         .on("mouseover", function(event, d) {
             motivsTooltipHtml(d, "sq");
             // responsive - show only if MED screen or larger
-            if (winWidth > 768) {
+            if (winWidth >= 720) {
                 divMotivs.style("display", "block");
                 setTimeout(() => {
                     if (divMotivs.style("display") == "block") {
                         $("#tt-motivs").fadeOut();
                     }
-                }, 5000)
+                }, 10000)
             }
         })
         .on("mousemove", function(event) {
             divMotivsOnMousemove(event);
         })
         .on("mouseout", function() {
-            if (winWidth > 768) {
+            if (winWidth >= 720) {
                 divMotivs.style("display", "none");
             }
         });

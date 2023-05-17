@@ -1,3 +1,7 @@
+let idleTime = 0;
+const navTabs = ['home', 'motivations', 'costs', 'about'];
+let currentTab = 'motivations';
+
 window.onload = function() {
     const id_with_hash = window.location.hash
 
@@ -6,27 +10,61 @@ window.onload = function() {
     }
 
     else {
-        const narrative1_textContent = $(".m_narrative_1");
-        narrative1_textContent.html("Scan an item to get started");
-        const narrative2_textContent = $(".m_narrative_2");
-        narrative2_textContent.html("Scan an item to get started");
-        const narrative3_textContent = $(".c_narrative_1");
-        narrative3_textContent.html("Scan an item to get started");
-        const narrative4_textContent = $(".c_narrative_2");
-        narrative4_textContent.html("Scan an item to get started");
+        const defaultText = "Scan a fragment of the data tapestry <br/>to learn about a migrant."
+        $(".m_narrative_1").html(defaultText); // narrative 1 text content
+        $(".m_narrative_2").html(defaultText); // narrative 2 text content
+        $(".c_narrative_1").html(defaultText); // narrative 3 text content
+        $(".c_narrative_2").html(defaultText); // narrative 4 text content
 
         $(".carousel-caption").css("display","flex");
         $(".carousel-caption").css("align-items","center");
         $(".carousel-caption").css("justify-content","center");
         $(".carousel-caption").css("font-size","4vmin");
 
-    }
+        toggle_home_on(); // default to load home page if no item has been scanned
+        currentTab = 'home';
+        // Increment the idle time counter every 10 seconds.
+        var idleInterval = setInterval(timerIncrement, 10000); // 10 seconds
 
+        // Zero the idle timer on mouse movement.
+        $(this).mousemove(function (e) {
+            idleTime = 0;
+        });
+        $(this).keypress(function (e) {
+            idleTime = 0;
+        });
+    }
 }
 
 window.onhashchange = function() { 
     console.log("HASH CHANGED")
     location.reload()  
+}
+
+// timer for idle time - change tabs when screen is idle
+function timerIncrement() {
+  idleTime = idleTime + 1;
+  if (idleTime > 6) { // 60 seconds
+      let nextTabIndex = navTabs.indexOf(currentTab) + 1;
+      let nextTab = (nextTabIndex == navTabs.length) ? navTabs[0] : navTabs[nextTabIndex];
+      // console.log(nextTab);
+      if (nextTab == "home") {
+        toggle_home_on();
+      }
+      else if (nextTab == "motivations") {
+        toggle_motivation_on();
+      }
+      else if (nextTab == "costs") {
+        toggle_cost_on();
+      }
+      else {
+        toggle_about_on();
+      }
+
+      // reset timer and current tab
+      idleTime = 0;
+      currentTab = nextTab;
+  }
 }
 
 function toggle_home_on () {
